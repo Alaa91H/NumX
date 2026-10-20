@@ -1,0 +1,37 @@
+# Gradle
+.gradle/
+build/
+!gradle/wrapper/gradle-wrapper.jar
+
+# Android build outputs
+*.apk
+*.aab
+*.ap_
+*.dex
+captures/
+.externalNativeBuild/
+.cxx/
+
+# Local machine configuration
+local.properties
+numx-android/local.properties
+
+# Signing material — never commit
+*.jks
+*.keystore
+*.p12
+*.pem
+keystore.properties
+signing/
+
+# IDEs
+.idea/
+*.iml
+.vscode/
+
+# Kotlin
+.kotlin/
+
+# Operating system files
+.DS_Store
+Thumbs.db
