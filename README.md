@@ -1,5 +1,8 @@
 # NumX — توليد أرقام خلوية سورية وحفظها في جهات الاتصال
 
+[![CI](https://github.com/Alaa91H/NumX/actions/workflows/ci.yml/badge.svg)](https://github.com/Alaa91H/NumX/actions/workflows/ci.yml)
+[أحدث إصدار](https://github.com/Alaa91H/NumX/releases/latest)
+
 تطبيق Android بلغة Kotlin لتوليد أرقام خلوية سورية صالحة فقط، وحفظها كجهات اتصال، وحذف ما أضافه التطبيق، وعرض إحصائيات دقيقة، وتصدير ملفات CSV وvCard 3.0 قياسية.
 
 ## الشبكات والبادئات المدعومة
