@@ -1,7 +1,9 @@
 package com.numx.app
 
 import android.content.Context
+import android.net.Uri
 import android.os.SystemClock
+import androidx.core.net.toUri
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -41,6 +43,10 @@ data class UiState(
     val message: String = "",
     val lastExport: List<ExportedFile> = emptyList(),
     val lastExportLabel: String = "",
+    val generationMode: GenerationMode = GenerationMode.CONTACTS,
+    val exportFormat: ExportFormat = ExportFormat.VCARD,
+    val storage: ContactStorageInfo = ContactStorageInfo.UNKNOWN,
+    val cloudStorageAllowed: Boolean = false,
 )
 
 /**
@@ -68,6 +74,68 @@ class OperationController(context: Context) {
                 _state.update { it.copy(stats = stats) }
             }
         }
+        refreshStorageInfo()
+    }
+
+    /**
+     * Re-reads the default contacts account after returning from system
+     * settings, so changing the storage location takes effect immediately.
+     */
+    fun refreshStorageInfo() {
+        scope.launch {
+            val storage = withContext(Dispatchers.IO) {
+                runCatching { contacts.storageInfo() }
+                    .getOrDefault(ContactStorageInfo.UNKNOWN)
+            }
+            _state.update { current ->
+                current.copy(
+                    storage = storage,
+                    cloudStorageAllowed = if (storage.isCloudOrSim) {
+                        current.cloudStorageAllowed
+                    } else {
+                        false
+                    },
+                )
+            }
+        }
+    }
+
+    fun setCloudStorageAllowed(value: Boolean) {
+        if (value && _state.value.storage.asAccountOrNull() == null) {
+            _state.update {
+                it.copy(message = "تعذر قراءة الحساب السحابي الافتراضي. اختر «تخزين الجهاز» من إعدادات جهات الاتصال.")
+            }
+            return
+        }
+        _state.update { it.copy(cloudStorageAllowed = value) }
+    }
+
+    fun setGenerationMode(value: GenerationMode) {
+        if (_state.value.operation.isRunning) return
+        _state.update { it.copy(generationMode = value, message = "") }
+    }
+
+    fun setExportFormat(value: ExportFormat) {
+        if (_state.value.operation.isRunning) return
+        _state.update { it.copy(exportFormat = value, message = "") }
+    }
+
+    fun setMessage(value: String) {
+        _state.update { it.copy(message = value) }
+    }
+
+    /** Selects the complete allocated range: every prefix and every network. */
+    fun selectFullCountry(format: ExportFormat) {
+        if (_state.value.operation.isRunning) return
+        _state.update {
+            it.copy(
+                generationMode = GenerationMode.FILE,
+                exportFormat = format,
+                startInput = SyrianNumbers.FIRST_ALLOCATED_NUMBER,
+                countInput = SyrianNumbers.totalAllocatedNumbers.toString(),
+                message = "تم اختيار كل الأرقام المتاحة: ${SyrianNumbers.formatCount(SyrianNumbers.totalAllocatedNumbers.toLong())} رقماً. اختر الصيغة ثم مكان الحفظ.",
+            )
+        }
     }
 
     fun updateStart(value: String) {
@@ -83,6 +151,10 @@ class OperationController(context: Context) {
     }
 
     fun startGeneration() {
+        if (_state.value.generationMode != GenerationMode.CONTACTS) {
+            _state.update { it.copy(message = "وضع الملف يكتب إلى الملف الذي تختاره، ولا يحفظ في جهات الاتصال.") }
+            return
+        }
         val start = SyrianNumbers.normalize(_state.value.startInput)
         if (start == null) {
             _state.update { it.copy(message = "رقم البداية غير صالح. يجب أن يبدأ بـ 091/092/093/094/095/096/098/099") }
@@ -93,8 +165,18 @@ class OperationController(context: Context) {
             _state.update { it.copy(message = "أدخل عدداً صحيحاً أكبر من صفر") }
             return
         }
-        if (count > MAX_COUNT) {
-            _state.update { it.copy(message = "الحد الأقصى ${SyrianNumbers.formatCount(MAX_COUNT.toLong())} رقم في الجلسة") }
+        if (count > CONTACTS_GENERATION_LIMIT) {
+            _state.update {
+                it.copy(
+                    message = "الحد الأقصى في وضع جهات الاتصال ${SyrianNumbers.formatCount(CONTACTS_GENERATION_LIMIT.toLong())} رقم. " +
+                        "للنطاقات الأكبر اختر وضع الملف.",
+                )
+            }
+            return
+        }
+        val storage = _state.value.storage
+        if (storage.isCloudOrSim && !_state.value.cloudStorageAllowed) {
+            _state.update { it.copy(message = storage.choiceRequiredMessage) }
             return
         }
         if (!beginOperation(OperationKind.GENERATE, 0, indeterminate = true)) return
@@ -111,6 +193,32 @@ class OperationController(context: Context) {
             var status = "failed"
             var failure: String? = null
             try {
+                // Re-check immediately before writing. This also covers the
+                // case where the user changed the system default after the
+                // screen was last resumed.
+                val storageNow = withContext(Dispatchers.IO) {
+                    runCatching { contacts.storageInfo() }
+                        .getOrDefault(ContactStorageInfo.UNKNOWN)
+                }
+                _state.update { current ->
+                    current.copy(
+                        storage = storageNow,
+                        cloudStorageAllowed = if (storageNow.isCloudOrSim) {
+                            current.cloudStorageAllowed
+                        } else {
+                            false
+                        },
+                    )
+                }
+                if (storageNow.isCloudOrSim && !_state.value.cloudStorageAllowed) {
+                    throw ContactStorageException(storageNow.choiceRequiredMessage)
+                }
+                val account = if (storageNow.isCloudOrSim) {
+                    storageNow.asAccountOrNull()
+                } else {
+                    null
+                }
+
                 val sid = withContext(Dispatchers.IO) {
                     database.createSession(start, count)
                 }
@@ -208,7 +316,7 @@ class OperationController(context: Context) {
                     // NonCancellable, so cancellation cannot leave the UI
                     // claiming that zero numbers were saved after a saved batch.
                     withContext(NonCancellable) {
-                        val result = contacts.insertNumbers(attempted)
+                        val result = contacts.insertNumbers(attempted, account)
                         if (result.inserted.isEmpty() && attempted.isNotEmpty()) {
                             throw IllegalStateException(
                                 "لم يتم حفظ أي رقم في هذه الدفعة (${result.failed} فشل)"
@@ -469,9 +577,162 @@ class OperationController(context: Context) {
         track(operationJob)
     }
 
-    fun exportAll() {
+    /**
+     * Generates the selected range directly into the SAF document chosen by the
+     * user. Nothing is inserted into contacts, so no duplicate scan is needed.
+     */
+    fun startFileGeneration(uriString: String) {
+        val current = _state.value
+        if (current.generationMode != GenerationMode.FILE) {
+            _state.update { it.copy(message = "اختر وضع الملف أولاً.") }
+            return
+        }
+        val start = SyrianNumbers.normalize(current.startInput)
+        if (start == null) {
+            _state.update { it.copy(message = "رقم البداية غير صالح. يجب أن يبدأ بـ 091/092/093/094/095/096/098/099") }
+            return
+        }
+        val count = parseCount(current.countInput)
+        if (count == null || count <= 0) {
+            _state.update { it.copy(message = "أدخل عدداً صحيحاً أكبر من صفر") }
+            return
+        }
+        if (count > FILE_GENERATION_LIMIT) {
+            _state.update {
+                it.copy(message = "الحد الأقصى ${SyrianNumbers.formatCount(FILE_GENERATION_LIMIT.toLong())} رقم في الملف")
+            }
+            return
+        }
+        val available = SyrianNumbers.availableCount(start)
+        if (available == null || count > available) {
+            _state.update {
+                it.copy(
+                    message = "العدد المطلوب أكبر من المتاح من رقم البداية. " +
+                        "المتاح: ${SyrianNumbers.formatCount((available ?: 0).toLong())} رقم.",
+                )
+            }
+            return
+        }
+        val uri = parseDocumentUri(uriString)
+        if (uri == null) {
+            _state.update { it.copy(message = "لم يتم اختيار ملف وجهة صالح.") }
+            return
+        }
+        val format = current.exportFormat
+        if (!beginOperation(OperationKind.GENERATE, count.toLong(), indeterminate = false)) return
+        OperationService.start(appContext, "جارٍ كتابة ملف ${format.label}...")
+        val operationJob = scope.launch {
+            val startedAt = SystemClock.elapsedRealtime()
+            var sessionId: Long? = null
+            var done = 0L
+            var recorded = 0L
+            var status = "failed"
+            var failure: String? = null
+            var resultFile: ExportedFile? = null
+            var lastNumber: String? = null
+            try {
+                val activeSessionId = withContext(Dispatchers.IO) {
+                    database.createSession(start, count)
+                }
+                sessionId = activeSessionId
+                _state.update {
+                    it.copy(
+                        message = "جارٍ كتابة ${format.label} إلى الملف المحدد...",
+                        operation = OperationState(
+                            kind = OperationKind.GENERATE,
+                            total = count.toLong(),
+                        ),
+                    )
+                }
+                val result = exporter.exportRangeToUri(
+                    uri = uri,
+                    startLocal = start,
+                    count = count,
+                    format = format,
+                ) { progressed, total ->
+                    done = progressed
+                    if (progressed - recorded >= FILE_STATS_BATCH) {
+                        val delta = progressed - recorded
+                        if (runCatching { database.recordFileGenerated(activeSessionId, delta) }.isSuccess) {
+                            recorded = progressed
+                        }
+                    }
+                    _state.update {
+                        it.copy(
+                            operation = progressState(
+                                OperationKind.GENERATE,
+                                progressed,
+                                total,
+                                startedAt,
+                            ),
+                        )
+                    }
+                }
+                done = result.exportedCount
+                resultFile = result.file
+                lastNumber = result.lastNumber
+                status = "completed"
+            } catch (e: CancellationException) {
+                status = "canceled"
+                throw e
+            } catch (e: Exception) {
+                failure = e.message ?: e.javaClass.simpleName
+                status = "failed"
+            } finally {
+                val duration = SystemClock.elapsedRealtime() - startedAt
+                withContext(NonCancellable) {
+                    sessionId?.let { sid ->
+                        if (done > recorded) {
+                            runCatching {
+                                withContext(Dispatchers.IO) { database.recordFileGenerated(sid, done - recorded) }
+                            }
+                        }
+                        runCatching {
+                            withContext(Dispatchers.IO) {
+                                database.finishSession(
+                                    sessionId = sid,
+                                    status = status,
+                                    generated = done,
+                                    inserted = 0,
+                                    durationMs = duration,
+                                    ratePerSecond = 0.0,
+                                )
+                            }
+                        }
+                    }
+                    val stats = runCatching {
+                        withContext(Dispatchers.IO) { database.stats() }
+                    }.getOrDefault(_state.value.stats)
+                    OperationService.stop(appContext)
+                    _state.update { state ->
+                        val nextStart = lastNumber?.let { SyrianNumbers.nextAfter(it) }
+                        state.copy(
+                            stats = stats,
+                            operation = OperationState(),
+                            lastExport = resultFile?.let { listOf(it) } ?: state.lastExport,
+                            lastExportLabel = resultFile?.let {
+                                "${it.format.label} — ${it.displayName}"
+                            } ?: state.lastExportLabel,
+                            startInput = nextStart ?: state.startInput,
+                            message = fileGenerationMessage(status, done, resultFile, failure),
+                        )
+                    }
+                }
+            }
+        }
+        track(operationJob)
+    }
+
+    /** Exports only numbers that NumX previously inserted into contacts. */
+    fun exportAddedToFile(uriString: String) {
+        val format = _state.value.exportFormat
+        val uri = parseDocumentUri(uriString)
+        if (uri == null) {
+            _state.update { it.copy(message = "لم يتم اختيار ملف وجهة صالح.") }
+            return
+        }
         if (!beginOperation(OperationKind.EXPORT, 0, indeterminate = false)) return
-        OperationService.start(appContext, "جارٍ إنشاء ملفات الأرقام...")
+        OperationService.start(appContext, "جارٍ تصدير الأرقام المضافة...")
         val operationJob = scope.launch {
             val startedAt = SystemClock.elapsedRealtime()
             var total = 0L
@@ -484,14 +745,14 @@ class OperationController(context: Context) {
                 }
                 _state.update {
                     it.copy(
-                        message = "جارٍ إنشاء ملفي CSV وvCard...",
+                        message = "جارٍ كتابة ${format.label}...",
                         operation = OperationState(
                             kind = OperationKind.EXPORT,
                             total = total,
                         ),
                     )
                 }
-                val result = exporter.exportAll { done, count ->
+                val result = exporter.exportAddedToUri(uri, format) { done, count ->
                     _state.update {
                         it.copy(
                             operation = progressState(
@@ -506,9 +767,9 @@ class OperationController(context: Context) {
                 _state.update {
                     it.copy(
                         operation = OperationState(),
-                        lastExport = result.files,
-                        lastExportLabel = result.directoryLabel,
-                        message = "تم تصدير ${SyrianNumbers.formatCount(result.exportedCount)} رقم إلى ${result.directoryLabel}",
+                        lastExport = listOf(result.file),
+                        lastExportLabel = "${format.label} — ${result.file.displayName}",
+                        message = "تم تصدير ${SyrianNumbers.formatCount(result.exportedCount)} رقم إلى الملف المحدد.",
                     )
                 }
             } catch (e: CancellationException) {
@@ -532,72 +793,6 @@ class OperationController(context: Context) {
                         )
                     }
                 }
-            }
-        }
-        track(operationJob)
-    }
-
-    fun exportRangeFiles() {
-        val start = SyrianNumbers.normalize(_state.value.startInput)
-        if (start == null) {
-            _state.update { it.copy(message = "رقم البداية غير صالح. يجب أن يبدأ بـ 091/092/093/094/095/096/098/099") }
-            return
-        }
-        val count = parseCount(_state.value.countInput)
-        if (count == null || count <= 0) {
-            _state.update { it.copy(message = "أدخل عدداً صحيحاً أكبر من صفر") }
-            return
-        }
-        if (count > MAX_COUNT) {
-            _state.update { it.copy(message = "الحد الأقصى ${SyrianNumbers.formatCount(MAX_COUNT.toLong())} رقم في الملفات") }
-            return
-        }
-        if (!beginOperation(OperationKind.EXPORT, count.toLong(), indeterminate = false)) return
-        OperationService.start(appContext, "جارٍ إنشاء ملفات النطاق...")
-        val operationJob = scope.launch {
-            val startedAt = SystemClock.elapsedRealtime()
-            _state.update {
-                it.copy(
-                    message = "جارٍ إنشاء ملفي CSV وvCard من نطاق جديد...",
-                    operation = OperationState(
-                        kind = OperationKind.EXPORT,
-                        total = count.toLong(),
-                    ),
-                )
-            }
-            try {
-                val result = exporter.exportRange(start, count) { done, total ->
-                    _state.update {
-                        it.copy(
-                            operation = progressState(
-                                OperationKind.EXPORT,
-                                done,
-                                total,
-                                startedAt,
-                            ),
-                        )
-                    }
-                }
-                _state.update {
-                    it.copy(
-                        operation = OperationState(),
-                        lastExport = result.files,
-                        lastExportLabel = result.directoryLabel,
-                        message = "تم تصدير ${SyrianNumbers.formatCount(result.exportedCount)} رقم من النطاق إلى ${result.directoryLabel}",
-                    )
-                }
-            } catch (e: CancellationException) {
-                _state.update { it.copy(operation = OperationState(), message = "تم إلغاء التصدير") }
-                throw e
-            } catch (e: Exception) {
-                _state.update {
-                    it.copy(
-                        operation = OperationState(),
-                        message = "تعذر تصدير النطاق: ${e.message ?: e.javaClass.simpleName}",
-                    )
-                }
-            } finally {
-                OperationService.stop(appContext)
             }
         }
         track(operationJob)
@@ -636,6 +831,25 @@ class OperationController(context: Context) {
         if (failures > 0L) {
             append("، وفشل ${SyrianNumbers.formatCount(failures)}")
         }
+    }
+
+    private fun fileGenerationMessage(
+        status: String,
+        done: Long,
+        file: ExportedFile?,
+        failure: String?,
+    ): String = when (status) {
+        "completed" ->
+            "تم حفظ ${SyrianNumbers.formatCount(done)} رقماً في ملف ${file?.format?.label ?: ""}" +
+                (file?.displayName?.let { " — $it" } ?: "")
+        "canceled" ->
+            "تم إلغاء التوليد بعد كتابة ${SyrianNumbers.formatCount(done)} رقم. الملف الجزئي محفوظ في المكان الذي اخترته."
+        else -> "تعذر إنشاء الملف: ${failure ?: "خطأ غير معروف"}"
+    }
+
+    private fun parseDocumentUri(value: String): Uri? {
+        val uri = runCatching { value.toUri() }.getOrNull() ?: return null
+        return uri.takeIf { !it.scheme.isNullOrBlank() }
     }
 
     private fun parseCount(input: String): Int? =
@@ -705,6 +919,6 @@ class OperationController(context: Context) {
         // showing 0 / N for a long time on slower devices.
         private const val CANDIDATE_BATCH = 250
         private const val DELETE_BATCH = 500
-        private const val MAX_COUNT = 5_000_000
+        private const val FILE_STATS_BATCH = 100_000L
     }
 }

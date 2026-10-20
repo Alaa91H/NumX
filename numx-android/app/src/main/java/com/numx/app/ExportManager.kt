@@ -1,20 +1,15 @@
 package com.numx.app
 
 import android.content.ClipData
-import android.content.ContentValues
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
-import android.os.Build
-import android.os.Environment
-import android.provider.MediaStore
-import androidx.core.content.FileProvider
+import android.provider.OpenableColumns
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.currentCoroutineContext
 import kotlinx.coroutines.ensureActive
 import kotlinx.coroutines.withContext
 import java.io.BufferedWriter
-import java.io.File
 import java.io.OutputStream
 import java.io.OutputStreamWriter
 import java.text.SimpleDateFormat
@@ -25,198 +20,187 @@ data class ExportedFile(
     val displayName: String,
     val uri: Uri,
     val mimeType: String,
-    val file: File? = null,
+    val format: ExportFormat,
 )
 
 data class ExportResult(
-    val files: List<ExportedFile>,
+    val file: ExportedFile,
     val exportedCount: Long,
-    val directoryLabel: String,
+    val lastNumber: String?,
 )
 
+/**
+ * Streams CSV/vCard output directly to the URI chosen by the user through the
+ * Storage Access Framework. No temporary copy is created, so the full
+ * country-wide range can be written without doubling the required disk space.
+ */
 class ExportManager(
     private val context: Context,
     private val database: NumXDatabase,
 ) {
 
-    /** Exports numbers that this app has already inserted into contacts. */
-    suspend fun exportAll(
+    suspend fun exportAddedToUri(
+        uri: Uri,
+        format: ExportFormat,
         onProgress: (done: Long, total: Long) -> Unit = { _, _ -> },
     ): ExportResult = withContext(Dispatchers.IO) {
         val total = database.countAdded()
-        if (total == 0L) {
-            throw IllegalStateException("لا توجد أرقام مضافة للتصدير")
-        }
+        if (total == 0L) throw IllegalStateException("لا توجد أرقام مضافة للتصدير")
+        var lastNumber: String? = null
         database.exportCursor().use { cursor ->
             val source = NumberSource { max ->
                 if (!cursor.moveToNext()) return@NumberSource null
                 val batch = ArrayList<String>(max)
                 do {
-                    batch.add(cursor.getString(0))
+                    val number = cursor.getString(0)
+                    batch.add(number)
+                    lastNumber = number
                 } while (batch.size < max && cursor.moveToNext())
                 batch
             }
-            writeFiles("contacts", total, source, onProgress)
+            writeToUri(
+                uri = uri,
+                format = format,
+                total = total,
+                source = source,
+                onProgress = onProgress,
+            ).copy(lastNumber = lastNumber)
         }
     }
 
-    /**
-     * Exports a range starting at [startLocal] without inserting anything into
-     * the device contacts.
-     */
-    suspend fun exportRange(
+    suspend fun exportRangeToUri(
+        uri: Uri,
         startLocal: String,
         count: Int,
+        format: ExportFormat,
         onProgress: (done: Long, total: Long) -> Unit = { _, _ -> },
     ): ExportResult = withContext(Dispatchers.IO) {
         if (count <= 0) throw IllegalArgumentException("عدد الأرقام غير صالح")
         val cursor = SyrianNumberCursor(startLocal)
         var produced = 0L
+        var lastNumber: String? = null
         val source = NumberSource { max ->
             if (produced >= count) return@NumberSource null
             val take = minOf(max.toLong(), count - produced).toInt()
             val batch = cursor.nextBatch(take) ?: return@NumberSource null
             produced += batch.size
+            lastNumber = batch.lastOrNull()
             batch
         }
-        writeFiles("range", count.toLong(), source, onProgress)
+        writeToUri(
+            uri = uri,
+            format = format,
+            total = count.toLong(),
+            source = source,
+            onProgress = onProgress,
+        ).copy(lastNumber = lastNumber)
     }
 
     fun share(files: List<ExportedFile>) {
-        val uris = ArrayList(files.map { it.uri })
-        if (uris.isEmpty()) return
-        val clip = ClipData.newRawUri("", uris.first()).apply {
-            for (i in 1 until uris.size) addItem(ClipData.Item(uris[i]))
-        }
-        val intent = Intent(Intent.ACTION_SEND_MULTIPLE).apply {
-            type = "*/*"
-            putParcelableArrayListExtra(Intent.EXTRA_STREAM, uris)
-            clipData = clip
+        val file = files.firstOrNull() ?: return
+        val intent = Intent(Intent.ACTION_SEND).apply {
+            type = file.mimeType
+            putExtra(Intent.EXTRA_STREAM, file.uri)
+            clipData = ClipData.newRawUri(file.displayName, file.uri)
             addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
         }
         context.startActivity(
-            Intent.createChooser(intent, "مشاركة الملفات").addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            Intent.createChooser(intent, "مشاركة الملف")
+                .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
         )
     }
 
-    private suspend fun writeFiles(
-        baseName: String,
+    private suspend fun writeToUri(
+        uri: Uri,
+        format: ExportFormat,
         total: Long,
         source: NumberSource,
         onProgress: (done: Long, total: Long) -> Unit,
     ): ExportResult {
-        val stamp = SimpleDateFormat("yyyyMMdd_HHmmss", Locale.US).format(Date())
-        val csvName = "${baseName}_$stamp.csv"
-        val vcfName = "${baseName}_$stamp.vcf"
-
-        val opened = mutableListOf<Target>()
+        val stream = openStream(uri)
+        val writer = BufferedWriter(OutputStreamWriter(stream, Charsets.UTF_8), BUFFER_SIZE)
+        val batchBuffer = StringBuilder(BUFFER_SIZE)
+        var done = 0L
         try {
-            opened += openTarget(csvName, "text/csv")
-            opened += openTarget(vcfName, "text/x-vcard")
-            val csvWriter = opened[0].writer()
-            val vcfWriter = opened[1].writer()
-            var done = 0L
-            try {
-                csvWriter.write(ContactFormats.CSV_HEADER)
-                while (true) {
-                    currentCoroutineContext().ensureActive()
-                    val batch = source.nextBatch(1000) ?: break
-                    if (batch.isEmpty()) break
-                    for (number in batch) {
-                        csvWriter.write(ContactFormats.csvRow(number))
-                        vcfWriter.write(ContactFormats.vCard(number))
-                        done++
+            if (format == ExportFormat.CSV) {
+                writer.write(ContactFormats.CSV_HEADER)
+            }
+            while (true) {
+                currentCoroutineContext().ensureActive()
+                val batch = source.nextBatch(EXPORT_BATCH) ?: break
+                if (batch.isEmpty()) break
+                for (number in batch) {
+                    when (format) {
+                        ExportFormat.CSV -> ContactFormats.appendCsvRow(batchBuffer, number)
+                        ExportFormat.VCARD -> ContactFormats.appendVCard(batchBuffer, number)
                     }
-                    onProgress(done, total)
+                    if (batchBuffer.length >= BUFFER_SIZE) {
+                        writer.append(batchBuffer)
+                        batchBuffer.setLength(0)
+                    }
                 }
-                csvWriter.flush()
-                vcfWriter.flush()
+                done += batch.size
                 onProgress(done, total)
-            } finally {
-                // finish()/abort() owns the underlying stream.
-                runCatching { csvWriter.flush() }
-                runCatching { vcfWriter.flush() }
             }
-            if (done == 0L) throw IllegalStateException("لا توجد أرقام للتصدير")
-            val files = opened.map { it.finish() }
+            if (batchBuffer.isNotEmpty()) {
+                writer.append(batchBuffer)
+            }
+            writer.flush()
+            if (done == 0L) throw IllegalStateException("لا توجد أرقام للكتابة")
+            onProgress(done, total)
             return ExportResult(
-                files = files,
+                file = ExportedFile(
+                    displayName = displayName(uri, format),
+                    uri = uri,
+                    mimeType = format.mimeType,
+                    format = format,
+                ),
                 exportedCount = done,
-                directoryLabel = if (Build.VERSION.SDK_INT >= 29) {
-                    "Downloads/Exports"
-                } else {
-                    "مجلد الملفات"
-                },
+                lastNumber = null,
             )
-        } catch (e: Exception) {
-            for (target in opened) {
-                runCatching { target.abort() }
-            }
-            throw e
+        } finally {
+            runCatching { writer.flush() }
+            runCatching { writer.close() }
         }
     }
 
-    private fun openTarget(displayName: String, mimeType: String): Target {
-        if (Build.VERSION.SDK_INT >= 29) {
-            val resolver = context.contentResolver
-            val values = ContentValues().apply {
-                put(MediaStore.MediaColumns.DISPLAY_NAME, displayName)
-                put(MediaStore.MediaColumns.MIME_TYPE, mimeType)
-                put(MediaStore.MediaColumns.RELATIVE_PATH, Environment.DIRECTORY_DOWNLOADS + "/Exports")
-                put(MediaStore.MediaColumns.IS_PENDING, 1)
+    private fun openStream(uri: Uri): OutputStream {
+        val resolver = context.contentResolver
+        val opened = runCatching { resolver.openOutputStream(uri, "wt") }.getOrNull()
+            ?: runCatching { resolver.openOutputStream(uri, "w") }.getOrNull()
+        return opened ?: throw IllegalStateException(
+            "تعذر فتح الملف المحدد للكتابة. اختر مجلداً محلياً أو بطاقة SD وحاول مجدداً."
+        )
+    }
+
+    private fun displayName(uri: Uri, format: ExportFormat): String {
+        val fromProvider = runCatching {
+            context.contentResolver.query(
+                uri,
+                arrayOf(OpenableColumns.DISPLAY_NAME),
+                null,
+                null,
+                null,
+            )?.use { cursor ->
+                if (cursor.moveToFirst() && !cursor.isNull(0)) cursor.getString(0) else null
             }
-            val uri = resolver.insert(MediaStore.Downloads.EXTERNAL_CONTENT_URI, values)
-                ?: throw IllegalStateException("تعذر إنشاء ملف التصدير")
-            val stream = runCatching { resolver.openOutputStream(uri) }.getOrNull()
-            if (stream == null) {
-                runCatching { resolver.delete(uri, null, null) }
-                throw IllegalStateException("تعذر فتح ملف التصدير")
-            }
-            return Target(displayName, uri, mimeType, stream, isMediaStore = true)
-        } else {
-            val base = context.getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS) ?: context.filesDir
-            val dir = File(base, "Exports").apply { mkdirs() }
-            val file = File(dir, displayName)
-            val uri = FileProvider.getUriForFile(context, "${context.packageName}.fileprovider", file)
-            val stream = file.outputStream()
-            return Target(displayName, uri, mimeType, stream, isMediaStore = false, file = file)
-        }
+        }.getOrNull()
+        return fromProvider?.takeIf { it.isNotBlank() }
+            ?: uri.lastPathSegment?.substringAfterLast('/')?.takeIf { it.isNotBlank() }
+            ?: "numbers_${System.currentTimeMillis()}.${format.extension}"
     }
 
     private fun interface NumberSource {
         fun nextBatch(max: Int): List<String>?
     }
 
-    private inner class Target(
-        val displayName: String,
-        val uri: Uri,
-        val mimeType: String,
-        private val stream: OutputStream,
-        private val isMediaStore: Boolean,
-        private val file: File? = null,
-    ) {
-        fun writer(): BufferedWriter =
-            BufferedWriter(OutputStreamWriter(stream, Charsets.UTF_8), 1 shl 20)
+    companion object {
+        private const val BUFFER_SIZE = 1 shl 20
+        private const val EXPORT_BATCH = 4_096
 
-        fun finish(): ExportedFile {
-            stream.flush()
-            stream.close()
-            if (isMediaStore) {
-                val values = ContentValues().apply {
-                    put(MediaStore.MediaColumns.IS_PENDING, 0)
-                }
-                context.contentResolver.update(uri, values, null, null)
-            }
-            return ExportedFile(displayName, uri, mimeType, file)
-        }
-
-        fun abort() {
-            runCatching { stream.close() }
-            if (isMediaStore) {
-                runCatching { context.contentResolver.delete(uri, null, null) }
-            } else {
-                runCatching { file?.delete() }
-            }
+        fun suggestedFileName(prefix: String, format: ExportFormat): String {
+            val stamp = SimpleDateFormat("yyyyMMdd_HHmmss", Locale.US).format(Date())
+            return "${prefix}_$stamp.${format.extension}"
         }
     }
 }

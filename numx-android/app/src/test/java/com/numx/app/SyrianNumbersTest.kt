@@ -95,4 +95,23 @@ class SyrianNumbersTest {
         assertEquals("0999999999", batch[1])
         assertNull(cursor.nextBatch(1))
     }
+
+    @Test
+    fun fullCountryRangeIsEightNetworksTimesTenMillion() {
+        assertEquals(80_000_000, SyrianNumbers.totalAllocatedNumbers)
+        assertEquals(80_000_000, SyrianNumbers.availableCount("0910000000"))
+        assertEquals(60_000_000, SyrianNumbers.availableCount("0930000000"))
+        assertEquals(20_000_001, SyrianNumbers.availableCount("0969999999"))
+        assertEquals(1, SyrianNumbers.availableCount("0999999999"))
+        assertNull(SyrianNumbers.availableCount("0900000000"))
+    }
+
+    @Test
+    fun fullCountryCursorStartsAtFirstAllocatedNumber() {
+        val cursor = SyrianNumberCursor(SyrianNumbers.FIRST_ALLOCATED_NUMBER)
+        assertEquals(
+            listOf("0910000000", "0910000001", "0910000002"),
+            cursor.nextBatch(3),
+        )
+    }
 }

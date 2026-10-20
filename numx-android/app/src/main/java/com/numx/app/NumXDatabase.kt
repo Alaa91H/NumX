@@ -5,6 +5,7 @@ import android.content.Context
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
+import androidx.core.database.sqlite.transaction
 
 data class Stats(
     val totalGenerated: Long = 0,
@@ -87,21 +88,16 @@ class NumXDatabase(context: Context) : SQLiteOpenHelper(context, DB_NAME, null, 
     }
 
     fun createSession(startNumber: String, requestedCount: Int): Long {
-        val db = writableDatabase
-        db.beginTransaction()
-        try {
-            val values = ContentValues().apply {
-                put("started_at", System.currentTimeMillis())
-                put("start_number", startNumber)
-                put("requested_count", requestedCount)
-                put("status", "running")
-            }
-            val id = db.insertOrThrow("sessions", null, values)
-            incrementCounter(db, "total_sessions", 1)
-            db.setTransactionSuccessful()
-            return id
-        } finally {
-            db.endTransaction()
+        val values = ContentValues().apply {
+            put("started_at", System.currentTimeMillis())
+            put("start_number", startNumber)
+            put("requested_count", requestedCount)
+            put("status", "running")
+        }
+        return writableDatabase.transaction {
+            val id = insertOrThrow("sessions", null, values)
+            incrementCounter(this, "total_sessions", 1)
+            id
         }
     }
 
@@ -113,9 +109,7 @@ class NumXDatabase(context: Context) : SQLiteOpenHelper(context, DB_NAME, null, 
         durationMs: Long,
         ratePerSecond: Double,
     ) {
-        val db = writableDatabase
-        db.beginTransaction()
-        try {
+        writableDatabase.transaction {
             val values = ContentValues().apply {
                 put("finished_at", System.currentTimeMillis())
                 put("generated_count", generated)
@@ -123,13 +117,10 @@ class NumXDatabase(context: Context) : SQLiteOpenHelper(context, DB_NAME, null, 
                 put("status", status)
                 put("duration_ms", durationMs)
             }
-            db.update("sessions", values, "id = ?", arrayOf(sessionId.toString()))
+            update("sessions", values, "id = ?", arrayOf(sessionId.toString()))
             if (ratePerSecond > 0) {
-                setCounter(db, "last_rate_milli", (ratePerSecond * 1000).toLong())
+                setCounter(this, "last_rate_milli", (ratePerSecond * 1000).toLong())
             }
-            db.setTransactionSuccessful()
-        } finally {
-            db.endTransaction()
         }
     }
 
@@ -144,11 +135,9 @@ class NumXDatabase(context: Context) : SQLiteOpenHelper(context, DB_NAME, null, 
         generatedCount: Long = numbers.size.toLong(),
     ) {
         if (numbers.isEmpty() || numbers.size != rawContactIds.size) return
-        val db = writableDatabase
         val now = System.currentTimeMillis()
-        db.beginTransaction()
-        try {
-            val stmt = db.compileStatement(
+        writableDatabase.transaction {
+            val stmt = compileStatement(
                 "INSERT OR REPLACE INTO added_numbers(raw_contact_id, number, session_id, created_at) VALUES(?,?,?,?)"
             )
             try {
@@ -163,15 +152,28 @@ class NumXDatabase(context: Context) : SQLiteOpenHelper(context, DB_NAME, null, 
                 stmt.close()
             }
             val insertedCount = numbers.size.toLong()
-            db.execSQL(
+            execSQL(
                 "UPDATE sessions SET generated_count = generated_count + ?, inserted_count = inserted_count + ? WHERE id = ?",
                 arrayOf(generatedCount, insertedCount, sessionId),
             )
-            incrementCounter(db, "total_generated", generatedCount)
-            incrementCounter(db, "total_inserted", insertedCount)
-            db.setTransactionSuccessful()
-        } finally {
-            db.endTransaction()
+            incrementCounter(this, "total_generated", generatedCount)
+            incrementCounter(this, "total_inserted", insertedCount)
+        }
+    }
+
+    /**
+     * Records numbers written to a file. These rows are not contacts, so they
+     * never enter added_numbers and can never be deleted from the contacts app
+     * by NumX.
+     */
+    fun recordFileGenerated(sessionId: Long, count: Long) {
+        if (count <= 0) return
+        writableDatabase.transaction {
+            execSQL(
+                "UPDATE sessions SET generated_count = generated_count + ? WHERE id = ?",
+                arrayOf(count, sessionId),
+            )
+            incrementCounter(this, "total_generated", count)
         }
     }
 
@@ -192,16 +194,11 @@ class NumXDatabase(context: Context) : SQLiteOpenHelper(context, DB_NAME, null, 
 
     fun deleteAddedRecords(ids: List<Long>) {
         if (ids.isEmpty()) return
-        val db = writableDatabase
-        db.beginTransaction()
-        try {
+        writableDatabase.transaction {
             val placeholders = ids.joinToString(",") { "?" }
             val args = ids.map { it.toString() }.toTypedArray()
-            db.delete("added_numbers", "raw_contact_id IN ($placeholders)", args)
-            incrementCounter(db, "total_deleted", ids.size.toLong())
-            db.setTransactionSuccessful()
-        } finally {
-            db.endTransaction()
+            delete("added_numbers", "raw_contact_id IN ($placeholders)", args)
+            incrementCounter(this, "total_deleted", ids.size.toLong())
         }
     }
 
@@ -221,19 +218,14 @@ class NumXDatabase(context: Context) : SQLiteOpenHelper(context, DB_NAME, null, 
     }
 
     fun resetStats() {
-        val db = writableDatabase
-        db.beginTransaction()
-        try {
-            db.delete("sessions", null, null)
-            db.execSQL(
+        writableDatabase.transaction {
+            delete("sessions", null, null)
+            execSQL(
                 """
                 UPDATE counters SET value = 0
                 WHERE key IN ('total_generated','total_inserted','total_deleted','total_sessions','last_rate_milli')
                 """.trimIndent()
             )
-            db.setTransactionSuccessful()
-        } finally {
-            db.endTransaction()
         }
     }
 
@@ -256,11 +248,9 @@ class NumXDatabase(context: Context) : SQLiteOpenHelper(context, DB_NAME, null, 
         rows: Sequence<String>,
         onProgress: (scanned: Long) -> Unit = {},
     ): Long {
-        val db = writableDatabase
         var scanned = 0L
-        db.beginTransaction()
-        try {
-            val stmt = db.compileStatement(
+        return writableDatabase.transaction {
+            val stmt = compileStatement(
                 "INSERT OR IGNORE INTO existing_numbers(number) VALUES(?)"
             )
             try {
@@ -274,14 +264,11 @@ class NumXDatabase(context: Context) : SQLiteOpenHelper(context, DB_NAME, null, 
             } finally {
                 stmt.close()
             }
-            val found = db.rawQuery("SELECT COUNT(*) FROM existing_numbers", null).use { cursor ->
+            val found = rawQuery("SELECT COUNT(*) FROM existing_numbers", null).use { cursor ->
                 if (cursor.moveToFirst()) cursor.getLong(0) else 0L
             }
             onProgress(scanned)
-            db.setTransactionSuccessful()
-            return found
-        } finally {
-            db.endTransaction()
+            found
         }
     }
 
@@ -316,13 +303,11 @@ class NumXDatabase(context: Context) : SQLiteOpenHelper(context, DB_NAME, null, 
         rows: Sequence<OwnedContact>,
         onProgress: (scanned: Long) -> Unit = {},
     ): RestoreResult {
-        val db = writableDatabase
         var scanned = 0L
         val now = System.currentTimeMillis()
-        db.beginTransaction()
-        try {
-            db.delete("added_numbers", null, null)
-            val stmt = db.compileStatement(
+        return writableDatabase.transaction {
+            delete("added_numbers", null, null)
+            val stmt = compileStatement(
                 "INSERT OR REPLACE INTO added_numbers(raw_contact_id, number, session_id, created_at) VALUES(?,?,?,?)"
             )
             try {
@@ -339,23 +324,20 @@ class NumXDatabase(context: Context) : SQLiteOpenHelper(context, DB_NAME, null, 
             } finally {
                 stmt.close()
             }
-            val found = db.rawQuery("SELECT COUNT(*) FROM added_numbers", null).use { cursor ->
+            val found = rawQuery("SELECT COUNT(*) FROM added_numbers", null).use { cursor ->
                 if (cursor.moveToFirst()) cursor.getLong(0) else 0L
             }
-            val last = db.rawQuery("SELECT MAX(number) FROM added_numbers", null).use { cursor ->
+            val last = rawQuery("SELECT MAX(number) FROM added_numbers", null).use { cursor ->
                 if (cursor.moveToFirst() && !cursor.isNull(0)) cursor.getString(0) else null
             }
-            if (found > getCounter(db, "total_generated")) {
-                setCounter(db, "total_generated", found)
+            if (found > getCounter(this, "total_generated")) {
+                setCounter(this, "total_generated", found)
             }
-            if (found > getCounter(db, "total_inserted")) {
-                setCounter(db, "total_inserted", found)
+            if (found > getCounter(this, "total_inserted")) {
+                setCounter(this, "total_inserted", found)
             }
-            db.setTransactionSuccessful()
             onProgress(scanned)
-            return RestoreResult(found, last)
-        } finally {
-            db.endTransaction()
+            RestoreResult(found, last)
         }
     }
 

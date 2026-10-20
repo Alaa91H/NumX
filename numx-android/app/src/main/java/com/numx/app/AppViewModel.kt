@@ -22,7 +22,23 @@ class AppViewModel(app: Application) : AndroidViewModel(app) {
 
     fun setCount(value: Int) = controller.setCount(value)
 
+    fun setGenerationMode(value: GenerationMode) = controller.setGenerationMode(value)
+
+    fun setExportFormat(value: ExportFormat) = controller.setExportFormat(value)
+
+    fun selectFullCountry(format: ExportFormat) = controller.selectFullCountry(format)
+
+    fun setMessage(value: String) = controller.setMessage(value)
+
     fun startGeneration() = controller.startGeneration()
+
+    fun startFileGeneration(uri: String) = controller.startFileGeneration(uri)
+
+    fun exportAddedToFile(uri: String) = controller.exportAddedToFile(uri)
+
+    fun refreshStorageInfo() = controller.refreshStorageInfo()
+
+    fun setCloudStorageAllowed(value: Boolean) = controller.setCloudStorageAllowed(value)
 
     fun cancel() = controller.cancel()
 
@@ -31,10 +47,6 @@ class AppViewModel(app: Application) : AndroidViewModel(app) {
     fun resetStats() = controller.resetStats()
 
     fun restoreFromContacts() = controller.restoreFromContacts()
-
-    fun exportAll() = controller.exportAll()
-
-    fun exportRangeFiles() = controller.exportRangeFiles()
 
     fun shareLastExport() = controller.shareLastExport()
 }

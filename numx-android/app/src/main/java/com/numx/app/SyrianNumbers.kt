@@ -9,6 +9,28 @@ object SyrianNumbers {
     val allowedPrefixes: IntArray = intArrayOf(91, 92, 93, 94, 95, 96, 98, 99)
     private val allowedPrefixSet = allowedPrefixes.toSet()
 
+    const val NUMBERS_PER_PREFIX = 10_000_000
+    const val FIRST_ALLOCATED_NUMBER = "0910000000"
+    val totalAllocatedNumbers: Int = allowedPrefixes.size * NUMBERS_PER_PREFIX
+
+    /**
+     * Number of valid local numbers from [startLocal] through the last allocated
+     * prefix, or null when the start number is invalid.
+     */
+    fun availableCount(startLocal: String): Int? {
+        val normalized = normalize(startLocal) ?: return null
+        val nsn = normalized.substring(1).toInt()
+        val prefix = nsn / NUMBERS_PER_PREFIX
+        val suffix = nsn % NUMBERS_PER_PREFIX
+        val index = allowedPrefixes.indexOf(prefix)
+        if (index < 0) return null
+        var count = NUMBERS_PER_PREFIX - suffix
+        for (i in index + 1 until allowedPrefixes.size) {
+            count += NUMBERS_PER_PREFIX
+        }
+        return count
+    }
+
     fun normalizeDigits(input: String): String = buildString(input.length) {
         for (ch in input) {
             when (ch) {
@@ -101,11 +123,11 @@ class SyrianNumberCursor(startLocal: String) {
     init {
         require(startLocal.length == 10 && startLocal[0] == '0') { "Invalid local number" }
         val startNsn = startLocal.substring(1).toInt()
-        val startPrefix = startNsn / 10_000_000
+        val startPrefix = startNsn / SyrianNumbers.NUMBERS_PER_PREFIX
         val idx = SyrianNumbers.allowedPrefixes.indexOf(startPrefix)
         require(idx >= 0) { "Prefix is not allowed" }
         prefixIndex = idx
-        suffix = startNsn % 10_000_000
+        suffix = startNsn % SyrianNumbers.NUMBERS_PER_PREFIX
     }
 
     /** Returns up to [max] numbers, or null when all allocated numbers have been exhausted. */
@@ -116,15 +138,15 @@ class SyrianNumberCursor(startLocal: String) {
         var remaining = max
         while (remaining > 0 && prefixIndex < SyrianNumbers.allowedPrefixes.size) {
             val prefix = SyrianNumbers.allowedPrefixes[prefixIndex]
-            val available = 10_000_000 - suffix
+            val available = SyrianNumbers.NUMBERS_PER_PREFIX - suffix
             val take = minOf(remaining, available)
-            val base = prefix * 10_000_000 + suffix
+            val base = prefix * SyrianNumbers.NUMBERS_PER_PREFIX + suffix
             for (i in 0 until take) {
                 out.add(format(base + i))
             }
             suffix += take
             remaining -= take
-            if (suffix >= 10_000_000) {
+            if (suffix >= SyrianNumbers.NUMBERS_PER_PREFIX) {
                 prefixIndex++
                 suffix = 0
             }
