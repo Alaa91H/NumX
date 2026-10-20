@@ -36,14 +36,11 @@ jobs:
       - name: Set up Android SDK
         uses: android-actions/setup-android@v4
         with:
-          packages: |
-            platform-tools
-            platforms;android-37.0
-            build-tools;37.0.0
+          packages: "platform-tools platforms;android-37.0 build-tools;37.0.0"
 
-      - name: Run unit tests and build debug APK
+      - name: Run unit tests, lint, and build debug APK
         working-directory: numx-android
-        run: ./gradlew --no-daemon testDebugUnitTest assembleDebug
+        run: ./gradlew --no-daemon testDebugUnitTest lintDebug assembleDebug
 
       - name: Upload debug APK
         uses: actions/upload-artifact@v7
@@ -76,10 +73,7 @@ jobs:
       - name: Set up Android SDK
         uses: android-actions/setup-android@v4
         with:
-          packages: |
-            platform-tools
-            platforms;android-37.0
-            build-tools;37.0.0
+          packages: "platform-tools platforms;android-37.0 build-tools;37.0.0"
 
       - name: Decode release keystore
         env:

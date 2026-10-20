@@ -6,7 +6,6 @@ import android.app.PendingIntent
 import android.app.Service
 import android.content.Context
 import android.content.Intent
-import android.os.Build
 import android.os.Handler
 import android.os.IBinder
 import android.os.Looper
@@ -28,18 +27,16 @@ class OperationService : Service() {
 
     override fun onCreate() {
         super.onCreate()
-        if (Build.VERSION.SDK_INT >= 26) {
-            runCatching {
-                val manager = getSystemService(NotificationManager::class.java)
-                val channel = NotificationChannel(
-                    CHANNEL_ID,
-                    "عمليات الأرقام",
-                    NotificationManager.IMPORTANCE_LOW,
-                ).apply {
-                    description = "إشعارات معالجة الأرقام"
-                }
-                manager.createNotificationChannel(channel)
+        runCatching {
+            val manager = getSystemService(NotificationManager::class.java)
+            val channel = NotificationChannel(
+                CHANNEL_ID,
+                "عمليات الأرقام",
+                NotificationManager.IMPORTANCE_LOW,
+            ).apply {
+                description = "إشعارات معالجة الأرقام"
             }
+            manager.createNotificationChannel(channel)
         }
         // Register as foreground immediately. onStartCommand may be delayed on
         // a busy main thread, and Android kills a startForegroundService() app
@@ -80,12 +77,7 @@ class OperationService : Service() {
 
     override fun onDestroy() {
         releaseWakeLock()
-        if (Build.VERSION.SDK_INT >= 24) {
-            stopForeground(STOP_FOREGROUND_REMOVE)
-        } else {
-            @Suppress("DEPRECATION")
-            stopForeground(true)
-        }
+        stopForeground(STOP_FOREGROUND_REMOVE)
         super.onDestroy()
     }
 

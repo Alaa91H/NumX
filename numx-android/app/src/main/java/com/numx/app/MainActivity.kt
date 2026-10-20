@@ -4,7 +4,6 @@ import android.Manifest
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
@@ -70,6 +69,7 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
 import androidx.core.content.ContextCompat
+import androidx.core.net.toUri
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -277,7 +277,7 @@ fun AppScreen(vm: AppViewModel = viewModel()) {
                             context.startActivity(
                                 Intent(
                                     Settings.ACTION_APPLICATION_DETAILS_SETTINGS,
-                                    Uri.parse("package:${context.packageName}"),
+                                    "package:${context.packageName}".toUri(),
                                 )
                             )
                         }) { Text("فتح الإعدادات") }
@@ -295,7 +295,7 @@ fun AppScreen(vm: AppViewModel = viewModel()) {
                         context.startActivity(
                             Intent(
                                 Settings.ACTION_APPLICATION_DETAILS_SETTINGS,
-                                Uri.parse("package:${context.packageName}"),
+                                "package:${context.packageName}".toUri(),
                             )
                         )
                     }) { Text("تفعيل الإشعارات من الإعدادات") }

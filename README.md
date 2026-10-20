@@ -94,6 +94,7 @@ range_YYYYMMDD_HHMMSS.vcf
 cd numx-android
 ./gradlew assembleDebug
 ./gradlew testDebugUnitTest
+./gradlew lintDebug
 ```
 
 معرّف التطبيق: `com.numx.app`.
@@ -185,3 +186,5 @@ AD:68:B9:64:C2:2F:1A:82:6D:BD:EE:EF:31:E3:D0:4C:5E:86:A8:0F:F0:06:60:65:FD:A5:CE
 ```
 ./gradlew testDebugUnitTest
 ```
+
+يشغّل سير عمل CI الاختبارات و`lintDebug` وبناء APK للتشخيص عند كل دفعة إلى `main`، ثم يبني الإصدار الموقّع عند دفع وسم `v*`.
