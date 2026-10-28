@@ -63,6 +63,11 @@ object SyrianNumbers {
 
     fun isValid(number: String): Boolean = normalize(number) != null
 
+    fun toE164(localNumber: String): String? {
+        val normalized = normalize(localNumber) ?: return null
+        return "+963" + normalized.substring(1)
+    }
+
     /**
      * Returns the first valid local number greater than [number], skipping
      * unallocated prefixes, or null when the allocated range is exhausted.

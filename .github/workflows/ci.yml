@@ -38,6 +38,31 @@ jobs:
         with:
           packages: "platform-tools platforms;android-37.0 build-tools;37.0.0"
 
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: Install metadata tooling
+        run: pip install -r tools/metadata/requirements.txt
+
+      - name: Verify metadata assets
+        run: python3 tools/metadata/build_metadata.py --check
+
+      - name: Differential validation against libphonenumber
+        env:
+          LIBPHONENUMBER_VERSION: "9.0.42"
+          LIBPHONENUMBER_SHA256: "9104a9ac04c118a9f59656f0d0b48e01a11cdee87e028b1371fb7a0d214af887"
+        run: |
+          set -euo pipefail
+          curl -fsSL -o "$RUNNER_TEMP/libphonenumber.jar" \
+            "https://repo1.maven.org/maven2/com/googlecode/libphonenumber/libphonenumber/${LIBPHONENUMBER_VERSION}/libphonenumber-${LIBPHONENUMBER_VERSION}.jar"
+          echo "${LIBPHONENUMBER_SHA256}  $RUNNER_TEMP/libphonenumber.jar" | sha256sum -c -
+          javac -cp "$RUNNER_TEMP/libphonenumber.jar" \
+            -d tools/metadata tools/metadata/ValidatePlans.java
+          LIBPHONENUMBER_JAR="$RUNNER_TEMP/libphonenumber.jar" \
+            python3 tools/metadata/validate_metadata.py
+
       - name: Run unit tests, lint, and build debug APK
         working-directory: numx-android
         run: ./gradlew --no-daemon testDebugUnitTest lintDebug assembleDebug

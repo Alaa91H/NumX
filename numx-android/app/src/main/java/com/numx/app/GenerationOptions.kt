@@ -27,7 +27,7 @@ enum class ExportFormat(
         suitableDevice = "مناسب للحاسوب والجداول",
         explanation = "ملف جدولي يُفتح في Excel وGoogle Sheets وأدوات الاستيراد. " +
             "هو الخيار الأفضل للنطاقات الكبيرة والملايين.",
-        estimatedBytesPerNumber = 52L,
+        estimatedBytesPerNumber = 180L,
     ),
     VCARD(
         label = "vCard 3.0",
@@ -36,18 +36,21 @@ enum class ExportFormat(
         suitableDevice = "مناسب للهاتف وجهات الاتصال",
         explanation = "بطاقات جهات اتصال قياسية تُستورد في Android وiPhone. " +
             "مناسب للأعداد الصغيرة والمتوسطة، وقد يكون بطيئاً جداً مع الملايين.",
-        estimatedBytesPerNumber = 102L,
+        estimatedBytesPerNumber = 220L,
     );
 
     fun estimatedBytes(count: Long): Long = count.coerceAtLeast(0) * estimatedBytesPerNumber
 }
 
 const val CONTACTS_GENERATION_LIMIT = 5_000_000
-const val FILE_GENERATION_LIMIT = 80_000_000
 
 fun formatFileSize(bytes: Long): String {
     val safe = bytes.coerceAtLeast(0)
     return when {
+        safe >= 1_000_000_000_000_000L ->
+            String.format(Locale.US, "%.2f PB", safe / 1_000_000_000_000_000.0)
+        safe >= 1_000_000_000_000L ->
+            String.format(Locale.US, "%.2f TB", safe / 1_000_000_000_000.0)
         safe >= 1_000_000_000L -> String.format(Locale.US, "%.2f GB", safe / 1_000_000_000.0)
         safe >= 1_000_000L -> String.format(Locale.US, "%.1f MB", safe / 1_000_000.0)
         safe >= 1_000L -> String.format(Locale.US, "%.0f KB", safe / 1_000.0)

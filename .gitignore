@@ -32,6 +32,11 @@ signing/
 # Kotlin
 .kotlin/
 
+# Python metadata tooling
+__pycache__/
+*.pyc
+*.class
+
 # Operating system files
 .DS_Store
 Thumbs.db

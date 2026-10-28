@@ -6,20 +6,37 @@ import android.content.Context
 import android.os.Build
 import android.provider.ContactsContract
 import androidx.annotation.RequiresApi
+import com.google.i18n.phonenumbers.PhoneNumberUtil
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import java.util.Locale
+
+/**
+ * One contact row to create. The phone value is intentionally separate from
+ * the visible name: N2 contacts store an E.164 value and the neutral visible
+ * name `N-<digits>`, while an emergency contact stores the short code and a
+ * descriptive Arabic service name.
+ */
+data class ContactDraft(
+    val value: String,
+    val displayName: String,
+    val note: String,
+    val phoneType: Int,
+    val phoneLabel: String? = null,
+)
+
+data class InsertedContact(
+    val draft: ContactDraft,
+    val rawContactId: Long,
+)
 
 data class ContactInsertResult(
-    val inserted: List<Pair<String, Long>>,
+    val inserted: List<InsertedContact>,
     val failed: Int,
 )
 
-data class OwnedContact(
-    val rawContactId: Long,
-    val number: String,
-)
-
 class ContactsManager(private val context: Context) {
+    private val phoneUtil: PhoneNumberUtil = PhoneNumberUtil.getInstance()
 
     /**
      * Returns the device's current default destination for new contacts.
@@ -32,33 +49,31 @@ class ContactsManager(private val context: Context) {
     }
 
     /**
-     * Inserts numbers as mobile contacts using ContentProvider batches.
-     * Every row receives a neutral name and a note marker so it can be
-     * recognized even if this app's database is lost.
-     *
-     * [account] is null for local/default storage. When the user explicitly
-     * accepts cloud storage, the account is passed explicitly so the provider
-     * does not reject a null/local account.
+     * Inserts contacts using ContentProvider batches. [account] is null for
+     * local/default storage. When the user explicitly accepts cloud storage,
+     * the account is passed explicitly so the provider does not reject a
+     * null/local account.
      */
-    suspend fun insertNumbers(
-        numbers: List<String>,
+    suspend fun insertDrafts(
+        drafts: List<ContactDraft>,
         account: ContactAccount? = null,
     ): ContactInsertResult = withContext(Dispatchers.IO) {
-        insertChunk(numbers, account)
+        insertChunk(drafts, account)
     }
 
     private fun insertChunk(
-        numbers: List<String>,
+        drafts: List<ContactDraft>,
         account: ContactAccount?,
     ): ContactInsertResult {
-        if (numbers.isEmpty()) return ContactInsertResult(emptyList(), 0)
+        if (drafts.isEmpty()) return ContactInsertResult(emptyList(), 0)
         return try {
-            applyInsertBatch(numbers, account)
+            applyInsertBatch(drafts, account)
         } catch (e: ContactStorageException) {
             throw e
         } catch (e: Exception) {
             // Android 16+ rejects local rows while the default is cloud. Do not
-            // turn that policy error into 250 useless single-row attempts.
+            // turn that policy error into thousands of useless single-row
+            // attempts.
             if (isStoragePolicyError(e)) {
                 throw ContactStorageException(
                     "تعذر حفظ جهات الاتصال لأن الحساب الافتراضي سحابي. " +
@@ -68,10 +83,10 @@ class ContactsManager(private val context: Context) {
             }
             // A single bad row must not abort a million-number job. Retrying in
             // smaller batches also works around provider transaction-size limits.
-            if (numbers.size > 100) {
-                merge(numbers.chunked(100).map { insertChunk(it, account) })
-            } else if (numbers.size > 1) {
-                merge(numbers.map { insertChunk(listOf(it), account) })
+            if (drafts.size > 100) {
+                merge(drafts.chunked(100).map { insertChunk(it, account) })
+            } else if (drafts.size > 1) {
+                merge(drafts.map { insertChunk(listOf(it), account) })
             } else {
                 ContactInsertResult(emptyList(), 1)
             }
@@ -85,7 +100,7 @@ class ContactsManager(private val context: Context) {
     }
 
     private fun merge(results: List<ContactInsertResult>): ContactInsertResult {
-        val inserted = ArrayList<Pair<String, Long>>()
+        val inserted = ArrayList<InsertedContact>()
         var failed = 0
         for (result in results) {
             inserted.addAll(result.inserted)
@@ -95,63 +110,64 @@ class ContactsManager(private val context: Context) {
     }
 
     private fun applyInsertBatch(
-        numbers: List<String>,
+        drafts: List<ContactDraft>,
         account: ContactAccount?,
     ): ContactInsertResult {
         val opsPerContact = 4
-        val ops = ArrayList<ContentProviderOperation>(numbers.size * opsPerContact)
-        for (number in numbers) {
+        val ops = ArrayList<ContentProviderOperation>(drafts.size * opsPerContact)
+        for (draft in drafts) {
             val rawIndex = ops.size
-            // Always provide a non-null ContentValues map. Passing an empty
-            // insert operation makes some ContactsProvider versions crash while
-            // validating the row. Explicit null account columns mean local
-            // storage; cloud/SIM defaults are passed as real values after the
-            // user grants consent.
+            // Always provide a non-null ContentValues map. Explicit null
+            // account columns mean local storage; cloud/SIM defaults are passed
+            // as real values after the user grants consent.
             val rawContact = ContentProviderOperation.newInsert(ContactsContract.RawContacts.CONTENT_URI)
                 .withValue(ContactsContract.RawContacts.ACCOUNT_TYPE, account?.type)
                 .withValue(ContactsContract.RawContacts.ACCOUNT_NAME, account?.name)
             ops.add(rawContact.build())
-            ops.add(
-                ContentProviderOperation.newInsert(ContactsContract.Data.CONTENT_URI)
-                    .withValueBackReference(ContactsContract.Data.RAW_CONTACT_ID, rawIndex)
-                    .withValue(ContactsContract.Data.MIMETYPE, ContactsContract.CommonDataKinds.Phone.CONTENT_ITEM_TYPE)
-                    .withValue(ContactsContract.CommonDataKinds.Phone.NUMBER, number)
-                    .withValue(ContactsContract.CommonDataKinds.Phone.TYPE, ContactsContract.CommonDataKinds.Phone.TYPE_MOBILE)
-                    .build()
-            )
+            val phone = ContentProviderOperation.newInsert(ContactsContract.Data.CONTENT_URI)
+                .withValueBackReference(ContactsContract.Data.RAW_CONTACT_ID, rawIndex)
+                .withValue(ContactsContract.Data.MIMETYPE, ContactsContract.CommonDataKinds.Phone.CONTENT_ITEM_TYPE)
+                .withValue(ContactsContract.CommonDataKinds.Phone.NUMBER, draft.value)
+                .withValue(ContactsContract.CommonDataKinds.Phone.TYPE, draft.phoneType)
+            if (!draft.phoneLabel.isNullOrBlank()) {
+                phone.withValue(ContactsContract.CommonDataKinds.Phone.LABEL, draft.phoneLabel)
+            }
+            ops.add(phone.build())
             ops.add(
                 ContentProviderOperation.newInsert(ContactsContract.Data.CONTENT_URI)
                     .withValueBackReference(ContactsContract.Data.RAW_CONTACT_ID, rawIndex)
                     .withValue(ContactsContract.Data.MIMETYPE, ContactsContract.CommonDataKinds.StructuredName.CONTENT_ITEM_TYPE)
-                    .withValue(ContactsContract.CommonDataKinds.StructuredName.DISPLAY_NAME, ContactIdentity.displayName(number))
+                    .withValue(ContactsContract.CommonDataKinds.StructuredName.DISPLAY_NAME, draft.displayName)
                     .build()
             )
             ops.add(
                 ContentProviderOperation.newInsert(ContactsContract.Data.CONTENT_URI)
                     .withValueBackReference(ContactsContract.Data.RAW_CONTACT_ID, rawIndex)
                     .withValue(ContactsContract.Data.MIMETYPE, ContactsContract.CommonDataKinds.Note.CONTENT_ITEM_TYPE)
-                    .withValue(ContactsContract.CommonDataKinds.Note.NOTE, ContactIdentity.note(number))
+                    .withValue(ContactsContract.CommonDataKinds.Note.NOTE, draft.note)
                     .build()
             )
         }
         val results = context.contentResolver.applyBatch(ContactsContract.AUTHORITY, ops)
-        val inserted = ArrayList<Pair<String, Long>>(numbers.size)
-        for (i in numbers.indices) {
+        val inserted = ArrayList<InsertedContact>(drafts.size)
+        for (i in drafts.indices) {
             val rawResult = results.getOrNull(i * opsPerContact)?.uri
             if (rawResult != null) {
-                inserted.add(numbers[i] to ContentUris.parseId(rawResult))
+                inserted.add(InsertedContact(drafts[i], ContentUris.parseId(rawResult)))
             }
         }
-        return ContactInsertResult(inserted, numbers.size - inserted.size)
+        return ContactInsertResult(inserted, drafts.size - inserted.size)
     }
 
     /**
-     * Streams every phone number already saved on the device, normalized to the
-     * local 09XXXXXXXX form. This includes contacts created by this app and
-     * contacts from any other account, which is the basis for duplicate-free
-     * generation. Invalid/non-Syrian phone values are ignored.
+     * Streams every phone number already saved on the device, reduced to the
+     * keys used for duplicate detection. Both the raw digit form and the
+     * canonical E.164/NSN forms are emitted, so a number saved locally
+     * (`09...`), internationally (`+963...`) or as a bare NSN is recognised.
      */
-    fun savedPhoneNumbers(): Sequence<String> = sequence {
+    fun savedPhoneNumbers(country: Country? = null): Sequence<String> = sequence {
+        val defaultRegion = country?.iso2
+            ?: Locale.getDefault().country?.takeIf { it.length == 2 }
         val resolver = context.contentResolver
         val cursor = resolver.query(
             ContactsContract.CommonDataKinds.Phone.CONTENT_URI,
@@ -163,8 +179,9 @@ class ContactsManager(private val context: Context) {
         try {
             while (cursor.moveToNext()) {
                 val raw = cursor.getString(0) ?: continue
-                val number = SyrianNumbers.normalize(raw) ?: continue
-                yield(number)
+                for (key in canonicalPhoneKeys(raw, country, defaultRegion)) {
+                    yield(key)
+                }
             }
         } finally {
             cursor.close()
@@ -172,9 +189,48 @@ class ContactsManager(private val context: Context) {
     }
 
     /**
-     * Streams raw contacts that carry the neutral ownership note. The cursor is
-     * consumed by the database recovery routine in batches, so a large history
-     * does not need to be held in memory.
+     * The keys are deliberately redundant. False positives only skip a
+     * generated number that is already present in some format; false negatives
+     * would create a duplicate contact, which is the behaviour we must prevent.
+     */
+    private fun canonicalPhoneKeys(
+        raw: String,
+        country: Country?,
+        defaultRegion: String?,
+    ): Set<String> {
+        val keys = LinkedHashSet<String>(6)
+        val digits = nationalDigits(raw)
+        if (digits.isEmpty()) return keys
+        keys.add(digits)
+        if (digits.startsWith("00")) keys.add(digits.substring(2))
+        val parsed = runCatching { phoneUtil.parse(raw, defaultRegion) }.getOrNull()
+        if (parsed != null && runCatching { phoneUtil.isValidNumber(parsed) }.getOrDefault(false)) {
+            val cc = parsed.countryCode.toString()
+            val nsn = parsed.nationalNumber.toString()
+            keys.add(cc + nsn)
+            keys.add(nsn)
+            runCatching {
+                phoneUtil.format(parsed, PhoneNumberUtil.PhoneNumberFormat.E164)
+                    .removePrefix("+")
+            }.getOrNull()?.let { keys.add(it) }
+        }
+        if (country != null) {
+            if (country.nationalPrefix == "0" && digits.startsWith("0")) {
+                keys.add(digits.substring(1))
+            }
+            if (digits.startsWith(country.callingCode) &&
+                digits.length > country.callingCode.length
+            ) {
+                keys.add(digits.removePrefix(country.callingCode))
+            }
+        }
+        return keys
+    }
+
+    /**
+     * Streams raw contacts that carry one of the neutral ownership notes
+     * (`REF=N1`, `REF=N2` or `REF=E1`). The cursor is consumed by the database
+     * recovery routine, so a large history does not need to be held in memory.
      */
     fun ownedContacts(): Sequence<OwnedContact> = sequence {
         val resolver = context.contentResolver
@@ -186,7 +242,7 @@ class ContactsManager(private val context: Context) {
             "${ContactsContract.Data.MIMETYPE} = ? AND ${ContactsContract.Data.DATA1} LIKE ?"
         val args = arrayOf(
             ContactsContract.CommonDataKinds.Note.CONTENT_ITEM_TYPE,
-            ContactIdentity.NOTE_PREFIX + "%",
+            "REF=%",
         )
         val cursor = resolver.query(
             ContactsContract.Data.CONTENT_URI,
@@ -198,8 +254,8 @@ class ContactsManager(private val context: Context) {
         try {
             while (cursor.moveToNext()) {
                 val rawContactId = cursor.getLong(0)
-                val number = ContactIdentity.numberFromNote(cursor.getString(1)) ?: continue
-                if (rawContactId > 0) yield(OwnedContact(rawContactId, number))
+                val tag = ContactIdentity.parseNote(cursor.getString(1)) ?: continue
+                if (rawContactId > 0) yield(OwnedContact(rawContactId, tag))
             }
         } finally {
             cursor.close()
@@ -207,8 +263,8 @@ class ContactsManager(private val context: Context) {
     }
 
     /**
-     * Deletes raw contacts by ID. Raw-contact deletion removes the phone/name rows
-     * and the aggregated contact when no other raw contact remains.
+     * Deletes raw contacts by ID. Raw-contact deletion removes the phone/name
+     * rows and the aggregated contact when no other raw contact remains.
      */
     suspend fun deleteRawContacts(ids: List<Long>): Int = withContext(Dispatchers.IO) {
         if (ids.isEmpty()) return@withContext 0

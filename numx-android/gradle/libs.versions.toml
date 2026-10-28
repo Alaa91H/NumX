@@ -7,6 +7,10 @@ activityCompose = "1.13.0"
 composeBom = "2026.09.00"
 coroutines = "1.11.0"
 junit = "4.13.2"
+libphonenumber = "9.0.42"
+libphonenumberGeocoder = "3.42"
+libphonenumberCarrier = "2.42"
+documentfile = "1.1.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -22,6 +26,10 @@ androidx-compose-material3 = { group = "androidx.compose.material3", name = "mat
 androidx-compose-material-icons-extended = { group = "androidx.compose.material", name = "material-icons-extended" }
 kotlinx-coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "coroutines" }
 test-junit = { group = "junit", name = "junit", version.ref = "junit" }
+libphonenumber = { group = "com.googlecode.libphonenumber", name = "libphonenumber", version.ref = "libphonenumber" }
+libphonenumber-geocoder = { group = "com.googlecode.libphonenumber", name = "geocoder", version.ref = "libphonenumberGeocoder" }
+libphonenumber-carrier = { group = "com.googlecode.libphonenumber", name = "carrier", version.ref = "libphonenumberCarrier" }
+androidx-documentfile = { group = "androidx.documentfile", name = "documentfile", version.ref = "documentfile" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

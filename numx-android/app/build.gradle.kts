@@ -25,8 +25,8 @@ android {
         applicationId = "com.numx.app"
         minSdk = 26
         targetSdk = 37
-        versionCode = 2
-        versionName = "1.0.1"
+        versionCode = 3
+        versionName = "2.0.0"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
     }
@@ -85,6 +85,10 @@ dependencies {
     implementation(libs.androidx.compose.material3)
     implementation(libs.androidx.compose.material.icons.extended)
     implementation(libs.kotlinx.coroutines.android)
+    implementation(libs.libphonenumber)
+    implementation(libs.libphonenumber.geocoder)
+    implementation(libs.libphonenumber.carrier)
+    implementation(libs.androidx.documentfile)
     debugImplementation(libs.androidx.compose.ui.tooling)
 
     testImplementation(libs.test.junit)

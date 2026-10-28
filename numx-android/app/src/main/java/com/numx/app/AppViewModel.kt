@@ -20,7 +20,11 @@ class AppViewModel(app: Application) : AndroidViewModel(app) {
 
     fun updateCount(value: String) = controller.updateCount(value)
 
-    fun setCount(value: Int) = controller.setCount(value)
+    fun setCount(value: Long) = controller.setCount(value)
+
+    fun selectCountry(iso2: String) = controller.selectCountry(iso2)
+
+    fun setLineType(type: LineType) = controller.setLineType(type)
 
     fun setGenerationMode(value: GenerationMode) = controller.setGenerationMode(value)
 
@@ -34,7 +38,11 @@ class AppViewModel(app: Application) : AndroidViewModel(app) {
 
     fun startFileGeneration(uri: String) = controller.startFileGeneration(uri)
 
+    fun startFileGenerationToTree(uri: String) = controller.startFileGenerationToTree(uri)
+
     fun exportAddedToFile(uri: String) = controller.exportAddedToFile(uri)
+
+    fun exportAddedToDirectory(uri: String) = controller.exportAddedToDirectory(uri)
 
     fun refreshStorageInfo() = controller.refreshStorageInfo()
 
@@ -49,4 +57,15 @@ class AppViewModel(app: Application) : AndroidViewModel(app) {
     fun restoreFromContacts() = controller.restoreFromContacts()
 
     fun shareLastExport() = controller.shareLastExport()
+
+    fun setLookupInput(value: String) = controller.setLookupInput(value)
+
+    fun setLookupCountry(iso2: String) = controller.setLookupCountry(iso2)
+
+    fun lookup() = controller.lookup()
+
+    fun setEmergencyCountry(iso2: String) = controller.setEmergencyCountry(iso2)
+
+    fun addEmergencyContacts(entries: List<EmergencyEntry>) =
+        controller.addEmergencyContacts(entries)
 }

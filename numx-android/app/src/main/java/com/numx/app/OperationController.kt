@@ -3,6 +3,7 @@ package com.numx.app
 import android.content.Context
 import android.net.Uri
 import android.os.SystemClock
+import android.provider.ContactsContract
 import androidx.core.net.toUri
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
@@ -19,7 +20,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import kotlin.coroutines.coroutineContext
 
-enum class OperationKind { IDLE, GENERATE, DELETE, EXPORT, RESTORE, RESET }
+enum class OperationKind { IDLE, GENERATE, DELETE, EXPORT, RESTORE, RESET, EMERGENCY }
 
 data class OperationState(
     val kind: OperationKind = OperationKind.IDLE,
@@ -47,7 +48,30 @@ data class UiState(
     val exportFormat: ExportFormat = ExportFormat.VCARD,
     val storage: ContactStorageInfo = ContactStorageInfo.UNKNOWN,
     val cloudStorageAllowed: Boolean = false,
-)
+    val countries: List<Country> = emptyList(),
+    val selectedIso: String = "SY",
+    val lineType: LineType = LineType.MOBILE,
+    val startNsn: String? = null,
+    val startValid: Boolean = false,
+    val availableFromStart: Long? = null,
+    val emergencyIso: String = "SY",
+    val lookupInput: String = "",
+    val lookupIso: String = "SY",
+    val lookupResult: LookupResult? = null,
+    val lookupError: String? = null,
+    val lookupRunning: Boolean = false,
+    val emergencyEntries: List<EmergencyEntry> = emptyList(),
+    val emergencyTotal: Int = 0,
+    val emergencyCountries: Int = 0,
+    val sources: List<SourceInfo> = emptyList(),
+) {
+    val selectedCountry: Country?
+        get() = countries.firstOrNull { it.iso2 == selectedIso }
+    val emergencyCountry: Country?
+        get() = countries.firstOrNull { it.iso2 == emergencyIso }
+    val lookupCountry: Country?
+        get() = countries.firstOrNull { it.iso2 == lookupIso }
+}
 
 /**
  * Application-scoped operation engine. All long tasks run here, not in an
@@ -57,8 +81,11 @@ data class UiState(
 class OperationController(context: Context) {
     private val appContext = context.applicationContext
     private val database = NumXDatabase(appContext)
+    private val metadata = MetadataRepository(appContext)
+    private val engine = NumberingEngine(appContext)
+    private val lookupEngine = LookupEngine(metadata)
     private val contacts = ContactsManager(appContext)
-    private val exporter = ExportManager(appContext, database)
+    private val exporter = ExportManager(appContext, database, engine, metadata)
     private val scope = CoroutineScope(SupervisorJob() + Dispatchers.IO)
 
     private val _state = MutableStateFlow(UiState())
@@ -72,6 +99,35 @@ class OperationController(context: Context) {
         scope.launch {
             runCatching { database.stats() }.onSuccess { stats ->
                 _state.update { it.copy(stats = stats) }
+            }
+        }
+        scope.launch {
+            val countries = runCatching { metadata.countries() }.getOrDefault(emptyList())
+            val sources = runCatching { metadata.sources() }.getOrDefault(emptyList())
+            val emergencyTotal = runCatching { metadata.emergencyCount() }.getOrDefault(0)
+            val emergencyCountries = runCatching { metadata.emergencyCountryCount() }.getOrDefault(0)
+            val default = countries.firstOrNull { it.iso2 == "SY" } ?: countries.firstOrNull()
+            _state.update {
+                it.copy(
+                    countries = countries,
+                    sources = sources,
+                    emergencyTotal = emergencyTotal,
+                    emergencyCountries = emergencyCountries,
+                    selectedIso = default?.iso2 ?: it.selectedIso,
+                    emergencyIso = default?.iso2 ?: it.emergencyIso,
+                    emergencyEntries = default?.let { country ->
+                        runCatching { metadata.emergency(country.iso2) }.getOrDefault(emptyList())
+                    } ?: it.emergencyEntries,
+                    lookupIso = default?.iso2 ?: it.lookupIso,
+                )
+            }
+            default?.let { country ->
+                val type = when {
+                    country.hasMobile -> LineType.MOBILE
+                    country.hasFixed -> LineType.FIXED
+                    else -> LineType.MOBILE
+                }
+                applySelection(country, type, resetStart = false)
             }
         }
         refreshStorageInfo()
@@ -124,43 +180,128 @@ class OperationController(context: Context) {
         _state.update { it.copy(message = value) }
     }
 
-    /** Selects the complete allocated range: every prefix and every network. */
-    fun selectFullCountry(format: ExportFormat) {
+    fun selectCountry(iso2: String) {
         if (_state.value.operation.isRunning) return
+        val country = _state.value.countries.firstOrNull { it.iso2 == iso2 } ?: return
+        val current = _state.value
+        val type = when {
+            country.supports(current.lineType) -> current.lineType
+            country.hasMobile -> LineType.MOBILE
+            country.hasFixed -> LineType.FIXED
+            else -> current.lineType
+        }
+        applySelection(country, type, resetStart = true)
+    }
+
+    fun setLineType(type: LineType) {
+        if (_state.value.operation.isRunning) return
+        val country = _state.value.selectedCountry ?: return
+        if (!country.supports(type)) {
+            _state.update {
+                it.copy(message = "هذه الدولة لا تدعم النوع المختار. ${country.nameAr} ${country.support.labelAr}.")
+            }
+            return
+        }
+        applySelection(country, type, resetStart = true)
+    }
+
+    private fun applySelection(country: Country, type: LineType, resetStart: Boolean) {
+        val first = engine.firstNumber(country, type)
+        val start = when {
+            !resetStart && _state.value.startInput.isNotBlank() -> _state.value.startInput
+            first != null -> country.toLocalDisplay(first)
+            else -> ""
+        }
         _state.update {
             it.copy(
-                generationMode = GenerationMode.FILE,
-                exportFormat = format,
-                startInput = SyrianNumbers.FIRST_ALLOCATED_NUMBER,
-                countInput = SyrianNumbers.totalAllocatedNumbers.toString(),
-                message = "تم اختيار كل الأرقام المتاحة: ${SyrianNumbers.formatCount(SyrianNumbers.totalAllocatedNumbers.toLong())} رقماً. اختر الصيغة ثم مكان الحفظ.",
+                selectedIso = country.iso2,
+                lineType = type,
+                startInput = start,
+                message = "",
             )
         }
+        refreshSelection()
     }
 
     fun updateStart(value: String) {
         _state.update { it.copy(startInput = value) }
+        refreshSelection()
     }
 
     fun updateCount(value: String) {
         _state.update { it.copy(countInput = value) }
     }
 
-    fun setCount(value: Int) {
+    fun setCount(value: Long) {
         _state.update { it.copy(countInput = value.toString()) }
     }
 
+    /** Selects the complete allocated range for the selected country and type. */
+    fun selectFullCountry(format: ExportFormat) {
+        if (_state.value.operation.isRunning) return
+        val country = _state.value.selectedCountry ?: return
+        val type = _state.value.lineType
+        if (!country.supports(type)) {
+            _state.update { it.copy(message = "النطاق الكامل غير متاح لهذه الدولة أو النوع.") }
+            return
+        }
+        val total = country.countFor(type)
+        if (total <= 0) {
+            _state.update { it.copy(message = "لا توجد أرقام قابلة للتوليد لهذا النطاق.") }
+            return
+        }
+        val first = engine.firstNumber(country, type)
+        _state.update {
+            it.copy(
+                generationMode = GenerationMode.FILE,
+                exportFormat = format,
+                startInput = first?.let(country::toLocalDisplay) ?: "",
+                countInput = total.toString(),
+                message = "تم اختيار كل الأرقام المتاحة: ${SyrianNumbers.formatCount(total)} رقماً. " +
+                    "استخدم التصدير المقسم للمجلد للحفاظ على ملفات قابلة للاستخدام.",
+            )
+        }
+        refreshSelection()
+    }
+
+    private fun refreshSelection() {
+        val current = _state.value
+        val country = current.selectedCountry
+        if (country == null) {
+            _state.update { it.copy(startNsn = null, startValid = false, availableFromStart = null) }
+            return
+        }
+        val type = current.lineType
+        val nsn = normalizeNationalInput(
+            country = country,
+            type = type,
+            input = current.startInput,
+            isValidPrefix = { engine.isValidStart(country, type, it) },
+        )
+        val available = nsn?.let { engine.countFrom(country, type, it) }
+        _state.update {
+            it.copy(
+                startNsn = nsn,
+                startValid = nsn != null,
+                availableFromStart = available,
+            )
+        }
+    }
+
     fun startGeneration() {
-        if (_state.value.generationMode != GenerationMode.CONTACTS) {
+        val current = _state.value
+        if (current.generationMode != GenerationMode.CONTACTS) {
             _state.update { it.copy(message = "وضع الملف يكتب إلى الملف الذي تختاره، ولا يحفظ في جهات الاتصال.") }
             return
         }
-        val start = SyrianNumbers.normalize(_state.value.startInput)
-        if (start == null) {
-            _state.update { it.copy(message = "رقم البداية غير صالح. يجب أن يبدأ بـ 091/092/093/094/095/096/098/099") }
+        val country = current.selectedCountry ?: return
+        val type = current.lineType
+        if (!country.supports(type) || current.startNsn == null) {
+            _state.update { it.copy(message = invalidStartMessage(country, type)) }
             return
         }
-        val count = parseCount(_state.value.countInput)
+        val startNsn = current.startNsn
+        val count = parseCount(current.countInput)
         if (count == null || count <= 0) {
             _state.update { it.copy(message = "أدخل عدداً صحيحاً أكبر من صفر") }
             return
@@ -174,12 +315,21 @@ class OperationController(context: Context) {
             }
             return
         }
-        val storage = _state.value.storage
-        if (storage.isCloudOrSim && !_state.value.cloudStorageAllowed) {
-            _state.update { it.copy(message = storage.choiceRequiredMessage) }
+        val available = current.availableFromStart ?: 0
+        if (count > available) {
+            _state.update {
+                it.copy(
+                    message = "العدد المطلوب أكبر من المتاح من رقم البداية. " +
+                        "المتاح: ${SyrianNumbers.formatCount(available)} رقم.",
+                )
+            }
             return
         }
-        if (!beginOperation(OperationKind.GENERATE, 0, indeterminate = true)) return
+        if (current.storage.isCloudOrSim && !current.cloudStorageAllowed) {
+            _state.update { it.copy(message = current.storage.choiceRequiredMessage) }
+            return
+        }
+        if (!beginOperation(OperationKind.GENERATE, count, indeterminate = true)) return
 
         OperationService.start(appContext, "جارٍ فحص جهات الاتصال وتوليد الأرقام...")
         val operationJob = scope.launch {
@@ -189,22 +339,19 @@ class OperationController(context: Context) {
             var inserted = 0L
             var failures = 0L
             var skipped = 0L
-            var lastSaved: String? = null
+            var lastNsn: String? = null
             var status = "failed"
             var failure: String? = null
             try {
-                // Re-check immediately before writing. This also covers the
-                // case where the user changed the system default after the
-                // screen was last resumed.
                 val storageNow = withContext(Dispatchers.IO) {
                     runCatching { contacts.storageInfo() }
                         .getOrDefault(ContactStorageInfo.UNKNOWN)
                 }
-                _state.update { current ->
-                    current.copy(
+                _state.update { state ->
+                    state.copy(
                         storage = storageNow,
                         cloudStorageAllowed = if (storageNow.isCloudOrSim) {
-                            current.cloudStorageAllowed
+                            state.cloudStorageAllowed
                         } else {
                             false
                         },
@@ -213,14 +360,10 @@ class OperationController(context: Context) {
                 if (storageNow.isCloudOrSim && !_state.value.cloudStorageAllowed) {
                     throw ContactStorageException(storageNow.choiceRequiredMessage)
                 }
-                val account = if (storageNow.isCloudOrSim) {
-                    storageNow.asAccountOrNull()
-                } else {
-                    null
-                }
+                val account = if (storageNow.isCloudOrSim) storageNow.asAccountOrNull() else null
 
                 val sid = withContext(Dispatchers.IO) {
-                    database.createSession(start, count)
+                    database.createSession(startNsn, count, country.iso2, type)
                 }
                 sessionId = sid
                 _state.update {
@@ -236,12 +379,12 @@ class OperationController(context: Context) {
                 withContext(Dispatchers.IO) {
                     database.prepareExistingNumberLookup()
                     try {
-                        database.populateExistingNumberLookup(contacts.savedPhoneNumbers()) { scanned ->
+                        database.populateExistingNumberLookup(contacts.savedPhoneNumbers(country)) { scanned ->
                             coroutineContext.ensureActive()
                             val elapsed = SystemClock.elapsedRealtime() - startedAt
-                            _state.update { current ->
-                                current.copy(
-                                    operation = current.operation.copy(
+                            _state.update { state ->
+                                state.copy(
+                                    operation = state.operation.copy(
                                         done = scanned,
                                         elapsedMs = elapsed,
                                     ),
@@ -261,37 +404,41 @@ class OperationController(context: Context) {
                         message = "جارٍ التوليد والحفظ...",
                         operation = OperationState(
                             kind = OperationKind.GENERATE,
-                            total = count.toLong(),
+                            total = count,
                         ),
                     )
                 }
 
-                val cursor = SyrianNumberCursor(start)
-                var pending = ArrayList<String>()
+                val cursor = engine.cursor(country, type, startNsn)
+                    ?: throw IllegalStateException("لا تتوفر خطة ترقيم لهذا النوع")
+                var pending = ArrayList<GeneratedNumber>()
                 while (inserted < count) {
                     coroutineContext.ensureActive()
-                    val fresh: List<String>
+                    val fresh: List<GeneratedNumber>
                     if (pending.isNotEmpty()) {
                         fresh = pending
                         pending = ArrayList()
                     } else {
                         val candidates = cursor.nextBatch(CANDIDATE_BATCH) ?: break
                         if (candidates.isEmpty()) break
+                        val keys = candidates.flatMap { candidateKeys(it, country) }
                         val existing = withContext(Dispatchers.IO) {
-                            database.existingNumbers(candidates)
+                            database.existingNumbers(keys)
                         }
-                        val newOnes = ArrayList<String>(candidates.size)
+                        val newOnes = ArrayList<GeneratedNumber>(candidates.size)
                         for (number in candidates) {
-                            if (number !in existing) newOnes.add(number)
+                            if (candidateKeys(number, country).none { it in existing }) {
+                                newOnes.add(number)
+                            }
                         }
                         skipped += candidates.size - newOnes.size
                         if (newOnes.isEmpty()) {
-                            _state.update { current ->
-                                current.copy(
+                            _state.update { state ->
+                                state.copy(
                                     operation = progressState(
                                         OperationKind.GENERATE,
                                         inserted,
-                                        count.toLong(),
+                                        count,
                                         startedAt,
                                         skipped,
                                     ),
@@ -311,40 +458,50 @@ class OperationController(context: Context) {
                     } else {
                         ArrayList()
                     }
+                    lastNsn = attempted.lastOrNull()?.nsn ?: lastNsn
 
-                    // Finish a provider batch and its counters inside
-                    // NonCancellable, so cancellation cannot leave the UI
-                    // claiming that zero numbers were saved after a saved batch.
                     withContext(NonCancellable) {
-                        val result = contacts.insertNumbers(attempted, account)
+                        val drafts = attempted.map { generatedNumber ->
+                            contactDraft(generatedNumber, country, "S$sid")
+                        }
+                        val result = contacts.insertDrafts(drafts, account)
                         if (result.inserted.isEmpty() && attempted.isNotEmpty()) {
                             throw IllegalStateException(
                                 "لم يتم حفظ أي رقم في هذه الدفعة (${result.failed} فشل)"
                             )
                         }
-                        if (result.inserted.isNotEmpty()) {
-                            lastSaved = result.inserted.last().first
+                        val byValue = attempted.associateBy { it.e164 }
+                        val rows = result.inserted.mapNotNull { insertedContact ->
+                            val generatedNumber = byValue[insertedContact.draft.value] ?: return@mapNotNull null
+                            insertedContact.rawContactId to generatedNumber
                         }
-                        val ids = result.inserted.map { it.second }
                         withContext(Dispatchers.IO) {
                             database.recordInsertedBatch(
                                 sessionId = sid,
-                                numbers = result.inserted.map { it.first },
-                                rawContactIds = ids,
+                                numbers = rows.map { (_, number) ->
+                                    InsertedNumber(
+                                        number = number.e164,
+                                        e164 = number.e164,
+                                        iso2 = country.iso2,
+                                        lineType = number.lineType.code,
+                                        kind = NumXDatabase.KIND_GENERATED,
+                                    )
+                                },
+                                rawContactIds = rows.map { it.first },
                                 generatedCount = attempted.size.toLong(),
                             )
                         }
                         generated += attempted.size
-                        inserted += ids.size
+                        inserted += rows.size
                         failures += result.failed
                     }
 
-                    _state.update { current ->
-                        current.copy(
+                    _state.update { state ->
+                        state.copy(
                             operation = progressState(
                                 OperationKind.GENERATE,
                                 inserted,
-                                count.toLong(),
+                                count,
                                 startedAt,
                                 skipped,
                             ),
@@ -376,15 +533,28 @@ class OperationController(context: Context) {
                         withContext(Dispatchers.IO) { database.stats() }
                     }.getOrDefault(_state.value.stats)
                     OperationService.stop(appContext)
-                    _state.update { current ->
-                        val nextStart = lastSaved?.let { SyrianNumbers.nextAfter(it) }
-                        current.copy(
+                    val nextStart = lastNsn?.let { last ->
+                        val nextCursor = engine.cursor(country, type, incrementDecimal(last))
+                        nextCursor?.nextBatch(1)?.firstOrNull()?.nsn
+                            ?.let(country::toLocalDisplay)
+                    }
+                    _state.update { state ->
+                        state.copy(
                             stats = stats,
                             operation = OperationState(),
-                            startInput = nextStart ?: current.startInput,
-                            message = generationMessage(status, inserted, skipped, failures, failure),
+                            startInput = nextStart ?: state.startInput,
+                            message = generationMessage(
+                                country,
+                                type,
+                                status,
+                                inserted,
+                                skipped,
+                                failures,
+                                failure,
+                            ),
                         )
                     }
+                    refreshSelection()
                 }
             }
         }
@@ -406,7 +576,9 @@ class OperationController(context: Context) {
             var noData = false
             var total = 0L
             try {
-                total = withContext(Dispatchers.IO) { database.countAdded() }
+                total = withContext(Dispatchers.IO) {
+                    database.countAdded() + database.countEmergencyAdded()
+                }
                 if (total == 0L) {
                     noData = true
                     return@launch
@@ -414,10 +586,7 @@ class OperationController(context: Context) {
                 _state.update {
                     it.copy(
                         message = "جارٍ حذف الأرقام المضافة...",
-                        operation = OperationState(
-                            kind = OperationKind.DELETE,
-                            total = total,
-                        ),
+                        operation = OperationState(kind = OperationKind.DELETE, total = total),
                     )
                 }
                 while (true) {
@@ -427,6 +596,26 @@ class OperationController(context: Context) {
                     withContext(NonCancellable) {
                         contacts.deleteRawContacts(ids)
                         withContext(Dispatchers.IO) { database.deleteAddedRecords(ids) }
+                    }
+                    deleted += ids.size
+                    _state.update {
+                        it.copy(
+                            operation = progressState(
+                                OperationKind.DELETE,
+                                deleted,
+                                total,
+                                startedAt,
+                            ),
+                        )
+                    }
+                }
+                while (true) {
+                    coroutineContext.ensureActive()
+                    val ids = withContext(Dispatchers.IO) { database.loadEmergencyIdBatch(DELETE_BATCH) }
+                    if (ids.isEmpty()) break
+                    withContext(NonCancellable) {
+                        contacts.deleteRawContacts(ids)
+                        withContext(Dispatchers.IO) { database.deleteEmergencyRecords(ids) }
                     }
                     deleted += ids.size
                     _state.update {
@@ -540,24 +729,56 @@ class OperationController(context: Context) {
                     }
                     restored to database.stats()
                 }
-                val next = result.lastNumber?.let { SyrianNumbers.nextAfter(it) }
+                val next: Triple<String, String, LineType>? = result.lastE164
+                    ?.takeIf { it.startsWith("+") }
+                    ?.let { e164 ->
+                        val country = result.lastIso2?.let(metadata::country) ?: return@let null
+                        val type = when (result.lastLineType) {
+                            "FIXED" -> LineType.FIXED
+                            "AMBIGUOUS" -> LineType.BOTH
+                            else -> LineType.MOBILE
+                        }
+                        if (!country.supports(type)) return@let null
+                        val digits = e164.removePrefix("+")
+                        if (!digits.startsWith(country.callingCode)) return@let null
+                        val nsn = digits.removePrefix(country.callingCode)
+                        val nextNumber = engine
+                            .cursor(country, type, incrementDecimal(nsn))
+                            ?.nextBatch(1)
+                            ?.firstOrNull()
+                            ?.nsn ?: return@let null
+                        Triple(country.iso2, country.toLocalDisplay(nextNumber), type)
+                    }
+                    ?: result.lastNumber
+                        ?.takeIf { it.startsWith("09") && it.length == 10 }
+                        ?.let { last ->
+                            SyrianNumbers.nextAfter(last)?.let {
+                                Triple("SY", it, LineType.MOBILE)
+                            }
+                        }
                 _state.update { current ->
+                    val start = next?.second ?: current.startInput
                     current.copy(
                         stats = stats,
                         operation = OperationState(),
-                        startInput = next ?: current.startInput,
+                        selectedIso = next?.first ?: current.selectedIso,
+                        lineType = next?.third ?: current.lineType,
+                        startInput = start,
                         message = when {
-                            result.found == 0L ->
+                            result.found == 0L && result.emergencyFound == 0L ->
                                 "لم يتم العثور على أرقام سابقة تحمل وسم الاستعادة"
-                            next != null ->
-                                "تمت استعادة ${SyrianNumbers.formatCount(result.found)} رقماً. " +
-                                    "آخر رقم: ${result.lastNumber} — تم ضبط البداية على $next."
-                            else ->
-                                "تمت استعادة ${SyrianNumbers.formatCount(result.found)} رقماً. " +
-                                    "آخر رقم: ${result.lastNumber} — لا يوجد رقم تالٍ."
+                            else -> buildString {
+                                append("تمت استعادة ${SyrianNumbers.formatCount(result.found)} رقماً")
+                                if (result.emergencyFound > 0) {
+                                    append(" و${SyrianNumbers.formatCount(result.emergencyFound)} جهة طوارئ")
+                                }
+                                result.lastNumber?.let { append(". آخر رقم: $it") }
+                                if (next != null) append(" — تم ضبط البداية على ${next.second}.")
+                            }
                         },
                     )
                 }
+                refreshSelection()
             } catch (e: CancellationException) {
                 _state.update {
                     it.copy(operation = OperationState(), message = "تم إلغاء استعادة السجل")
@@ -578,8 +799,9 @@ class OperationController(context: Context) {
     }
 
     /**
-     * Generates the selected range directly into the SAF document chosen by the
-     * user. Nothing is inserted into contacts, so no duplicate scan is needed.
+     * Generates the selected range directly into one SAF document. Ranges
+     * larger than the split threshold must use a directory export so that no
+     * single file becomes impossible to open or import.
      */
     fun startFileGeneration(uriString: String) {
         val current = _state.value
@@ -587,9 +809,10 @@ class OperationController(context: Context) {
             _state.update { it.copy(message = "اختر وضع الملف أولاً.") }
             return
         }
-        val start = SyrianNumbers.normalize(current.startInput)
-        if (start == null) {
-            _state.update { it.copy(message = "رقم البداية غير صالح. يجب أن يبدأ بـ 091/092/093/094/095/096/098/099") }
+        val country = current.selectedCountry ?: return
+        val type = current.lineType
+        if (!country.supports(type) || current.startNsn == null) {
+            _state.update { it.copy(message = invalidStartMessage(country, type)) }
             return
         }
         val count = parseCount(current.countInput)
@@ -597,18 +820,20 @@ class OperationController(context: Context) {
             _state.update { it.copy(message = "أدخل عدداً صحيحاً أكبر من صفر") }
             return
         }
-        if (count > FILE_GENERATION_LIMIT) {
+        if (ExportManager.requiresSplit(count)) {
             _state.update {
-                it.copy(message = "الحد الأقصى ${SyrianNumbers.formatCount(FILE_GENERATION_LIMIT.toLong())} رقم في الملف")
+                it.copy(
+                    message = "هذا النطاق أكبر من ${SyrianNumbers.formatCount(ExportManager.splitRows)} رقم. " +
+                        "استخدم «تصدير مقسم إلى مجلد» ليُكتب على أجزاء مع manifest وSHA-256.",
+                )
             }
             return
         }
-        val available = SyrianNumbers.availableCount(start)
-        if (available == null || count > available) {
+        val available = current.availableFromStart ?: 0
+        if (count > available) {
             _state.update {
                 it.copy(
-                    message = "العدد المطلوب أكبر من المتاح من رقم البداية. " +
-                        "المتاح: ${SyrianNumbers.formatCount((available ?: 0).toLong())} رقم.",
+                    message = "العدد المطلوب أكبر من المتاح من رقم البداية. المتاح: ${SyrianNumbers.formatCount(available)} رقم.",
                 )
             }
             return
@@ -618,59 +843,137 @@ class OperationController(context: Context) {
             _state.update { it.copy(message = "لم يتم اختيار ملف وجهة صالح.") }
             return
         }
-        val format = current.exportFormat
-        if (!beginOperation(OperationKind.GENERATE, count.toLong(), indeterminate = false)) return
+        startFileOperation(
+            country = country,
+            type = type,
+            startNsn = current.startNsn,
+            count = count,
+            format = current.exportFormat,
+            splitTree = null,
+            singleUri = uri,
+        )
+    }
+
+    fun startFileGenerationToTree(uriString: String) {
+        val current = _state.value
+        if (current.generationMode != GenerationMode.FILE) {
+            _state.update { it.copy(message = "اختر وضع الملف أولاً.") }
+            return
+        }
+        val country = current.selectedCountry ?: return
+        val type = current.lineType
+        if (!country.supports(type) || current.startNsn == null) {
+            _state.update { it.copy(message = invalidStartMessage(country, type)) }
+            return
+        }
+        val count = parseCount(current.countInput)
+        if (count == null || count <= 0) {
+            _state.update { it.copy(message = "أدخل عدداً صحيحاً أكبر من صفر") }
+            return
+        }
+        val available = current.availableFromStart ?: 0
+        if (count > available) {
+            _state.update {
+                it.copy(
+                    message = "العدد المطلوب أكبر من المتاح من رقم البداية. المتاح: ${SyrianNumbers.formatCount(available)} رقم.",
+                )
+            }
+            return
+        }
+        val tree = parseDocumentUri(uriString)
+        if (tree == null) {
+            _state.update { it.copy(message = "لم يتم اختيار مجلد وجهة صالح.") }
+            return
+        }
+        startFileOperation(
+            country = country,
+            type = type,
+            startNsn = current.startNsn,
+            count = count,
+            format = current.exportFormat,
+            splitTree = tree,
+            singleUri = null,
+        )
+    }
+
+    private fun startFileOperation(
+        country: Country,
+        type: LineType,
+        startNsn: String,
+        count: Long,
+        format: ExportFormat,
+        splitTree: Uri?,
+        singleUri: Uri?,
+    ) {
+        if (!beginOperation(OperationKind.GENERATE, count, indeterminate = false)) return
         OperationService.start(appContext, "جارٍ كتابة ملف ${format.label}...")
         val operationJob = scope.launch {
             val startedAt = SystemClock.elapsedRealtime()
             var sessionId: Long? = null
             var done = 0L
-            var recorded = 0L
             var status = "failed"
             var failure: String? = null
-            var resultFile: ExportedFile? = null
-            var lastNumber: String? = null
+            var result: ExportResult? = null
             try {
-                val activeSessionId = withContext(Dispatchers.IO) {
-                    database.createSession(start, count)
+                val sid = withContext(Dispatchers.IO) {
+                    database.createSession(startNsn, count, country.iso2, type)
                 }
-                sessionId = activeSessionId
+                sessionId = sid
                 _state.update {
                     it.copy(
-                        message = "جارٍ كتابة ${format.label} إلى الملف المحدد...",
-                        operation = OperationState(
-                            kind = OperationKind.GENERATE,
-                            total = count.toLong(),
-                        ),
+                        message = if (splitTree != null) {
+                            "جارٍ إنشاء ملفات مقسمة مع manifest وSHA-256..."
+                        } else {
+                            "جارٍ كتابة ${format.label} إلى الملف المحدد..."
+                        },
+                        operation = OperationState(kind = OperationKind.GENERATE, total = count),
                     )
                 }
-                val result = exporter.exportRangeToUri(
-                    uri = uri,
-                    startLocal = start,
-                    count = count,
-                    format = format,
-                ) { progressed, total ->
-                    done = progressed
-                    if (progressed - recorded >= FILE_STATS_BATCH) {
-                        val delta = progressed - recorded
-                        if (runCatching { database.recordFileGenerated(activeSessionId, delta) }.isSuccess) {
-                            recorded = progressed
+                val exported = if (splitTree != null) {
+                    exporter.exportRangeToDirectory(
+                        treeUri = splitTree,
+                        country = country,
+                        lineType = type,
+                        startNsn = startNsn,
+                        count = count,
+                        format = format,
+                    ) { progressed, total ->
+                        done = progressed
+                        _state.update { state ->
+                            state.copy(
+                                operation = progressState(
+                                    OperationKind.GENERATE,
+                                    progressed,
+                                    total,
+                                    startedAt,
+                                ),
+                            )
                         }
                     }
-                    _state.update {
-                        it.copy(
-                            operation = progressState(
-                                OperationKind.GENERATE,
-                                progressed,
-                                total,
-                                startedAt,
-                            ),
-                        )
+                } else {
+                    exporter.exportRangeToUri(
+                        uri = singleUri!!,
+                        country = country,
+                        lineType = type,
+                        startNsn = startNsn,
+                        count = count,
+                        format = format,
+                    ) { progressed, total ->
+                        done = progressed
+                        _state.update { state ->
+                            state.copy(
+                                operation = progressState(
+                                    OperationKind.GENERATE,
+                                    progressed,
+                                    total,
+                                    startedAt,
+                                ),
+                            )
+                        }
                     }
                 }
-                done = result.exportedCount
-                resultFile = result.file
-                lastNumber = result.lastNumber
+                done = exported.exportedCount
+                result = exported
                 status = "completed"
             } catch (e: CancellationException) {
                 status = "canceled"
@@ -682,13 +985,14 @@ class OperationController(context: Context) {
                 val duration = SystemClock.elapsedRealtime() - startedAt
                 withContext(NonCancellable) {
                     sessionId?.let { sid ->
-                        if (done > recorded) {
-                            runCatching {
-                                withContext(Dispatchers.IO) { database.recordFileGenerated(sid, done - recorded) }
-                            }
-                        }
                         runCatching {
                             withContext(Dispatchers.IO) {
+                                database.recordFileGenerated(
+                                    sid,
+                                    done,
+                                    result?.mobileCount ?: 0,
+                                    result?.fixedCount ?: 0,
+                                )
                                 database.finishSession(
                                     sessionId = sid,
                                     status = status,
@@ -705,16 +1009,19 @@ class OperationController(context: Context) {
                     }.getOrDefault(_state.value.stats)
                     OperationService.stop(appContext)
                     _state.update { state ->
-                        val nextStart = lastNumber?.let { SyrianNumbers.nextAfter(it) }
                         state.copy(
                             stats = stats,
                             operation = OperationState(),
-                            lastExport = resultFile?.let { listOf(it) } ?: state.lastExport,
-                            lastExportLabel = resultFile?.let {
-                                "${it.format.label} — ${it.displayName}"
+                            lastExport = result?.files ?: state.lastExport,
+                            lastExportLabel = result?.files?.let { files ->
+                                "${format.label} — ${files.firstOrNull()?.displayName.orEmpty()}" +
+                                    if (files.size > 1) {
+                                        " (${files.size} ملفات)"
+                                    } else {
+                                        ""
+                                    }
                             } ?: state.lastExportLabel,
-                            startInput = nextStart ?: state.startInput,
-                            message = fileGenerationMessage(status, done, resultFile, failure),
+                            message = fileGenerationMessage(status, done, result, failure),
                         )
                     }
                 }
@@ -726,11 +1033,34 @@ class OperationController(context: Context) {
     /** Exports only numbers that NumX previously inserted into contacts. */
     fun exportAddedToFile(uriString: String) {
         val format = _state.value.exportFormat
+        val total = _state.value.stats.addedCount + _state.value.stats.emergencyAdded
+        if (ExportManager.requiresSplit(total)) {
+            _state.update {
+                it.copy(
+                    message = "عدد الجهات المضافة أكبر من ${SyrianNumbers.formatCount(ExportManager.splitRows)}. " +
+                        "استخدم «تصدير مقسم إلى مجلد».",
+                )
+            }
+            return
+        }
         val uri = parseDocumentUri(uriString)
         if (uri == null) {
             _state.update { it.copy(message = "لم يتم اختيار ملف وجهة صالح.") }
             return
         }
+        exportAdded(format, singleUri = uri, treeUri = null)
+    }
+
+    fun exportAddedToDirectory(uriString: String) {
+        val tree = parseDocumentUri(uriString)
+        if (tree == null) {
+            _state.update { it.copy(message = "لم يتم اختيار مجلد وجهة صالح.") }
+            return
+        }
+        exportAdded(_state.value.exportFormat, singleUri = null, treeUri = tree)
+    }
+
+    private fun exportAdded(format: ExportFormat, singleUri: Uri?, treeUri: Uri?) {
         if (!beginOperation(OperationKind.EXPORT, 0, indeterminate = false)) return
         OperationService.start(appContext, "جارٍ تصدير الأرقام المضافة...")
         val operationJob = scope.launch {
@@ -738,7 +1068,9 @@ class OperationController(context: Context) {
             var total = 0L
             var noData = false
             try {
-                total = withContext(Dispatchers.IO) { database.countAdded() }
+                total = withContext(Dispatchers.IO) {
+                    database.countAdded() + database.countEmergencyAdded()
+                }
                 if (total == 0L) {
                     noData = true
                     return@launch
@@ -746,30 +1078,43 @@ class OperationController(context: Context) {
                 _state.update {
                     it.copy(
                         message = "جارٍ كتابة ${format.label}...",
-                        operation = OperationState(
-                            kind = OperationKind.EXPORT,
-                            total = total,
-                        ),
+                        operation = OperationState(kind = OperationKind.EXPORT, total = total),
                     )
                 }
-                val result = exporter.exportAddedToUri(uri, format) { done, count ->
-                    _state.update {
-                        it.copy(
-                            operation = progressState(
-                                OperationKind.EXPORT,
-                                done,
-                                count,
-                                startedAt,
-                            ),
-                        )
+                val result = if (treeUri != null) {
+                    exporter.exportAddedToDirectory(treeUri, format) { done, count ->
+                        _state.update {
+                            it.copy(
+                                operation = progressState(
+                                    OperationKind.EXPORT,
+                                    done,
+                                    count,
+                                    startedAt,
+                                ),
+                            )
+                        }
+                    }
+                } else {
+                    exporter.exportAddedToUri(singleUri!!, format) { done, count ->
+                        _state.update {
+                            it.copy(
+                                operation = progressState(
+                                    OperationKind.EXPORT,
+                                    done,
+                                    count,
+                                    startedAt,
+                                ),
+                            )
+                        }
                     }
                 }
                 _state.update {
                     it.copy(
                         operation = OperationState(),
-                        lastExport = listOf(result.file),
-                        lastExportLabel = "${format.label} — ${result.file.displayName}",
-                        message = "تم تصدير ${SyrianNumbers.formatCount(result.exportedCount)} رقم إلى الملف المحدد.",
+                        lastExport = result.files,
+                        lastExportLabel = "${format.label} — ${result.files.firstOrNull()?.displayName.orEmpty()}" +
+                            if (result.files.size > 1) " (${result.files.size} ملفات)" else "",
+                        message = "تم تصدير ${SyrianNumbers.formatCount(result.exportedCount)} رقم إلى المكان المحدد.",
                     )
                 }
             } catch (e: CancellationException) {
@@ -798,6 +1143,142 @@ class OperationController(context: Context) {
         track(operationJob)
     }
 
+    fun setLookupInput(value: String) {
+        _state.update { it.copy(lookupInput = value, lookupError = null) }
+    }
+
+    fun setLookupCountry(iso2: String) {
+        if (_state.value.countries.none { it.iso2 == iso2 }) return
+        _state.update { it.copy(lookupIso = iso2, lookupResult = null, lookupError = null) }
+    }
+
+    fun lookup() {
+        val current = _state.value
+        if (current.lookupRunning) return
+        if (current.lookupInput.isBlank()) {
+            _state.update { it.copy(lookupError = "أدخل رقماً للبحث.", lookupResult = null) }
+            return
+        }
+        _state.update { it.copy(lookupRunning = true, lookupError = null) }
+        scope.launch {
+            val result = withContext(Dispatchers.Default) {
+                runCatching { lookupEngine.lookup(current.lookupInput, current.lookupIso) }
+                    .getOrElse { error ->
+                        LookupResult(
+                            input = current.lookupInput,
+                            valid = false,
+                            possible = false,
+                            iso2 = null,
+                            countryAr = "غير معروفة",
+                            countryEn = "Unknown",
+                            callingCode = "",
+                            e164 = "",
+                            international = "",
+                            national = "",
+                            lineTypeAr = "غير معروف",
+                            regionAr = null,
+                            regionEn = null,
+                            carrierAr = null,
+                            carrierOriginal = null,
+                            fixedOperatorAr = null,
+                            fixedOperatorOriginal = null,
+                            timeZones = emptyList(),
+                            sources = emptyList(),
+                            notes = emptyList(),
+                            error = "تعذر البحث: ${error.message ?: error.javaClass.simpleName}",
+                        )
+                    }
+            }
+            _state.update {
+                it.copy(
+                    lookupRunning = false,
+                    lookupResult = result,
+                    lookupError = result.error,
+                )
+            }
+        }
+    }
+
+    fun setEmergencyCountry(iso2: String) {
+        if (_state.value.countries.none { it.iso2 == iso2 }) return
+        val entries = runCatching { metadata.emergency(iso2) }.getOrDefault(emptyList())
+        _state.update { it.copy(emergencyIso = iso2, emergencyEntries = entries) }
+    }
+
+    /**
+     * Adds explicitly selected emergency/service numbers as contacts. Nothing
+     * is dialled and nothing is saved until this method is called by the user's
+     * add action.
+     */
+    fun addEmergencyContacts(entries: List<EmergencyEntry>) {
+        if (entries.isEmpty() || _state.value.operation.isRunning) return
+        val storage = _state.value.storage
+        if (storage.isCloudOrSim && !_state.value.cloudStorageAllowed) {
+            _state.update { it.copy(message = storage.choiceRequiredMessage) }
+            return
+        }
+        if (!beginOperation(OperationKind.EMERGENCY, entries.size.toLong(), indeterminate = false)) return
+        OperationService.start(appContext, "جارٍ إضافة جهات الطوارئ...")
+        val operationJob = scope.launch {
+            var added = 0
+            var failure: String? = null
+            try {
+                val storageNow = withContext(Dispatchers.IO) {
+                    runCatching { contacts.storageInfo() }
+                        .getOrDefault(ContactStorageInfo.UNKNOWN)
+                }
+                if (storageNow.isCloudOrSim && !_state.value.cloudStorageAllowed) {
+                    throw ContactStorageException(storageNow.choiceRequiredMessage)
+                }
+                val account = if (storageNow.isCloudOrSim) storageNow.asAccountOrNull() else null
+                val drafts = entries.map { emergencyDraft(it) }
+                val result = contacts.insertDrafts(drafts, account)
+                val entryByDraft = drafts.mapIndexed { index, draft -> draft to entries[index] }.toMap()
+                val rows = result.inserted.mapNotNull { inserted ->
+                    val entry = entryByDraft[inserted.draft] ?: return@mapNotNull null
+                    entry to inserted.rawContactId
+                }
+                withContext(Dispatchers.IO) {
+                    database.recordEmergencyBatch(
+                        entries = rows.map { (entry, _) ->
+                            EmergencyRecord(entry.number, entry.iso2, entry.category, entry.labelAr)
+                        },
+                        rawContactIds = rows.map { it.second },
+                    )
+                }
+                added = rows.size
+                failure = if (result.failed > 0) "${result.failed} فشل" else null
+            } catch (e: CancellationException) {
+                _state.update {
+                    it.copy(operation = OperationState(), message = "تم إلغاء إضافة جهات الطوارئ")
+                }
+                throw e
+            } catch (e: Exception) {
+                failure = e.message ?: e.javaClass.simpleName
+            } finally {
+                val stats = runCatching {
+                    withContext(NonCancellable) {
+                        withContext(Dispatchers.IO) { database.stats() }
+                    }
+                }.getOrDefault(_state.value.stats)
+                OperationService.stop(appContext)
+                _state.update {
+                    it.copy(
+                        stats = stats,
+                        operation = OperationState(),
+                        message = when {
+                            added == 0 && failure != null -> "تعذرت إضافة جهات الطوارئ: $failure"
+                            added == 0 -> "لم تتم إضافة أي جهة طوارئ"
+                            failure != null -> "تمت إضافة $added جهة طوارئ، مع $failure"
+                            else -> "تمت إضافة $added جهة طوارئ. لم يتم الاتصال بأي رقم."
+                        },
+                    )
+                }
+            }
+        }
+        track(operationJob)
+    }
+
     fun shareLastExport() {
         val files = _state.value.lastExport
         if (files.isEmpty()) return
@@ -806,7 +1287,66 @@ class OperationController(context: Context) {
         }
     }
 
+    private fun contactDraft(
+        number: GeneratedNumber,
+        country: Country,
+        batch: String,
+    ): ContactDraft {
+        val note = ContactIdentity.noteN2(
+            e164 = number.e164,
+            iso2 = country.iso2,
+            lineType = number.lineType,
+            planVersion = country.planVersion,
+            batch = batch,
+        )
+        val label = when (number.lineType) {
+            ActualLineType.MOBILE -> null
+            ActualLineType.FIXED -> "أرضي"
+            ActualLineType.AMBIGUOUS -> "أرضي أو خليوي (غير متميز)"
+        }
+        return ContactDraft(
+            value = number.e164,
+            displayName = ContactIdentity.displayNameE164(number.e164),
+            note = note,
+            phoneType = if (number.lineType == ActualLineType.MOBILE) {
+                ContactsContract.CommonDataKinds.Phone.TYPE_MOBILE
+            } else {
+                ContactsContract.CommonDataKinds.Phone.TYPE_OTHER
+            },
+            phoneLabel = label,
+        )
+    }
+
+    private fun emergencyDraft(entry: EmergencyEntry): ContactDraft = ContactDraft(
+        value = entry.number,
+        displayName = entry.displayNameAr,
+        note = ContactIdentity.noteE1(
+            iso2 = entry.iso2,
+            number = entry.number,
+            category = entry.category,
+            label = entry.labelAr,
+        ),
+        phoneType = ContactsContract.CommonDataKinds.Phone.TYPE_OTHER,
+        phoneLabel = "طوارئ",
+    )
+
+    private fun candidateKeys(number: GeneratedNumber, country: Country): List<String> = listOf(
+        number.nsn,
+        number.e164.removePrefix("+"),
+        country.toLocalDisplay(number.nsn),
+    )
+
+    private fun invalidStartMessage(country: Country, type: LineType): String {
+        val example = country.exampleFor(type)
+            ?: engine.firstNumber(country, type)
+        return "رقم البداية غير صالح لهذه الدولة أو النوع. مثال: " +
+            (example?.let(country::toLocalDisplay) ?: "غير متوفر") +
+            " — الصيغ المقبولة: محلية أو +${country.callingCode}..."
+    }
+
     private fun generationMessage(
+        country: Country,
+        type: LineType,
         status: String,
         inserted: Long,
         skipped: Long,
@@ -814,7 +1354,9 @@ class OperationController(context: Context) {
         failure: String?,
     ): String = buildString {
         when (status) {
-            "completed" -> append("تم حفظ ${SyrianNumbers.formatCount(inserted)} رقم في جهات الاتصال")
+            "completed" -> append(
+                "تم حفظ ${SyrianNumbers.formatCount(inserted)} رقم ${type.labelAr} من ${country.nameAr} في جهات الاتصال",
+            )
             "canceled" -> append("تم الإلغاء بعد حفظ ${SyrianNumbers.formatCount(inserted)} رقم")
             "exhausted" -> {
                 if (inserted == 0L && skipped > 0L) {
@@ -836,14 +1378,20 @@ class OperationController(context: Context) {
     private fun fileGenerationMessage(
         status: String,
         done: Long,
-        file: ExportedFile?,
+        result: ExportResult?,
         failure: String?,
     ): String = when (status) {
-        "completed" ->
-            "تم حفظ ${SyrianNumbers.formatCount(done)} رقماً في ملف ${file?.format?.label ?: ""}" +
-                (file?.displayName?.let { " — $it" } ?: "")
+        "completed" -> buildString {
+            append("تم حفظ ${SyrianNumbers.formatCount(done)} رقماً")
+            result?.files?.firstOrNull()?.let { append(" — ${it.displayName}") }
+            if ((result?.files?.size ?: 0) > 1) {
+                append(" مع manifest وchecksums (${result!!.files.size} ملفات).")
+            } else {
+                append(".")
+            }
+        }
         "canceled" ->
-            "تم إلغاء التوليد بعد كتابة ${SyrianNumbers.formatCount(done)} رقم. الملف الجزئي محفوظ في المكان الذي اخترته."
+            "تم إلغاء التوليد بعد كتابة ${SyrianNumbers.formatCount(done)} رقم. الملفات الجزئية محفوظة في المكان الذي اخترته."
         else -> "تعذر إنشاء الملف: ${failure ?: "خطأ غير معروف"}"
     }
 
@@ -852,9 +1400,9 @@ class OperationController(context: Context) {
         return uri.takeIf { !it.scheme.isNullOrBlank() }
     }
 
-    private fun parseCount(input: String): Int? =
+    private fun parseCount(input: String): Long? =
         SyrianNumbers.normalizeDigits(input)
-            .replace(",", "").replace("،", "").replace(" ", "").trim().toIntOrNull()
+            .replace(",", "").replace("،", "").replace(" ", "").trim().toLongOrNull()
 
     private fun progressState(
         kind: OperationKind,
@@ -919,6 +1467,5 @@ class OperationController(context: Context) {
         // showing 0 / N for a long time on slower devices.
         private const val CANDIDATE_BATCH = 250
         private const val DELETE_BATCH = 500
-        private const val FILE_STATS_BATCH = 100_000L
     }
 }
