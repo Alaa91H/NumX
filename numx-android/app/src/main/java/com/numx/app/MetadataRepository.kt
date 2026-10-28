@@ -23,9 +23,73 @@ data class EmergencyEntry(
      * strip the leading article when composing a display name.
      */
     val displayLabelAr: String
-        get() = labelAr.removePrefix("ال").ifBlank { labelAr }
+        get() = labelAr.split(' ').filter { it.isNotBlank() }.joinToString(" ") { word ->
+            val conjunction = if (word.startsWith("و")) "و" else ""
+            val core = if (conjunction.isEmpty()) word else word.substring(1)
+            conjunction + core.removePrefix("ال").ifBlank { core }
+        }
 
     val displayNameAr: String get() = "$displayLabelAr $countryAr — $number"
+
+    val isEmergency: Boolean
+        get() = category in EMERGENCY_CATEGORIES
+
+    val categoryLabelAr: String
+        get() = when (category) {
+            "GENERAL" -> "طوارئ عامة"
+            "POLICE" -> "شرطة"
+            "AMBULANCE" -> "إسعاف"
+            "FIRE" -> "إطفاء"
+            "DISPATCH" -> "عمليات"
+            "TRAFFIC" -> "مرور"
+            "FIRE_AMBULANCE" -> "إطفاء وإسعاف"
+            "GENDARMERIE" -> "درك"
+            "MARINE" -> "خفر سواحل"
+            "MOUNTAIN" -> "إنقاذ جبلي"
+            "MULTI" -> "خدمات متعددة"
+            "EMERGENCY" -> "طوارئ موسعة"
+            "TOLL_FREE" -> "مجاني"
+            "STANDARD_RATE" -> "سعر قياسي"
+            "CARRIER" -> "خدمة مشغّل"
+            "SHORT_CODE" -> "رمز قصير"
+            else -> "خدمة"
+        }
+
+    companion object {
+        val EMERGENCY_CATEGORIES = setOf(
+            "GENERAL",
+            "POLICE",
+            "AMBULANCE",
+            "FIRE",
+            "DISPATCH",
+            "TRAFFIC",
+            "FIRE_AMBULANCE",
+            "GENDARMERIE",
+            "MARINE",
+            "MOUNTAIN",
+            "MULTI",
+            "EMERGENCY",
+        )
+
+        val CATEGORY_ORDER = listOf(
+            "GENERAL",
+            "POLICE",
+            "AMBULANCE",
+            "FIRE",
+            "DISPATCH",
+            "TRAFFIC",
+            "FIRE_AMBULANCE",
+            "GENDARMERIE",
+            "MARINE",
+            "MOUNTAIN",
+            "MULTI",
+            "EMERGENCY",
+            "TOLL_FREE",
+            "STANDARD_RATE",
+            "CARRIER",
+            "SHORT_CODE",
+        )
+    }
 }
 
 data class SourceInfo(
@@ -38,8 +102,8 @@ data class SourceInfo(
 
 /**
  * Read-only access to the metadata shipped in the APK. Loading is deliberately
- * simple and synchronous on the IO dispatcher: the files are small and every
- * lookup must work with no network permission.
+ * simple and synchronous on the caller's IO dispatcher: the files are read
+ * once and every lookup must work with no network permission.
  */
 class MetadataRepository(private val context: Context) {
     private val countryList: List<Country> by lazy { loadCountries() }
@@ -47,7 +111,13 @@ class MetadataRepository(private val context: Context) {
     private val emergencyList: List<EmergencyEntry> by lazy { loadEmergency() }
     private val emergencyByIso: Map<String, List<EmergencyEntry>> by lazy {
         emergencyList.groupBy { it.iso2 }.mapValues { (_, entries) ->
-            entries.sortedWith(compareBy({ it.number.length }, { it.number }))
+            entries.sortedWith(
+                compareBy(
+                    { EmergencyEntry.CATEGORY_ORDER.indexOf(it.category).let { index -> if (index < 0) 99 else index } },
+                    { it.number.length },
+                    { it.number },
+                )
+            )
         }
     }
     private val geoOverlay: JSONObject by lazy {

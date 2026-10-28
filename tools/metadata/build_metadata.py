@@ -16,6 +16,7 @@ import argparse
 import hashlib
 import json
 import os
+import re
 import shutil
 import sys
 import tempfile
@@ -228,6 +229,62 @@ EMERGENCY_CURATED: Dict[str, Dict[str, Tuple[str, str]]] = {
         "17": ("الشرطة", "Police"),
         "14": ("الإسعاف والإطفاء", "Ambulance and fire"),
     },
+}
+
+# EmergencyNumberAPI publishes exact service numbers for police, ambulance,
+# fire, dispatch and traffic. It is community-maintained under the ODbL, so its
+# entries stay at the REFERENCE verification level, exactly like the
+# libphonenumber emergency data.
+API_SERVICES: Dict[str, Tuple[str, str, str]] = {
+    "Police": ("POLICE", "الشرطة", "Police"),
+    "Ambulance": ("AMBULANCE", "الإسعاف", "Ambulance"),
+    "Fire": ("FIRE", "الإطفاء", "Fire"),
+    "Dispatch": ("DISPATCH", "غرفة العمليات", "Dispatch"),
+    "Traffic": ("TRAFFIC", "المرور", "Traffic"),
+}
+
+# ShortNumberMetadata service categories. Premium-rate and SMS-service ranges
+# are deliberately excluded: they are not useful directory entries for a
+# citizen, resident or visitor, and many are commercial.
+SHORT_SERVICE_TAGS: Dict[str, Tuple[str, str, str]] = {
+    "expandedEmergency": ("EMERGENCY", "طوارئ إضافية", "Additional emergency"),
+    "tollFree": ("TOLL_FREE", "رقم مجاني", "Toll-free"),
+    "standardRate": ("STANDARD_RATE", "سعر قياسي", "Standard rate"),
+    "carrierSpecific": ("CARRIER", "خدمة مشغّل", "Carrier service"),
+    "shortCode": ("SHORT_CODE", "رمز خدمة قصير", "Short code"),
+}
+
+# Some upstream patterns describe millions of theoretical numbers (for example
+# Chinese standard-rate ranges). Enumerating those would make the asset unusable
+# and would not represent assigned service numbers. Emergency patterns are
+# tiny, so they are expanded exactly; service ranges keep a bounded, clearly
+# labelled sample plus the reference example number.
+SHORT_ENUMERATION_CAPS: Dict[str, int] = {
+    "emergency": 500,
+    "expandedEmergency": 200,
+    "tollFree": 50,
+    "standardRate": 50,
+    "carrierSpecific": 50,
+    "shortCode": 50,
+}
+
+CATEGORY_ORDER: Dict[str, int] = {
+    "GENERAL": 0,
+    "POLICE": 1,
+    "AMBULANCE": 2,
+    "FIRE": 3,
+    "DISPATCH": 4,
+    "TRAFFIC": 5,
+    "FIRE_AMBULANCE": 6,
+    "GENDARMERIE": 7,
+    "MARINE": 8,
+    "MOUNTAIN": 9,
+    "MULTI": 10,
+    "EMERGENCY": 11,
+    "TOLL_FREE": 12,
+    "STANDARD_RATE": 13,
+    "CARRIER": 14,
+    "SHORT_CODE": 15,
 }
 
 
@@ -514,41 +571,337 @@ def build_countries(territories: Dict[str, ET.Element], plans: Dict[str, Dict[st
 
 
 def build_emergency(short_territories: Dict[str, ET.Element], countries: Dict[str, dict]):
-    entries = []
+    """Build the offline emergency and service directory.
+
+    Three sources are merged per (country, number):
+
+    * ``emergency`` from ShortNumberMetadata, expanded exactly;
+    * police/ambulance/fire/dispatch/traffic numbers from EmergencyNumberAPI;
+    * useful service categories (expanded emergency, toll-free, standard-rate,
+      carrier-specific and short codes), capped when the upstream pattern
+      describes a very large theoretical range.
+
+    The cap is explicit and every affected entry carries a note telling the
+    user that the source contains a wider range. No number is invented: every
+    entry comes from one of the pinned upstream files.
+    """
+    records: Dict[Tuple[str, str], dict] = {}
+
+    def ensure(iso: str, number: str) -> dict:
+        key = (iso, number)
+        record = records.get(key)
+        if record is None:
+            record = {
+                "iso2": iso,
+                "number": number,
+                "curated": None,
+                "api_services": [],
+                "short_emergency": False,
+                "short_expanded": False,
+                "short_service": None,
+                "sources": set(),
+                "api_local_only": False,
+                "short_truncated": False,
+            }
+            records[key] = record
+        return record
+
     for iso, territory in sorted(short_territories.items()):
-        country = countries.get(iso)
-        if country is None:
+        if iso not in countries:
             continue
-        emergency = territory.find("emergency")
-        if emergency is None:
-            continue
-        pattern = emergency.findtext("nationalNumberPattern")
-        if not pattern:
-            continue
-        lengths = parse_lengths(emergency.find("possibleLengths"), range(1, 9))
-        # Expand the emergency pattern. It is intentionally tiny (usually a
-        # handful of alternatives), so a short bounded enumeration is exact.
-        numbers = expand_short_pattern(pattern, lengths, limit=32)
         curated = EMERGENCY_CURATED.get(iso, {})
-        for number in numbers:
-            ar_label, en_label = curated.get(number, ("طوارئ", "Emergency"))
-            entries.append(
-                {
-                    "iso2": iso,
-                    "number": number,
-                    "category": category_key(en_label),
-                    "labelAr": ar_label,
-                    "labelEn": en_label,
-                    "countryAr": country["nameAr"],
-                    "countryEn": country["nameEn"],
-                    "verification": "REFERENCE",
-                    "source": "libphonenumber ShortNumberMetadata " + METADATA_VERSION,
-                    "sourceUrl": "https://github.com/google/libphonenumber",
-                    "checkedAt": None,
-                    "noteAr": "بيانات مرجعية آلية، لم تُؤكد رسمياً من جهة وطنية.",
-                }
+
+        emergency = territory.find("emergency")
+        if emergency is not None:
+            numbers, _ = expand_short_pattern_capped(
+                emergency,
+                SHORT_ENUMERATION_CAPS["emergency"],
             )
+            for number in numbers:
+                record = ensure(iso, number)
+                record["short_emergency"] = True
+                record["sources"].add("short")
+                if number in curated:
+                    ar_label, en_label = curated[number]
+                    record["curated"] = (
+                        category_key(en_label),
+                        ar_label,
+                        en_label,
+                    )
+
+        for tag, service in SHORT_SERVICE_TAGS.items():
+            element = territory.find(tag)
+            if element is None:
+                continue
+            numbers, truncated = expand_short_pattern_capped(
+                element,
+                SHORT_ENUMERATION_CAPS[tag],
+            )
+            for number in numbers:
+                record = ensure(iso, number)
+                record["sources"].add("short")
+                record["short_truncated"] = record["short_truncated"] or truncated
+                if tag == "expandedEmergency":
+                    record["short_expanded"] = True
+                elif record["short_service"] is None:
+                    record["short_service"] = service
+
+    api_path = SOURCES / "EmergencyNumberAPI.json"
+    api = json.loads(api_path.read_text(encoding="utf-8"))
+    for item in api.get("data", []):
+        iso = item.get("Country", {}).get("ISOCode")
+        if not iso or iso not in countries:
+            continue
+        local_only = bool(item.get("LocalOnly"))
+        for service_name, service in API_SERVICES.items():
+            block = item.get(service_name) or {}
+            if not isinstance(block, dict):
+                continue
+            for values in block.values():
+                if not isinstance(values, list):
+                    continue
+                for raw in values:
+                    for number in clean_api_number(raw):
+                        record = ensure(iso, number)
+                        record["sources"].add("api")
+                        record["api_local_only"] = (
+                            record["api_local_only"] or local_only
+                        )
+                        if service not in record["api_services"]:
+                            record["api_services"].append(service)
+
+        # The dataset flags EU/EEA members where 112 is the common emergency
+        # number. Add it only when the other sources did not already list it.
+        if item.get("Member_112") and (iso, "112") not in records:
+            record = ensure(iso, "112")
+            record["sources"].add("api")
+            record["api_local_only"] = local_only
+            record["api_services"].append(
+                ("GENERAL", "طوارئ عامة", "General emergency")
+            )
+
+    entries = []
+    for (iso, number), record in sorted(records.items()):
+        country = countries[iso]
+        api_services = record["api_services"]
+        if record["curated"] is not None:
+            category, label_ar, label_en = record["curated"]
+        elif api_services:
+            if len(api_services) == 1:
+                category, label_ar, label_en = api_services[0]
+            else:
+                category = "MULTI"
+                label_ar = arabic_join([service[1] for service in api_services])
+                label_en = " / ".join(service[2] for service in api_services)
+        elif record["short_emergency"]:
+            category, label_ar, label_en = "GENERAL", "طوارئ", "Emergency"
+        elif record["short_expanded"]:
+            category, label_ar, label_en = SHORT_SERVICE_TAGS["expandedEmergency"]
+        elif record["short_service"] is not None:
+            category, label_ar, label_en = record["short_service"]
+        else:
+            continue
+
+        sources = record["sources"]
+        has_api = "api" in sources
+        has_short = "short" in sources
+        source = (
+            "libphonenumber ShortNumberMetadata "
+            + METADATA_VERSION
+            + " + EmergencyNumberAPI"
+            if has_api and has_short
+            else "EmergencyNumberAPI"
+            if has_api
+            else "libphonenumber ShortNumberMetadata " + METADATA_VERSION
+        )
+        source_url = (
+            "https://github.com/EmergencyNumbersAPI/data"
+            if has_api
+            else "https://github.com/google/libphonenumber"
+        )
+
+        if has_api and has_short:
+            note = (
+                "بيانات مرجعية من libphonenumber وEmergencyNumberAPI (ODbL)؛ "
+                "لم تُؤكد رسمياً. تحقق محلياً قبل الاستخدام."
+            )
+        elif has_api:
+            note = (
+                "بيانات مجتمعية من EmergencyNumberAPI بترخيص ODbL؛ "
+                "لم تُؤكد رسمياً. تحقق محلياً قبل الاستخدام."
+            )
+        elif category in {"GENERAL", "POLICE", "AMBULANCE", "FIRE", "DISPATCH",
+                          "TRAFFIC", "FIRE_AMBULANCE", "GENDARMERIE", "MARINE",
+                          "MOUNTAIN", "MULTI"}:
+            note = "بيانات مرجعية آلية، لم تُؤكد رسمياً من جهة وطنية."
+        elif category == "EMERGENCY":
+            note = "رقم طوارئ موسع من البيانات المرجعية؛ لم يُؤكد رسمياً."
+        elif category == "TOLL_FREE":
+            note = "رقم مجاني عادةً من الخطوط المحلية؛ قد تختلف الشروط."
+        elif category == "STANDARD_RATE":
+            note = "قد تُطبق تعرفة قياسية؛ تحقق من المشغّل."
+        elif category == "CARRIER":
+            note = "خدمة خاصة بمشغّل؛ قد يختلف الرقم بين المشغّلين."
+        else:
+            note = "رمز خدمة قصير؛ قد يختلف حسب المشغّل والخدمة."
+
+        if record["curated"] is not None and api_services:
+            services_ar = "، ".join(service[1] for service in api_services)
+            note = f"تشمل: {services_ar}. " + note
+        if record["api_local_only"] and has_api:
+            note += " قد يعمل محلياً فقط وفق المصدر."
+        if record["short_truncated"]:
+            note += (
+                " هذه قائمة مختارة من نطاق أوسع في المصدر؛ "
+                "راجع المصدر للقائمة الكاملة."
+            )
+
+        entries.append(
+            {
+                "iso2": iso,
+                "number": number,
+                "category": category,
+                "labelAr": label_ar,
+                "labelEn": label_en,
+                "countryAr": country["nameAr"],
+                "countryEn": country["nameEn"],
+                "verification": "REFERENCE",
+                "source": source,
+                "sourceUrl": source_url,
+                "checkedAt": None,
+                "noteAr": note,
+            }
+        )
+
+    entries.sort(
+        key=lambda entry: (
+            entry["iso2"],
+            CATEGORY_ORDER.get(entry["category"], 99),
+            len(entry["number"]),
+            entry["number"],
+        )
+    )
+    validate_emergency(entries, countries)
     return entries
+
+
+def clean_api_number(raw) -> List[str]:
+    """Return exact numbers from one EmergencyNumberAPI value.
+
+    The dataset mostly contains 2-8 digit strings, but a handful of records use
+    spaces, a unicode dash range, a compact suffix range or a prose note. Prose
+    is ignored; numeric ranges are expanded with a hard bound so one malformed
+    record cannot explode the asset.
+    """
+    if raw is None:
+        return []
+    value = str(raw).strip()
+    if not value:
+        return []
+    value = (
+        value.replace("\u2010", "-")
+        .replace("\u2011", "-")
+        .replace("\u2012", "-")
+        .replace("\u2013", "-")
+        .replace("\u2014", "-")
+    )
+    value = re.sub(r"\s+", "", value)
+    if not re.fullmatch(r"[0-9+\-]+", value):
+        return []
+    value = value.lstrip("+")
+    if re.fullmatch(r"[0-9]{2,15}", value):
+        return [value]
+    match = re.fullmatch(r"([0-9]+)-([0-9]+)", value)
+    if match is None:
+        return []
+    start, end = match.groups()
+    if len(end) < len(start):
+        end = start[: len(start) - len(end)] + end
+    try:
+        first, last = int(start), int(end)
+    except ValueError:
+        return []
+    if last < first or last - first > 500:
+        return []
+    width = len(start)
+    return [str(number).zfill(width) for number in range(first, last + 1)]
+
+
+def arabic_join(labels: Sequence[str]) -> str:
+    """Join Arabic service labels with the conjunction و.
+
+    The first term of an idafa is indefinite, so the definite article is
+    removed from every word, including words after the conjunction.
+    """
+    if len(labels) == 1:
+        return labels[0]
+
+    def indefinite(word: str) -> str:
+        conjunction = "و" if word.startswith("و") else ""
+        core = word[1:] if conjunction else word
+        return conjunction + (core[2:] if core.startswith("ال") else core)
+
+    parts = [
+        " ".join(indefinite(word) for word in label.split())
+        for label in labels
+    ]
+    return " و".join(parts)
+
+
+def expand_short_pattern_capped(
+    element: ET.Element,
+    cap: int,
+) -> Tuple[List[str], bool]:
+    """Expand a short-number pattern up to *cap* exact values.
+
+    Returns the values and whether the pattern contains more numbers than the
+    cap. The reference ``exampleNumber`` is always included first, so a capped
+    range still contains one documented assigned number.
+    """
+    from dfa import compile_pattern, count_by_length, enumerate_prefix
+
+    pattern = element.findtext("nationalNumberPattern")
+    if not pattern:
+        return [], False
+    lengths = parse_lengths(element.find("possibleLengths"), range(1, 9))
+    dfa = compile_pattern(pattern, min(lengths), max(lengths))
+    total = sum(count_by_length(dfa, length) for length in lengths)
+    # Enumerate a little beyond the cap because length filtering can discard
+    # values, then keep the first *cap* accepted values in numeric order.
+    values = enumerate_prefix(dfa, "", max(cap * 4, cap + 100))
+    allowed = set(lengths)
+    result = [value for value in values if len(value) in allowed][:cap]
+    example = (element.findtext("exampleNumber") or "").strip()
+    if example and example not in result:
+        result.insert(0, example)
+        result = result[:cap]
+    return result, total > cap
+
+
+def validate_emergency(entries: List[dict], countries: Dict[str, dict]) -> None:
+    valid_categories = set(CATEGORY_ORDER)
+    seen = set()
+    for entry in entries:
+        key = (entry["iso2"], entry["number"])
+        if key in seen:
+            raise SystemExit(f"duplicate emergency entry: {key}")
+        seen.add(key)
+        if entry["iso2"] not in countries:
+            raise SystemExit(f"emergency entry has unknown country: {entry['iso2']}")
+        if not re.fullmatch(r"[0-9]{2,15}", entry["number"]):
+            raise SystemExit(f"invalid emergency number: {key}")
+        if entry["category"] not in valid_categories:
+            raise SystemExit(f"invalid emergency category: {entry['category']}")
+        if not entry["labelAr"] or not entry["labelEn"]:
+            raise SystemExit(f"emergency entry has no label: {key}")
+        if entry["verification"] != "REFERENCE":
+            raise SystemExit(f"emergency entry is not REFERENCE: {key}")
+        if not entry["source"]:
+            raise SystemExit(f"emergency entry has no source: {key}")
+    if len(entries) < 1000:
+        raise SystemExit(f"emergency directory is unexpectedly small: {len(entries)}")
+    if len({entry["iso2"] for entry in entries}) < 200:
+        raise SystemExit("emergency directory covers fewer than 200 territories")
 
 
 def category_key(label: str) -> str:
@@ -639,10 +992,17 @@ def generate(target: Path) -> None:
         )
 
     write_json(target / "countries.json", {"version": PLAN_VERSION, "countries": countries})
+    emergency_entries = build_emergency(short_territories, countries_by_iso)
     write_json(target / "emergency.json", {
         "version": PLAN_VERSION,
-        "generatedFrom": "libphonenumber ShortNumberMetadata " + METADATA_VERSION,
-        "entries": build_emergency(short_territories, countries_by_iso),
+        "generatedFrom": (
+            "libphonenumber ShortNumberMetadata "
+            + METADATA_VERSION
+            + " + EmergencyNumberAPI"
+        ),
+        "count": len(emergency_entries),
+        "countryCount": len({entry["iso2"] for entry in emergency_entries}),
+        "entries": emergency_entries,
     })
 
     overlays = {
@@ -676,6 +1036,7 @@ def generate(target: Path) -> None:
         "notes": [
             "libphonenumber metadata is licensed under Apache-2.0.",
             "Geocoder and carrier data are shipped inside the libphonenumber Android libraries.",
+            "Emergency entries merge libphonenumber ShortNumberMetadata with EmergencyNumberAPI (ODbL 1.0).",
             "Emergency entries are machine-readable reference data, not official verification.",
             "Arabic geographic names come from a curated NumX overlay; original English descriptions are shown when no curated name exists.",
         ],

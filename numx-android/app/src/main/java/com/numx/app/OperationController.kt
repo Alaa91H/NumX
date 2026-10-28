@@ -37,7 +37,7 @@ data class OperationState(
 }
 
 data class UiState(
-    val startInput: String = "0930000000",
+    val startInput: String = "",
     val countInput: String = "1000",
     val stats: Stats = Stats(),
     val operation: OperationState = OperationState(),
@@ -49,18 +49,19 @@ data class UiState(
     val storage: ContactStorageInfo = ContactStorageInfo.UNKNOWN,
     val cloudStorageAllowed: Boolean = false,
     val countries: List<Country> = emptyList(),
-    val selectedIso: String = "SY",
+    val selectedIso: String = "",
     val lineType: LineType = LineType.MOBILE,
     val startNsn: String? = null,
     val startValid: Boolean = false,
     val availableFromStart: Long? = null,
-    val emergencyIso: String = "SY",
+    val emergencyIso: String = "",
     val lookupInput: String = "",
-    val lookupIso: String = "SY",
+    val lookupIso: String = "",
     val lookupResult: LookupResult? = null,
     val lookupError: String? = null,
     val lookupRunning: Boolean = false,
     val emergencyEntries: List<EmergencyEntry> = emptyList(),
+    val emergencyLoading: Boolean = false,
     val emergencyTotal: Int = 0,
     val emergencyCountries: Int = 0,
     val sources: List<SourceInfo> = emptyList(),
@@ -106,28 +107,13 @@ class OperationController(context: Context) {
             val sources = runCatching { metadata.sources() }.getOrDefault(emptyList())
             val emergencyTotal = runCatching { metadata.emergencyCount() }.getOrDefault(0)
             val emergencyCountries = runCatching { metadata.emergencyCountryCount() }.getOrDefault(0)
-            val default = countries.firstOrNull { it.iso2 == "SY" } ?: countries.firstOrNull()
             _state.update {
                 it.copy(
                     countries = countries,
                     sources = sources,
                     emergencyTotal = emergencyTotal,
                     emergencyCountries = emergencyCountries,
-                    selectedIso = default?.iso2 ?: it.selectedIso,
-                    emergencyIso = default?.iso2 ?: it.emergencyIso,
-                    emergencyEntries = default?.let { country ->
-                        runCatching { metadata.emergency(country.iso2) }.getOrDefault(emptyList())
-                    } ?: it.emergencyEntries,
-                    lookupIso = default?.iso2 ?: it.lookupIso,
                 )
-            }
-            default?.let { country ->
-                val type = when {
-                    country.hasMobile -> LineType.MOBILE
-                    country.hasFixed -> LineType.FIXED
-                    else -> LineType.MOBILE
-                }
-                applySelection(country, type, resetStart = false)
             }
         }
         refreshStorageInfo()
@@ -195,7 +181,11 @@ class OperationController(context: Context) {
 
     fun setLineType(type: LineType) {
         if (_state.value.operation.isRunning) return
-        val country = _state.value.selectedCountry ?: return
+        val country = _state.value.selectedCountry
+        if (country == null) {
+            _state.update { it.copy(message = "اختر دولة أولاً لعرض أنواع الخطوط المتاحة.") }
+            return
+        }
         if (!country.supports(type)) {
             _state.update {
                 it.copy(message = "هذه الدولة لا تدعم النوع المختار. ${country.nameAr} ${country.support.labelAr}.")
@@ -239,7 +229,11 @@ class OperationController(context: Context) {
     /** Selects the complete allocated range for the selected country and type. */
     fun selectFullCountry(format: ExportFormat) {
         if (_state.value.operation.isRunning) return
-        val country = _state.value.selectedCountry ?: return
+        val country = _state.value.selectedCountry
+        if (country == null) {
+            _state.update { it.copy(message = "اختر دولة أولاً.") }
+            return
+        }
         val type = _state.value.lineType
         if (!country.supports(type)) {
             _state.update { it.copy(message = "النطاق الكامل غير متاح لهذه الدولة أو النوع.") }
@@ -294,7 +288,11 @@ class OperationController(context: Context) {
             _state.update { it.copy(message = "وضع الملف يكتب إلى الملف الذي تختاره، ولا يحفظ في جهات الاتصال.") }
             return
         }
-        val country = current.selectedCountry ?: return
+        val country = current.selectedCountry
+        if (country == null) {
+            _state.update { it.copy(message = "اختر دولة أولاً قبل بدء التوليد.") }
+            return
+        }
         val type = current.lineType
         if (!country.supports(type) || current.startNsn == null) {
             _state.update { it.copy(message = invalidStartMessage(country, type)) }
@@ -1148,7 +1146,7 @@ class OperationController(context: Context) {
     }
 
     fun setLookupCountry(iso2: String) {
-        if (_state.value.countries.none { it.iso2 == iso2 }) return
+        if (iso2.isNotBlank() && _state.value.countries.none { it.iso2 == iso2 }) return
         _state.update { it.copy(lookupIso = iso2, lookupResult = null, lookupError = null) }
     }
 
@@ -1162,7 +1160,12 @@ class OperationController(context: Context) {
         _state.update { it.copy(lookupRunning = true, lookupError = null) }
         scope.launch {
             val result = withContext(Dispatchers.Default) {
-                runCatching { lookupEngine.lookup(current.lookupInput, current.lookupIso) }
+                runCatching {
+                    lookupEngine.lookup(
+                        current.lookupInput,
+                        current.lookupIso.takeIf { it.isNotBlank() },
+                    )
+                }
                     .getOrElse { error ->
                         LookupResult(
                             input = current.lookupInput,
@@ -1201,8 +1204,28 @@ class OperationController(context: Context) {
 
     fun setEmergencyCountry(iso2: String) {
         if (_state.value.countries.none { it.iso2 == iso2 }) return
-        val entries = runCatching { metadata.emergency(iso2) }.getOrDefault(emptyList())
-        _state.update { it.copy(emergencyIso = iso2, emergencyEntries = entries) }
+        _state.update {
+            it.copy(
+                emergencyIso = iso2,
+                emergencyEntries = emptyList(),
+                emergencyLoading = true,
+            )
+        }
+        scope.launch {
+            val entries = runCatching { metadata.emergency(iso2) }.getOrDefault(emptyList())
+            _state.update { current ->
+                // Ignore a late result if the user picked another country while
+                // the directory was loading.
+                if (current.emergencyIso != iso2) {
+                    current
+                } else {
+                    current.copy(
+                        emergencyEntries = entries,
+                        emergencyLoading = false,
+                    )
+                }
+            }
+        }
     }
 
     /**

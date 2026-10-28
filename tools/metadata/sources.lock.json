@@ -15,6 +15,13 @@
       "sha256": "11071b42d43f9ea0bab99a77cd7bf48b302bd28223b754e2ad6ae28ac3f371b9",
       "license": "Apache-2.0",
       "licenseUrl": "https://github.com/google/libphonenumber/blob/master/LICENSE"
+    },
+    "EmergencyNumberAPI.json": {
+      "version": "2850bd9",
+      "url": "https://raw.githubusercontent.com/EmergencyNumbersAPI/data/2850bd9c6d488eda6b34599fda8f701e9d362f56/data.json",
+      "sha256": "2dc032a0e51567907f37f7ad11bf007ae6289ffa1403d7cac10f89389e029777",
+      "license": "ODbL-1.0",
+      "licenseUrl": "https://opendatacommons.org/licenses/odbl/1.0/"
     }
   }
 }

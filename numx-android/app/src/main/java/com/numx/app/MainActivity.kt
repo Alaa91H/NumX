@@ -14,6 +14,16 @@ import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.animateColorAsState
+import androidx.compose.animation.animateContentSize
+import androidx.compose.animation.core.Spring
+import androidx.compose.animation.core.animateFloatAsState
+import androidx.compose.animation.core.spring
+import androidx.compose.animation.expandVertically
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
+import androidx.compose.animation.shrinkVertically
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.horizontalScroll
@@ -33,6 +43,8 @@ import androidx.compose.foundation.layout.safeDrawingPadding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.relocation.BringIntoViewRequester
+import androidx.compose.foundation.relocation.bringIntoViewRequester
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.text.selection.SelectionContainer
@@ -69,11 +81,8 @@ import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.NavigationBar
-import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedTextField
-import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
@@ -91,6 +100,7 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalContext
@@ -108,6 +118,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.viewmodel.compose.viewModel
 import java.util.Locale
+import kotlinx.coroutines.delay
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -204,27 +215,44 @@ private fun NumXTheme(content: @Composable () -> Unit) {
     }
 }
 
-private enum class AppTab { GENERATE, LOOKUP, EMERGENCY, STATS }
+private enum class AppSection(
+    val title: String,
+    val subtitle: String,
+    val icon: ImageVector,
+) {
+    GENERATE("توليد الأرقام", "خطط الترقيم والتصدير", Icons.Default.Phone),
+    LOOKUP("بحث دون اتصال", "تحقق من رقم ونوع الخط", Icons.Default.Search),
+    EMERGENCY("الطوارئ والخدمات", "أرقام مرجعية لكل دولة", Icons.Default.LocalHospital),
+    STATS("الإحصائيات والإدارة", "المضاف والمصادر والتصدير", Icons.Default.BarChart),
+}
+
+private enum class EmergencyFilter(val labelAr: String) {
+    ALL("الكل"),
+    EMERGENCY("طوارئ"),
+    POLICE("شرطة"),
+    AMBULANCE("إسعاف"),
+    FIRE("إطفاء"),
+    TRAFFIC("مرور"),
+    SERVICES("خدمات"),
+}
+
+private fun EmergencyFilter.matches(entry: EmergencyEntry): Boolean = when (this) {
+    EmergencyFilter.ALL -> true
+    EmergencyFilter.EMERGENCY -> entry.isEmergency
+    EmergencyFilter.POLICE -> entry.category == "POLICE"
+    EmergencyFilter.AMBULANCE -> entry.category == "AMBULANCE" ||
+        entry.category == "FIRE_AMBULANCE"
+    EmergencyFilter.FIRE -> entry.category == "FIRE" ||
+        entry.category == "FIRE_AMBULANCE"
+    EmergencyFilter.TRAFFIC -> entry.category == "TRAFFIC"
+    EmergencyFilter.SERVICES -> !entry.isEmergency
+}
 
 private enum class SingleAction { GENERATE_RANGE, EXPORT_ADDED }
 
 private enum class DirectoryAction { GENERATE_RANGE, EXPORT_ADDED }
 
 private enum class CountryPickerTarget { GENERATE, LOOKUP, EMERGENCY }
-
-private fun tabLabel(tab: AppTab): String = when (tab) {
-    AppTab.GENERATE -> "توليد"
-    AppTab.LOOKUP -> "بحث"
-    AppTab.EMERGENCY -> "طوارئ"
-    AppTab.STATS -> "إحصاء"
-}
-
-private fun tabIcon(tab: AppTab): ImageVector = when (tab) {
-    AppTab.GENERATE -> Icons.Default.Phone
-    AppTab.LOOKUP -> Icons.Default.Search
-    AppTab.EMERGENCY -> Icons.Default.LocalHospital
-    AppTab.STATS -> Icons.Default.BarChart
-}
 
 private fun hasContactsPermissions(context: Context): Boolean =
     ContextCompat.checkSelfPermission(context, Manifest.permission.READ_CONTACTS) ==
@@ -282,8 +310,16 @@ fun AppScreen(vm: AppViewModel = viewModel()) {
     var contactsGranted by remember { mutableStateOf(hasContactsPermissions(context)) }
     var notificationsGranted by remember { mutableStateOf(hasNotificationPermission(context)) }
     var autoRequested by rememberSaveable { mutableStateOf(false) }
-    var tabName by rememberSaveable { mutableStateOf(AppTab.GENERATE.name) }
-    val tab = AppTab.entries.firstOrNull { it.name == tabName } ?: AppTab.GENERATE
+    var openSectionName by rememberSaveable { mutableStateOf(AppSection.GENERATE.name) }
+    val openSection = AppSection.entries.firstOrNull { it.name == openSectionName }
+        ?: AppSection.GENERATE
+    var emergencyQuery by rememberSaveable { mutableStateOf("") }
+    var emergencyFilterName by rememberSaveable {
+        mutableStateOf(EmergencyFilter.ALL.name)
+    }
+    val emergencyFilter = EmergencyFilter.entries.firstOrNull {
+        it.name == emergencyFilterName
+    } ?: EmergencyFilter.ALL
 
     var pickerTarget by remember { mutableStateOf<CountryPickerTarget?>(null) }
     var showDeleteDialog by remember { mutableStateOf(false) }
@@ -345,6 +381,16 @@ fun AppScreen(vm: AppViewModel = viewModel()) {
         }
     }
 
+    // Top messages are informational. They disappear after five seconds so the
+    // single-screen layout never accumulates stale status cards. A new message
+    // restarts the timer because the effect is keyed on the text.
+    LaunchedEffect(state.message) {
+        if (state.message.isNotBlank()) {
+            delay(5_000)
+            vm.setMessage("")
+        }
+    }
+
     val activity = context as? ComponentActivity
     DisposableEffect(activity) {
         val observer = LifecycleEventObserver { _, event ->
@@ -403,7 +449,7 @@ fun AppScreen(vm: AppViewModel = viewModel()) {
 
     fun startChosenMode() {
         if (country == null || !supported) {
-            vm.setMessage("هذه الدولة أو نوع الخط غير مدعوم للتوليد.")
+            vm.setMessage("اختر دولة مدعومة أولاً.")
             return
         }
         if (!state.startValid) {
@@ -447,7 +493,7 @@ fun AppScreen(vm: AppViewModel = viewModel()) {
 
     fun startSplitMode() {
         if (country == null || !supported) {
-            vm.setMessage("هذه الدولة أو نوع الخط غير مدعوم للتوليد.")
+            vm.setMessage("اختر دولة مدعومة أولاً.")
             return
         }
         if (!state.startValid) {
@@ -490,7 +536,7 @@ fun AppScreen(vm: AppViewModel = viewModel()) {
     fun addSelectedEmergency() {
         val entries = state.emergencyEntries.filter { emergencyKey(it) in selectedEmergency }
         if (entries.isEmpty()) {
-            vm.setMessage("اختر جهة طوارئ واحدة على الأقل.")
+            vm.setMessage("اختر جهة طوارئ أو خدمة واحدة على الأقل.")
             return
         }
         requestPermissionsThen {
@@ -499,128 +545,131 @@ fun AppScreen(vm: AppViewModel = viewModel()) {
         }
     }
 
-    Scaffold(
-        bottomBar = {
-            NavigationBar {
-                AppTab.entries.forEach { item ->
-                    NavigationBarItem(
-                        selected = tab == item,
-                        onClick = { tabName = item.name },
-                        icon = { Icon(tabIcon(item), contentDescription = null) },
-                        label = { Text(tabLabel(item)) },
-                    )
-                }
-            }
-        },
-    ) { padding ->
-        Column(Modifier.fillMaxSize().padding(padding)) {
+    Column(Modifier.fillMaxSize().safeDrawingPadding().imePadding()) {
+        AppHeader()
+        if (state.message.isNotBlank()) {
+            MessageCard(
+                message = state.message,
+                onDismiss = { vm.setMessage("") },
+                modifier = Modifier.padding(horizontal = 16.dp, vertical = 6.dp),
+            )
+        }
+        Column(
+            modifier = Modifier
+                .weight(1f)
+                .verticalScroll(rememberScrollState())
+                .padding(horizontal = 16.dp, vertical = 8.dp),
+            verticalArrangement = Arrangement.spacedBy(12.dp),
+        ) {
             if (running) {
-                OperationProgressCard(
-                    operation = state.operation,
-                    modifier = Modifier.padding(horizontal = 12.dp, vertical = 8.dp),
-                )
+                OperationProgressCard(operation = state.operation)
             }
-            if (state.message.isNotBlank()) {
-                MessageCard(
-                    message = state.message,
-                    onDismiss = { vm.setMessage("") },
-                    modifier = Modifier.padding(horizontal = 12.dp, vertical = 6.dp),
-                )
-            }
-            Box(Modifier.weight(1f)) {
-                when (tab) {
-                    AppTab.GENERATE -> GenerateTab(
-                        state = state,
-                        running = running,
-                        countValue = countValue,
-                        fileMode = fileMode,
-                        format = format,
-                        requiresSplit = requiresSplit,
-                        contactsTooLarge = contactsTooLarge,
-                        countAboveAvailable = countAboveAvailable,
-                        contactsGranted = contactsGranted,
-                        notificationsGranted = notificationsGranted,
-                        onRequestPermissions = {
-                            val missing = missingPermissions(context)
-                            if (missing.isNotEmpty()) permissionLauncher.launch(missing)
-                        },
-                        onOpenSettings = { openAppSettings(context) },
-                        onPickCountry = { pickerTarget = CountryPickerTarget.GENERATE },
-                        onSetLineType = vm::setLineType,
-                        onSetMode = vm::setGenerationMode,
-                        onSetFormat = vm::setExportFormat,
-                        onStartInputChange = vm::updateStart,
-                        onCountInputChange = vm::updateCount,
-                        onSetCount = vm::setCount,
-                        onStart = { startChosenMode() },
-                        onSplit = { startSplitMode() },
-                        onCancel = vm::cancel,
-                        onFullCountry = {
-                            if (country != null && supported) {
-                                showFullCountryDialog = true
-                            } else {
-                                vm.setMessage("هذه الدولة أو نوع الخط غير مدعوم للتوليد.")
-                            }
-                        },
-                        onExportAddedSingle = { exportAdded(single = true) },
-                        onExportAddedSplit = { exportAdded(single = false) },
-                        onShare = vm::shareLastExport,
-                        onOpenContacts = { openContactsApp(context) },
-                        onAllowCloud = { vm.setCloudStorageAllowed(true) },
-                        onDisallowCloud = { vm.setCloudStorageAllowed(false) },
-                    )
-                    AppTab.LOOKUP -> LookupTab(
-                        state = state,
-                        onPickCountry = { pickerTarget = CountryPickerTarget.LOOKUP },
-                        onInputChange = vm::setLookupInput,
-                        onLookup = vm::lookup,
-                    )
-                    AppTab.EMERGENCY -> EmergencyTab(
-                        state = state,
-                        running = running,
-                        selected = selectedEmergency,
-                        onPickCountry = { pickerTarget = CountryPickerTarget.EMERGENCY },
-                        onToggle = { key ->
-                            selectedEmergency = if (key in selectedEmergency) {
-                                selectedEmergency - key
-                            } else {
-                                selectedEmergency + key
-                            }
-                        },
-                        onSelectAll = {
-                            selectedEmergency = state.emergencyEntries
-                                .map(::emergencyKey)
-                                .toSet()
-                        },
-                        onClearSelection = { selectedEmergency = emptySet() },
-                        onAdd = { addSelectedEmergency() },
-                    )
-                    AppTab.STATS -> StatsTab(
-                        state = state,
-                        running = running,
-                        addedTotal = addedTotal,
-                        contactsGranted = contactsGranted,
-                        notificationsGranted = notificationsGranted,
-                        onRequestPermissions = {
-                            val missing = missingPermissions(context)
-                            if (missing.isNotEmpty()) permissionLauncher.launch(missing)
-                        },
-                        onOpenSettings = { openAppSettings(context) },
-                        onRestore = {
-                            requestPermissionsThen { vm.restoreFromContacts() }
-                        },
-                        onDeleteRequest = {
-                            if (addedTotal > 0) showDeleteDialog = true
-                            else vm.setMessage("لا توجد أرقام مضافة للحذف.")
-                        },
-                        onResetRequest = { showResetDialog = true },
-                        onSetFormat = vm::setExportFormat,
-                        onExportAddedSingle = { exportAdded(single = true) },
-                        onExportAddedSplit = { exportAdded(single = false) },
-                        onShare = vm::shareLastExport,
-                    )
+            PermissionBanner(
+                contactsGranted = contactsGranted,
+                notificationsGranted = notificationsGranted,
+                onRequestPermissions = {
+                    val missing = missingPermissions(context)
+                    if (missing.isNotEmpty()) permissionLauncher.launch(missing)
+                },
+                onOpenSettings = { openAppSettings(context) },
+            )
+            FormatSelector(
+                format = format,
+                enabled = !running,
+                onSetFormat = vm::setExportFormat,
+            )
+            AppSection.entries.forEach { section ->
+                AccordionSection(
+                    section = section,
+                    open = openSection == section,
+                    summary = sectionSummary(section, state, addedTotal),
+                    onClick = { openSectionName = section.name },
+                ) {
+                    when (section) {
+                        AppSection.GENERATE -> GenerateSection(
+                            state = state,
+                            running = running,
+                            countValue = countValue,
+                            fileMode = fileMode,
+                            format = format,
+                            requiresSplit = requiresSplit,
+                            contactsTooLarge = contactsTooLarge,
+                            countAboveAvailable = countAboveAvailable,
+                            onPickCountry = { pickerTarget = CountryPickerTarget.GENERATE },
+                            onSetLineType = vm::setLineType,
+                            onSetMode = vm::setGenerationMode,
+                            onStartInputChange = vm::updateStart,
+                            onCountInputChange = vm::updateCount,
+                            onSetCount = vm::setCount,
+                            onStart = { startChosenMode() },
+                            onSplit = { startSplitMode() },
+                            onCancel = vm::cancel,
+                            onFullCountry = {
+                                if (country != null && supported) {
+                                    showFullCountryDialog = true
+                                } else {
+                                    vm.setMessage("اختر دولة مدعومة أولاً.")
+                                }
+                            },
+                            onOpenContacts = { openContactsApp(context) },
+                            onAllowCloud = { vm.setCloudStorageAllowed(true) },
+                            onDisallowCloud = { vm.setCloudStorageAllowed(false) },
+                        )
+                        AppSection.LOOKUP -> LookupSection(
+                            state = state,
+                            onPickCountry = { pickerTarget = CountryPickerTarget.LOOKUP },
+                            onClearCountry = { vm.setLookupCountry("") },
+                            onInputChange = vm::setLookupInput,
+                            onLookup = vm::lookup,
+                        )
+                        AppSection.EMERGENCY -> EmergencySection(
+                            state = state,
+                            running = running,
+                            selected = selectedEmergency,
+                            query = emergencyQuery,
+                            filter = emergencyFilter,
+                            onQueryChange = { emergencyQuery = it },
+                            onFilterChange = { emergencyFilterName = it.name },
+                            onPickCountry = { pickerTarget = CountryPickerTarget.EMERGENCY },
+                            onToggle = { key ->
+                                selectedEmergency = if (key in selectedEmergency) {
+                                    selectedEmergency - key
+                                } else {
+                                    selectedEmergency + key
+                                }
+                            },
+                            onSelectAll = { keys ->
+                                selectedEmergency = selectedEmergency + keys
+                            },
+                            onClearSelection = { selectedEmergency = emptySet() },
+                            onAdd = { addSelectedEmergency() },
+                        )
+                        AppSection.STATS -> StatsSection(
+                            state = state,
+                            running = running,
+                            addedTotal = addedTotal,
+                            onRestore = {
+                                requestPermissionsThen { vm.restoreFromContacts() }
+                            },
+                            onDeleteRequest = {
+                                if (addedTotal > 0) showDeleteDialog = true
+                                else vm.setMessage("لا توجد أرقام مضافة للحذف.")
+                            },
+                            onResetRequest = { showResetDialog = true },
+                            onExportAddedSingle = { exportAdded(single = true) },
+                            onExportAddedSplit = { exportAdded(single = false) },
+                        )
+                    }
                 }
             }
+            if (state.lastExport.isNotEmpty()) {
+                LastExportCard(
+                    files = state.lastExport,
+                    label = state.lastExportLabel,
+                    onShare = vm::shareLastExport,
+                )
+            }
+            AppFooter()
         }
     }
 
@@ -635,7 +684,7 @@ fun AppScreen(vm: AppViewModel = viewModel()) {
             title = when (picker) {
                 CountryPickerTarget.GENERATE -> "اختيار دولة التوليد"
                 CountryPickerTarget.LOOKUP -> "دولة سياق البحث"
-                CountryPickerTarget.EMERGENCY -> "دولة أرقام الطوارئ"
+                CountryPickerTarget.EMERGENCY -> "دولة أرقام الطوارئ والخدمات"
             },
             countries = state.countries,
             selectedIso = selectedIso,
@@ -658,7 +707,7 @@ fun AppScreen(vm: AppViewModel = viewModel()) {
             text = {
                 Text(
                     "سيتم حذف ${SyrianNumbers.formatCount(state.stats.addedCount)} جهة اتصال مولّدة " +
-                        "و${SyrianNumbers.formatCount(state.stats.emergencyAdded)} جهة طوارئ أضافها التطبيق فقط. " +
+                        "و${SyrianNumbers.formatCount(state.stats.emergencyAdded)} جهة طوارئ أو خدمة أضافها التطبيق فقط. " +
                         "لن تُحذف جهات الاتصال الأخرى. هل تريد المتابعة؟"
                 )
             },
@@ -750,7 +799,7 @@ fun AppScreen(vm: AppViewModel = viewModel()) {
 }
 
 @Composable
-private fun GenerateTab(
+private fun GenerateSection(
     state: UiState,
     running: Boolean,
     countValue: Long,
@@ -759,14 +808,9 @@ private fun GenerateTab(
     requiresSplit: Boolean,
     contactsTooLarge: Boolean,
     countAboveAvailable: Boolean,
-    contactsGranted: Boolean,
-    notificationsGranted: Boolean,
-    onRequestPermissions: () -> Unit,
-    onOpenSettings: () -> Unit,
     onPickCountry: () -> Unit,
     onSetLineType: (LineType) -> Unit,
     onSetMode: (GenerationMode) -> Unit,
-    onSetFormat: (ExportFormat) -> Unit,
     onStartInputChange: (String) -> Unit,
     onCountInputChange: (String) -> Unit,
     onSetCount: (Long) -> Unit,
@@ -774,9 +818,6 @@ private fun GenerateTab(
     onSplit: () -> Unit,
     onCancel: () -> Unit,
     onFullCountry: () -> Unit,
-    onExportAddedSingle: () -> Unit,
-    onExportAddedSplit: () -> Unit,
-    onShare: () -> Unit,
     onOpenContacts: () -> Unit,
     onAllowCloud: () -> Unit,
     onDisallowCloud: () -> Unit,
@@ -786,522 +827,450 @@ private fun GenerateTab(
     val supported = country != null && country.supports(type)
     val canGenerate = supported && !running
     val example = country?.exampleFor(type)?.let { country.toLocalDisplay(it) }
+    val loading = state.countries.isEmpty()
 
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .verticalScroll(rememberScrollState())
-            .padding(16.dp),
-        verticalArrangement = Arrangement.spacedBy(12.dp),
-    ) {
-        Text(
-            text = "NumX",
-            style = MaterialTheme.typography.headlineLarge,
-            fontWeight = FontWeight.Bold,
-            color = MaterialTheme.colorScheme.primary,
-        )
-        Text(
-            text = "توليد أرقام عالمية — خليوي وأرضي",
-            style = MaterialTheme.typography.titleMedium,
-        )
-        Text(
-            text = "252 دولة وإقليم مع خطط ترقيم دقيقة، وأسماء محايدة N-<E.164>، وتصدير مقسم مع تحقق SHA-256.",
-            style = MaterialTheme.typography.bodySmall,
-            color = MaterialTheme.colorScheme.onSurfaceVariant,
-        )
+    CountrySelectorCard(
+        country = country,
+        enabled = !running && !loading,
+        loading = loading,
+        placeholder = "اختر دولة للتوليد",
+        onClick = onPickCountry,
+    )
 
-        PermissionBanner(
-            contactsGranted = contactsGranted,
-            notificationsGranted = notificationsGranted,
-            onRequestPermissions = onRequestPermissions,
-            onOpenSettings = onOpenSettings,
-        )
-
-        SectionCard("الدولة والنطاق") {
-            CountrySelectorCard(
-                country = country,
-                enabled = !running,
-                onClick = onPickCountry,
-            )
-            if (country == null) {
-                Text(
-                    "جارٍ تحميل بيانات الدول من الحزمة المدمجة...",
-                    style = MaterialTheme.typography.bodySmall,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                )
+    if (country == null) {
+        NeutralNotice(
+            title = if (loading) "جارٍ تحميل بيانات الدول..." else "لم تُحدد دولة بعد",
+            text = if (loading) {
+                "تُقرأ خطط الترقيم من الحزمة المدمجة."
             } else {
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.SpaceBetween,
-                    verticalAlignment = Alignment.CenterVertically,
-                ) {
-                    Column(Modifier.weight(1f)) {
-                        Text(
-                            country.nameEn,
-                            style = MaterialTheme.typography.bodySmall,
-                            color = MaterialTheme.colorScheme.onSurfaceVariant,
-                        )
-                        Text(
-                            "ISO ${country.iso2} • +${country.callingCode} • ${country.support.labelAr}",
-                            style = MaterialTheme.typography.bodySmall,
-                            color = MaterialTheme.colorScheme.onSurfaceVariant,
-                        )
-                    }
-                    SupportBadge(country.support)
-                }
-                if (country.support == SupportTier.UNAVAILABLE) {
-                    Card(
-                        colors = CardDefaults.cardColors(
-                            containerColor = MaterialTheme.colorScheme.errorContainer,
-                        )
-                    ) {
-                        Column(
-                            Modifier.padding(12.dp),
-                            verticalArrangement = Arrangement.spacedBy(4.dp),
-                        ) {
-                            Text(
-                                "لا تتوفر خطة ترقيم قابلة للتوليد لهذه الدولة.",
-                                fontWeight = FontWeight.SemiBold,
-                                color = MaterialTheme.colorScheme.onErrorContainer,
-                            )
-                            Text(
-                                "الدولة موجودة في القائمة مع رمزها ورمز اتصالها، لكن البيانات المرجعية " +
-                                    "لا تتضمن نطاقات خليوية أو أرضية صالحة. لن يخترع التطبيق أرقاماً.",
-                                style = MaterialTheme.typography.bodySmall,
-                                color = MaterialTheme.colorScheme.onErrorContainer,
-                            )
-                        }
-                    }
-                } else {
-                    Text(
-                        "أطوال الأرقام: ${country.lengthsFor(type).joinToString(" / ") { "$it" }} رقم",
-                        style = MaterialTheme.typography.bodySmall,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant,
-                    )
-                    Text(
-                        "المتاح من البداية: ${SyrianNumbers.formatCount(state.availableFromStart ?: 0)} رقم " +
-                            "من إجمالي ${SyrianNumbers.formatCount(country.countFor(type))}.",
-                        style = MaterialTheme.typography.bodySmall,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant,
-                    )
-                    example?.let {
-                        Text(
-                            "مثال محلي: $it • دولي: +${country.callingCode}${country.exampleFor(type).orEmpty()}",
-                            style = MaterialTheme.typography.bodySmall,
-                            color = MaterialTheme.colorScheme.onSurfaceVariant,
-                        )
-                    }
-                }
-            }
-        }
-
-        SectionCard("نوع الخط") {
-            Row(
-                modifier = Modifier.fillMaxWidth().horizontalScroll(rememberScrollState()),
-                horizontalArrangement = Arrangement.spacedBy(8.dp),
-            ) {
-                LineType.entries.forEach { line ->
-                    val lineSupported = country?.supports(line) == true
-                    FilterChip(
-                        selected = type == line,
-                        onClick = { onSetLineType(line) },
-                        enabled = !running && lineSupported,
-                        label = { Text(line.labelAr) },
-                    )
-                }
-            }
-            if (country != null && country.hasMobile && country.hasFixed) {
-                Text(
-                    "«الاثنان» يعني الخليوي + الأرضي فقط، مع حذف الأرقام المشتركة بين الخطتين مرة واحدة.",
-                    style = MaterialTheme.typography.bodySmall,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                )
-            }
-            if (country != null && !country.hasMobile) {
-                Text(
-                    "لا تتوفر خطة خليوية لهذه الدولة في البيانات المرجعية.",
-                    style = MaterialTheme.typography.bodySmall,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                )
-            }
-            if (country != null && !country.hasFixed) {
-                Text(
-                    "لا تتوفر خطة أرضية لهذه الدولة في البيانات المرجعية.",
-                    style = MaterialTheme.typography.bodySmall,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                )
-            }
-        }
-
-        SectionCard("طريقة الإخراج") {
-            Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                ModeOptionCard(
-                    title = "جهات الاتصال",
-                    subtitle = "توليد وحفظ مباشرة",
-                    selected = state.generationMode == GenerationMode.CONTACTS,
-                    enabled = !running,
-                    onClick = { onSetMode(GenerationMode.CONTACTS) },
-                    modifier = Modifier.weight(1f),
-                )
-                ModeOptionCard(
-                    title = "ملف",
-                    subtitle = "CSV أو vCard",
-                    selected = fileMode,
-                    enabled = !running,
-                    onClick = { onSetMode(GenerationMode.FILE) },
-                    modifier = Modifier.weight(1f),
-                )
-            }
-
-            if (fileMode) {
-                Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                    FormatChip(
-                        format = ExportFormat.CSV,
-                        selected = format == ExportFormat.CSV,
-                        enabled = !running,
-                        onClick = { onSetFormat(ExportFormat.CSV) },
-                        modifier = Modifier.weight(1f),
-                    )
-                    FormatChip(
-                        format = ExportFormat.VCARD,
-                        selected = format == ExportFormat.VCARD,
-                        enabled = !running,
-                        onClick = { onSetFormat(ExportFormat.VCARD) },
-                        modifier = Modifier.weight(1f),
-                    )
-                }
-                Text(
-                    "${format.label}: ${format.suitableDevice}",
-                    style = MaterialTheme.typography.bodySmall,
-                    fontWeight = FontWeight.SemiBold,
-                    color = MaterialTheme.colorScheme.primary,
-                )
-                Text(
-                    format.explanation,
-                    style = MaterialTheme.typography.bodySmall,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                )
-                Text(
-                    "الملف الواحد محدود بـ ${SyrianNumbers.formatCount(ExportManager.splitRows)} رقم؛ " +
-                        "ما زاد يُكتب إلى مجلد كأجزاء مع manifest.json وchecksums.sha256.",
-                    style = MaterialTheme.typography.bodySmall,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                )
-                if (state.stats.addedCount + state.stats.emergencyAdded > 0L) {
-                    Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                        OutlinedButton(
-                            onClick = onExportAddedSingle,
-                            modifier = Modifier.weight(1f),
-                            enabled = !running,
-                        ) { Text("تصدير المضاف — ملف") }
-                        OutlinedButton(
-                            onClick = onExportAddedSplit,
-                            modifier = Modifier.weight(1f),
-                            enabled = !running,
-                        ) { Text("تصدير المضاف — مجلد") }
-                    }
-                }
-            } else {
-                StorageNotice(
-                    storage = state.storage,
-                    cloudAllowed = state.cloudStorageAllowed,
-                    enabled = !running,
-                    onOpenContacts = onOpenContacts,
-                    onAllowCloud = onAllowCloud,
-                    onDisallowCloud = onDisallowCloud,
-                )
-                Text(
-                    "قبل الحفظ يفحص التطبيق كل الأرقام الموجودة في جهات الاتصال ويتخطى المكرر، " +
-                        "سواء أضافه التطبيق أو أضفته أنت. الأسماء المولّدة محايدة ولا تحتوي اسم دولة أو مشغّل.",
-                    style = MaterialTheme.typography.bodySmall,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                )
-            }
-        }
-
-        SectionCard("النطاق") {
-            OutlinedTextField(
-                value = state.startInput,
-                onValueChange = onStartInputChange,
-                label = { Text("رقم البداية") },
-                placeholder = { Text(example ?: "مثال: 0930000000") },
-                modifier = Modifier.fillMaxWidth(),
-                singleLine = true,
-                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Phone),
-                enabled = canGenerate,
-                isError = state.startInput.isNotBlank() && !state.startValid,
-            )
-            Text(
-                "المقبول: رقم محلي، أو NSN، أو +${country?.callingCode ?: "..."}... أو 00${country?.callingCode ?: "..."}...",
-                style = MaterialTheme.typography.bodySmall,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-            )
-            if (state.startInput.isNotBlank() && !state.startValid) {
-                Text(
-                    "رقم البداية غير صالح لهذه الدولة أو النوع." +
-                        (example?.let { " مثال: $it" } ?: ""),
-                    style = MaterialTheme.typography.bodySmall,
-                    color = MaterialTheme.colorScheme.error,
-                )
-            }
-            OutlinedTextField(
-                value = state.countInput,
-                onValueChange = onCountInputChange,
-                label = { Text("عدد الأرقام المطلوب") },
-                modifier = Modifier.fillMaxWidth(),
-                singleLine = true,
-                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
-                enabled = canGenerate,
-            )
-            Row(
-                modifier = Modifier.fillMaxWidth().horizontalScroll(rememberScrollState()),
-                horizontalArrangement = Arrangement.spacedBy(8.dp),
-            ) {
-                listOf(1_000L, 10_000L, 100_000L, 1_000_000L, 10_000_000L).forEach { value ->
-                    AssistChip(
-                        onClick = { onSetCount(value) },
-                        label = {
-                            Text(
-                                when {
-                                    value >= 1_000_000 -> "${value / 1_000_000}M"
-                                    value >= 1_000 -> "${value / 1_000}K"
-                                    else -> value.toString()
-                                }
-                            )
-                        },
-                        enabled = canGenerate,
-                    )
-                }
-            }
-            OutlinedButton(
-                onClick = onFullCountry,
-                modifier = Modifier.fillMaxWidth(),
-                enabled = canGenerate && country != null && country.countFor(type) > 0,
-            ) {
-                Icon(Icons.Default.Public, contentDescription = null)
-                Spacer(Modifier.width(4.dp))
-                Text(
-                    "كل أرقام الدولة — " +
-                        SyrianNumbers.formatCount(country?.countFor(type) ?: 0)
-                )
-            }
-            if (state.availableFromStart != null) {
-                Text(
-                    "المتاح من رقم البداية: ${SyrianNumbers.formatCount(state.availableFromStart ?: 0)} رقم.",
-                    style = MaterialTheme.typography.bodySmall,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                )
-            }
-            if (countAboveAvailable) {
-                Text(
-                    "العدد أكبر من المتاح؛ سيتوقف التوليد عند آخر رقم متاح.",
-                    style = MaterialTheme.typography.bodySmall,
-                    color = MaterialTheme.colorScheme.error,
-                )
-            }
-            if (contactsTooLarge) {
-                Text(
-                    "الحد الأقصى في وضع جهات الاتصال " +
-                        "${SyrianNumbers.formatCount(CONTACTS_GENERATION_LIMIT.toLong())} رقم. اختر وضع الملف.",
-                    style = MaterialTheme.typography.bodySmall,
-                    color = MaterialTheme.colorScheme.error,
-                )
-            }
-            if (fileMode && requiresSplit) {
-                Text(
-                    "هذا النطاق يحتاج تصديراً مقسماً إلى مجلد؛ زر الملف الواحد معطّل.",
-                    style = MaterialTheme.typography.bodySmall,
-                    color = MaterialTheme.colorScheme.error,
-                )
-            }
-            if (countValue > 0) {
-                Text(
-                    "الحجم التقديري: ~${formatFileSize(format.estimatedBytes(countValue))} لصيغة ${format.label}.",
-                    style = MaterialTheme.typography.bodySmall,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                )
-            }
-        }
-
-        Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-            Button(
-                onClick = onStart,
-                modifier = Modifier.weight(1f),
-                enabled = canGenerate && state.startValid && countValue > 0 &&
-                    (!fileMode || !requiresSplit) && !contactsTooLarge,
-            ) {
-                Icon(
-                    if (fileMode) Icons.Default.FileDownload else Icons.Default.PlayArrow,
-                    contentDescription = null,
-                )
-                Spacer(Modifier.width(4.dp))
-                Text(if (fileMode) "ملف واحد" else "توليد وحفظ")
-            }
-            OutlinedButton(
-                onClick = onCancel,
-                modifier = Modifier.weight(1f),
-                enabled = running && state.operation.kind != OperationKind.RESTORE,
-            ) {
-                Icon(Icons.Default.Cancel, contentDescription = null)
-                Spacer(Modifier.width(4.dp))
-                Text("إلغاء")
-            }
-        }
-        if (fileMode) {
-            OutlinedButton(
-                onClick = onSplit,
-                modifier = Modifier.fillMaxWidth(),
-                enabled = canGenerate && state.startValid && countValue > 0,
-            ) {
-                Icon(Icons.Default.Folder, contentDescription = null)
-                Spacer(Modifier.width(4.dp))
-                Text("تصدير مقسم إلى مجلد (manifest + SHA-256)")
-            }
-        }
-
-        if (state.lastExport.isNotEmpty()) {
-            LastExportCard(
-                files = state.lastExport,
-                label = state.lastExportLabel,
-                onShare = onShare,
-            )
-        }
-
-        Text(
-            "لا يولّد التطبيق أرقام الطوارئ أو المجانية أو المدفوعة أو قصيرة الخدمة. " +
-                "وضع جهات الاتصال يفحص الموجود ويتخطى المكرر؛ وضع الملف لا يعدّل جهات الاتصال.",
-            style = MaterialTheme.typography.bodySmall,
-            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                "اختر دولة لعرض خطط الترقيم ونوع الخط والنطاق. لا يوجد بلد افتراضي، " +
+                    "ولا يخترع التطبيق أرقاماً لدولة لم تخترها."
+            },
         )
-        Text(
-            "تعمل المهام الطويلة في خدمة أمامية مع إشعار، وتستمر عند ترك التطبيق أو إغلاق الشاشة. " +
-                "لا تستخدم «إيقاف التطبيق قسرياً» أثناء العملية.",
-            style = MaterialTheme.typography.bodySmall,
-            color = MaterialTheme.colorScheme.onSurfaceVariant,
-        )
-        Spacer(Modifier.height(24.dp))
+        return
     }
-}
 
-@Composable
-private fun LookupTab(
-    state: UiState,
-    onPickCountry: () -> Unit,
-    onInputChange: (String) -> Unit,
-    onLookup: () -> Unit,
-) {
-    val result = state.lookupResult
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .verticalScroll(rememberScrollState())
-            .padding(16.dp),
-        verticalArrangement = Arrangement.spacedBy(12.dp),
+    Row(
+        modifier = Modifier.fillMaxWidth(),
+        horizontalArrangement = Arrangement.spacedBy(8.dp),
+        verticalAlignment = Alignment.CenterVertically,
     ) {
+        SupportBadge(country.support)
         Text(
-            "بحث دون اتصال",
-            style = MaterialTheme.typography.headlineSmall,
-            fontWeight = FontWeight.Bold,
-            color = MaterialTheme.colorScheme.primary,
-        )
-        Text(
-            "تحقق من رقم، اعرف نوع الخط والدولة والمنطقة والمناطق الزمنية والمشغّل الأصلي من بيانات مدمجة. " +
-                "لا يُرسل الرقم إلى أي خادم.",
+            "أطوال ${type.labelAr}: " +
+                if (country.lengthsFor(type).isEmpty()) {
+                    "غير متوفرة"
+                } else {
+                    country.lengthsFor(type).joinToString(" / ") { "$it" } + " رقم"
+                },
             style = MaterialTheme.typography.bodySmall,
             color = MaterialTheme.colorScheme.onSurfaceVariant,
         )
+    }
 
-        SectionCard("سياق البحث") {
-            CountrySelectorCard(
-                country = state.lookupCountry,
-                enabled = !state.lookupRunning,
-                onClick = onPickCountry,
+    if (country.support == SupportTier.UNAVAILABLE) {
+        Card(
+            colors = CardDefaults.cardColors(
+                containerColor = MaterialTheme.colorScheme.errorContainer,
             )
-            Text(
-                "اختيار الدولة يساعد على تفسير الأرقام المحلية التي لا تبدأ برمز دولي.",
-                style = MaterialTheme.typography.bodySmall,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-            )
-        }
-
-        OutlinedTextField(
-            value = state.lookupInput,
-            onValueChange = onInputChange,
-            label = { Text("رقم الهاتف") },
-            placeholder = { Text("+963 944 567 890 أو 0944567890") },
-            modifier = Modifier.fillMaxWidth(),
-            singleLine = true,
-            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Phone),
-            enabled = !state.lookupRunning,
-        )
-        Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-            Button(
-                onClick = onLookup,
-                modifier = Modifier.weight(1f),
-                enabled = state.lookupInput.isNotBlank() && !state.lookupRunning,
-            ) {
-                Icon(Icons.Default.Search, contentDescription = null)
-                Spacer(Modifier.width(4.dp))
-                Text("بحث")
-            }
-            OutlinedButton(
-                onClick = { onInputChange("") },
-                enabled = state.lookupInput.isNotBlank() && !state.lookupRunning,
-            ) { Text("مسح") }
-        }
-        if (state.lookupRunning) {
-            LinearProgressIndicator(modifier = Modifier.fillMaxWidth())
-        }
-
-        if (state.lookupError != null && result == null) {
-            Card(
-                colors = CardDefaults.cardColors(
-                    containerColor = MaterialTheme.colorScheme.errorContainer,
-                )
+        ) {
+            Column(
+                Modifier.padding(12.dp),
+                verticalArrangement = Arrangement.spacedBy(4.dp),
             ) {
                 Text(
-                    state.lookupError,
-                    modifier = Modifier.padding(12.dp),
+                    "لا تتوفر خطة ترقيم قابلة للتوليد لهذه الدولة.",
+                    fontWeight = FontWeight.SemiBold,
+                    color = MaterialTheme.colorScheme.onErrorContainer,
+                )
+                Text(
+                    "الدولة موجودة في القائمة مع رمزها ورمز اتصالها، لكن البيانات المرجعية " +
+                        "لا تتضمن نطاقات خليوية أو أرضية صالحة. لن يخترع التطبيق أرقاماً.",
+                    style = MaterialTheme.typography.bodySmall,
                     color = MaterialTheme.colorScheme.onErrorContainer,
                 )
             }
         }
+    } else {
+        Text(
+            "المتاح من البداية: ${SyrianNumbers.formatCount(state.availableFromStart ?: 0)} رقم " +
+                "من إجمالي ${SyrianNumbers.formatCount(country.countFor(type))}.",
+            style = MaterialTheme.typography.bodySmall,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+        )
+        example?.let {
+            Text(
+                "مثال محلي: $it • دولي: +${country.callingCode}${country.exampleFor(type).orEmpty()}",
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+        }
+    }
 
-        if (result != null) {
-            LookupResultCard(result)
-        } else if (!state.lookupRunning && state.lookupError == null) {
-            Card(colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceContainerLow)) {
-                Column(
-                    Modifier.padding(16.dp),
-                    verticalArrangement = Arrangement.spacedBy(6.dp),
-                ) {
-                    Icon(Icons.Default.Info, contentDescription = null)
-                    Text(
-                        "أدخل رقماً ثم اضغط «بحث». تعمل النتيجة بالكامل من البيانات المدمجة في التطبيق.",
-                        style = MaterialTheme.typography.bodySmall,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant,
-                    )
-                }
+    SectionBlock("نوع الخط") {
+        Row(
+            modifier = Modifier.fillMaxWidth().horizontalScroll(rememberScrollState()),
+            horizontalArrangement = Arrangement.spacedBy(8.dp),
+        ) {
+            LineType.entries.forEach { line ->
+                val lineSupported = country.supports(line)
+                FilterChip(
+                    selected = type == line,
+                    onClick = { onSetLineType(line) },
+                    enabled = !running && lineSupported,
+                    label = { Text(line.labelAr) },
+                )
             }
         }
+        if (country.hasMobile && country.hasFixed) {
+            Text(
+                "«الاثنان» يعني الخليوي + الأرضي فقط، مع حذف الأرقام المشتركة بين الخطتين مرة واحدة.",
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+        }
+        if (!country.hasMobile) {
+            Text(
+                "لا تتوفر خطة خليوية لهذه الدولة في البيانات المرجعية.",
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+        }
+        if (!country.hasFixed) {
+            Text(
+                "لا تتوفر خطة أرضية لهذه الدولة في البيانات المرجعية.",
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+        }
+    }
 
-        Card(colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.secondaryContainer)) {
+    SectionBlock("طريقة الإخراج") {
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.spacedBy(8.dp),
+        ) {
+            ModeOptionCard(
+                title = "جهات الاتصال",
+                subtitle = "توليد وحفظ مباشرة",
+                selected = state.generationMode == GenerationMode.CONTACTS,
+                enabled = !running,
+                onClick = { onSetMode(GenerationMode.CONTACTS) },
+                modifier = Modifier.weight(1f),
+            )
+            ModeOptionCard(
+                title = "ملف",
+                subtitle = "CSV أو vCard",
+                selected = fileMode,
+                enabled = !running,
+                onClick = { onSetMode(GenerationMode.FILE) },
+                modifier = Modifier.weight(1f),
+            )
+        }
+
+        if (fileMode) {
+            Text(
+                "الصيغة الموحدة: ${format.label}",
+                style = MaterialTheme.typography.bodySmall,
+                fontWeight = FontWeight.SemiBold,
+                color = MaterialTheme.colorScheme.primary,
+            )
+            Text(
+                format.explanation,
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+            Text(
+                "الملف الواحد محدود بـ ${SyrianNumbers.formatCount(ExportManager.splitRows)} رقم؛ " +
+                    "ما زاد يُكتب إلى مجلد كأجزاء مع manifest.json وchecksums.sha256.",
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+        } else {
+            StorageNotice(
+                storage = state.storage,
+                cloudAllowed = state.cloudStorageAllowed,
+                enabled = !running,
+                onOpenContacts = onOpenContacts,
+                onAllowCloud = onAllowCloud,
+                onDisallowCloud = onDisallowCloud,
+            )
+            Text(
+                "قبل الحفظ يفحص التطبيق كل الأرقام الموجودة في جهات الاتصال ويتخطى المكرر، " +
+                    "سواء أضافه التطبيق أو أضفته أنت. الأسماء المولّدة محايدة ولا تحتوي اسم دولة أو مشغّل.",
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+        }
+    }
+
+    SectionBlock("النطاق") {
+        OutlinedTextField(
+            value = state.startInput,
+            onValueChange = onStartInputChange,
+            label = { Text("رقم البداية") },
+            placeholder = { Text(example ?: "اختر دولة أولاً") },
+            modifier = Modifier.fillMaxWidth(),
+            singleLine = true,
+            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Phone),
+            enabled = canGenerate,
+            isError = state.startInput.isNotBlank() && !state.startValid,
+        )
+        Text(
+            "المقبول: رقم محلي، أو NSN، أو +${country.callingCode}... أو 00${country.callingCode}...",
+            style = MaterialTheme.typography.bodySmall,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+        )
+        if (state.startInput.isNotBlank() && !state.startValid) {
+            Text(
+                "رقم البداية غير صالح لهذه الدولة أو النوع." +
+                    (example?.let { " مثال: $it" } ?: ""),
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.error,
+            )
+        }
+        OutlinedTextField(
+            value = state.countInput,
+            onValueChange = onCountInputChange,
+            label = { Text("عدد الأرقام المطلوب") },
+            modifier = Modifier.fillMaxWidth(),
+            singleLine = true,
+            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
+            enabled = canGenerate,
+        )
+        Row(
+            modifier = Modifier.fillMaxWidth().horizontalScroll(rememberScrollState()),
+            horizontalArrangement = Arrangement.spacedBy(8.dp),
+        ) {
+            listOf(1_000L, 10_000L, 100_000L, 1_000_000L, 10_000_000L).forEach { value ->
+                AssistChip(
+                    onClick = { onSetCount(value) },
+                    label = {
+                        Text(
+                            when {
+                                value >= 1_000_000 -> "${value / 1_000_000}M"
+                                value >= 1_000 -> "${value / 1_000}K"
+                                else -> value.toString()
+                            }
+                        )
+                    },
+                    enabled = canGenerate,
+                )
+            }
+        }
+        OutlinedButton(
+            onClick = onFullCountry,
+            modifier = Modifier.fillMaxWidth(),
+            enabled = canGenerate && country.countFor(type) > 0,
+        ) {
+            Icon(Icons.Default.Public, contentDescription = null)
+            Spacer(Modifier.width(4.dp))
+            Text(
+                "كل أرقام الدولة — " +
+                    SyrianNumbers.formatCount(country.countFor(type))
+            )
+        }
+        state.availableFromStart?.let { available ->
+            Text(
+                "المتاح من رقم البداية: ${SyrianNumbers.formatCount(available)} رقم.",
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+        }
+        if (countAboveAvailable) {
+            Text(
+                "العدد أكبر من المتاح من رقم البداية؛ قلّل العدد أو غيّر البداية.",
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.error,
+            )
+        }
+        if (contactsTooLarge) {
+            Text(
+                "الحد الأقصى في وضع جهات الاتصال " +
+                    "${SyrianNumbers.formatCount(CONTACTS_GENERATION_LIMIT.toLong())} رقم. اختر وضع الملف.",
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.error,
+            )
+        }
+        if (fileMode && requiresSplit) {
+            Text(
+                "هذا النطاق يحتاج تصديراً مقسماً إلى مجلد؛ زر الملف الواحد معطّل.",
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.error,
+            )
+        }
+        if (countValue > 0) {
+            Text(
+                "الحجم التقديري: ~${formatFileSize(format.estimatedBytes(countValue))} لصيغة ${format.label}.",
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+        }
+    }
+
+    Row(
+        modifier = Modifier.fillMaxWidth(),
+        horizontalArrangement = Arrangement.spacedBy(8.dp),
+    ) {
+        Button(
+            onClick = onStart,
+            modifier = Modifier.weight(1f),
+            enabled = canGenerate && state.startValid && countValue > 0 &&
+                !countAboveAvailable && (!fileMode || !requiresSplit) && !contactsTooLarge,
+        ) {
+            Icon(
+                if (fileMode) Icons.Default.FileDownload else Icons.Default.PlayArrow,
+                contentDescription = null,
+            )
+            Spacer(Modifier.width(4.dp))
+            Text(if (fileMode) "حفظ ملف واحد" else "توليد وحفظ")
+        }
+        OutlinedButton(
+            onClick = onCancel,
+            modifier = Modifier.weight(1f),
+            enabled = running && state.operation.kind != OperationKind.RESTORE,
+        ) {
+            Icon(Icons.Default.Cancel, contentDescription = null)
+            Spacer(Modifier.width(4.dp))
+            Text("إلغاء")
+        }
+    }
+    if (fileMode) {
+        OutlinedButton(
+            onClick = onSplit,
+            modifier = Modifier.fillMaxWidth(),
+            enabled = canGenerate && state.startValid && countValue > 0 &&
+                !countAboveAvailable,
+        ) {
+            Icon(Icons.Default.Folder, contentDescription = null)
+            Spacer(Modifier.width(4.dp))
+            Text("تصدير مقسم إلى مجلد (manifest + SHA-256)")
+        }
+    }
+
+    Text(
+        "لا يولّد التطبيق أرقام الطوارئ أو المجانية أو المدفوعة أو قصيرة الخدمة. " +
+            "وضع جهات الاتصال يفحص الموجود ويتخطى المكرر؛ وضع الملف لا يعدّل جهات الاتصال.",
+        style = MaterialTheme.typography.bodySmall,
+        color = MaterialTheme.colorScheme.onSurfaceVariant,
+    )
+}
+
+@Composable
+private fun LookupSection(
+    state: UiState,
+    onPickCountry: () -> Unit,
+    onClearCountry: () -> Unit,
+    onInputChange: (String) -> Unit,
+    onLookup: () -> Unit,
+) {
+    val result = state.lookupResult
+    val loading = state.countries.isEmpty()
+
+    SectionBlock("سياق البحث") {
+        CountrySelectorCard(
+            country = state.lookupCountry,
+            enabled = !state.lookupRunning && !loading,
+            loading = loading,
+            placeholder = "بدون دولة — سياق دولي",
+            onClick = onPickCountry,
+            onClear = if (state.lookupIso.isNotBlank()) onClearCountry else null,
+        )
+        Text(
+            "اختيار الدولة يساعد على تفسير الأرقام المحلية التي لا تبدأ برمز دولي. " +
+                "اتركه فارغاً للأرقام المكتوبة بصيغة دولية مثل +963...",
+            style = MaterialTheme.typography.bodySmall,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+        )
+    }
+
+    OutlinedTextField(
+        value = state.lookupInput,
+        onValueChange = onInputChange,
+        label = { Text("رقم الهاتف") },
+        placeholder = { Text("+963 944 567 890 أو 0944567890") },
+        modifier = Modifier.fillMaxWidth(),
+        singleLine = true,
+        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Phone),
+        enabled = !state.lookupRunning,
+    )
+    Row(
+        modifier = Modifier.fillMaxWidth(),
+        horizontalArrangement = Arrangement.spacedBy(8.dp),
+    ) {
+        Button(
+            onClick = onLookup,
+            modifier = Modifier.weight(1f),
+            enabled = state.lookupInput.isNotBlank() && !state.lookupRunning,
+        ) {
+            Icon(Icons.Default.Search, contentDescription = null)
+            Spacer(Modifier.width(4.dp))
+            Text("بحث")
+        }
+        OutlinedButton(
+            onClick = { onInputChange("") },
+            enabled = state.lookupInput.isNotBlank() && !state.lookupRunning,
+        ) { Text("مسح") }
+    }
+    if (state.lookupRunning) {
+        LinearProgressIndicator(modifier = Modifier.fillMaxWidth())
+    }
+
+    if (state.lookupError != null && result == null) {
+        Card(
+            colors = CardDefaults.cardColors(
+                containerColor = MaterialTheme.colorScheme.errorContainer,
+            )
+        ) {
+            Text(
+                state.lookupError,
+                modifier = Modifier.padding(12.dp),
+                color = MaterialTheme.colorScheme.onErrorContainer,
+            )
+        }
+    }
+
+    if (result != null) {
+        LookupResultCard(result)
+    } else if (!state.lookupRunning && state.lookupError == null) {
+        Card(
+            colors = CardDefaults.cardColors(
+                containerColor = MaterialTheme.colorScheme.surfaceContainerLow,
+            )
+        ) {
             Column(
-                Modifier.padding(14.dp),
+                Modifier.padding(16.dp),
                 verticalArrangement = Arrangement.spacedBy(6.dp),
             ) {
+                Icon(Icons.Default.Info, contentDescription = null)
                 Text(
-                    "حدود المعلومات",
-                    fontWeight = FontWeight.SemiBold,
-                    color = MaterialTheme.colorScheme.onSecondaryContainer,
+                    "أدخل رقماً ثم اضغط «بحث». تعمل النتيجة بالكامل من البيانات المدمجة في التطبيق.",
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
                 )
-                Bullet("لا يعرض التطبيق اسم المشترك أو عنوانه أو حالة تفعيل الرقم؛ هذه المعلومات غير متاحة دون اتصال.")
-                Bullet("المشغّل المعروض هو المشغّل الأصلي حسب البيانات المرجعية، وقد يتغير بعد نقل الرقم (MNP).")
-                Bullet("الخط الأرضي لا يُنسب إلى مشغّل غير معروف؛ تظهر «غير متوفر» عند غياب بيانات موثوقة.")
-                Bullet("البيانات مدمجة في التطبيق وقد لا تعكس آخر تغييرات الترقيم.")
             }
         }
-        Spacer(Modifier.height(24.dp))
+    }
+
+    Card(
+        colors = CardDefaults.cardColors(
+            containerColor = MaterialTheme.colorScheme.secondaryContainer,
+        )
+    ) {
+        Column(
+            Modifier.padding(14.dp),
+            verticalArrangement = Arrangement.spacedBy(6.dp),
+        ) {
+            Text(
+                "حدود المعلومات",
+                fontWeight = FontWeight.SemiBold,
+                color = MaterialTheme.colorScheme.onSecondaryContainer,
+            )
+            Bullet("لا يعرض التطبيق اسم المشترك أو عنوانه أو حالة تفعيل الرقم؛ هذه المعلومات غير متاحة دون اتصال.")
+            Bullet("المشغّل المعروض هو المشغّل الأصلي حسب البيانات المرجعية، وقد يتغير بعد نقل الرقم (MNP).")
+            Bullet("الخط الأرضي لا يُنسب إلى مشغّل غير معروف؛ تظهر «غير متوفر» عند غياب بيانات موثوقة.")
+            Bullet("البيانات مدمجة في التطبيق وقد لا تعكس آخر تغييرات الترقيم.")
+        }
     }
 }
 
@@ -1406,170 +1375,214 @@ private fun LookupResultCard(result: LookupResult) {
 }
 
 @Composable
-private fun EmergencyTab(
+private fun EmergencySection(
     state: UiState,
     running: Boolean,
     selected: Set<String>,
+    query: String,
+    filter: EmergencyFilter,
+    onQueryChange: (String) -> Unit,
+    onFilterChange: (EmergencyFilter) -> Unit,
     onPickCountry: () -> Unit,
     onToggle: (String) -> Unit,
-    onSelectAll: () -> Unit,
+    onSelectAll: (List<String>) -> Unit,
     onClearSelection: () -> Unit,
     onAdd: () -> Unit,
 ) {
     val entries = state.emergencyEntries
-    Column(Modifier.fillMaxSize()) {
-        LazyColumn(
-            modifier = Modifier.weight(1f),
-            contentPadding = PaddingValues(16.dp),
-            verticalArrangement = Arrangement.spacedBy(10.dp),
-        ) {
-            item {
-                Text(
-                    "أرقام الطوارئ والخدمات",
-                    style = MaterialTheme.typography.headlineSmall,
-                    fontWeight = FontWeight.Bold,
-                    color = MaterialTheme.colorScheme.primary,
-                )
-            }
-            item {
-                Text(
-                    "اختر الأرقام التي تريد حفظها كجهات اتصال. لا يتصل التطبيق بأي رقم تلقائياً، " +
-                        "ولا يحفظ شيئاً قبل ضغط «إضافة المحدد».",
-                    style = MaterialTheme.typography.bodySmall,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                )
-            }
-            item {
-                CountrySelectorCard(
-                    country = state.emergencyCountry,
-                    enabled = !running,
-                    onClick = onPickCountry,
-                )
-            }
-            item {
-                Card(
-                    colors = CardDefaults.cardColors(
-                        containerColor = MaterialTheme.colorScheme.secondaryContainer,
-                    )
-                ) {
-                    Column(
-                        Modifier.padding(12.dp),
-                        verticalArrangement = Arrangement.spacedBy(4.dp),
-                    ) {
-                        Text(
-                            "بيانات مرجعية — ليست تأكيداً رسمياً",
-                            fontWeight = FontWeight.SemiBold,
-                            color = MaterialTheme.colorScheme.onSecondaryContainer,
-                        )
-                        Text(
-                            "كل الإدخالات الحالية مصدرها libphonenumber ShortNumberMetadata 9.0.42 " +
-                                "وتحمل مستوى تحقق «مرجعي». لا يصفها التطبيق بأنها رسمية ما لم توجد " +
-                                "بيانات رسمية موثقة. تحقق دائماً من الرقم المحلي قبل الاستخدام.",
-                            style = MaterialTheme.typography.bodySmall,
-                            color = MaterialTheme.colorScheme.onSecondaryContainer,
-                        )
-                    }
-                }
-            }
-            if (entries.isEmpty()) {
-                item {
-                    Card(
-                        colors = CardDefaults.cardColors(
-                            containerColor = MaterialTheme.colorScheme.errorContainer,
-                        )
-                    ) {
-                        Column(
-                            Modifier.padding(14.dp),
-                            verticalArrangement = Arrangement.spacedBy(6.dp),
-                        ) {
-                            Text(
-                                "لا تتوفر بيانات طوارئ لهذه الدولة في النسخة المدمجة.",
-                                fontWeight = FontWeight.SemiBold,
-                                color = MaterialTheme.colorScheme.onErrorContainer,
-                            )
-                            Text(
-                                "لن يعرض التطبيق أرقاماً غير مؤكدة أو يخترعها. " +
-                                    "إجمالي الإدخالات المتاحة عالمياً: ${SyrianNumbers.formatCount(state.emergencyTotal.toLong())} " +
-                                    "لـ ${state.emergencyCountries} دولة/إقليم.",
-                                style = MaterialTheme.typography.bodySmall,
-                                color = MaterialTheme.colorScheme.onErrorContainer,
-                            )
-                        }
-                    }
-                }
+    val loading = state.countries.isEmpty()
+
+    CountrySelectorCard(
+        country = state.emergencyCountry,
+        enabled = !running && !loading,
+        loading = loading,
+        placeholder = "اختر دولة للطوارئ والخدمات",
+        onClick = onPickCountry,
+    )
+
+    if (state.emergencyCountry == null) {
+        NeutralNotice(
+            title = if (loading) "جارٍ تحميل بيانات الدول..." else "اختر دولة",
+            text = if (loading) {
+                "تُقرأ بيانات الطوارئ والخدمات من الحزمة المدمجة."
             } else {
-                item {
-                    Row(
-                        modifier = Modifier.fillMaxWidth(),
-                        horizontalArrangement = Arrangement.SpaceBetween,
-                        verticalAlignment = Alignment.CenterVertically,
-                    ) {
-                        Text(
-                            "${entries.size} إدخالاً • ${selected.size} محدد",
-                            style = MaterialTheme.typography.bodySmall,
-                            fontWeight = FontWeight.SemiBold,
-                        )
-                        Row {
-                            TextButton(
-                                onClick = onSelectAll,
-                                enabled = !running,
-                            ) { Text("تحديد الكل") }
-                            TextButton(
-                                onClick = onClearSelection,
-                                enabled = selected.isNotEmpty() && !running,
-                            ) { Text("مسح") }
-                        }
-                    }
-                }
-                items(entries, key = { emergencyKey(it) }) { entry ->
-                    EmergencyEntryCard(
-                        entry = entry,
-                        checked = emergencyKey(entry) in selected,
-                        enabled = !running,
-                        onToggle = { onToggle(emergencyKey(entry)) },
-                    )
-                }
-                item {
-                    Text(
-                        "أسماء جهات الطوارئ وصفية مثل «الشرطة سوريا — 112» وتُحفظ مع وسم E1 " +
-                            "لتمييزها عن الأرقام المولّدة. يمكن حذفها لاحقاً من تبويب الإحصاء.",
-                        style = MaterialTheme.typography.bodySmall,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant,
-                    )
-                }
+                "لا يوجد بلد افتراضي. اختر دولة لعرض أرقام الطوارئ والخدمات المتاحة لها، " +
+                    "ثم حدد ما تريد حفظه كجهات اتصال."
+            },
+        )
+        return
+    }
+
+    if (state.emergencyLoading) {
+        LinearProgressIndicator(modifier = Modifier.fillMaxWidth())
+        Text(
+            "جارٍ تحميل دليل الطوارئ والخدمات لهذه الدولة من البيانات المدمجة...",
+            style = MaterialTheme.typography.bodySmall,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+        )
+        return
+    }
+
+    if (entries.isEmpty()) {
+        Card(
+            colors = CardDefaults.cardColors(
+                containerColor = MaterialTheme.colorScheme.errorContainer,
+            )
+        ) {
+            Column(
+                Modifier.padding(14.dp),
+                verticalArrangement = Arrangement.spacedBy(6.dp),
+            ) {
+                Text(
+                    "لا تتوفر بيانات طوارئ أو خدمات لهذه الدولة في النسخة المدمجة.",
+                    fontWeight = FontWeight.SemiBold,
+                    color = MaterialTheme.colorScheme.onErrorContainer,
+                )
+                Text(
+                    "لن يعرض التطبيق أرقاماً غير مؤكدة أو يخترعها. " +
+                        "إجمالي الإدخالات المتاحة عالمياً: " +
+                        "${SyrianNumbers.formatCount(state.emergencyTotal.toLong())} " +
+                        "لـ ${state.emergencyCountries} دولة/إقليم.",
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onErrorContainer,
+                )
             }
         }
-        if (entries.isNotEmpty()) {
-            Surface(tonalElevation = 3.dp, shadowElevation = 8.dp) {
-                Row(
-                    modifier = Modifier.fillMaxWidth().padding(16.dp),
-                    horizontalArrangement = Arrangement.spacedBy(12.dp),
-                    verticalAlignment = Alignment.CenterVertically,
-                ) {
-                    Column(Modifier.weight(1f)) {
-                        Text(
-                            "${selected.size} محدد من ${entries.size}",
-                            style = MaterialTheme.typography.bodySmall,
-                            color = MaterialTheme.colorScheme.onSurfaceVariant,
-                        )
-                        Text(
-                            "الإضافة تحفظ جهات اتصال فقط",
-                            style = MaterialTheme.typography.bodySmall,
-                            fontWeight = FontWeight.SemiBold,
-                        )
-                    }
-                    Button(
-                        onClick = onAdd,
-                        enabled = selected.isNotEmpty() && !running,
-                    ) {
-                        Icon(Icons.Default.Person, contentDescription = null)
-                        Spacer(Modifier.width(4.dp))
-                        Text("إضافة المحدد")
-                    }
-                }
+        return
+    }
+
+    Card(
+        colors = CardDefaults.cardColors(
+            containerColor = MaterialTheme.colorScheme.secondaryContainer,
+        )
+    ) {
+        Column(
+            Modifier.padding(12.dp),
+            verticalArrangement = Arrangement.spacedBy(4.dp),
+        ) {
+            Text(
+                "بيانات مرجعية — ليست تأكيداً رسمياً",
+                fontWeight = FontWeight.SemiBold,
+                color = MaterialTheme.colorScheme.onSecondaryContainer,
+            )
+            Text(
+                "يدمج الدليل libphonenumber ShortNumberMetadata 9.0.42 مع " +
+                    "EmergencyNumberAPI (ODbL). كل الإدخالات بمستوى تحقق «مرجعي»، " +
+                    "وتظهر مع المصدر. تحقق دائماً من الرقم المحلي قبل الاستخدام.",
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSecondaryContainer,
+            )
+        }
+    }
+
+    OutlinedTextField(
+        value = query,
+        onValueChange = onQueryChange,
+        label = { Text("ابحث بالرقم أو الخدمة") },
+        placeholder = { Text("مثال: 112 أو إسعاف أو شرطة") },
+        modifier = Modifier.fillMaxWidth(),
+        singleLine = true,
+        leadingIcon = { Icon(Icons.Default.Search, contentDescription = null) },
+        enabled = !running,
+    )
+
+    Row(
+        modifier = Modifier.fillMaxWidth().horizontalScroll(rememberScrollState()),
+        horizontalArrangement = Arrangement.spacedBy(8.dp),
+    ) {
+        EmergencyFilter.entries.forEach { item ->
+            FilterChip(
+                selected = filter == item,
+                onClick = { onFilterChange(item) },
+                label = { Text(item.labelAr) },
+                enabled = !running,
+            )
+        }
+    }
+
+    val normalizedQuery = SyrianNumbers.normalizeDigits(query).trim()
+    val filtered = remember(entries, normalizedQuery, filter) {
+        if (normalizedQuery.isEmpty()) {
+            entries.filter(filter::matches)
+        } else {
+            entries.filter { entry ->
+                filter.matches(entry) && (
+                    entry.number.contains(normalizedQuery) ||
+                        entry.labelAr.contains(normalizedQuery, ignoreCase = true) ||
+                        entry.labelEn.contains(normalizedQuery, ignoreCase = true) ||
+                        entry.countryAr.contains(normalizedQuery, ignoreCase = true) ||
+                        entry.countryEn.contains(normalizedQuery, ignoreCase = true) ||
+                        entry.categoryLabelAr.contains(normalizedQuery, ignoreCase = true)
+                    )
             }
         }
     }
+    var visible by remember(entries, normalizedQuery, filter) { mutableStateOf(40) }
+
+    Row(
+        modifier = Modifier.fillMaxWidth(),
+        horizontalArrangement = Arrangement.SpaceBetween,
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
+        Text(
+            "عرض ${minOf(visible, filtered.size)} من ${filtered.size} • ${selected.size} محدد",
+            style = MaterialTheme.typography.bodySmall,
+            fontWeight = FontWeight.SemiBold,
+        )
+        Row {
+            TextButton(
+                onClick = { onSelectAll(filtered.map(::emergencyKey)) },
+                enabled = filtered.isNotEmpty() && !running,
+            ) { Text("تحديد الكل") }
+            TextButton(
+                onClick = onClearSelection,
+                enabled = selected.isNotEmpty() && !running,
+            ) { Text("مسح") }
+        }
+    }
+
+    if (filtered.isEmpty()) {
+        Text(
+            "لا توجد نتائج مطابقة للبحث أو التصفية الحالية.",
+            style = MaterialTheme.typography.bodySmall,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+        )
+    } else {
+        filtered.take(visible).forEach { entry ->
+            EmergencyEntryCard(
+                entry = entry,
+                checked = emergencyKey(entry) in selected,
+                enabled = !running,
+                onToggle = { onToggle(emergencyKey(entry)) },
+            )
+        }
+        if (filtered.size > visible) {
+            OutlinedButton(
+                onClick = { visible += 40 },
+                modifier = Modifier.fillMaxWidth(),
+                enabled = !running,
+            ) {
+                Text("عرض المزيد (${filtered.size - visible})")
+            }
+        }
+    }
+
+    Button(
+        onClick = onAdd,
+        modifier = Modifier.fillMaxWidth(),
+        enabled = selected.isNotEmpty() && !running,
+    ) {
+        Icon(Icons.Default.Person, contentDescription = null)
+        Spacer(Modifier.width(4.dp))
+        Text("إضافة المحدد (${selected.size})")
+    }
+    Text(
+        "الإضافة تحفظ جهات اتصال فقط، ولا تتصل بأي رقم. الأسماء وصفية مثل " +
+            "«شرطة الدولة — 112» وتُحفظ مع وسم E1 لتمييزها عن الأرقام المولّدة. " +
+            "يمكن حذفها لاحقاً من قسم الإحصائيات والإدارة.",
+        style = MaterialTheme.typography.bodySmall,
+        color = MaterialTheme.colorScheme.onSurfaceVariant,
+    )
 }
 
 @Composable
@@ -1623,19 +1636,22 @@ private fun EmergencyEntryCard(
                     horizontalArrangement = Arrangement.spacedBy(8.dp),
                     verticalAlignment = Alignment.CenterVertically,
                 ) {
+                    CategoryBadge(entry.categoryLabelAr, entry.isEmergency)
                     VerificationBadge(entry.verification)
-                    Text(
-                        entry.labelEn,
-                        style = MaterialTheme.typography.bodySmall,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant,
-                        maxLines = 1,
-                        overflow = TextOverflow.Ellipsis,
-                    )
                 }
+                Text(
+                    entry.labelEn,
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis,
+                )
                 Text(
                     "المصدر: ${entry.source}",
                     style = MaterialTheme.typography.bodySmall,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis,
                 )
                 if (entry.checkedAt != null) {
                     Text(
@@ -1649,6 +1665,8 @@ private fun EmergencyEntryCard(
                         entry.noteAr,
                         style = MaterialTheme.typography.bodySmall,
                         color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        maxLines = 2,
+                        overflow = TextOverflow.Ellipsis,
                     )
                 }
             }
@@ -1657,222 +1675,182 @@ private fun EmergencyEntryCard(
 }
 
 @Composable
-private fun StatsTab(
+private fun StatsSection(
     state: UiState,
     running: Boolean,
     addedTotal: Long,
-    contactsGranted: Boolean,
-    notificationsGranted: Boolean,
-    onRequestPermissions: () -> Unit,
-    onOpenSettings: () -> Unit,
     onRestore: () -> Unit,
     onDeleteRequest: () -> Unit,
     onResetRequest: () -> Unit,
-    onSetFormat: (ExportFormat) -> Unit,
     onExportAddedSingle: () -> Unit,
     onExportAddedSplit: () -> Unit,
-    onShare: () -> Unit,
 ) {
     val format = state.exportFormat
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .verticalScroll(rememberScrollState())
-            .padding(16.dp),
-        verticalArrangement = Arrangement.spacedBy(12.dp),
+
+    Row(
+        modifier = Modifier.fillMaxWidth(),
+        horizontalArrangement = Arrangement.spacedBy(8.dp),
     ) {
+        StatBox("تم توليده", SyrianNumbers.formatCount(state.stats.totalGenerated), Modifier.weight(1f))
+        StatBox("مضاف حالياً", SyrianNumbers.formatCount(state.stats.addedCount), Modifier.weight(1f))
+    }
+    Row(
+        modifier = Modifier.fillMaxWidth(),
+        horizontalArrangement = Arrangement.spacedBy(8.dp),
+    ) {
+        StatBox("جهات طوارئ وخدمات", SyrianNumbers.formatCount(state.stats.emergencyAdded), Modifier.weight(1f))
+        StatBox("تم حذفه", SyrianNumbers.formatCount(state.stats.totalDeleted), Modifier.weight(1f))
+    }
+    Row(
+        modifier = Modifier.fillMaxWidth(),
+        horizontalArrangement = Arrangement.spacedBy(8.dp),
+    ) {
+        StatBox("خليوي مولّد", SyrianNumbers.formatCount(state.stats.mobileGenerated), Modifier.weight(1f))
+        StatBox("أرضي مولّد", SyrianNumbers.formatCount(state.stats.fixedGenerated), Modifier.weight(1f))
+    }
+    Row(
+        modifier = Modifier.fillMaxWidth(),
+        horizontalArrangement = Arrangement.spacedBy(8.dp),
+    ) {
+        StatBox("الجلسات", SyrianNumbers.formatCount(state.stats.totalSessions), Modifier.weight(1f))
+        StatBox(
+            "آخر سرعة",
+            String.format(Locale.US, "%.0f/ث", state.stats.lastRatePerSecond),
+            Modifier.weight(1f),
+        )
+    }
+
+    SectionBlock("إدارة الأرقام المضافة") {
         Text(
-            "الإحصائيات والإعدادات",
-            style = MaterialTheme.typography.headlineSmall,
-            fontWeight = FontWeight.Bold,
-            color = MaterialTheme.colorScheme.primary,
+            "يشمل المضاف ${SyrianNumbers.formatCount(state.stats.addedCount)} رقماً مولّداً " +
+                "و${SyrianNumbers.formatCount(state.stats.emergencyAdded)} جهة طوارئ أو خدمة.",
+            style = MaterialTheme.typography.bodySmall,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
         )
-
-        PermissionBanner(
-            contactsGranted = contactsGranted,
-            notificationsGranted = notificationsGranted,
-            onRequestPermissions = onRequestPermissions,
-            onOpenSettings = onOpenSettings,
-        )
-
-        Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-            StatBox("تم توليده", SyrianNumbers.formatCount(state.stats.totalGenerated), Modifier.weight(1f))
-            StatBox("مضاف حالياً", SyrianNumbers.formatCount(state.stats.addedCount), Modifier.weight(1f))
-        }
-        Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-            StatBox("جهات طوارئ", SyrianNumbers.formatCount(state.stats.emergencyAdded), Modifier.weight(1f))
-            StatBox("تم حذفه", SyrianNumbers.formatCount(state.stats.totalDeleted), Modifier.weight(1f))
-        }
-        Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-            StatBox("خليوي مولّد", SyrianNumbers.formatCount(state.stats.mobileGenerated), Modifier.weight(1f))
-            StatBox("أرضي مولّد", SyrianNumbers.formatCount(state.stats.fixedGenerated), Modifier.weight(1f))
-        }
-        Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-            StatBox("الجلسات", SyrianNumbers.formatCount(state.stats.totalSessions), Modifier.weight(1f))
-            StatBox(
-                "آخر سرعة",
-                String.format(Locale.US, "%.0f/ث", state.stats.lastRatePerSecond),
-                Modifier.weight(1f),
-            )
-        }
-
-        SectionCard("إدارة الأرقام المضافة") {
-            Text(
-                "يشمل المضاف ${SyrianNumbers.formatCount(state.stats.addedCount)} رقماً مولّداً " +
-                    "و${SyrianNumbers.formatCount(state.stats.emergencyAdded)} جهة طوارئ.",
-                style = MaterialTheme.typography.bodySmall,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-            )
-            Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                OutlinedButton(
-                    onClick = onRestore,
-                    modifier = Modifier.weight(1f),
-                    enabled = !running,
-                ) {
-                    Icon(Icons.Default.Restore, contentDescription = null)
-                    Spacer(Modifier.width(4.dp))
-                    Text("استعادة السجل")
-                }
-                OutlinedButton(
-                    onClick = onDeleteRequest,
-                    modifier = Modifier.weight(1f),
-                    enabled = !running && addedTotal > 0,
-                ) {
-                    Icon(Icons.Default.DeleteSweep, contentDescription = null)
-                    Spacer(Modifier.width(4.dp))
-                    Text("حذف المضاف")
-                }
-            }
-            Text(
-                "تستعيد العملية سجل الملكية من الوسوم المحايدة N1/N2/E1 في جهات الاتصال، " +
-                    "مما يتيح الحذف والمتابعة بعد إعادة التثبيت أو مسح بيانات التطبيق.",
-                style = MaterialTheme.typography.bodySmall,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-            )
-            TextButton(
-                onClick = onResetRequest,
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.spacedBy(8.dp),
+        ) {
+            OutlinedButton(
+                onClick = onRestore,
+                modifier = Modifier.weight(1f),
                 enabled = !running,
             ) {
-                Icon(Icons.Default.Refresh, contentDescription = null)
+                Icon(Icons.Default.Restore, contentDescription = null)
                 Spacer(Modifier.width(4.dp))
-                Text("تصفير الإحصائيات فقط")
+                Text("استعادة السجل")
+            }
+            OutlinedButton(
+                onClick = onDeleteRequest,
+                modifier = Modifier.weight(1f),
+                enabled = !running && addedTotal > 0,
+            ) {
+                Icon(Icons.Default.DeleteSweep, contentDescription = null)
+                Spacer(Modifier.width(4.dp))
+                Text("حذف المضاف")
             }
         }
-
-        SectionCard("تصدير الأرقام المضافة") {
-            Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                FormatChip(
-                    format = ExportFormat.CSV,
-                    selected = format == ExportFormat.CSV,
-                    enabled = !running,
-                    onClick = { onSetFormat(ExportFormat.CSV) },
-                    modifier = Modifier.weight(1f),
-                )
-                FormatChip(
-                    format = ExportFormat.VCARD,
-                    selected = format == ExportFormat.VCARD,
-                    enabled = !running,
-                    onClick = { onSetFormat(ExportFormat.VCARD) },
-                    modifier = Modifier.weight(1f),
-                )
-            }
-            Text(
-                "الحجم التقديري: ~${formatFileSize(format.estimatedBytes(addedTotal))}.",
-                style = MaterialTheme.typography.bodySmall,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-            )
-            Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                OutlinedButton(
-                    onClick = onExportAddedSingle,
-                    modifier = Modifier.weight(1f),
-                    enabled = !running && addedTotal > 0 &&
-                        !ExportManager.requiresSplit(addedTotal),
-                ) {
-                    Icon(Icons.Default.FileDownload, contentDescription = null)
-                    Spacer(Modifier.width(4.dp))
-                    Text("ملف واحد")
-                }
-                OutlinedButton(
-                    onClick = onExportAddedSplit,
-                    modifier = Modifier.weight(1f),
-                    enabled = !running && addedTotal > 0,
-                ) {
-                    Icon(Icons.Default.Folder, contentDescription = null)
-                    Spacer(Modifier.width(4.dp))
-                    Text("مجلد مقسم")
-                }
-            }
-            Text(
-                "المجلد المقسم يكتب أجزاء CSV/vCard مع manifest.json وchecksums.sha256.",
-                style = MaterialTheme.typography.bodySmall,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-            )
-        }
-
-        if (state.lastExport.isNotEmpty()) {
-            LastExportCard(
-                files = state.lastExport,
-                label = state.lastExportLabel,
-                onShare = onShare,
-            )
-        }
-
-        SectionCard("مصادر البيانات") {
-            Text(
-                "البيانات مدمجة في التطبيق وتعمل دون إنترنت. لا يطلب التطبيق صلاحية الإنترنت.",
-                style = MaterialTheme.typography.bodySmall,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-            )
-            state.sources.forEach { source ->
-                HorizontalDivider()
-                Text(
-                    "${source.name} ${source.version}",
-                    style = MaterialTheme.typography.titleSmall,
-                    fontWeight = FontWeight.SemiBold,
-                )
-                Text(
-                    source.url,
-                    style = MaterialTheme.typography.bodySmall,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                )
-                Text(
-                    "SHA-256: ${source.sha256.take(24)}…" +
-                        (source.license?.let { " • $it" } ?: ""),
-                    style = MaterialTheme.typography.bodySmall,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                )
-            }
-            Text(
-                "أرقام الطوارئ: ${SyrianNumbers.formatCount(state.emergencyTotal.toLong())} إدخالاً مرجعياً، " +
-                    "كلها بمستوى تحقق REFERENCE في هذه النسخة.",
-                style = MaterialTheme.typography.bodySmall,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-            )
-        }
-
-        SectionCard("سياسة البيانات") {
-            Bullet("التغطية: ${state.countries.size} دولة/إقليم مع الاسم العربي والعلم وISO ورمز الاتصال وحالة الدعم.")
-            Bullet("الأسماء المولّدة محايدة: N-<E.164> بلا اسم دولة أو مشغّل أو شركة.")
-            Bullet("الوسم N2 يحمل REF=N2;E=+...;ISO=..;T=..;P=..;G=..;C=...")
-            Bullet("جهات سوريا القديمة N1 تُحفظ كما هي، والبادئات 091/092/093/094/095/096/098/099 مدعومة؛ 090 و097 مرفوضان.")
-            Bullet("لا يُدّعى اسم المشترك أو عنوانه أو حالة التفعيل أو المشغّل الحالي بعد نقل الرقم.")
-            Bullet("الخط الأرضي المجهول يظهر «غير متوفر» ولا يُنسب إلى مشغّل.")
-            Bullet("أرقام الطوارئ استثناء مقصود: أسماء وصفية ووسم E1 وإضافة متعددة الاختيار، دون اتصال أو حفظ تلقائي.")
-            Bullet("بيانات الطوارئ تعرض مستوى التحقق والمصدر، ولا تُوصف غير المؤكدة بأنها رسمية.")
-        }
-
         Text(
-            "NumX ${BuildConfig.VERSION_NAME} (${BuildConfig.VERSION_CODE}) — metadata 9.0.42 — " +
-                "libphonenumber / geocoder / carrier.",
+            "تستعيد العملية سجل الملكية من الوسوم المحايدة N1/N2/E1 في جهات الاتصال، " +
+                "مما يتيح الحذف والمتابعة بعد إعادة التثبيت أو مسح بيانات التطبيق.",
             style = MaterialTheme.typography.bodySmall,
             color = MaterialTheme.colorScheme.onSurfaceVariant,
         )
+        TextButton(
+            onClick = onResetRequest,
+            enabled = !running,
+        ) {
+            Icon(Icons.Default.Refresh, contentDescription = null)
+            Spacer(Modifier.width(4.dp))
+            Text("تصفير الإحصائيات فقط")
+        }
+    }
+
+    SectionBlock("تصدير الأرقام المضافة") {
         Text(
-            "يتابع التطبيق وضع الجهاز الفاتح أو الداكن تلقائياً ويستخدم واجهة عربية من اليمين إلى اليسار.",
+            "الصيغة الموحدة: ${format.label} — تُختار مرة واحدة من أعلى الشاشة.",
+            style = MaterialTheme.typography.bodySmall,
+            fontWeight = FontWeight.SemiBold,
+            color = MaterialTheme.colorScheme.primary,
+        )
+        Text(
+            "الحجم التقديري: ~${formatFileSize(format.estimatedBytes(addedTotal))}.",
             style = MaterialTheme.typography.bodySmall,
             color = MaterialTheme.colorScheme.onSurfaceVariant,
         )
-        Spacer(Modifier.height(24.dp))
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.spacedBy(8.dp),
+        ) {
+            OutlinedButton(
+                onClick = onExportAddedSingle,
+                modifier = Modifier.weight(1f),
+                enabled = !running && addedTotal > 0 &&
+                    !ExportManager.requiresSplit(addedTotal),
+            ) {
+                Icon(Icons.Default.FileDownload, contentDescription = null)
+                Spacer(Modifier.width(4.dp))
+                Text("ملف واحد")
+            }
+            OutlinedButton(
+                onClick = onExportAddedSplit,
+                modifier = Modifier.weight(1f),
+                enabled = !running && addedTotal > 0,
+            ) {
+                Icon(Icons.Default.Folder, contentDescription = null)
+                Spacer(Modifier.width(4.dp))
+                Text("مجلد مقسم")
+            }
+        }
+        Text(
+            "المجلد المقسم يكتب أجزاء CSV/vCard مع manifest.json وchecksums.sha256.",
+            style = MaterialTheme.typography.bodySmall,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+        )
+    }
+
+    SectionBlock("مصادر البيانات") {
+        Text(
+            "البيانات مدمجة في التطبيق وتعمل دون إنترنت. لا يطلب التطبيق صلاحية الإنترنت.",
+            style = MaterialTheme.typography.bodySmall,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+        )
+        state.sources.forEach { source ->
+            HorizontalDivider()
+            Text(
+                "${source.name} ${source.version}",
+                style = MaterialTheme.typography.titleSmall,
+                fontWeight = FontWeight.SemiBold,
+            )
+            Text(
+                source.url,
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+            Text(
+                "SHA-256: ${source.sha256.take(24)}…" +
+                    (source.license?.let { " • $it" } ?: ""),
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+        }
+        Text(
+            "دليل الطوارئ والخدمات: ${SyrianNumbers.formatCount(state.emergencyTotal.toLong())} إدخالاً " +
+                "في ${state.emergencyCountries} دولة/إقليم، كلها بمستوى تحقق REFERENCE في هذه النسخة.",
+            style = MaterialTheme.typography.bodySmall,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+        )
+    }
+
+    SectionBlock("سياسة البيانات") {
+        Bullet("التغطية: ${state.countries.size} دولة/إقليم مع الاسم العربي والعلم وISO ورمز الاتصال وحالة الدعم.")
+        Bullet("الأسماء المولّدة محايدة: N-<E.164> بلا اسم دولة أو مشغّل أو شركة.")
+        Bullet("الوسم N2 يحمل REF=N2;E=+...;ISO=..;T=..;P=..;G=..;C=...")
+        Bullet("جهات سوريا القديمة N1 تُحفظ كما هي، والبادئات 091/092/093/094/095/096/098/099 مدعومة؛ 090 و097 مرفوضان.")
+        Bullet("لا يُدّعى اسم المشترك أو عنوانه أو حالة التفعيل أو المشغّل الحالي بعد نقل الرقم.")
+        Bullet("الخط الأرضي المجهول يظهر «غير متوفر» ولا يُنسب إلى مشغّل.")
+        Bullet("أرقام الطوارئ والخدمات استثناء مقصود: أسماء وصفية ووسم E1 وإضافة متعددة الاختيار، دون اتصال أو حفظ تلقائي.")
+        Bullet("بيانات الطوارئ والخدمات تعرض مستوى التحقق والمصدر، ولا تُوصف غير المؤكدة بأنها رسمية.")
     }
 }
 
@@ -1998,6 +1976,9 @@ private fun CountrySelectorCard(
     country: Country?,
     enabled: Boolean,
     onClick: () -> Unit,
+    loading: Boolean = false,
+    placeholder: String = "اختر دولة",
+    onClear: (() -> Unit)? = null,
 ) {
     Card(
         modifier = Modifier
@@ -2016,18 +1997,26 @@ private fun CountrySelectorCard(
             Text(country?.flag ?: "🌐", fontSize = 30.sp)
             Column(Modifier.weight(1f)) {
                 Text(
-                    country?.nameAr ?: "جارٍ تحميل الدول...",
+                    country?.nameAr ?: if (loading) "جارٍ تحميل الدول..." else placeholder,
                     style = MaterialTheme.typography.titleMedium,
                     fontWeight = FontWeight.SemiBold,
                 )
                 Text(
                     country?.let { "${it.nameEn} • ${it.iso2} • +${it.callingCode}" }
-                        ?: "اختر دولة من القائمة",
+                        ?: if (loading) {
+                            "تُقرأ البيانات المدمجة..."
+                        } else {
+                            "اضغط للاختيار من قائمة الدول"
+                        },
                     style = MaterialTheme.typography.bodySmall,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                 )
             }
-            Icon(Icons.Default.ArrowDropDown, contentDescription = "تغيير الدولة")
+            if (onClear != null) {
+                TextButton(onClick = onClear, enabled = enabled) { Text("مسح") }
+            } else {
+                Icon(Icons.Default.ArrowDropDown, contentDescription = "تغيير الدولة")
+            }
         }
     }
 }
@@ -2054,7 +2043,10 @@ private fun PermissionBanner(
                         "يمكنك التوليد إلى ملف دون هذه الصلاحية.",
                     color = MaterialTheme.colorScheme.onErrorContainer,
                 )
-                Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.spacedBy(8.dp),
+        ) {
                     Button(onClick = onRequestPermissions) { Text("منح الصلاحيات") }
                     TextButton(onClick = onOpenSettings) { Text("فتح الإعدادات") }
                 }
@@ -2117,7 +2109,7 @@ private fun OperationProgressCard(operation: OperationState, modifier: Modifier 
                     OperationKind.EXPORT -> "جارٍ التصدير"
                     OperationKind.RESTORE -> "جارٍ استعادة السجل"
                     OperationKind.RESET -> "جارٍ تصفير الإحصائيات"
-                    OperationKind.EMERGENCY -> "جارٍ إضافة جهات الطوارئ"
+                    OperationKind.EMERGENCY -> "جارٍ إضافة جهات الطوارئ والخدمات"
                     OperationKind.IDLE -> ""
                 },
                 fontWeight = FontWeight.SemiBold,
@@ -2215,19 +2207,295 @@ private fun LastExportCard(
 }
 
 @Composable
-private fun SectionCard(title: String, content: @Composable () -> Unit) {
-    Card {
+private fun SectionBlock(title: String, content: @Composable () -> Unit) {
+    Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
+        Text(
+            title,
+            style = MaterialTheme.typography.titleSmall,
+            fontWeight = FontWeight.SemiBold,
+            color = MaterialTheme.colorScheme.primary,
+        )
+        content()
+    }
+}
+
+@Composable
+private fun AppHeader() {
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(start = 20.dp, end = 20.dp, top = 14.dp, bottom = 4.dp),
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.spacedBy(12.dp),
+    ) {
+        Column(Modifier.weight(1f)) {
+            Text(
+                "NumX",
+                style = MaterialTheme.typography.headlineLarge,
+                fontWeight = FontWeight.Bold,
+                color = MaterialTheme.colorScheme.primary,
+            )
+            Text(
+                "أرقام عالمية — توليد وبحث وطوارئ",
+                style = MaterialTheme.typography.titleSmall,
+            )
+        }
+        Surface(
+            color = MaterialTheme.colorScheme.secondaryContainer,
+            shape = MaterialTheme.shapes.small,
+        ) {
+            Text(
+                "v${BuildConfig.VERSION_NAME}",
+                modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp),
+                style = MaterialTheme.typography.labelSmall,
+                color = MaterialTheme.colorScheme.onSecondaryContainer,
+            )
+        }
+    }
+}
+
+@Composable
+private fun AccordionSection(
+    section: AppSection,
+    open: Boolean,
+    summary: String,
+    onClick: () -> Unit,
+    content: @Composable () -> Unit,
+) {
+    val arrowRotation by animateFloatAsState(
+        targetValue = if (open) 180f else 0f,
+        animationSpec = spring(dampingRatio = 0.55f, stiffness = 420f),
+        label = "sectionArrow",
+    )
+    val borderColor by animateColorAsState(
+        targetValue = if (open) {
+            MaterialTheme.colorScheme.primary
+        } else {
+            MaterialTheme.colorScheme.outlineVariant
+        },
+        animationSpec = spring(dampingRatio = 0.7f, stiffness = 500f),
+        label = "sectionBorder",
+    )
+    val bringIntoView = remember { BringIntoViewRequester() }
+    LaunchedEffect(open) {
+        if (open) {
+            delay(80)
+            runCatching { bringIntoView.bringIntoView() }
+        }
+    }
+
+    Card(
+        modifier = Modifier
+            .fillMaxWidth()
+            .bringIntoViewRequester(bringIntoView)
+            .animateContentSize(
+                animationSpec = spring(dampingRatio = 0.7f, stiffness = 420f),
+            ),
+        colors = CardDefaults.cardColors(
+            containerColor = MaterialTheme.colorScheme.surface,
+        ),
+        border = BorderStroke(if (open) 2.dp else 1.dp, borderColor),
+    ) {
+        Column {
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .clickable(onClick = onClick)
+                    .padding(16.dp),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.spacedBy(12.dp),
+            ) {
+                Surface(
+                    color = if (open) {
+                        MaterialTheme.colorScheme.primaryContainer
+                    } else {
+                        MaterialTheme.colorScheme.surfaceContainerHigh
+                    },
+                    shape = MaterialTheme.shapes.medium,
+                ) {
+                    Icon(
+                        section.icon,
+                        contentDescription = null,
+                        modifier = Modifier.padding(8.dp),
+                        tint = if (open) {
+                            MaterialTheme.colorScheme.onPrimaryContainer
+                        } else {
+                            MaterialTheme.colorScheme.onSurfaceVariant
+                        },
+                    )
+                }
+                Column(Modifier.weight(1f)) {
+                    Text(
+                        section.title,
+                        style = MaterialTheme.typography.titleMedium,
+                        fontWeight = FontWeight.SemiBold,
+                    )
+                    Text(
+                        summary.ifBlank { section.subtitle },
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        maxLines = 1,
+                        overflow = TextOverflow.Ellipsis,
+                    )
+                }
+                Icon(
+                    Icons.Default.ArrowDropDown,
+                    contentDescription = if (open) "إغلاق القسم" else "فتح القسم",
+                    modifier = Modifier.rotate(arrowRotation),
+                )
+            }
+            AnimatedVisibility(
+                visible = open,
+                enter = expandVertically(
+                    animationSpec = spring(dampingRatio = 0.72f, stiffness = 420f),
+                ) + fadeIn(
+                    animationSpec = spring(stiffness = Spring.StiffnessMedium),
+                ),
+                exit = shrinkVertically(
+                    animationSpec = spring(dampingRatio = 0.72f, stiffness = 420f),
+                ) + fadeOut(
+                    animationSpec = spring(stiffness = Spring.StiffnessMedium),
+                ),
+            ) {
+                Column(
+                    modifier = Modifier.padding(start = 16.dp, end = 16.dp, bottom = 16.dp),
+                    verticalArrangement = Arrangement.spacedBy(14.dp),
+                ) {
+                    HorizontalDivider()
+                    content()
+                }
+            }
+        }
+    }
+}
+
+@Composable
+private fun FormatSelector(
+    format: ExportFormat,
+    enabled: Boolean,
+    onSetFormat: (ExportFormat) -> Unit,
+) {
+    Card(
+        colors = CardDefaults.cardColors(
+            containerColor = MaterialTheme.colorScheme.surfaceContainerLow,
+        ),
+    ) {
         Column(
-            Modifier.padding(16.dp),
-            verticalArrangement = Arrangement.spacedBy(10.dp),
+            Modifier.padding(14.dp),
+            verticalArrangement = Arrangement.spacedBy(8.dp),
+        ) {
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                Text(
+                    "صيغة الملف",
+                    modifier = Modifier.weight(1f),
+                    style = MaterialTheme.typography.titleSmall,
+                    fontWeight = FontWeight.SemiBold,
+                )
+                Text(
+                    format.label,
+                    style = MaterialTheme.typography.bodySmall,
+                    fontWeight = FontWeight.SemiBold,
+                    color = MaterialTheme.colorScheme.primary,
+                )
+            }
+            Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.spacedBy(8.dp),
+        ) {
+                FormatChip(
+                    format = ExportFormat.CSV,
+                    selected = format == ExportFormat.CSV,
+                    enabled = enabled,
+                    onClick = { onSetFormat(ExportFormat.CSV) },
+                    modifier = Modifier.weight(1f),
+                )
+                FormatChip(
+                    format = ExportFormat.VCARD,
+                    selected = format == ExportFormat.VCARD,
+                    enabled = enabled,
+                    onClick = { onSetFormat(ExportFormat.VCARD) },
+                    modifier = Modifier.weight(1f),
+                )
+            }
+            Text(
+                "صيغة واحدة لتوليد الملفات وتصدير الأرقام المضافة. " +
+                    "vCard مناسب للهواتف، وCSV مناسب للجداول والنطاقات الكبيرة.",
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+        }
+    }
+}
+
+@Composable
+private fun NeutralNotice(title: String, text: String) {
+    Card(
+        colors = CardDefaults.cardColors(
+            containerColor = MaterialTheme.colorScheme.surfaceContainerLow,
+        ),
+    ) {
+        Column(
+            Modifier.padding(14.dp),
+            verticalArrangement = Arrangement.spacedBy(4.dp),
         ) {
             Text(
                 title,
-                style = MaterialTheme.typography.titleMedium,
+                style = MaterialTheme.typography.titleSmall,
                 fontWeight = FontWeight.SemiBold,
             )
-            content()
+            Text(
+                text,
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
         }
+    }
+}
+
+private fun sectionSummary(
+    section: AppSection,
+    state: UiState,
+    addedTotal: Long,
+): String = when (section) {
+    AppSection.GENERATE -> state.selectedCountry?.let {
+        "${it.flag} ${it.nameAr} • ${state.lineType.labelAr}"
+    } ?: "اختر دولة للبدء"
+    AppSection.LOOKUP -> state.lookupResult?.let {
+        "${it.countryAr} • ${it.lineTypeAr}"
+    } ?: "أدخل رقماً للتحقق"
+    AppSection.EMERGENCY -> state.emergencyCountry?.let {
+        if (state.emergencyLoading) {
+            "${it.flag} ${it.nameAr} • جارٍ التحميل"
+        } else {
+            "${it.flag} ${it.nameAr} • " +
+                "${SyrianNumbers.formatCount(state.emergencyEntries.size.toLong())} إدخالاً"
+        }
+    } ?: "اختر دولة"
+    AppSection.STATS -> "${SyrianNumbers.formatCount(addedTotal)} مضافاً"
+}
+
+@Composable
+private fun AppFooter() {
+    Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
+        HorizontalDivider()
+        Text(
+            "NumX ${BuildConfig.VERSION_NAME} (${BuildConfig.VERSION_CODE}) — metadata 9.0.42 — " +
+                "libphonenumber / geocoder / carrier.",
+            style = MaterialTheme.typography.bodySmall,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+        )
+        Text(
+            "تعمل المهام الطويلة في خدمة أمامية مع إشعار، وتستمر عند ترك التطبيق أو إغلاق الشاشة. " +
+                "لا تستخدم «إيقاف التطبيق قسرياً» أثناء العملية.",
+            style = MaterialTheme.typography.bodySmall,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+        )
+        Text(
+            "لا يطلب التطبيق صلاحية الإنترنت؛ البحث والتوليد والطوارئ تعمل دون شبكة. " +
+                "يتبع التطبيق وضع الجهاز الفاتح أو الداكن ويستخدم واجهة عربية من اليمين إلى اليسار.",
+            style = MaterialTheme.typography.bodySmall,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+        )
     }
 }
 
@@ -2240,17 +2508,34 @@ private fun ModeOptionCard(
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    val container = if (selected) {
-        MaterialTheme.colorScheme.primaryContainer
-    } else {
-        MaterialTheme.colorScheme.surfaceContainerLow
-    }
+    val container by animateColorAsState(
+        targetValue = if (selected) {
+            MaterialTheme.colorScheme.primaryContainer
+        } else {
+            MaterialTheme.colorScheme.surfaceContainerLow
+        },
+        animationSpec = spring(dampingRatio = 0.7f, stiffness = 500f),
+        label = "modeContainer",
+    )
+    val border by animateColorAsState(
+        targetValue = if (selected) {
+            MaterialTheme.colorScheme.primary
+        } else {
+            MaterialTheme.colorScheme.outline
+        },
+        animationSpec = spring(dampingRatio = 0.7f, stiffness = 500f),
+        label = "modeBorder",
+    )
     Card(
-        modifier = modifier.clickable(enabled = enabled, onClick = onClick),
+        modifier = modifier
+            .animateContentSize(
+                animationSpec = spring(dampingRatio = 0.7f, stiffness = 420f),
+            )
+            .clickable(enabled = enabled, onClick = onClick),
         colors = CardDefaults.cardColors(containerColor = container),
         border = BorderStroke(
             width = if (selected) 2.dp else 1.dp,
-            color = if (selected) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.outline,
+            color = border,
         ),
     ) {
         Column(Modifier.padding(12.dp), verticalArrangement = Arrangement.spacedBy(4.dp)) {
@@ -2315,6 +2600,28 @@ private fun SupportBadge(support: SupportTier) {
         color = container,
         shape = MaterialTheme.shapes.small,
     ) {
+        Text(
+            label,
+            modifier = Modifier.padding(horizontal = 8.dp, vertical = 3.dp),
+            style = MaterialTheme.typography.labelSmall,
+            color = content,
+        )
+    }
+}
+
+@Composable
+private fun CategoryBadge(label: String, emergency: Boolean) {
+    val container = if (emergency) {
+        MaterialTheme.colorScheme.primaryContainer
+    } else {
+        MaterialTheme.colorScheme.secondaryContainer
+    }
+    val content = if (emergency) {
+        MaterialTheme.colorScheme.onPrimaryContainer
+    } else {
+        MaterialTheme.colorScheme.onSecondaryContainer
+    }
+    Surface(color = container, shape = MaterialTheme.shapes.small) {
         Text(
             label,
             modifier = Modifier.padding(horizontal = 8.dp, vertical = 3.dp),
