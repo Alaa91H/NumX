@@ -1,0 +1,1483 @@
+{
+ "generated_at": "2026-10-28",
+ "source_name": "ITU National Numbering Plans",
+ "source_url": "https://www.itu.int/oth/T0202.aspx?parent=T0202",
+ "index_url": "https://www.itu.int/ITU-T/inr/nnp/index.html",
+ "license_name": "ITU terms of use",
+ "license_url": "https://www.itu.int/en/copyright/Pages/default.aspx",
+ "entries": [
+  {
+   "iso2": "AC",
+   "itu_name": "Ascension",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T020200000C",
+   "additional_urls": []
+  },
+  {
+   "iso2": "AD",
+   "itu_name": "Andorra",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000005",
+   "additional_urls": []
+  },
+  {
+   "iso2": "AE",
+   "itu_name": "United Arab Emirates",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000DC",
+   "additional_urls": []
+  },
+  {
+   "iso2": "AF",
+   "itu_name": "Afghanistan",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000001",
+   "additional_urls": []
+  },
+  {
+   "iso2": "AG",
+   "itu_name": "Antigua and Barbuda",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000008",
+   "additional_urls": []
+  },
+  {
+   "iso2": "AI",
+   "itu_name": "Anguilla",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000007",
+   "additional_urls": []
+  },
+  {
+   "iso2": "AL",
+   "itu_name": "Albania",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000002",
+   "additional_urls": []
+  },
+  {
+   "iso2": "AM",
+   "itu_name": "Armenia",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T020200000A",
+   "additional_urls": []
+  },
+  {
+   "iso2": "AO",
+   "itu_name": "Angola",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000006",
+   "additional_urls": []
+  },
+  {
+   "iso2": "AR",
+   "itu_name": "Argentina",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000009",
+   "additional_urls": []
+  },
+  {
+   "iso2": "AS",
+   "itu_name": "American Samoa",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000004",
+   "additional_urls": []
+  },
+  {
+   "iso2": "AT",
+   "itu_name": "Austria",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T020200000E",
+   "additional_urls": []
+  },
+  {
+   "iso2": "AU",
+   "itu_name": "Australia",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T020200000D",
+   "additional_urls": []
+  },
+  {
+   "iso2": "AW",
+   "itu_name": "Aruba",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T020200000B",
+   "additional_urls": []
+  },
+  {
+   "iso2": "AZ",
+   "itu_name": "Azerbaijan",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T020200000F",
+   "additional_urls": []
+  },
+  {
+   "iso2": "BA",
+   "itu_name": "Bosnia and Herzegovina",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T020200001B",
+   "additional_urls": []
+  },
+  {
+   "iso2": "BB",
+   "itu_name": "Barbados",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000013",
+   "additional_urls": []
+  },
+  {
+   "iso2": "BD",
+   "itu_name": "Bangladesh",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000012",
+   "additional_urls": []
+  },
+  {
+   "iso2": "BE",
+   "itu_name": "Belgium",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000015",
+   "additional_urls": []
+  },
+  {
+   "iso2": "BF",
+   "itu_name": "Burkina Faso",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000021",
+   "additional_urls": []
+  },
+  {
+   "iso2": "BG",
+   "itu_name": "Bulgaria",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000020",
+   "additional_urls": []
+  },
+  {
+   "iso2": "BH",
+   "itu_name": "Bahrain",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000011",
+   "additional_urls": []
+  },
+  {
+   "iso2": "BI",
+   "itu_name": "Burundi",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000022",
+   "additional_urls": []
+  },
+  {
+   "iso2": "BJ",
+   "itu_name": "Benin",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000017",
+   "additional_urls": []
+  },
+  {
+   "iso2": "BM",
+   "itu_name": "Bermuda",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000018",
+   "additional_urls": []
+  },
+  {
+   "iso2": "BN",
+   "itu_name": "Brunei Darussalam",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T020200001F",
+   "additional_urls": []
+  },
+  {
+   "iso2": "BO",
+   "itu_name": "Bolivia (Plurinational State of)",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T020200001A",
+   "additional_urls": []
+  },
+  {
+   "iso2": "BQ",
+   "itu_name": "Bonaire, Sint Eustatius and Saba",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000F8",
+   "additional_urls": []
+  },
+  {
+   "iso2": "BR",
+   "itu_name": "Brazil",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T020200001D",
+   "additional_urls": []
+  },
+  {
+   "iso2": "BS",
+   "itu_name": "Bahamas",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000010",
+   "additional_urls": []
+  },
+  {
+   "iso2": "BT",
+   "itu_name": "Bhutan",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000019",
+   "additional_urls": []
+  },
+  {
+   "iso2": "BW",
+   "itu_name": "Botswana",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T020200001C",
+   "additional_urls": []
+  },
+  {
+   "iso2": "BY",
+   "itu_name": "Belarus",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000014",
+   "additional_urls": []
+  },
+  {
+   "iso2": "BZ",
+   "itu_name": "Belize",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000016",
+   "additional_urls": []
+  },
+  {
+   "iso2": "CA",
+   "itu_name": "Canada",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000025",
+   "additional_urls": []
+  },
+  {
+   "iso2": "CD",
+   "itu_name": "Dem. Rep. of the Congo",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000037",
+   "additional_urls": []
+  },
+  {
+   "iso2": "CF",
+   "itu_name": "Central African Rep.",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000028",
+   "additional_urls": []
+  },
+  {
+   "iso2": "CG",
+   "itu_name": "Congo (Rep. of the)",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T020200002E",
+   "additional_urls": []
+  },
+  {
+   "iso2": "CH",
+   "itu_name": "Switzerland",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000C8",
+   "additional_urls": []
+  },
+  {
+   "iso2": "CI",
+   "itu_name": "Côte d'Ivoire",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000031",
+   "additional_urls": []
+  },
+  {
+   "iso2": "CK",
+   "itu_name": "Cook Islands",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T020200002F",
+   "additional_urls": []
+  },
+  {
+   "iso2": "CL",
+   "itu_name": "Chile",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T020200002A",
+   "additional_urls": []
+  },
+  {
+   "iso2": "CM",
+   "itu_name": "Cameroon",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000024",
+   "additional_urls": []
+  },
+  {
+   "iso2": "CN",
+   "itu_name": "China",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T020200002B",
+   "additional_urls": []
+  },
+  {
+   "iso2": "CO",
+   "itu_name": "Colombia",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T020200002C",
+   "additional_urls": []
+  },
+  {
+   "iso2": "CR",
+   "itu_name": "Costa Rica",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000030",
+   "additional_urls": []
+  },
+  {
+   "iso2": "CU",
+   "itu_name": "Cuba",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000033",
+   "additional_urls": []
+  },
+  {
+   "iso2": "CV",
+   "itu_name": "Cabo Verde",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000026",
+   "additional_urls": []
+  },
+  {
+   "iso2": "CW",
+   "itu_name": "Curaçao",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000F5",
+   "additional_urls": []
+  },
+  {
+   "iso2": "CY",
+   "itu_name": "Cyprus",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000034",
+   "additional_urls": []
+  },
+  {
+   "iso2": "CZ",
+   "itu_name": "Czech Rep.",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000035",
+   "additional_urls": []
+  },
+  {
+   "iso2": "DE",
+   "itu_name": "Germany",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000051",
+   "additional_urls": []
+  },
+  {
+   "iso2": "DJ",
+   "itu_name": "Djibouti",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T020200003A",
+   "additional_urls": []
+  },
+  {
+   "iso2": "DK",
+   "itu_name": "Denmark",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000038",
+   "additional_urls": []
+  },
+  {
+   "iso2": "DM",
+   "itu_name": "Dominica",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T020200003B",
+   "additional_urls": []
+  },
+  {
+   "iso2": "DO",
+   "itu_name": "Dominican Rep.",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T020200003C",
+   "additional_urls": []
+  },
+  {
+   "iso2": "DZ",
+   "itu_name": "Algeria",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000003",
+   "additional_urls": []
+  },
+  {
+   "iso2": "EC",
+   "itu_name": "Ecuador",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T020200003D",
+   "additional_urls": []
+  },
+  {
+   "iso2": "EE",
+   "itu_name": "Estonia",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000043",
+   "additional_urls": []
+  },
+  {
+   "iso2": "EG",
+   "itu_name": "Egypt",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T020200003E",
+   "additional_urls": []
+  },
+  {
+   "iso2": "ER",
+   "itu_name": "Eritrea",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000042",
+   "additional_urls": []
+  },
+  {
+   "iso2": "ES",
+   "itu_name": "Spain",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000C2",
+   "additional_urls": []
+  },
+  {
+   "iso2": "ET",
+   "itu_name": "Ethiopia",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000044",
+   "additional_urls": []
+  },
+  {
+   "iso2": "FI",
+   "itu_name": "Finland",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000049",
+   "additional_urls": []
+  },
+  {
+   "iso2": "FJ",
+   "itu_name": "Fiji",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000048",
+   "additional_urls": []
+  },
+  {
+   "iso2": "FK",
+   "itu_name": "Falkland Islands (Malvinas)",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000046",
+   "additional_urls": []
+  },
+  {
+   "iso2": "FM",
+   "itu_name": "Micronesia",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T020200008B",
+   "additional_urls": []
+  },
+  {
+   "iso2": "FO",
+   "itu_name": "Faroe Islands",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000047",
+   "additional_urls": []
+  },
+  {
+   "iso2": "FR",
+   "itu_name": "France",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T020200004A",
+   "additional_urls": []
+  },
+  {
+   "iso2": "GA",
+   "itu_name": "Gabon",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T020200004E",
+   "additional_urls": []
+  },
+  {
+   "iso2": "GB",
+   "itu_name": "United Kingdom",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000DD",
+   "additional_urls": []
+  },
+  {
+   "iso2": "GD",
+   "itu_name": "Grenada",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000057",
+   "additional_urls": []
+  },
+  {
+   "iso2": "GE",
+   "itu_name": "Georgia",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000050",
+   "additional_urls": []
+  },
+  {
+   "iso2": "GF",
+   "itu_name": "French Guiana",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T020200004C",
+   "additional_urls": []
+  },
+  {
+   "iso2": "GH",
+   "itu_name": "Ghana",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000052",
+   "additional_urls": []
+  },
+  {
+   "iso2": "GI",
+   "itu_name": "Gibraltar",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000053",
+   "additional_urls": []
+  },
+  {
+   "iso2": "GL",
+   "itu_name": "Greenland",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000056",
+   "additional_urls": []
+  },
+  {
+   "iso2": "GM",
+   "itu_name": "Gambia",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T020200004F",
+   "additional_urls": []
+  },
+  {
+   "iso2": "GN",
+   "itu_name": "Guinea",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T020200005B",
+   "additional_urls": []
+  },
+  {
+   "iso2": "GP",
+   "itu_name": "Guadeloupe",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000058",
+   "additional_urls": []
+  },
+  {
+   "iso2": "GQ",
+   "itu_name": "Equatorial Guinea",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000041",
+   "additional_urls": []
+  },
+  {
+   "iso2": "GR",
+   "itu_name": "Greece",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000055",
+   "additional_urls": []
+  },
+  {
+   "iso2": "GT",
+   "itu_name": "Guatemala",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T020200005A",
+   "additional_urls": []
+  },
+  {
+   "iso2": "GU",
+   "itu_name": "Guam",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000059",
+   "additional_urls": []
+  },
+  {
+   "iso2": "GW",
+   "itu_name": "Guinea-Bissau",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T020200005C",
+   "additional_urls": []
+  },
+  {
+   "iso2": "GY",
+   "itu_name": "Guyana",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T020200005D",
+   "additional_urls": []
+  },
+  {
+   "iso2": "HK",
+   "itu_name": "Hong Kong, China",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000060",
+   "additional_urls": []
+  },
+  {
+   "iso2": "HN",
+   "itu_name": "Honduras",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T020200005F",
+   "additional_urls": []
+  },
+  {
+   "iso2": "HR",
+   "itu_name": "Croatia",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000032",
+   "additional_urls": []
+  },
+  {
+   "iso2": "HT",
+   "itu_name": "Haiti",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T020200005E",
+   "additional_urls": []
+  },
+  {
+   "iso2": "HU",
+   "itu_name": "Hungary",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000061",
+   "additional_urls": []
+  },
+  {
+   "iso2": "ID",
+   "itu_name": "Indonesia",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000064",
+   "additional_urls": []
+  },
+  {
+   "iso2": "IE",
+   "itu_name": "Ireland",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000068",
+   "additional_urls": []
+  },
+  {
+   "iso2": "IL",
+   "itu_name": "Israel",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T020200006A",
+   "additional_urls": []
+  },
+  {
+   "iso2": "IN",
+   "itu_name": "India",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000063",
+   "additional_urls": []
+  },
+  {
+   "iso2": "IO",
+   "itu_name": "Diego Garcia",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000039",
+   "additional_urls": []
+  },
+  {
+   "iso2": "IQ",
+   "itu_name": "Iraq",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000067",
+   "additional_urls": []
+  },
+  {
+   "iso2": "IR",
+   "itu_name": "Iran (Islamic Republic of)",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000066",
+   "additional_urls": []
+  },
+  {
+   "iso2": "IS",
+   "itu_name": "Iceland",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000062",
+   "additional_urls": []
+  },
+  {
+   "iso2": "IT",
+   "itu_name": "Italy",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T020200006B",
+   "additional_urls": []
+  },
+  {
+   "iso2": "JM",
+   "itu_name": "Jamaica",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T020200006C",
+   "additional_urls": []
+  },
+  {
+   "iso2": "JO",
+   "itu_name": "Jordan",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T020200006E",
+   "additional_urls": []
+  },
+  {
+   "iso2": "JP",
+   "itu_name": "Japan",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T020200006D",
+   "additional_urls": []
+  },
+  {
+   "iso2": "KE",
+   "itu_name": "Kenya",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000070",
+   "additional_urls": []
+  },
+  {
+   "iso2": "KG",
+   "itu_name": "Kyrgyzstan",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000074",
+   "additional_urls": []
+  },
+  {
+   "iso2": "KH",
+   "itu_name": "Cambodia",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000023",
+   "additional_urls": []
+  },
+  {
+   "iso2": "KI",
+   "itu_name": "Kiribati",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000071",
+   "additional_urls": []
+  },
+  {
+   "iso2": "KM",
+   "itu_name": "Comoros",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T020200002D",
+   "additional_urls": []
+  },
+  {
+   "iso2": "KN",
+   "itu_name": "Saint Kitts and Nevis",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000B0",
+   "additional_urls": []
+  },
+  {
+   "iso2": "KP",
+   "itu_name": "Dem. People's Rep. of Korea",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000036",
+   "additional_urls": []
+  },
+  {
+   "iso2": "KR",
+   "itu_name": "Korea (Rep. of)",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000072",
+   "additional_urls": []
+  },
+  {
+   "iso2": "KW",
+   "itu_name": "Kuwait",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000073",
+   "additional_urls": []
+  },
+  {
+   "iso2": "KY",
+   "itu_name": "Cayman Islands",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000027",
+   "additional_urls": []
+  },
+  {
+   "iso2": "KZ",
+   "itu_name": "Kazakhstan",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T020200006F",
+   "additional_urls": []
+  },
+  {
+   "iso2": "LA",
+   "itu_name": "Lao P.D.R.",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000075",
+   "additional_urls": []
+  },
+  {
+   "iso2": "LB",
+   "itu_name": "Lebanon",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000077",
+   "additional_urls": []
+  },
+  {
+   "iso2": "LC",
+   "itu_name": "Saint Lucia",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000B1",
+   "additional_urls": []
+  },
+  {
+   "iso2": "LI",
+   "itu_name": "Liechtenstein",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T020200007B",
+   "additional_urls": []
+  },
+  {
+   "iso2": "LK",
+   "itu_name": "Sri Lanka",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000C3",
+   "additional_urls": []
+  },
+  {
+   "iso2": "LR",
+   "itu_name": "Liberia",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000079",
+   "additional_urls": []
+  },
+  {
+   "iso2": "LS",
+   "itu_name": "Lesotho",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000078",
+   "additional_urls": []
+  },
+  {
+   "iso2": "LT",
+   "itu_name": "Lithuania",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T020200007C",
+   "additional_urls": []
+  },
+  {
+   "iso2": "LU",
+   "itu_name": "Luxembourg",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T020200007D",
+   "additional_urls": []
+  },
+  {
+   "iso2": "LV",
+   "itu_name": "Latvia",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000076",
+   "additional_urls": []
+  },
+  {
+   "iso2": "LY",
+   "itu_name": "Libya",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T020200007A",
+   "additional_urls": []
+  },
+  {
+   "iso2": "MA",
+   "itu_name": "Morocco",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000090",
+   "additional_urls": []
+  },
+  {
+   "iso2": "MC",
+   "itu_name": "Monaco",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T020200008D",
+   "additional_urls": []
+  },
+  {
+   "iso2": "MD",
+   "itu_name": "Moldova",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T020200008C",
+   "additional_urls": []
+  },
+  {
+   "iso2": "ME",
+   "itu_name": "Montenegro",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000DA",
+   "additional_urls": []
+  },
+  {
+   "iso2": "MG",
+   "itu_name": "Madagascar",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T020200007F",
+   "additional_urls": []
+  },
+  {
+   "iso2": "MH",
+   "itu_name": "Marshall Islands",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000085",
+   "additional_urls": []
+  },
+  {
+   "iso2": "MK",
+   "itu_name": "North Macedonia",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000CE",
+   "additional_urls": []
+  },
+  {
+   "iso2": "ML",
+   "itu_name": "Mali",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000083",
+   "additional_urls": []
+  },
+  {
+   "iso2": "MM",
+   "itu_name": "Myanmar",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000092",
+   "additional_urls": []
+  },
+  {
+   "iso2": "MN",
+   "itu_name": "Mongolia",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T020200008E",
+   "additional_urls": []
+  },
+  {
+   "iso2": "MO",
+   "itu_name": "Macao, China",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T020200007E",
+   "additional_urls": []
+  },
+  {
+   "iso2": "MP",
+   "itu_name": "Northern Mariana Islands",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000EE",
+   "additional_urls": []
+  },
+  {
+   "iso2": "MQ",
+   "itu_name": "Martinique",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000086",
+   "additional_urls": []
+  },
+  {
+   "iso2": "MR",
+   "itu_name": "Mauritania",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000087",
+   "additional_urls": []
+  },
+  {
+   "iso2": "MS",
+   "itu_name": "Montserrat",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T020200008F",
+   "additional_urls": []
+  },
+  {
+   "iso2": "MT",
+   "itu_name": "Malta",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000084",
+   "additional_urls": []
+  },
+  {
+   "iso2": "MU",
+   "itu_name": "Mauritius",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000088",
+   "additional_urls": []
+  },
+  {
+   "iso2": "MV",
+   "itu_name": "Maldives",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000082",
+   "additional_urls": []
+  },
+  {
+   "iso2": "MW",
+   "itu_name": "Malawi",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000080",
+   "additional_urls": []
+  },
+  {
+   "iso2": "MX",
+   "itu_name": "Mexico",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T020200008A",
+   "additional_urls": []
+  },
+  {
+   "iso2": "MY",
+   "itu_name": "Malaysia",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000081",
+   "additional_urls": []
+  },
+  {
+   "iso2": "MZ",
+   "itu_name": "Mozambique",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000091",
+   "additional_urls": []
+  },
+  {
+   "iso2": "NA",
+   "itu_name": "Namibia",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000093",
+   "additional_urls": []
+  },
+  {
+   "iso2": "NC",
+   "itu_name": "New Caledonia",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000098",
+   "additional_urls": []
+  },
+  {
+   "iso2": "NE",
+   "itu_name": "Niger",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T020200009B",
+   "additional_urls": []
+  },
+  {
+   "iso2": "NF",
+   "itu_name": "Norfolk Island",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T020200009D",
+   "additional_urls": []
+  },
+  {
+   "iso2": "NG",
+   "itu_name": "Nigeria",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T020200009C",
+   "additional_urls": []
+  },
+  {
+   "iso2": "NI",
+   "itu_name": "Nicaragua",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T020200009A",
+   "additional_urls": []
+  },
+  {
+   "iso2": "NL",
+   "itu_name": "Netherlands",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000096",
+   "additional_urls": []
+  },
+  {
+   "iso2": "NO",
+   "itu_name": "Norway",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T020200009E",
+   "additional_urls": []
+  },
+  {
+   "iso2": "NP",
+   "itu_name": "Nepal",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000095",
+   "additional_urls": []
+  },
+  {
+   "iso2": "NR",
+   "itu_name": "Nauru",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000094",
+   "additional_urls": []
+  },
+  {
+   "iso2": "NU",
+   "itu_name": "Niue",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000EC",
+   "additional_urls": []
+  },
+  {
+   "iso2": "NZ",
+   "itu_name": "New Zealand",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000099",
+   "additional_urls": []
+  },
+  {
+   "iso2": "OM",
+   "itu_name": "Oman",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T020200009F",
+   "additional_urls": []
+  },
+  {
+   "iso2": "PA",
+   "itu_name": "Panama",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000A3",
+   "additional_urls": []
+  },
+  {
+   "iso2": "PE",
+   "itu_name": "Peru",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000A6",
+   "additional_urls": []
+  },
+  {
+   "iso2": "PF",
+   "itu_name": "French Polynesia",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T020200004D",
+   "additional_urls": []
+  },
+  {
+   "iso2": "PG",
+   "itu_name": "Papua New Guinea",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000A4",
+   "additional_urls": []
+  },
+  {
+   "iso2": "PH",
+   "itu_name": "Philippines",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000A7",
+   "additional_urls": []
+  },
+  {
+   "iso2": "PK",
+   "itu_name": "Pakistan",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000A1",
+   "additional_urls": []
+  },
+  {
+   "iso2": "PL",
+   "itu_name": "Poland",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000A8",
+   "additional_urls": []
+  },
+  {
+   "iso2": "PM",
+   "itu_name": "Saint Pierre and Miquelon",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000B2",
+   "additional_urls": []
+  },
+  {
+   "iso2": "PR",
+   "itu_name": "Puerto Rico",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000AA",
+   "additional_urls": []
+  },
+  {
+   "iso2": "PS",
+   "itu_name": "Palestine, State of",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000FF",
+   "additional_urls": []
+  },
+  {
+   "iso2": "PT",
+   "itu_name": "Portugal",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000A9",
+   "additional_urls": []
+  },
+  {
+   "iso2": "PW",
+   "itu_name": "Palau",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000A2",
+   "additional_urls": []
+  },
+  {
+   "iso2": "PY",
+   "itu_name": "Paraguay",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000A5",
+   "additional_urls": []
+  },
+  {
+   "iso2": "QA",
+   "itu_name": "Qatar",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000AB",
+   "additional_urls": []
+  },
+  {
+   "iso2": "RO",
+   "itu_name": "Romania",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000AC",
+   "additional_urls": []
+  },
+  {
+   "iso2": "RS",
+   "itu_name": "Serbia",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000B9",
+   "additional_urls": []
+  },
+  {
+   "iso2": "RU",
+   "itu_name": "Russian Federation",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000AD",
+   "additional_urls": []
+  },
+  {
+   "iso2": "RW",
+   "itu_name": "Rwanda",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000AE",
+   "additional_urls": []
+  },
+  {
+   "iso2": "SA",
+   "itu_name": "Saudi Arabia",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000B7",
+   "additional_urls": []
+  },
+  {
+   "iso2": "SB",
+   "itu_name": "Solomon Islands",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000BF",
+   "additional_urls": []
+  },
+  {
+   "iso2": "SC",
+   "itu_name": "Seychelles",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000BA",
+   "additional_urls": []
+  },
+  {
+   "iso2": "SD",
+   "itu_name": "Sudan",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000C4",
+   "additional_urls": []
+  },
+  {
+   "iso2": "SE",
+   "itu_name": "Sweden",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000C7",
+   "additional_urls": []
+  },
+  {
+   "iso2": "SG",
+   "itu_name": "Singapore",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000BC",
+   "additional_urls": []
+  },
+  {
+   "iso2": "SH",
+   "itu_name": "Saint Helena and Tristan da Cunha",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000AF",
+   "additional_urls": []
+  },
+  {
+   "iso2": "SI",
+   "itu_name": "Slovenia",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000BE",
+   "additional_urls": []
+  },
+  {
+   "iso2": "SK",
+   "itu_name": "Slovakia",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000BD",
+   "additional_urls": []
+  },
+  {
+   "iso2": "SL",
+   "itu_name": "Sierra Leone",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000BB",
+   "additional_urls": []
+  },
+  {
+   "iso2": "SM",
+   "itu_name": "San Marino",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000B5",
+   "additional_urls": []
+  },
+  {
+   "iso2": "SN",
+   "itu_name": "Senegal",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000B8",
+   "additional_urls": []
+  },
+  {
+   "iso2": "SO",
+   "itu_name": "Somalia",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000C0",
+   "additional_urls": []
+  },
+  {
+   "iso2": "SR",
+   "itu_name": "Suriname",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000C5",
+   "additional_urls": []
+  },
+  {
+   "iso2": "SS",
+   "itu_name": "South Sudan",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000F9",
+   "additional_urls": []
+  },
+  {
+   "iso2": "ST",
+   "itu_name": "Sao Tome and Principe",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000B6",
+   "additional_urls": []
+  },
+  {
+   "iso2": "SV",
+   "itu_name": "El Salvador",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T020200003F",
+   "additional_urls": []
+  },
+  {
+   "iso2": "SX",
+   "itu_name": "Sint Maarten (Dutch part)",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000F7",
+   "additional_urls": []
+  },
+  {
+   "iso2": "SY",
+   "itu_name": "Syrian Arab Republic",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000C9",
+   "additional_urls": []
+  },
+  {
+   "iso2": "SZ",
+   "itu_name": "Eswatini",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000C6",
+   "additional_urls": []
+  },
+  {
+   "iso2": "TC",
+   "itu_name": "Turks and Caicos",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000D8",
+   "additional_urls": []
+  },
+  {
+   "iso2": "TD",
+   "itu_name": "Chad",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000029",
+   "additional_urls": []
+  },
+  {
+   "iso2": "TG",
+   "itu_name": "Togo",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000D1",
+   "additional_urls": []
+  },
+  {
+   "iso2": "TH",
+   "itu_name": "Thailand",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000CD",
+   "additional_urls": []
+  },
+  {
+   "iso2": "TJ",
+   "itu_name": "Tajikistan",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000CA",
+   "additional_urls": []
+  },
+  {
+   "iso2": "TK",
+   "itu_name": "Tokelau",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000D2",
+   "additional_urls": []
+  },
+  {
+   "iso2": "TL",
+   "itu_name": "Timor-Leste",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000D0",
+   "additional_urls": []
+  },
+  {
+   "iso2": "TM",
+   "itu_name": "Turkmenistan",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000D7",
+   "additional_urls": []
+  },
+  {
+   "iso2": "TN",
+   "itu_name": "Tunisia",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000D5",
+   "additional_urls": []
+  },
+  {
+   "iso2": "TO",
+   "itu_name": "Tonga",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000D3",
+   "additional_urls": []
+  },
+  {
+   "iso2": "TR",
+   "itu_name": "Türkiye",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000D6",
+   "additional_urls": []
+  },
+  {
+   "iso2": "TT",
+   "itu_name": "Trinidad and Tobago",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000D4",
+   "additional_urls": []
+  },
+  {
+   "iso2": "TV",
+   "itu_name": "Tuvalu",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000D9",
+   "additional_urls": []
+  },
+  {
+   "iso2": "TW",
+   "itu_name": "Taiwan, China",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000EB",
+   "additional_urls": []
+  },
+  {
+   "iso2": "TZ",
+   "itu_name": "Tanzania",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000CB",
+   "additional_urls": []
+  },
+  {
+   "iso2": "UA",
+   "itu_name": "Ukraine",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000DB",
+   "additional_urls": []
+  },
+  {
+   "iso2": "UG",
+   "itu_name": "Uganda",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000F1",
+   "additional_urls": []
+  },
+  {
+   "iso2": "US",
+   "itu_name": "United States",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000DE",
+   "additional_urls": []
+  },
+  {
+   "iso2": "UY",
+   "itu_name": "Uruguay",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000E0",
+   "additional_urls": []
+  },
+  {
+   "iso2": "UZ",
+   "itu_name": "Uzbekistan",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000E1",
+   "additional_urls": []
+  },
+  {
+   "iso2": "VC",
+   "itu_name": "Saint Vincent and the Grenadines",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000B3",
+   "additional_urls": []
+  },
+  {
+   "iso2": "VE",
+   "itu_name": "Venezuela",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000E3",
+   "additional_urls": []
+  },
+  {
+   "iso2": "VG",
+   "itu_name": "British Virgin Islands",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T020200001E",
+   "additional_urls": []
+  },
+  {
+   "iso2": "VI",
+   "itu_name": "United States Virgin Islands",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000DF",
+   "additional_urls": []
+  },
+  {
+   "iso2": "VN",
+   "itu_name": "Viet Nam",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000E4",
+   "additional_urls": []
+  },
+  {
+   "iso2": "VU",
+   "itu_name": "Vanuatu",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000E2",
+   "additional_urls": []
+  },
+  {
+   "iso2": "WF",
+   "itu_name": "Wallis and Futuna",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000E6",
+   "additional_urls": []
+  },
+  {
+   "iso2": "WS",
+   "itu_name": "Samoa",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000B4",
+   "additional_urls": []
+  },
+  {
+   "iso2": "XK",
+   "itu_name": "Kosovo*",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000FD",
+   "additional_urls": []
+  },
+  {
+   "iso2": "YE",
+   "itu_name": "Yemen",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000E7",
+   "additional_urls": []
+  },
+  {
+   "iso2": "ZA",
+   "itu_name": "South Africa",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000C1",
+   "additional_urls": []
+  },
+  {
+   "iso2": "ZM",
+   "itu_name": "Zambia",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000E8",
+   "additional_urls": []
+  },
+  {
+   "iso2": "ZW",
+   "itu_name": "Zimbabwe",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000E9",
+   "additional_urls": []
+  }
+ ],
+ "unmatched_itu_entries": [
+  {
+   "itu_name": "French Departments and Territories in the Indian Ocean",
+   "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T020200004B"
+  }
+ ],
+ "global_networks": [
+  {
+   "entity_id": "GLOBAL:INMARSAT",
+   "name_en": "Inmarsat",
+   "name_ar": "إينمارسات",
+   "calling_codes": [
+    "+870"
+   ],
+   "itu_url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000065",
+   "document_url": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000650001MSWE.doc",
+   "itu_name": "Inmarsat"
+  },
+  {
+   "entity_id": "GLOBAL:IRIDIUM",
+   "name_en": "Iridium Satellite LLC",
+   "name_ar": "إيريديوم",
+   "calling_codes": [
+    "+881 6",
+    "+881 7"
+   ],
+   "itu_url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000069",
+   "document_url": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000690004MSWE.docx",
+   "itu_name": "Iridium"
+  },
+  {
+   "entity_id": "GLOBAL:GLOBALSTAR",
+   "name_en": "Globalstar Inc.",
+   "name_ar": "غلوبال ستار",
+   "calling_codes": [
+    "+881 8",
+    "+881 9"
+   ],
+   "itu_url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000F0",
+   "document_url": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000F00003MSWE.doc",
+   "itu_name": "Globalstar Inc."
+  },
+  {
+   "entity_id": "GLOBAL:THURAYA",
+   "name_en": "Thuraya",
+   "name_ar": "ثريا",
+   "calling_codes": [
+    "+882 16"
+   ],
+   "itu_url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000CF",
+   "document_url": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000CF0001MSWE.doc",
+   "itu_name": "Thuraya"
+  },
+  {
+   "entity_id": "GLOBAL:MCP",
+   "name_en": "Maritime Communications Partner (MCP)",
+   "name_ar": "ماريتايم كوميونيكيشنز بارتنر",
+   "calling_codes": [
+    "+882 32"
+   ],
+   "itu_url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000F4",
+   "document_url": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000F40001MSWE.doc",
+   "itu_name": "Maritime Communications Partner (MCP)"
+  },
+  {
+   "entity_id": "GLOBAL:ATT_CINGULAR",
+   "name_en": "AT&T Cingular Wireless Network",
+   "name_ar": "شبكة AT&T Cingular اللاسلكية",
+   "calling_codes": [
+    "+882 37"
+   ],
+   "itu_url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000FE",
+   "document_url": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000FE0001MSWE.docx",
+   "itu_name": "AT&T Cingular Wireless Network"
+  },
+  {
+   "entity_id": "GLOBAL:CHINA_TELECOM_SAT",
+   "name_en": "China Telecommunications Corporation Satellite Communications Branch",
+   "name_ar": "فرع الاتصالات الساتلية لشركة الاتصالات الصينية",
+   "calling_codes": [
+    "+882 52"
+   ],
+   "itu_url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000100",
+   "document_url": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020001000001MSWE.docx",
+   "itu_name": "China Telecommunications Corporation Satellite Communications Branch"
+  }
+ ]
+}

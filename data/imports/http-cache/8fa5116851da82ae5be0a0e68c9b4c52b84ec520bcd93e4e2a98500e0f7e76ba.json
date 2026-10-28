@@ -1,0 +1,15 @@
+{
+ "url": "https://en.wikipedia.org/wiki/Meeza",
+ "final_url": "https://en.wikipedia.org/wiki/Meeza",
+ "status": 200,
+ "content_type": "text/html; charset=UTF-8",
+ "content_length": null,
+ "sha256": "4bd240cc318a01ca24695ba111709c48f96c50bffc9a6314743128203c747e90",
+ "elapsed_ms": 1010,
+ "fetched_at": "2026-10-28T03:53:40Z",
+ "robots_allowed": true,
+ "robots_checked": true,
+ "truncated": false,
+ "error": null,
+ "encoding": "utf-8"
+}

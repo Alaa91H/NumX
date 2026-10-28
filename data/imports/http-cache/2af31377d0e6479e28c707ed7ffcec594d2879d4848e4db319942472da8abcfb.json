@@ -1,0 +1,15 @@
+{
+ "url": "https://en.wikipedia.org/wiki/EvertekTunisie",
+ "final_url": "https://en.wikipedia.org/wiki/EvertekTunisie",
+ "status": 200,
+ "content_type": "text/html; charset=UTF-8",
+ "content_length": null,
+ "sha256": "7443556de384737a05a592b9ce7bfa740e5c9f9035170bc01fd7d823bcaf3697",
+ "elapsed_ms": 806,
+ "fetched_at": "2026-10-28T03:53:49Z",
+ "robots_allowed": true,
+ "robots_checked": true,
+ "truncated": false,
+ "error": null,
+ "encoding": "utf-8"
+}

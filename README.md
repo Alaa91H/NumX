@@ -130,6 +130,7 @@ Country ISO,Calling Code,E.164,Line Type,Note
 - **MetadataRepository.kt**: تحميل بيانات الدول والخطط والطوارئ والمصادر من الأصول.
 - **Lookup.kt**: بحث دون اتصال عبر libphonenumber geocoder/carrier والمناطق الزمنية، مع استثناء سوريا 091/092.
 - **NumXDatabase.kt**: SQLite/WAL للجلسات والأرقام المضافة والطوارئ والمؤشرات والإحصاءات.
+- **platform_summary.json** (في الأصول): ملخص منصة البيانات قابل للقراءة من التطبيق دون اتصال (المصادر، التغطية، القيود).
 - **ExportManager.kt**: كتابة متدفقة عبر SAF، تقسيم إلى أجزاء، manifest، وSHA-256.
 - **OperationController.kt + Foreground Service**: المهام الطويلة تعمل على مستوى التطبيق وتستمر عند ترك الواجهة أو إغلاق الشاشة، مع إشعار تقدم وإمكانية إلغاء.
 - **ContactsManager.kt**: إدخال دفعات، منع التكرار، حذف آمن، واستعادة N1/N2/E1.

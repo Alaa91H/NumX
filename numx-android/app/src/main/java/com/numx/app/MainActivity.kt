@@ -1347,28 +1347,44 @@ private fun LookupResultCard(result: LookupResult) {
                 "المناطق الزمنية",
                 if (result.timeZones.isEmpty()) "غير متوفر" else result.timeZones.joinToString("، "),
             )
-            if (result.notes.isNotEmpty()) {
-                HorizontalDivider()
-                Text(
-                    "ملاحظات",
-                    style = MaterialTheme.typography.titleSmall,
-                    fontWeight = FontWeight.SemiBold,
-                )
-                result.notes.forEach { note -> Bullet(note) }
-            }
-            if (result.sources.isNotEmpty()) {
-                Text(
-                    "المصادر",
-                    style = MaterialTheme.typography.titleSmall,
-                    fontWeight = FontWeight.SemiBold,
-                )
-                result.sources.forEach { source ->
+            // Clean professional view: hide detailed notes and source lists
+            if (false) {
+                if (result.notes.isNotEmpty()) {
+                    HorizontalDivider()
                     Text(
-                        "• $source",
-                        style = MaterialTheme.typography.bodySmall,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        "ملاحظات",
+                        style = MaterialTheme.typography.titleSmall,
+                        fontWeight = FontWeight.SemiBold,
                     )
+                    result.notes.forEach { note -> Bullet(note) }
                 }
+                if (result.sources.isNotEmpty()) {
+                    Text(
+                        "المصادر",
+                        style = MaterialTheme.typography.titleSmall,
+                        fontWeight = FontWeight.SemiBold,
+                    )
+                    result.sources.forEach { source ->
+                        Text(
+                            "• $source",
+                            style = MaterialTheme.typography.bodySmall,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        )
+                    }
+                }
+            }
+            if (result.valid) {
+                Text(
+                    text = "تحليل صالح وفق خطة الترقيم المرجعية. لا يثبت نشاط الخط أو هوية المشترك.",
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+            } else {
+                Text(
+                    text = "غير صالح وفق الخطة المرجعية؛ قد يكون الرقم قديماً أو ناقصاً أو تجريبياً.",
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.error,
+                )
             }
         }
     }
@@ -1833,10 +1849,16 @@ private fun StatsSection(
                 style = MaterialTheme.typography.bodySmall,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
+            Text(
+                "المصدر المرجعي: libphonenumber 9.0.42 (مرجعي؛ لا يثبت نشاط الخط)",
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
         }
         Text(
             "دليل الطوارئ والخدمات: ${SyrianNumbers.formatCount(state.emergencyTotal.toLong())} إدخالاً " +
-                "في ${state.emergencyCountries} دولة/إقليم، كلها بمستوى تحقق REFERENCE في هذه النسخة.",
+                "في ${state.emergencyCountries} دولة/إقليم، كلها بمستوى تحقق REFERENCE في هذه النسخة. " +
+                "لا يُخترع أي رقم للدول الناقصة (11 منطقة حالياً بلا إدخال رسمي مؤكد).",
             style = MaterialTheme.typography.bodySmall,
             color = MaterialTheme.colorScheme.onSurfaceVariant,
         )
@@ -1851,6 +1873,7 @@ private fun StatsSection(
         Bullet("الخط الأرضي المجهول يظهر «غير متوفر» ولا يُنسب إلى مشغّل.")
         Bullet("أرقام الطوارئ والخدمات استثناء مقصود: أسماء وصفية ووسم E1 وإضافة متعددة الاختيار، دون اتصال أو حفظ تلقائي.")
         Bullet("بيانات الطوارئ والخدمات تعرض مستوى التحقق والمصدر، ولا تُوصف غير المؤكدة بأنها رسمية.")
+        Bullet("تُضاف الآن طبقة منصة بيانات: فهرس المصادر العالمي، قاعدة SQLite، وملخص إحصاءات قابل للقراءة دون اتصال عبر `platform_summary.json`.")
     }
 }
 

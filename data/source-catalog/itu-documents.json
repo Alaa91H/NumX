@@ -1,0 +1,3220 @@
+{
+ "generatedAt": "2026-10-28T03:56:15Z",
+ "pagesChecked": 232,
+ "pagesWithDocuments": 209,
+ "documents": [
+  {
+   "sourceId": "itu-nnp-ac",
+   "countryIso2": "AC",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T020200000C",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200000C0001MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200000C0001MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200000C0001MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200000C0001PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200000C0001PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200000C0001PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200000C0001MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-ad",
+   "countryIso2": "AD",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000005",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000050003MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000050003MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000050003MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000050003PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000050003PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000050003PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000050003MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-ae",
+   "countryIso2": "AE",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000DC",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000DC0001MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000DC0001MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000DC0001MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000DC0001PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000DC0001PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000DC0001PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000DC0001MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-af",
+   "countryIso2": "AF",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000001",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000010003MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000010003MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000010003MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000010003PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000010003PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000010003PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000010003MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-ag",
+   "countryIso2": "AG",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000008",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000080001MSWE.doc",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000080001MSWF.doc",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000080001MSWS.doc"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000080001MSWE.doc",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-ai",
+   "countryIso2": "AI",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000007",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000070001MSWE.doc",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000070001MSWF.doc",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000070001MSWS.doc"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000070001MSWE.doc",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-al",
+   "countryIso2": "AL",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000002",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000020002MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000020002MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000020002MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000020002PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000020002PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000020002PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000020002MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-am",
+   "countryIso2": "AM",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T020200000A",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200000A0010MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200000A0010MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200000A0010MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200000A0010PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200000A0010PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200000A0010PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200000A0010MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-ao",
+   "countryIso2": "AO",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000006",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000060001MSWE.doc",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000060001MSWF.doc",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000060001MSWS.doc"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000060001MSWE.doc",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-ar",
+   "countryIso2": "AR",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000009",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000090001MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000090001MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000090001MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000090001PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000090001PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000090001PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000090001MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-as",
+   "countryIso2": "AS",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000004",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000040001MSWE.doc",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000040001MSWF.doc",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000040001MSWS.doc"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000040001MSWE.doc",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-at",
+   "countryIso2": "AT",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T020200000E",
+   "documentLinks": [],
+   "preferredDocument": null,
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-au",
+   "countryIso2": "AU",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T020200000D",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200000D0002MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200000D0002MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200000D0002MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200000D0002PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200000D0002PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200000D0002PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200000D0002MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-aw",
+   "countryIso2": "AW",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T020200000B",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200000B0001MSWE.doc",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200000B0001MSWF.doc",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200000B0001MSWS.doc",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200000B0001PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200000B0001PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200000B0001PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200000B0001MSWE.doc",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-az",
+   "countryIso2": "AZ",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T020200000F",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200000F0008MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200000F0008MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200000F0008MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200000F0008PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200000F0008PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200000F0008PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200000F0008MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-ba",
+   "countryIso2": "BA",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T020200001B",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200001B0001MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200001B0001MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200001B0001MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200001B0001PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200001B0001PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200001B0001PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200001B0001MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-bb",
+   "countryIso2": "BB",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000013",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000130003MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000130003MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000130003MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000130003PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000130003PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000130003PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000130003MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-bd",
+   "countryIso2": "BD",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000012",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000120001MSWE.doc",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000120001MSWF.doc",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000120001MSWS.doc"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000120001MSWE.doc",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-be",
+   "countryIso2": "BE",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000015",
+   "documentLinks": [],
+   "preferredDocument": null,
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-bf",
+   "countryIso2": "BF",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000021",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000210020MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000210020MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000210020MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000210020PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000210020PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000210020PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000210020MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-bg",
+   "countryIso2": "BG",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000020",
+   "documentLinks": [],
+   "preferredDocument": null,
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-bh",
+   "countryIso2": "BH",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000011",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000110008MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000110008MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000110008MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000110008PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000110008PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000110008PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000110008MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-bi",
+   "countryIso2": "BI",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000022",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000220024MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000220024MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000220024MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000220024PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000220024PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000220024PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000220024MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-bj",
+   "countryIso2": "BJ",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000017",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000170002MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000170002MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000170002MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000170002PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000170002PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000170002PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000170002MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-bm",
+   "countryIso2": "BM",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000018",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000180004MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000180004MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000180004MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000180004PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000180004PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000180004PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000180004MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-bn",
+   "countryIso2": "BN",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T020200001F",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200001F0001MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200001F0001MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200001F0001PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200001F0001PDFS.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200001F0002MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200001F0002PDFE.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200001F0002MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-bo",
+   "countryIso2": "BO",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T020200001A",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200001A0001MSWE.doc",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200001A0001MSWF.doc",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200001A0001MSWS.doc"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200001A0001MSWE.doc",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-bq",
+   "countryIso2": "BQ",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000F8",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000F80003MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000F80003MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000F80003MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000F80003PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000F80003PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000F80003PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000F80003MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-br",
+   "countryIso2": "BR",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T020200001D",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200001D0003MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200001D0003MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200001D0003MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200001D0003PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200001D0003PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200001D0003PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200001D0003MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-bs",
+   "countryIso2": "BS",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000010",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000100003MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000100003MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000100003MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000100003PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000100003PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000100003PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000100003MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-bt",
+   "countryIso2": "BT",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000019",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000190005MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000190005MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000190005MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000190005PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000190005PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000190005PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000190005MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-bw",
+   "countryIso2": "BW",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T020200001C",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200001C0011MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200001C0011MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200001C0011MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200001C0011PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200001C0011PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200001C0011PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200001C0011MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-by",
+   "countryIso2": "BY",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000014",
+   "documentLinks": [],
+   "preferredDocument": null,
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-bz",
+   "countryIso2": "BZ",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000016",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000160003MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000160003MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000160003MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000160003PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000160003PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000160003PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000160003MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-ca",
+   "countryIso2": "CA",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000025",
+   "documentLinks": [],
+   "preferredDocument": null,
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-cd",
+   "countryIso2": "CD",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000037",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000370001MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000370001MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000370001MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000370001PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000370001PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000370001PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000370001MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-cf",
+   "countryIso2": "CF",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000028",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000280005MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000280005MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000280005MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000280005PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000280005PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000280005PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000280005MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-cg",
+   "countryIso2": "CG",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T020200002E",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200002E0009MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200002E0009MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200002E0009MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200002E0009PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200002E0009PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200002E0009PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200002E0009MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-ch",
+   "countryIso2": "CH",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000C8",
+   "documentLinks": [],
+   "preferredDocument": null,
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-ci",
+   "countryIso2": "CI",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000031",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000310006MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000310006MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000310006MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000310006PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000310006PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000310006PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000310006MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-ck",
+   "countryIso2": "CK",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T020200002F",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200002F0001MSWE.doc",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200002F0001MSWF.doc",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200002F0001MSWS.doc"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200002F0001MSWE.doc",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-cl",
+   "countryIso2": "CL",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T020200002A",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200002A0002MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200002A0002MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200002A0002MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200002A0002PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200002A0002PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200002A0002PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200002A0002MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-cm",
+   "countryIso2": "CM",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000024",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000240001MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000240001MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000240001MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000240001PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000240001PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000240002PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000240001MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-cn",
+   "countryIso2": "CN",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T020200002B",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200002B0006MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200002B0006MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200002B0006MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200002B0006PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200002B0006PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200002B0006PDFS.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200002B0006XLSE.xls"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200002B0006MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-co",
+   "countryIso2": "CO",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T020200002C",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200002C0002MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200002C0002MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200002C0002MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200002C0002PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200002C0002PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200002C0002PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200002C0002MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-cr",
+   "countryIso2": "CR",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000030",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000300004MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000300004MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000300004MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000300004PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000300004PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000300004PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000300004MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-cu",
+   "countryIso2": "CU",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000033",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000330003MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000330003MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000330003MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000330003PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000330003PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000330003PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000330003MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-cv",
+   "countryIso2": "CV",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000026",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000260002MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000260002MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000260002MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000260002PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000260002PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000260002PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000260002MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-cw",
+   "countryIso2": "CW",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000F5",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000F50004MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000F50004MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000F50004MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000F50004PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000F50004PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000F50004PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000F50004MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-cy",
+   "countryIso2": "CY",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000034",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000340002MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000340002MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000340002MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000340002PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000340002PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000340002PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000340002MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-cz",
+   "countryIso2": "CZ",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000035",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000350002MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000350002MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000350002MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000350002PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000350002PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000350002PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000350002MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-de",
+   "countryIso2": "DE",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000051",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000510007MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000510007MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000510007MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000510007PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000510007PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000510007PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000510007MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-dj",
+   "countryIso2": "DJ",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T020200003A",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200003A0001MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200003A0001MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200003A0001MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200003A0001PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200003A0001PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200003A0001PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200003A0001MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-dk",
+   "countryIso2": "DK",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000038",
+   "documentLinks": [],
+   "preferredDocument": null,
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-dm",
+   "countryIso2": "DM",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T020200003B",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200003B0001MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200003B0001MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200003B0001PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200003B0001PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200003B0002MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200003B0002PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200003B0001MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-do",
+   "countryIso2": "DO",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T020200003C",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200003C0001MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200003C0001MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200003C0001MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200003C0001PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200003C0001PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200003C0001PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200003C0001MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-dz",
+   "countryIso2": "DZ",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000003",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000030001MSWE.doc",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000030001MSWF.doc",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000030001MSWS.doc"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000030001MSWE.doc",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-ec",
+   "countryIso2": "EC",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T020200003D",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200003D0001MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200003D0001MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200003D0001MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200003D0001PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200003D0001PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200003D0001PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200003D0001MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-ee",
+   "countryIso2": "EE",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000043",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000430002MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000430002MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000430002MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000430002PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000430002PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000430002PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000430002MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-eg",
+   "countryIso2": "EG",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T020200003E",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200003E0004MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200003E0004MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200003E0004MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200003E0004PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200003E0004PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200003E0004PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200003E0004MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-er",
+   "countryIso2": "ER",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000042",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000420001MSWE.doc",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000420001MSWF.doc",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000420001MSWS.doc"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000420001MSWE.doc",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-es",
+   "countryIso2": "ES",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000C2",
+   "documentLinks": [],
+   "preferredDocument": null,
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-et",
+   "countryIso2": "ET",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000044",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000440001MSWE.doc",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000440001MSWF.doc",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000440001MSWS.doc"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000440001MSWE.doc",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-fi",
+   "countryIso2": "FI",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000049",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000490003MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000490003MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000490003MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000490003PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000490003PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000490003PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000490003MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-fj",
+   "countryIso2": "FJ",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000048",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000480001MSWE.doc",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000480001MSWF.doc",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000480001MSWS.doc"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000480001MSWE.doc",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-fk",
+   "countryIso2": "FK",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000046",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000460002MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000460002MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000460002MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000460002PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000460002PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000460002PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000460002MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-fm",
+   "countryIso2": "FM",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T020200008B",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200008B0003MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200008B0003MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200008B0003MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200008B0003PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200008B0003PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200008B0003PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200008B0003MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-fo",
+   "countryIso2": "FO",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000047",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000470005MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000470005MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000470005MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000470005PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000470005PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000470005PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000470005MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-fr",
+   "countryIso2": "FR",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T020200004A",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200004A0006MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200004A0006MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200004A0006MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200004A0006PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200004A0006PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200004A0006PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200004A0006MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-ga",
+   "countryIso2": "GA",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T020200004E",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200004E0005MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200004E0005MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200004E0005MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200004E0005PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200004E0005PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200004E0005PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200004E0005MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-gb",
+   "countryIso2": "GB",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000DD",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000DD0004MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000DD0004MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000DD0004MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000DD0004PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000DD0004PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000DD0004PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000DD0004MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-gd",
+   "countryIso2": "GD",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000057",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000570001MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000570001MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000570001MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000570001PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000570001PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000570001PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000570001MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-ge",
+   "countryIso2": "GE",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000050",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000500006MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000500006MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000500006MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000500006PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000500006PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000500006PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000500006MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-gf",
+   "countryIso2": "GF",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T020200004C",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200004C0005MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200004C0005MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200004C0005MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200004C0005PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200004C0005PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200004C0005PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200004C0005MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-gh",
+   "countryIso2": "GH",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000052",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000520010MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000520010MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000520010MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000520010PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000520010PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000520010PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000520010MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-gi",
+   "countryIso2": "GI",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000053",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000530007MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000530007MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000530007MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000530007PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000530007PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000530007PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000530007MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-gl",
+   "countryIso2": "GL",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000056",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000560002MSWE.doc",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000560002MSWF.doc",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000560002MSWS.doc",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000560002PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000560002PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000560002PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000560002MSWE.doc",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-gm",
+   "countryIso2": "GM",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T020200004F",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200004F0008MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200004F0008MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200004F0008MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200004F0008PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200004F0008PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200004F0008PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200004F0008MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-gn",
+   "countryIso2": "GN",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T020200005B",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200005B0002MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200005B0002MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200005B0002MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200005B0002PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200005B0002PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200005B0002PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200005B0002MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-gp",
+   "countryIso2": "GP",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000058",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000580005MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000580005MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000580005MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000580005PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000580005PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000580005PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000580005MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-gq",
+   "countryIso2": "GQ",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000041",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000410001MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000410001MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000410001MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000410001PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000410001PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000410001PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000410001MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-gr",
+   "countryIso2": "GR",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000055",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000550002MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000550002MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000550002MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000550002PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000550002PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000550002PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000550002MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-gt",
+   "countryIso2": "GT",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T020200005A",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200005A0001MSWE.doc",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200005A0001MSWF.doc",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200005A0001MSWS.doc"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200005A0001MSWE.doc",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-gu",
+   "countryIso2": "GU",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000059",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000590001MSWE.doc",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000590001MSWF.doc",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000590001MSWS.doc"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000590001MSWE.doc",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-gw",
+   "countryIso2": "GW",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T020200005C",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200005C0004MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200005C0004MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200005C0004MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200005C0004PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200005C0004PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200005C0004PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200005C0004MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-gy",
+   "countryIso2": "GY",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T020200005D",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200005D0018MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200005D0018MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200005D0018MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200005D0018PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200005D0018PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200005D0018PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200005D0018MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-hk",
+   "countryIso2": "HK",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000060",
+   "documentLinks": [],
+   "preferredDocument": null,
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-hn",
+   "countryIso2": "HN",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T020200005F",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200005F0001MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200005F0001MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200005F0001MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200005F0001PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200005F0001PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200005F0001PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200005F0001MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-hr",
+   "countryIso2": "HR",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000032",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000320003MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000320003MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000320003MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000320003PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000320003PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000320003PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000320003MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-ht",
+   "countryIso2": "HT",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T020200005E",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200005E0002MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200005E0002MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200005E0002MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200005E0002PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200005E0002PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200005E0002PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200005E0002MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-hu",
+   "countryIso2": "HU",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000061",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000610006MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000610006MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000610006MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000610006PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000610006PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000610006PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000610006MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-id",
+   "countryIso2": "ID",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000064",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000640001MSWE.doc",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000640001MSWF.doc",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000640001MSWS.doc"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000640001MSWE.doc",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-ie",
+   "countryIso2": "IE",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000068",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000680001MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000680001MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000680001MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000680001PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000680001PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000680001PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000680001MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-il",
+   "countryIso2": "IL",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T020200006A",
+   "documentLinks": [],
+   "preferredDocument": null,
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-in",
+   "countryIso2": "IN",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000063",
+   "documentLinks": [],
+   "preferredDocument": null,
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-index",
+   "countryIso2": null,
+   "pageUrl": "https://www.itu.int/oth/T0202.aspx?parent=T0202",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/07/T02070000060001MSWE.doc",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/07/T02070000060002MSWE.doc"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/07/T02070000060001MSWE.doc",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-io",
+   "countryIso2": "IO",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000039",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000390001MSWE.doc",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000390001MSWF.doc",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000390001MSWS.doc"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000390001MSWE.doc",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-iq",
+   "countryIso2": "IQ",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000067",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000670002MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000670002MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000670002MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000670002PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000670002PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000670002PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000670002MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-ir",
+   "countryIso2": "IR",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000066",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000660035MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000660035MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000660035MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000660035PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000660035PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000660035PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000660035MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-is",
+   "countryIso2": "IS",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000062",
+   "documentLinks": [],
+   "preferredDocument": null,
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-it",
+   "countryIso2": "IT",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T020200006B",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200006B0001MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200006B0001MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200006B0001MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200006B0001PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200006B0001PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200006B0001PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200006B0001MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-jm",
+   "countryIso2": "JM",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T020200006C",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200006C0002MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200006C0002MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200006C0002MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200006C0002PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200006C0002PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200006C0002PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200006C0002MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-jo",
+   "countryIso2": "JO",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T020200006E",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200006E0008MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200006E0008MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200006E0008MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200006E0008PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200006E0008PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200006E0008PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200006E0008MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-jp",
+   "countryIso2": "JP",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T020200006D",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200006D0001MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200006D0001MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200006D0001MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200006D0001PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200006D0001PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200006D0001PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200006D0001MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-ke",
+   "countryIso2": "KE",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000070",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000700008MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000700008MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000700008MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000700008PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000700008PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000700008PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000700008MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-kg",
+   "countryIso2": "KG",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000074",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000740008MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000740008MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000740008MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000740008PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000740008PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000740008PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000740008MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-kh",
+   "countryIso2": "KH",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000023",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000230001MSWE.doc",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000230001MSWF.doc",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000230001MSWS.doc"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000230001MSWE.doc",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-ki",
+   "countryIso2": "KI",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000071",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000710005MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000710005MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000710005MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000710005PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000710005PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000710005PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000710005MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-km",
+   "countryIso2": "KM",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T020200002D",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200002D0002MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200002D0002MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200002D0002MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200002D0002PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200002D0002PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200002D0002PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200002D0002MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-kn",
+   "countryIso2": "KN",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000B0",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000B00001MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000B00001MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000B00001MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000B00001PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000B00001PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000B00001PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000B00001MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-kp",
+   "countryIso2": "KP",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000036",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000360002MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000360002MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000360002MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000360002PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000360002PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000360002PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000360002MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-kr",
+   "countryIso2": "KR",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000072",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000720001MSWE.doc",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000720001MSWF.doc",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000720001MSWS.doc"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000720001MSWE.doc",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-kw",
+   "countryIso2": "KW",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000073",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000730012MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000730012MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000730012MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000730012PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000730012PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000730012PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000730012MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-ky",
+   "countryIso2": "KY",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000027",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000270015MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000270015MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000270015MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000270015PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000270015PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000270015PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000270015MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-kz",
+   "countryIso2": "KZ",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T020200006F",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200006F0003MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200006F0003MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200006F0003MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200006F0003PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200006F0003PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200006F0003PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200006F0003MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-la",
+   "countryIso2": "LA",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000075",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000750001MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000750001MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000750001MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000750001PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000750001PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000750001PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000750001MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-lb",
+   "countryIso2": "LB",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000077",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000770006MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000770006MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000770006MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000770006PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000770006PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000770006PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000770006MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-lc",
+   "countryIso2": "LC",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000B1",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000B10001MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000B10001MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000B10001PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000B10001PDFS.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000B10002MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000B10002PDFE.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000B10002MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-li",
+   "countryIso2": "LI",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T020200007B",
+   "documentLinks": [],
+   "preferredDocument": null,
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-lk",
+   "countryIso2": "LK",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000C3",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000C30001MSWE.doc",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000C30001MSWF.doc",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000C30001MSWS.doc"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000C30001MSWE.doc",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-lr",
+   "countryIso2": "LR",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000079",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000790012MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000790012MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000790012MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000790012PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000790012PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000790012PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000790012MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-ls",
+   "countryIso2": "LS",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000078",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000780001MSWE.doc",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000780001MSWF.doc",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000780001MSWS.doc"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000780001MSWE.doc",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-lt",
+   "countryIso2": "LT",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T020200007C",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200007C0002MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200007C0002MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200007C0002MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200007C0002PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200007C0002PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200007C0002PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200007C0002MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-lu",
+   "countryIso2": "LU",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T020200007D",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200007D0002MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200007D0002MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200007D0002MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200007D0002PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200007D0002PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200007D0002PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200007D0002MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-lv",
+   "countryIso2": "LV",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000076",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000760002MSWE.doc",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000760002MSWF.doc",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000760002MSWS.doc",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000760002PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000760002PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000760002PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000760002MSWE.doc",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-ly",
+   "countryIso2": "LY",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T020200007A",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200007A0001MSWE.doc",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200007A0001MSWF.doc",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200007A0001MSWS.doc"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200007A0001MSWE.doc",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-ma",
+   "countryIso2": "MA",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000090",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000900033MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000900033MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000900033MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000900033PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000900033PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000900033PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000900033MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-mc",
+   "countryIso2": "MC",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T020200008D",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200008D0008MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200008D0008MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200008D0008MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200008D0008PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200008D0008PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200008D0008PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200008D0008MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-md",
+   "countryIso2": "MD",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T020200008C",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200008C0003MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200008C0003MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200008C0003MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200008C0003PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200008C0003PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200008C0003PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200008C0003MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-me",
+   "countryIso2": "ME",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000DA",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000DA0002MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000DA0002MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000DA0002MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000DA0002PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000DA0002PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000DA0002PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000DA0002MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-mg",
+   "countryIso2": "MG",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T020200007F",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200007F0002MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200007F0002MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200007F0002MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200007F0002PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200007F0002PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200007F0002PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200007F0002MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-mh",
+   "countryIso2": "MH",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000085",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000850001MSWE.doc",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000850001MSWF.doc",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000850001MSWS.doc"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000850001MSWE.doc",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-mk",
+   "countryIso2": "MK",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000CE",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000CE0002MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000CE0002MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000CE0002MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000CE0002PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000CE0002PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000CE0002PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000CE0002MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-ml",
+   "countryIso2": "ML",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000083",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000830004MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000830004MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000830004MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000830004PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000830004PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000830004PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000830004MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-mm",
+   "countryIso2": "MM",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000092",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000920024MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000920024MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000920024MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000920024PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000920024PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000920024PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000920024MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-mn",
+   "countryIso2": "MN",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T020200008E",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200008E0008MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200008E0008MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200008E0008MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200008E0008PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200008E0008PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200008E0008PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200008E0008MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-mo",
+   "countryIso2": "MO",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T020200007E",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200007E0001MSWF.doc",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200007E0001MSWS.doc",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200007E0002MSWE.doc"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200007E0002MSWE.doc",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-mp",
+   "countryIso2": "MP",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000EE",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000EE0002MSWE.doc",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000EE0002MSWF.doc",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000EE0002MSWS.doc"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000EE0002MSWE.doc",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-mq",
+   "countryIso2": "MQ",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000086",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000860005MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000860005MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000860005MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000860005PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000860005PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000860005PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000860005MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-mr",
+   "countryIso2": "MR",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000087",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000870001MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000870001MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000870001MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000870001PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000870001PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000870001PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000870001MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-ms",
+   "countryIso2": "MS",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T020200008F",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200008F0002MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200008F0002MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200008F0002MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200008F0002PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200008F0002PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200008F0002PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200008F0002MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-mt",
+   "countryIso2": "MT",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000084",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000840026MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000840026MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000840026MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000840026PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000840026PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000840026PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000840026MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-mu",
+   "countryIso2": "MU",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000088",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000880015MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000880015MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000880015MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000880015PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000880015PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000880015PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000880015MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-mv",
+   "countryIso2": "MV",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000082",
+   "documentLinks": [],
+   "preferredDocument": null,
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-mw",
+   "countryIso2": "MW",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000080",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000800002MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000800002MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000800002MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000800002PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000800002PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000800002PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000800002MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-mx",
+   "countryIso2": "MX",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T020200008A",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200008A0004MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200008A0004MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200008A0004MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200008A0004PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200008A0004PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200008A0004PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200008A0004MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-my",
+   "countryIso2": "MY",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000081",
+   "documentLinks": [],
+   "preferredDocument": null,
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-mz",
+   "countryIso2": "MZ",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000091",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000910004MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000910004MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000910004MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000910004PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000910004PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000910004PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000910004MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-na",
+   "countryIso2": "NA",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000093",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000930002MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000930002MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000930002MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000930002PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000930002PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000930002PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000930002MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-nc",
+   "countryIso2": "NC",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000098",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000980002MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000980002MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000980002MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000980002PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000980002PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000980002PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000980002MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-ne",
+   "countryIso2": "NE",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T020200009B",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200009B0003MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200009B0003MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200009B0003MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200009B0003PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200009B0003PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200009B0003PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200009B0003MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-nf",
+   "countryIso2": "NF",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T020200009D",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200009D0001MSWE.doc",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200009D0001MSWF.doc",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200009D0001MSWS.doc"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200009D0001MSWE.doc",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-ng",
+   "countryIso2": "NG",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T020200009C",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200009C0002MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200009C0002MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200009C0002MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200009C0002PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200009C0002PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200009C0002PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200009C0002MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-ni",
+   "countryIso2": "NI",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T020200009A",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200009A0001MSWE.doc",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200009A0001MSWF.doc",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200009A0001MSWS.doc"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200009A0001MSWE.doc",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-nl",
+   "countryIso2": "NL",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000096",
+   "documentLinks": [],
+   "preferredDocument": null,
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-no",
+   "countryIso2": "NO",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T020200009E",
+   "documentLinks": [],
+   "preferredDocument": null,
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-np",
+   "countryIso2": "NP",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000095",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000950001MSWE.doc",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000950001MSWF.doc",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000950001MSWS.doc"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000950001MSWE.doc",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-nr",
+   "countryIso2": "NR",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000094",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000940001MSWE.doc",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000940001MSWF.doc",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000940001MSWS.doc"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000940001MSWE.doc",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-nu",
+   "countryIso2": "NU",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000EC",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000EC0003MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000EC0003MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000EC0003MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000EC0003PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000EC0003PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000EC0003PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000EC0003MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-nz",
+   "countryIso2": "NZ",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000099",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000990003MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000990003MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000990003MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000990003PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000990003PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000990003PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000990003MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-om",
+   "countryIso2": "OM",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T020200009F",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200009F0009MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200009F0009MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200009F0009MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200009F0009PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200009F0009PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200009F0009PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200009F0009MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-pa",
+   "countryIso2": "PA",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000A3",
+   "documentLinks": [],
+   "preferredDocument": null,
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-pe",
+   "countryIso2": "PE",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000A6",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000A60001MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000A60001MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000A60001MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000A60001PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000A60001PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000A60001PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000A60001MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-pf",
+   "countryIso2": "PF",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T020200004D",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200004D0003MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200004D0003MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200004D0003MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200004D0003PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200004D0003PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200004D0003PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200004D0003MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-pg",
+   "countryIso2": "PG",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000A4",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000A40011MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000A40011MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000A40011MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000A40011PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000A40011PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000A40011PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000A40011MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-ph",
+   "countryIso2": "PH",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000A7",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000A70001MSWE.doc",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000A70001MSWF.doc",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000A70001MSWS.doc"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000A70001MSWE.doc",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-pk",
+   "countryIso2": "PK",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000A1",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000A10002MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000A10002MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000A10002MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000A10002PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000A10002PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000A10002PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000A10002MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-pl",
+   "countryIso2": "PL",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000A8",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000A80005MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000A80005MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000A80005MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000A80005PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000A80005PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000A80005PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000A80005MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-pm",
+   "countryIso2": "PM",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000B2",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000B20006MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000B20006MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000B20006MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000B20006PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000B20006PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000B20006PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000B20006MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-pr",
+   "countryIso2": "PR",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000AA",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000AA0001MSWE.doc",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000AA0001MSWF.doc",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000AA0001MSWS.doc"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000AA0001MSWE.doc",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-ps",
+   "countryIso2": "PS",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000FF",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000FF0001MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000FF0001MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000FF0001MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000FF0001PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000FF0001PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000FF0001PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000FF0001MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-pt",
+   "countryIso2": "PT",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000A9",
+   "documentLinks": [],
+   "preferredDocument": null,
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-pw",
+   "countryIso2": "PW",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000A2",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000A20001PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000A20012MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000A20012MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000A20012MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000A20012PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000A20012PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000A20012MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-py",
+   "countryIso2": "PY",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000A5",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000A50002MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000A50002MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000A50002MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000A50002PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000A50002PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000A50002PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000A50002MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-qa",
+   "countryIso2": "QA",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000AB",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000AB0002MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000AB0002MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000AB0002MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000AB0002PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000AB0002PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000AB0002PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000AB0002MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-ro",
+   "countryIso2": "RO",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000AC",
+   "documentLinks": [],
+   "preferredDocument": null,
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-rs",
+   "countryIso2": "RS",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000B9",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000B90001MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000B90001MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000B90001MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000B90001PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000B90001PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000B90001PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000B90001MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-ru",
+   "countryIso2": "RU",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000AD",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000AD0005MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000AD0005MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000AD0005MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000AD0005PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000AD0005PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000AD0005PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000AD0005MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-rw",
+   "countryIso2": "RW",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000AE",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000AE0001MSWE.doc",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000AE0001MSWS.doc",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000AE0002MSWF.doc"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000AE0001MSWE.doc",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-sa",
+   "countryIso2": "SA",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000B7",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000B70006MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000B70006MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000B70006MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000B70006PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000B70006PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000B70006PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000B70006MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-sb",
+   "countryIso2": "SB",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000BF",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000BF0006MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000BF0006MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000BF0006MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000BF0006PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000BF0006PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000BF0006PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000BF0006MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-sc",
+   "countryIso2": "SC",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000BA",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000BA0009MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000BA0009MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000BA0009MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000BA0009PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000BA0009PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000BA0009PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000BA0009MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-sd",
+   "countryIso2": "SD",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000C4",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000C40004MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000C40004MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000C40004MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000C40004PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000C40004PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000C40004PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000C40004MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-se",
+   "countryIso2": "SE",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000C7",
+   "documentLinks": [],
+   "preferredDocument": null,
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-sg",
+   "countryIso2": "SG",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000BC",
+   "documentLinks": [],
+   "preferredDocument": null,
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-sh",
+   "countryIso2": "SH",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000AF",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000AF0004MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000AF0004MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000AF0004MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000AF0004PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000AF0004PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000AF0004PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000AF0004MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-si",
+   "countryIso2": "SI",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000BE",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000BE0002MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000BE0002MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000BE0002MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000BE0002PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000BE0002PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000BE0002PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000BE0002MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-sk",
+   "countryIso2": "SK",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000BD",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000BD0003MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000BD0003MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000BD0003MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000BD0003PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000BD0003PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000BD0003PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000BD0003MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-sl",
+   "countryIso2": "SL",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000BB",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000BB0009MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000BB0009MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000BB0009MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000BB0009PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000BB0009PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000BB0009PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000BB0009MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-sm",
+   "countryIso2": "SM",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000B5",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000B50001MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000B50001MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000B50001MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000B50001PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000B50001PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000B50001PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000B50001MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-sn",
+   "countryIso2": "SN",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000B8",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000B80006MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000B80006MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000B80006MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000B80006PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000B80006PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000B80006PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000B80006MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-so",
+   "countryIso2": "SO",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000C0",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000C00005MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000C00005MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000C00005MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000C00005PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000C00005PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000C00005PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000C00005MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-sr",
+   "countryIso2": "SR",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000C5",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000C50006MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000C50006MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000C50006MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000C50006PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000C50006PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000C50006PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000C50006MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-ss",
+   "countryIso2": "SS",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000F9",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000F90002MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000F90002MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000F90002MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000F90002PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000F90002PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000F90002PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000F90002MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-st",
+   "countryIso2": "ST",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000B6",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000B60003MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000B60003MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000B60003MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000B60003PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000B60003PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000B60003PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000B60003MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-sv",
+   "countryIso2": "SV",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T020200003F",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200003F0001MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200003F0001MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200003F0001MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200003F0001PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200003F0001PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200003F0001PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200003F0001MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-sx",
+   "countryIso2": "SX",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000F7",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000F70002MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000F70002MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000F70002MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000F70002PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000F70002PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000F70002PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000F70002MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-sy",
+   "countryIso2": "SY",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000C9",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000C90005MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000C90005MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000C90005MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000C90005PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000C90005PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000C90005PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000C90005MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-sz",
+   "countryIso2": "SZ",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000C6",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000C60004MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000C60004MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000C60004MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000C60004PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000C60004PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000C60004PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000C60004MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-tc",
+   "countryIso2": "TC",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000D8",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000D80002MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000D80002MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000D80002MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000D80002PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000D80002PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000D80002PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000D80002MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-td",
+   "countryIso2": "TD",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T0202000029",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000290003MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000290003MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000290003MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000290003PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000290003PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000290003PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000290003MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-tg",
+   "countryIso2": "TG",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000D1",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000D10003MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000D10003MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000D10003MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000D10003PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000D10003PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000D10003PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000D10003MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-th",
+   "countryIso2": "TH",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000CD",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000CD0004MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000CD0004MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000CD0004MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000CD0004PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000CD0004PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000CD0004PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000CD0004MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-tj",
+   "countryIso2": "TJ",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000CA",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000CA0001MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000CA0001MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000CA0001MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000CA0001PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000CA0001PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000CA0001PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000CA0001MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-tk",
+   "countryIso2": "TK",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000D2",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000D20003MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000D20003MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000D20003MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000D20003PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000D20003PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000D20003PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000D20003MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-tl",
+   "countryIso2": "TL",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000D0",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000D00001MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000D00001MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000D00001PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000D00001PDFS.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000D00002MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000D00002PDFE.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000D00002MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-tm",
+   "countryIso2": "TM",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000D7",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000D70003MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000D70003MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000D70003MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000D70003PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000D70003PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000D70003PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000D70003MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-tn",
+   "countryIso2": "TN",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000D5",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000D50002MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000D50002MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000D50002MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000D50002PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000D50002PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000D50002PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000D50002MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-to",
+   "countryIso2": "TO",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000D3",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000D30005MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000D30005MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000D30005MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000D30005PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000D30005PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000D30005PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000D30005MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-tr",
+   "countryIso2": "TR",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000D6",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000D60002MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000D60002MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000D60002MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000D60002PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000D60002PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000D60002PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000D60002MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-tt",
+   "countryIso2": "TT",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000D4",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000D40015MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000D40015MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000D40015MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000D40015PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000D40015PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000D40015PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000D40015MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-tv",
+   "countryIso2": "TV",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000D9",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000D90003MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000D90003MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000D90003MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000D90003PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000D90003PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000D90003PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000D90003MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-tw",
+   "countryIso2": "TW",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000EB",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000EB0004MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000EB0004MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000EB0004MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000EB0004PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000EB0004PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000EB0004PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000EB0004MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-tz",
+   "countryIso2": "TZ",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000CB",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000CB0008MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000CB0008MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000CB0008MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000CB0008PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000CB0008PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000CB0008PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000CB0008MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-ua",
+   "countryIso2": "UA",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000DB",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000DB0009MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000DB0009MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000DB0009MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000DB0009PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000DB0009PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000DB0009PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000DB0009MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-ug",
+   "countryIso2": "UG",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000F1",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000F10016MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000F10016MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000F10016MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000F10016PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000F10016PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000F10016PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000F10016MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-us",
+   "countryIso2": "US",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000DE",
+   "documentLinks": [],
+   "preferredDocument": null,
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-uy",
+   "countryIso2": "UY",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000E0",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000E00001MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000E00001MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000E00001MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000E00001PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000E00001PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000E00001PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000E00001MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-uz",
+   "countryIso2": "UZ",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000E1",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000E10002MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000E10002MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000E10002MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000E10002PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000E10002PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000E10002PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000E10002MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-vc",
+   "countryIso2": "VC",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000B3",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000B30003MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000B30003MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000B30003MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000B30003PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000B30003PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000B30003PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000B30003MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-ve",
+   "countryIso2": "VE",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000E3",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000E30002MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000E30002MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000E30002MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000E30002PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000E30002PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000E30002PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000E30002MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-vg",
+   "countryIso2": "VG",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T020200001E",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200001E0001MSWE.doc",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200001E0001MSWF.doc",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200001E0001MSWS.doc"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200001E0001MSWE.doc",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-vi",
+   "countryIso2": "VI",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000DF",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000DF0001MSWE.doc",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000DF0001MSWF.doc",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000DF0001MSWS.doc"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000DF0001MSWE.doc",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-vn",
+   "countryIso2": "VN",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000E4",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000E40005MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000E40005MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000E40005MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000E40005PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000E40005PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000E40005PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000E40005MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-vu",
+   "countryIso2": "VU",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000E2",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000E20007MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000E20007MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000E20007MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000E20007PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000E20007PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000E20007PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000E20007MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-wf",
+   "countryIso2": "WF",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000E6",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000E60003MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000E60003MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000E60003MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000E60003PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000E60003PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000E60003PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000E60003MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-ws",
+   "countryIso2": "WS",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000B4",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000B40001MSWE.doc",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000B40001MSWF.doc",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000B40001MSWS.doc"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000B40001MSWE.doc",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-xk",
+   "countryIso2": "XK",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000FD",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000FD0002MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000FD0002MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000FD0002MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000FD0002PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000FD0002PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000FD0002PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000FD0002MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-ye",
+   "countryIso2": "YE",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000E7",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000E70003MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000E70003MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000E70003MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000E70003PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000E70003PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000E70003PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000E70003MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-za",
+   "countryIso2": "ZA",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000C1",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000C10002PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000C10003PDFE.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000C10002PDFE.pdf",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-zm",
+   "countryIso2": "ZM",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000E8",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000E80007MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000E80007MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000E80007MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000E80007PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000E80007PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000E80007PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000E80007MSWE.docx",
+   "error": null
+  },
+  {
+   "sourceId": "itu-nnp-zw",
+   "countryIso2": "ZW",
+   "pageUrl": "https://www.itu.int/oth/default.aspx?lang=en&parent=T02020000E9",
+   "documentLinks": [
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000E90004MSWE.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000E90004MSWF.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000E90004MSWS.docx",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000E90004PDFE.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000E90004PDFF.pdf",
+    "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000E90004PDFS.pdf"
+   ],
+   "preferredDocument": "https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000E90004MSWE.docx",
+   "error": null
+  }
+ ]
+}

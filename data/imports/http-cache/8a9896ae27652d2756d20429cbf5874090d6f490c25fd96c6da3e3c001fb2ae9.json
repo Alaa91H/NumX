@@ -1,0 +1,15 @@
+{
+ "url": "https://en.wikipedia.org/wiki/EGSA_Oran",
+ "final_url": "https://en.wikipedia.org/wiki/EGSA_Oran",
+ "status": 200,
+ "content_type": "text/html; charset=UTF-8",
+ "content_length": null,
+ "sha256": "3e668c8e5228fff6d16bf10e4ded4c1198aea8052d5031c6c559d927dc4d3782",
+ "elapsed_ms": 2124,
+ "fetched_at": "2026-10-28T03:53:50Z",
+ "robots_allowed": true,
+ "robots_checked": true,
+ "truncated": false,
+ "error": null,
+ "encoding": "utf-8"
+}

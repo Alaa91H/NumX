@@ -1,0 +1,15 @@
+{
+ "url": "https://en.wikipedia.org/wiki/Syriatel",
+ "final_url": "https://en.wikipedia.org/wiki/Syriatel",
+ "status": 200,
+ "content_type": "text/html; charset=UTF-8",
+ "content_length": null,
+ "sha256": "ccaef2cb0e2fdba0c287ea40b00a4354a429367af5303aaf8ae3ba5fe12fa4d5",
+ "elapsed_ms": 524,
+ "fetched_at": "2026-10-28T03:53:38Z",
+ "robots_allowed": true,
+ "robots_checked": true,
+ "truncated": false,
+ "error": null,
+ "encoding": "utf-8"
+}

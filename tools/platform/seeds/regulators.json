@@ -1,0 +1,2431 @@
+{
+ "generated_at": "2026-10-28",
+ "source_name": "Wikipedia: List of telecommunications regulatory bodies",
+ "source_url": "https://en.wikipedia.org/wiki/List_of_telecommunications_regulatory_bodies",
+ "source_revision": "1373544044",
+ "license_name": "CC BY-SA 4.0",
+ "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+ "usage_note": "Used only as a discovery index for official regulator names and URLs. Official sites must be verified independently.",
+ "entries": [
+  {
+   "iso2": "AE",
+   "country_name": "United Arab Emirates",
+   "regulators": [
+    {
+     "name": "Telecommunications Regulatory Authority ( TRA )",
+     "urls": [
+      "http://www.tra.ae/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "AF",
+   "country_name": "Afghanistan",
+   "regulators": [
+    {
+     "name": "Afghanistan Telecom Regulatory Authority ( ATRA )",
+     "urls": [
+      "http://www.atra.gov.af/index.php?lang=en"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "AG",
+   "country_name": "Antigua and Barbuda",
+   "regulators": [
+    {
+     "name": "Telecommunications Division of the Government of Antigua and Barbuda ( TD )",
+     "urls": [
+      "http://telecom.gov.ag/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "AI",
+   "country_name": "Anguilla",
+   "regulators": [
+    {
+     "name": "Public Utilities Commission of Anguilla ( PUC )",
+     "urls": [
+      "https://pucanguilla.com/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "AL",
+   "country_name": "Albania",
+   "regulators": [
+    {
+     "name": "Electronic and Postal Communications Authority ( AKEP )",
+     "urls": [
+      "https://akep.al/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "AM",
+   "country_name": "Armenia",
+   "regulators": [
+    {
+     "name": "Public Services Regulatory Commission ( PSRC )",
+     "urls": [
+      "http://psrc.am/en/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "AN",
+   "country_name": "Netherlands Antilles",
+   "regulators": [
+    {
+     "name": "Netherlands Radiocommunications Agency ( ) ( NRA )",
+     "urls": [
+      "http://www.rijksdienstcn.com/en",
+      "http://www.rijksdienstcn.com/en/economic-affairs/telecom"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "AO",
+   "country_name": "Angola",
+   "regulators": [
+    {
+     "name": "Ministério das Telecomunicações e Tecnologias ( MTTI )",
+     "urls": [
+      "http://www.mtti.gov.ao/"
+     ]
+    },
+    {
+     "name": "Instituto Angolano das Comunicações ( INACOM )",
+     "urls": [
+      "https://www.inacom.gov.ao/ao/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "AR",
+   "country_name": "Argentina",
+   "regulators": [
+    {
+     "name": "Ente Nacional de Comunicaciones ( ENACOM )",
+     "urls": [
+      "http://www.enacom.gob.ar/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "AT",
+   "country_name": "Austria",
+   "regulators": [
+    {
+     "name": "Austrian Regulatory Authority for Broadcasting and Telecommunications ( RTR-GmbH )",
+     "urls": [
+      "http://www.rtr.at/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "AU",
+   "country_name": "Australia",
+   "regulators": [
+    {
+     "name": "Australian Communications and Media Authority ( ACMA )",
+     "urls": [
+      "http://www.acma.gov.au/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "AW",
+   "country_name": "Aruba",
+   "regulators": [
+    {
+     "name": "Netherlands Radiocommunications Agency ( NRA )",
+     "urls": [
+      "http://www.rijksdienstcn.com/en/economic-affairs/telecom"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "AZ",
+   "country_name": "Azerbaijan",
+   "regulators": [
+    {
+     "name": "Ministry of Transport, Communications and High Technologies (Azerbaijan) ( MINCOM )",
+     "urls": [
+      "http://www.mincom.gov.az/home/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "BA",
+   "country_name": "Bosnia and Herzegovina",
+   "regulators": [
+    {
+     "name": "Communications Regulatory Agency of Bosnia-Herzegovina ( CRA )",
+     "urls": [
+      "https://rak.ba/en/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "BB",
+   "country_name": "Barbados",
+   "regulators": [
+    {
+     "name": "Telecommunications Unit ( Telecoms Unit )",
+     "urls": [
+      "http://telecoms.gov.bb/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "BD",
+   "country_name": "Bangladesh",
+   "regulators": [
+    {
+     "name": "Bangladesh Telecommunication Regulatory Commission ( BTRC )",
+     "urls": [
+      "http://www.btrc.gov.bd/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "BE",
+   "country_name": "Belgium",
+   "regulators": [
+    {
+     "name": "Belgian Institute for Postal services and Telecommunications ( BIPT )",
+     "urls": [
+      "http://www.bipt.be/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "BF",
+   "country_name": "Burkina Faso",
+   "regulators": [
+    {
+     "name": "Autorité de Régulation des Communications Électroniques et des Postes ( ARCEP )",
+     "urls": [
+      "http://arcep.bf/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "BG",
+   "country_name": "Bulgaria",
+   "regulators": [
+    {
+     "name": "Communications Regulation Commission ( CRC )",
+     "urls": [
+      "https://crc.bg/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "BH",
+   "country_name": "Bahrain",
+   "regulators": [
+    {
+     "name": "Telecommunications Regulatory Authority ( TRA )",
+     "urls": [
+      "https://www.tra.org.bh/en/"
+     ]
+    },
+    {
+     "name": "Directorate of Wireless Licensing, Frequencies & Monitoring ( iGA )",
+     "urls": [
+      "https://web.archive.org/web/20120112195208/http://www.cio.gov.bh/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "BI",
+   "country_name": "Burundi",
+   "regulators": [
+    {
+     "name": "Agence de Régulation et de Contrôle des Télécommunications ( ARCT )",
+     "urls": [
+      "http://www.arct.gov.bi/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "BJ",
+   "country_name": "Benin",
+   "regulators": [
+    {
+     "name": "Autorité de Régulation des Communications Électroniques et de la Poste ( ARCEP )",
+     "urls": [
+      "https://arcep.bj/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "BN",
+   "country_name": "Brunei",
+   "regulators": [
+    {
+     "name": "Authority for Info-communications Technology Industry ( AITI )",
+     "urls": [
+      "http://www.aiti.gov.bn/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "BO",
+   "country_name": "Bolivia",
+   "regulators": [
+    {
+     "name": "Superintendencia de Telecomunicaciones ( SITTEL )",
+     "urls": [
+      "https://www.att.gob.bo/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "BR",
+   "country_name": "Brazil",
+   "regulators": [
+    {
+     "name": "Agencia Nacional de Telecomunicacoes ( ANATEL )",
+     "urls": [
+      "http://www.anatel.gov.br/"
+     ]
+    },
+    {
+     "name": "Ministério da Ciência, Tecnologia, Inovações e Comunicações ( MCTIC )",
+     "urls": [
+      "http://www.mctic.gov.br/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "BS",
+   "country_name": "Bahamas",
+   "regulators": [
+    {
+     "name": "Utilities Regulation & Competition Authority ( URCA )",
+     "urls": [
+      "http://www.urcabahamas.bs/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "BT",
+   "country_name": "Bhutan",
+   "regulators": [
+    {
+     "name": "Bhutan InfoComm and Media Authority ( BICMA )",
+     "urls": [
+      "http://www.bicma.gov.bt/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "BW",
+   "country_name": "Botswana",
+   "regulators": [
+    {
+     "name": "Botswana Communications Regulatory Authority ( BOCRA )",
+     "urls": [
+      "https://www.bocra.org.bw/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "BY",
+   "country_name": "Belarus",
+   "regulators": [
+    {
+     "name": "Ministry of Posts and Telecommunications ( MPT )",
+     "urls": [
+      "http://www.mpt.gov.by/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "BZ",
+   "country_name": "Belize",
+   "regulators": [
+    {
+     "name": "Belize Public Utilities Commission ( PUC )",
+     "urls": [
+      "http://www.puc.bz/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "CA",
+   "country_name": "Canada",
+   "regulators": [
+    {
+     "name": "Innovation, Science and Economic Development Canada ( ISED )",
+     "urls": [
+      "http://www.ic.gc.ca/eic/site/ic1.nsf/eng/h_00077.html"
+     ]
+    },
+    {
+     "name": "Canadian Radio-television and Telecommunications Commission ( CRTC )",
+     "urls": [
+      "http://www.crtc.gc.ca/eng/home-accueil.htm"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "CD",
+   "country_name": "Democratic Republic of the Congo",
+   "regulators": [
+    {
+     "name": "Autorité de Régulation de la Poste et des Télécommunications du Congo ( ARPTC )",
+     "urls": [
+      "https://arptc.gouv.cd/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "CF",
+   "country_name": "Central African Republic",
+   "regulators": [
+    {
+     "name": "Autorité de Régulation des Communications Électroniques et de la Poste ( ARCEP )",
+     "urls": [
+      "https://www.arcep.cf/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "CG",
+   "country_name": "Republic of Congo",
+   "regulators": [
+    {
+     "name": "Agence de Régulation des Postes et Communications Électroniques ( ARPCE )",
+     "urls": [
+      "https://www.arpce.cg/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "CH",
+   "country_name": "Switzerland",
+   "regulators": [
+    {
+     "name": "Federal Communications Commission ( ComCom )",
+     "urls": [
+      "http://www.comcom.admin.ch/"
+     ]
+    },
+    {
+     "name": "Office fédéral de la communication ( OFCOM )",
+     "urls": [
+      "https://www.bakom.admin.ch/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "CI",
+   "country_name": "Ivory Coast",
+   "regulators": [
+    {
+     "name": "Agence des Telecommunications de Cote d'Ivoire ( ATCI )",
+     "urls": [
+      "https://www.artci.ci/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "CL",
+   "country_name": "Chile",
+   "regulators": [
+    {
+     "name": "Subsecretaria de Telecommunicacaiones ( SUBTEL )",
+     "urls": [
+      "http://www.subtel.cl/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "CM",
+   "country_name": "Cameroon",
+   "regulators": [
+    {
+     "name": "Agence de Régulation des Télécommunications ( ART )",
+     "urls": [
+      "http://www.art.cm/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "CN",
+   "country_name": "China",
+   "regulators": [
+    {
+     "name": "Ministry of Information Industry ( MII )",
+     "urls": [
+      "https://www.miit.gov.cn/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "CO",
+   "country_name": "Colombia",
+   "regulators": [
+    {
+     "name": "Comisión de Regulación de Comunicaciones ( CRC )",
+     "urls": [
+      "http://www.crcom.gov.co/"
+     ]
+    },
+    {
+     "name": "Ministerio de Tecnologías de la Información y las Comunicaciones ( MinTIC )",
+     "urls": [
+      "http://www.mintic.gov.co/"
+     ]
+    },
+    {
+     "name": "Autoriad Nacional de Televisión ( ANTV )",
+     "urls": [
+      "http://www.antv.gov.co/"
+     ]
+    },
+    {
+     "name": "Agencia Nacional del Espectro ( ANE )",
+     "urls": [
+      "http://www.ane.gov.co/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "CR",
+   "country_name": "Costa Rica",
+   "regulators": [
+    {
+     "name": "Superintendencia de Telecomunicaciones ( SUTEL )",
+     "urls": [
+      "http://sutel.go.cr/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "CU",
+   "country_name": "Cuba",
+   "regulators": [
+    {
+     "name": "Ministério de la Informática y las Comunicaciones de Cuba ( MIC )",
+     "urls": [
+      "http://www.mincom.gob.cu/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "CV",
+   "country_name": "Cape Verde",
+   "regulators": [
+    {
+     "name": "National Communications Agency ( ANAC )",
+     "urls": [
+      "http://www.anac.cv/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "CW",
+   "country_name": "Curaçao (former Netherlands Antilles )",
+   "regulators": [
+    {
+     "name": "Bureau Telecommunicatie & Post ( BT&P )",
+     "urls": [
+      "http://www.btnp.org/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "CY",
+   "country_name": "Cyprus",
+   "regulators": [
+    {
+     "name": "Office of Electronic Communications & Postal Regulation ( OCECPR )",
+     "urls": [
+      "https://ocecpr.ee.cy/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "CZ",
+   "country_name": "Czech Republic",
+   "regulators": [
+    {
+     "name": "The Czech Telecommunication Office ( ČTÚ )",
+     "urls": [
+      "https://www.ctu.eu"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "DE",
+   "country_name": "Germany",
+   "regulators": [
+    {
+     "name": "Bundesnetzagentur ( BNA )",
+     "urls": [
+      "http://www.bundesnetzagentur.de/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "DJ",
+   "country_name": "Djibouti",
+   "regulators": [
+    {
+     "name": "Ministère de la Communication et de la Culture, chargé des Postes et Télécommunications , Porte-Parole du Gouvernement ( MCCPT )",
+     "urls": [
+      "https://communication.gouv.dj/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "DK",
+   "country_name": "Denmark",
+   "regulators": [
+    {
+     "name": "The Agency for Data Supply and Infrastructure ( SDFI )",
+     "urls": [
+      "https://eng.sdfi.dk/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "DM",
+   "country_name": "Dominica",
+   "regulators": [
+    {
+     "name": "Eastern Caribbean Telecommunications Authority ( ECTEL )",
+     "urls": [
+      "https://www.ectel.int/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "DO",
+   "country_name": "Dominican Republic",
+   "regulators": [
+    {
+     "name": "Instituto Dominicano de las Telecomunicaciones ( Indotel )",
+     "urls": [
+      "http://www.indotel.gob.do/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "DZ",
+   "country_name": "Algeria",
+   "regulators": [
+    {
+     "name": "Autorité de Régulation de la Poste et des Communications Électroniques ( ARPCE )",
+     "urls": [
+      "http://www.arpce.dz/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "EC",
+   "country_name": "Ecuador",
+   "regulators": [
+    {
+     "name": "Agencia de Control y Regulación de las Telecomunicaciones ( ARCOTEL )",
+     "urls": [
+      "http://www.arcotel.gob.ec/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "EE",
+   "country_name": "Estonia",
+   "regulators": [
+    {
+     "name": "Estonian Consumer Protection and Technical Regulatory Authority ( )",
+     "urls": [
+      "https://www.ttja.ee/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "EG",
+   "country_name": "Egypt",
+   "regulators": [
+    {
+     "name": "National Telecommunications Regulatory Authority ( NTRA )",
+     "urls": [
+      "http://www.tra.gov.eg/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "ES",
+   "country_name": "Spain",
+   "regulators": [
+    {
+     "name": "Comisión Nacional de los Mercados y la Competencia ( CNMC )",
+     "urls": [
+      "https://www.cnmc.es/en"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "ET",
+   "country_name": "Ethiopia",
+   "regulators": [
+    {
+     "name": "Ethiopian Telecommunication Agency ( ETA )",
+     "urls": [
+      "http://eta.gov.et/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "FI",
+   "country_name": "Finland",
+   "regulators": [
+    {
+     "name": "Finnish Transport and Communications Agency ( Traficom )",
+     "urls": [
+      "https://www.traficom.fi/en"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "FJ",
+   "country_name": "Fiji",
+   "regulators": [
+    {
+     "name": "Telecommunications Authority of Fiji ( TAF )",
+     "urls": [
+      "http://www.taf.org.fj/Home.aspx"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "FR",
+   "country_name": "France",
+   "regulators": [
+    {
+     "name": "Autorité de Régulation des Communications Électroniques, des Postes et de la Distribution de la Presse ( ARCEP )",
+     "urls": [
+      "http://www.arcep.fr/"
+     ]
+    },
+    {
+     "name": "Agence Nationale des Fréquences ( ANFR )",
+     "urls": [
+      "https://www.anfr.fr/accueil/"
+     ]
+    },
+    {
+     "name": "Regulatory Authority for Audiovisual and Digital Communication ( ARCOM )",
+     "urls": [
+      "https://www.arcom.fr/"
+     ]
+    },
+    {
+     "name": "Autorité de la Concurrence ( AC )",
+     "urls": [
+      "https://www.autoritedelaconcurrence.fr/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "GA",
+   "country_name": "Gabon",
+   "regulators": [
+    {
+     "name": "Autorité de Régulation des Communications Électroniques et des Postes ( ARCEP )",
+     "urls": [
+      "https://arcep.ga/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "GB",
+   "country_name": "United Kingdom",
+   "regulators": [
+    {
+     "name": "Ofcom ( OFCOM )",
+     "urls": [
+      "http://www.ofcom.org.uk/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "GD",
+   "country_name": "Grenada",
+   "regulators": [
+    {
+     "name": "Eastern Caribbean Telecommunications Authority ( ECTEL )",
+     "urls": [
+      "http://www.ectel.int/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "GE",
+   "country_name": "Georgia",
+   "regulators": [
+    {
+     "name": "Georgian National Communications Commission ( GNCC )",
+     "urls": [
+      "http://www.gncc.ge/?lang_id=ENG"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "GH",
+   "country_name": "Ghana",
+   "regulators": [
+    {
+     "name": "National Communications Authority ( NCA )",
+     "urls": [
+      "http://www.nca.org.gh/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "GL",
+   "country_name": "Greenland",
+   "regulators": [
+    {
+     "name": "Tele-Post ( TELE-POST )",
+     "urls": [
+      "http://www.tele.gl/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "GM",
+   "country_name": "Gambia",
+   "regulators": [
+    {
+     "name": "Gambian Public Utilities Regulatory Authority ( PURA )",
+     "urls": [
+      "http://www.pura.gm/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "GN",
+   "country_name": "Guinea",
+   "regulators": [
+    {
+     "name": "Regulatory Authority for Posts and Telecommunications ( ARPT )",
+     "urls": [
+      "http://www.arptguinee.org/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "GQ",
+   "country_name": "Equatorial Guinea",
+   "regulators": [
+    {
+     "name": "Órgano Regulador de las Telecomunicaciones ( ORTEL )",
+     "urls": [
+      "https://web.archive.org/web/20140714151057/http://www.ortel-ge.org/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "GR",
+   "country_name": "Greece",
+   "regulators": [
+    {
+     "name": "Hellenic Telecommunications and Post Commission ( EETT )",
+     "urls": [
+      "http://www.eett.gr/opencms/opencms/EETT_EN/index.html"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "GT",
+   "country_name": "Guatemala",
+   "regulators": [
+    {
+     "name": "Superintendencia de Telecomunicaciones ( SIT )",
+     "urls": [
+      "http://www.sit.gob.gt/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "GW",
+   "country_name": "Guinea-Bissau",
+   "regulators": [
+    {
+     "name": "Autoridade Reguladora Nacional das Tecnologias de Informação e Comunicação da Guiné-Bissau ( ARN )",
+     "urls": [
+      "http://www.arn.gw/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "GY",
+   "country_name": "Guyana",
+   "regulators": [
+    {
+     "name": "Guyana Public Utilities Commission ( PUC ) ( PUC )",
+     "urls": [
+      "http://www.puc.org.gy/",
+      "http://www.puc.org.gy/pucdocs/presentation/1_OVERVIEW%20OF%20TELECOMMUNICATION%20SECTOR.pdf"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "HK",
+   "country_name": "Hong Kong",
+   "regulators": [
+    {
+     "name": "Office of Communications Authority ( OFCA )",
+     "urls": [
+      "http://www.ofca.gov.hk/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "HN",
+   "country_name": "Honduras",
+   "regulators": [
+    {
+     "name": "Comisión Nacional de Telecomunicaciones ( CONATEL )",
+     "urls": [
+      "http://www.conatel.gob.hn/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "HR",
+   "country_name": "Croatia",
+   "regulators": [
+    {
+     "name": "Croatian Regulatory Authority for Network Industries ( HAKOM )",
+     "urls": [
+      "https://www.hakom.hr/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "HT",
+   "country_name": "Haiti",
+   "regulators": [
+    {
+     "name": "Conseil National des Telecommunications ( CONATEL )",
+     "urls": [
+      "http://www.conatel.gouv.ht/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "HU",
+   "country_name": "Hungary",
+   "regulators": [
+    {
+     "name": "National Media and Infocommunication Authority ( NMHH )",
+     "urls": [
+      "http://www.nmhh.hu/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "ID",
+   "country_name": "Indonesia",
+   "regulators": [
+    {
+     "name": "Ministry of Communication and Digital Affairs ( KOMDIGI )",
+     "urls": [
+      "https://www.komdigi.go.id/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "IE",
+   "country_name": "Ireland",
+   "regulators": [
+    {
+     "name": "Commission for Communications Regulation ( ComReg )",
+     "urls": [
+      "http://www.comreg.ie/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "IL",
+   "country_name": "Israel",
+   "regulators": [
+    {
+     "name": "Ministry of Communications ( MOC )",
+     "urls": [
+      "http://www.moc.gov.il/130-en/MOC.aspx"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "IM",
+   "country_name": "Isle of Man",
+   "regulators": [
+    {
+     "name": "Communications Commission ( CC )",
+     "urls": [
+      "https://www.cura.im/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "IN",
+   "country_name": "India",
+   "regulators": [
+    {
+     "name": "Telecom Regulatory Authority of India ( TRAI )",
+     "urls": [
+      "http://www.trai.gov.in/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "IQ",
+   "country_name": "Iraq",
+   "regulators": [
+    {
+     "name": "Communications and Media Commission ( CMC )",
+     "urls": [
+      "http://www.cmc.iq/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "IR",
+   "country_name": "Iran",
+   "regulators": [
+    {
+     "name": "Communication Regulatory Authority ( CRA )",
+     "urls": [
+      "http://www.cra.ir/"
+     ]
+    },
+    {
+     "name": "Audiovisual Media Regulatory Authority ( SATRA )",
+     "urls": [
+      "http://en.satra.ir/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "IS",
+   "country_name": "Iceland",
+   "regulators": [
+    {
+     "name": "Electronic Communications Office of Iceland ( ECOI )",
+     "urls": [
+      "https://www.fjarskiptastofa.is/english"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "IT",
+   "country_name": "Italy",
+   "regulators": [
+    {
+     "name": "Autorità per le Garanzie nelle Comunicazioni ( AGCOM )",
+     "urls": [
+      "http://www.agcom.it/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "JM",
+   "country_name": "Jamaica",
+   "regulators": [
+    {
+     "name": "Spectrum Management Authority ( SMA )",
+     "urls": [
+      "http://www.sma.gov.jm/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "JO",
+   "country_name": "Jordan",
+   "regulators": [
+    {
+     "name": "Telecommunications Regulatory Commission ( TRC )",
+     "urls": [
+      "https://trc.gov.jo/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "JP",
+   "country_name": "Japan",
+   "regulators": [
+    {
+     "name": "Ministry of Internal Affairs and Communications ( MIC )",
+     "urls": [
+      "http://www.soumu.go.jp/english/index.html"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "KE",
+   "country_name": "Kenya",
+   "regulators": [
+    {
+     "name": "Communications Authority of Kenya ( CA )",
+     "urls": [
+      "http://www.ca.go.ke/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "KG",
+   "country_name": "Kyrgyzstan",
+   "regulators": [
+    {
+     "name": "Ministry of transport and Communication of the Kyrgyz Republic ( MTC )",
+     "urls": [
+      "http://piumotc.kg/en/news/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "KH",
+   "country_name": "Cambodia",
+   "regulators": [
+    {
+     "name": "Telecommunication Regulator of Cambodia ( TRC )",
+     "urls": [
+      "http://trc.gov.kh/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "KI",
+   "country_name": "Kiribati",
+   "regulators": [
+    {
+     "name": "Communications Commission of Kiribati ( CCK )",
+     "urls": [
+      "http://www.cck.ki/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "KM",
+   "country_name": "Comoros",
+   "regulators": [
+    {
+     "name": "Autorité Nationale de Régulation des Tics ( ANRTIC )",
+     "urls": [
+      "http://www.anrtic.co.km/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "KN",
+   "country_name": "Saint Kitts and Nevis",
+   "regulators": [
+    {
+     "name": "National Telecommunications Regulatory Commission of Saint Kitts and Nevis ( NTRC )",
+     "urls": [
+      "http://ntrc.kn/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "KR",
+   "country_name": "South Korea",
+   "regulators": [
+    {
+     "name": "Korea Communications Commission ( KCC )",
+     "urls": [
+      "http://eng.kcc.go.kr/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "KW",
+   "country_name": "Kuwait",
+   "regulators": [
+    {
+     "name": "Ministry of Communications ( )",
+     "urls": [
+      "http://moc.gov.kw/English/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "KY",
+   "country_name": "Cayman Islands",
+   "regulators": [
+    {
+     "name": "Information and Communications Technology Authority ( ICTA )",
+     "urls": [
+      "http://www.icta.ky/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "KZ",
+   "country_name": "Kazakhstan",
+   "regulators": [
+    {
+     "name": "Ministry of Information and Communications of the Republic of Kazakhstan ( MIC )",
+     "urls": [
+      "http://mic.gov.kz/en"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "LB",
+   "country_name": "Lebanon",
+   "regulators": [
+    {
+     "name": "Telecommunications Regulatory Authority ( TRA )",
+     "urls": [
+      "http://www.tra.gov.lb/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "LC",
+   "country_name": "Saint Lucia",
+   "regulators": [
+    {
+     "name": "National Telecommunications Regulatory Commission of Saint Lucia ( NTRC )",
+     "urls": [
+      "http://www.ntrc.org.lc/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "LI",
+   "country_name": "Liechtenstein",
+   "regulators": [
+    {
+     "name": "Office for Communications ( AK )",
+     "urls": [
+      "https://www.llv.li/inhalt/11109/amtsstellen/amt-fur-kommunikation"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "LK",
+   "country_name": "Sri Lanka",
+   "regulators": [
+    {
+     "name": "Telecommunications Regulatory Commission of Sri Lanka ( TRCSL )",
+     "urls": [
+      "http://www.trc.gov.lk/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "LR",
+   "country_name": "Liberia",
+   "regulators": [
+    {
+     "name": "Liberia Telecommunications Authority ( LTA )",
+     "urls": [
+      "https://www.lta.gov.lr/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "LS",
+   "country_name": "Lesotho",
+   "regulators": [
+    {
+     "name": "Lesotho Communications Authority ( LCA )",
+     "urls": [
+      "http://www.lca.org.ls/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "LT",
+   "country_name": "Lithuania",
+   "regulators": [
+    {
+     "name": "Communications Regulatory Authority ( RRT )",
+     "urls": [
+      "http://www.rrt.lt/en/home.html"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "LU",
+   "country_name": "Luxembourg",
+   "regulators": [
+    {
+     "name": "Institut luxembourgeois de régulation ( ILR )",
+     "urls": [
+      "https://web.ilr.lu/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "LV",
+   "country_name": "Latvia",
+   "regulators": [
+    {
+     "name": "Public Utilities Commission ( PUC )",
+     "urls": [
+      "https://www.sprk.gov.lv/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "LY",
+   "country_name": "Libya",
+   "regulators": [
+    {
+     "name": "General Telecommunications Authority ( GTA )",
+     "urls": [
+      "https://www.cim.gov.ly/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "MA",
+   "country_name": "Morocco",
+   "regulators": [
+    {
+     "name": "National Telecommunications Regulatory Agency ( ANRT )",
+     "urls": [
+      "http://www.anrt.net.ma/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "MD",
+   "country_name": "Moldova",
+   "regulators": [
+    {
+     "name": "National Regulatory Agency for Electronic Communications and Information Technology ( ANRCETI )",
+     "urls": [
+      "http://en.anrceti.md/front/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "ME",
+   "country_name": "Montenegro",
+   "regulators": [
+    {
+     "name": "Agency for Electronic Communications and Postal Services ( EKIP )",
+     "urls": [
+      "http://www.ekip.me/eng/agency/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "MG",
+   "country_name": "Madagascar",
+   "regulators": [
+    {
+     "name": "Autorité de Régulation des Technologies de Communication ( ARTEC )",
+     "urls": [
+      "http://www.artec.mg/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "MK",
+   "country_name": "North Macedonia",
+   "regulators": [
+    {
+     "name": "Electronic Communications Agency ( AEK )",
+     "urls": [
+      "http://www.aec.mk/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "ML",
+   "country_name": "Mali",
+   "regulators": [
+    {
+     "name": "Autorité malienne de Régulation des Télécommunications, des Technologies de l'Information et de la Communication et des Postes ( AMRTP )",
+     "urls": [
+      "https://www.amrtp.ml/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "MN",
+   "country_name": "Mongolia",
+   "regulators": [
+    {
+     "name": "Communications Regulatory Commission of Mongolia ( CRC )",
+     "urls": [
+      "https://crc.gov.mn/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "MO",
+   "country_name": "Macau",
+   "regulators": [
+    {
+     "name": "Office for the Development of Telecommunications and Information Technologies ( GDTTI )",
+     "urls": [
+      "https://telecommunications.ctt.gov.mo/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "MR",
+   "country_name": "Mauritania",
+   "regulators": [
+    {
+     "name": "Autorite de Regulation ( ARE )",
+     "urls": [
+      "http://www.are.mr/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "MS",
+   "country_name": "Montserrat",
+   "regulators": [
+    {
+     "name": "Montserrat Info-Communications Authority ( MICA )",
+     "urls": [
+      "http://www.mica.ms/about-us/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "MT",
+   "country_name": "Malta",
+   "regulators": [
+    {
+     "name": "Malta Communications Authority ( MCA )",
+     "urls": [
+      "http://www.mca.org.mt/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "MU",
+   "country_name": "Mauritius",
+   "regulators": [
+    {
+     "name": "Information and Communication Technologies Authority ( ICTA )",
+     "urls": [
+      "http://www.icta.mu/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "MV",
+   "country_name": "Maldives",
+   "regulators": [
+    {
+     "name": "Communications Authority of Maldives ( CAM )",
+     "urls": [
+      "http://www.cam.gov.mv/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "MW",
+   "country_name": "Malawi",
+   "regulators": [
+    {
+     "name": "Malawi Communications Regulatory Authority ( MACRA )",
+     "urls": [
+      "http://www.macra.mw/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "MX",
+   "country_name": "Mexico",
+   "regulators": [
+    {
+     "name": "Instituto Federal de Telecomunicaciones ( IFT )",
+     "urls": [
+      "http://www.ift.org.mx/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "MY",
+   "country_name": "Malaysia",
+   "regulators": [
+    {
+     "name": "Malaysian Communications and Multimedia Commission ( MCMC )",
+     "urls": [
+      "http://www.mcmc.gov.my/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "MZ",
+   "country_name": "Mozambique",
+   "regulators": [
+    {
+     "name": "Instituto Nacional das Communicacoes de Mozambique ( INCM )",
+     "urls": [
+      "http://www.incm.gov.mz/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "NA",
+   "country_name": "Namibia",
+   "regulators": [
+    {
+     "name": "Communications Regulatory Authority of Namibia ( CRAN )",
+     "urls": [
+      "http://www.cran.na/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "NC",
+   "country_name": "New Caledonia",
+   "regulators": [
+    {
+     "name": "Autorité de la Concurrence de la Nouvelle-Calédonie ( ACNC )",
+     "urls": [
+      "https://autorite-concurrence.nc/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "NE",
+   "country_name": "Niger",
+   "regulators": [
+    {
+     "name": "Autorité de Régulation des Communications Électroniques et de la Poste ( ARCEP )",
+     "urls": [
+      "https://arcep.ne/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "NG",
+   "country_name": "Nigeria",
+   "regulators": [
+    {
+     "name": "Nigerian Communications Commission ( NCC )",
+     "urls": [
+      "http://www.ncc.gov.ng/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "NI",
+   "country_name": "Nicaragua",
+   "regulators": [
+    {
+     "name": "Instituto Nicaragüense de Telecomunicaciones y Correos ( Telcor )",
+     "urls": [
+      "http://www.telcor.gob.ni/Default.asp"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "NL",
+   "country_name": "Netherlands",
+   "regulators": [
+    {
+     "name": "Autoriteit Consument & Markt ( ACM ) previously Onafhankelijke Post en Telecommunicatie Autoriteit",
+     "urls": [
+      "https://www.acm.nl/nl/"
+     ]
+    },
+    {
+     "name": "Agentschap Telecom ( AT )",
+     "urls": [
+      "https://www.agentschaptelecom.nl/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "NO",
+   "country_name": "Norway",
+   "regulators": [
+    {
+     "name": "Norwegian Communications Authority ( NKOM )",
+     "urls": [
+      "http://www.nkom.no/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "NP",
+   "country_name": "Nepal",
+   "regulators": [
+    {
+     "name": "Nepal Telecommunications Authority ( NTA )",
+     "urls": [
+      "http://www.nta.gov.np/en/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "NZ",
+   "country_name": "New Zealand",
+   "regulators": [
+    {
+     "name": "Commerce Commission of New Zealand ( ComCom )",
+     "urls": [
+      "http://www.comcom.govt.nz/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "OM",
+   "country_name": "Oman",
+   "regulators": [
+    {
+     "name": "Oman Telecommunications Regulatory Authority ( TRA )",
+     "urls": [
+      "https://tra.gov.om/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "PA",
+   "country_name": "Panama",
+   "regulators": [
+    {
+     "name": "Autoridad Nacional de los Servicios Públicos ( ASEP )",
+     "urls": [
+      "https://www.asep.gob.pa/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "PE",
+   "country_name": "Peru",
+   "regulators": [
+    {
+     "name": "Organismo Supervisor de Inversión Privada en Telecomunicaciones ( OSIPTEL )",
+     "urls": [
+      "http://www.osiptel.gob.pe/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "PF",
+   "country_name": "French Polynesia",
+   "regulators": [
+    {
+     "name": "Service des Postes et Télécommunications de Polynésie Française ( SPT )",
+     "urls": [
+      "http://www.polynesie-francaise.pref.gouv.fr/Services-de-l-Etat/Telecommunications-radiocommunications-et-communications-electroniques"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "PG",
+   "country_name": "Papua New Guinea",
+   "regulators": [
+    {
+     "name": "National Information And Communication Technology Authority ( NICTA )",
+     "urls": [
+      "http://www.nicta.gov.pg/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "PH",
+   "country_name": "Philippines",
+   "regulators": [
+    {
+     "name": "National Telecommunications Commission ( NTC )",
+     "urls": [
+      "https://ntc.gov.ph/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "PK",
+   "country_name": "Pakistan",
+   "regulators": [
+    {
+     "name": "Pakistan Telecommunication Authority ( PTA )",
+     "urls": [
+      "http://pta.gov.pk/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "PL",
+   "country_name": "Poland",
+   "regulators": [
+    {
+     "name": "Urząd Komunikacji Elektronicznej ( UKE )",
+     "urls": [
+      "http://www.uke.gov.pl/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "PR",
+   "country_name": "Puerto Rico",
+   "regulators": [
+    {
+     "name": "Junta Reglamentadora de Telecomunicaciones de Puero Rico ( JRTPR )",
+     "urls": [
+      "https://jrtpr.pr.gov/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "PS",
+   "country_name": "Palestine",
+   "regulators": [
+    {
+     "name": "Telecommunications Regulatory Commission ( TRC )",
+     "urls": [
+      "https://www.mne.gov.ps/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "PT",
+   "country_name": "Portugal",
+   "regulators": [
+    {
+     "name": "Autoridade Nacional de Comunicações ( ANACOM )",
+     "urls": [
+      "https://www.anacom.pt/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "PY",
+   "country_name": "Paraguay",
+   "regulators": [
+    {
+     "name": "Comision Nacional de Telecomunicaciones ( CONATEL )",
+     "urls": [
+      "http://www.conatel.gov.py/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "QA",
+   "country_name": "Qatar",
+   "regulators": [
+    {
+     "name": "Communications Regulatory Authority ( CRA )",
+     "urls": [
+      "http://www.cra.gov.qa/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "RO",
+   "country_name": "Romania",
+   "regulators": [
+    {
+     "name": "National Authority for Management and Regulation in Communications of Romania ( ANCOM )",
+     "urls": [
+      "http://www.ancom.org.ro/en/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "RS",
+   "country_name": "Serbia",
+   "regulators": [
+    {
+     "name": "Republic Agency for Electronic Communication and Postal Services ( RATEL )",
+     "urls": [
+      "http://www.ratel.rs/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "RU",
+   "country_name": "Russia",
+   "regulators": [
+    {
+     "name": "Ministry of Telecom and Mass Communications of the Russian Federation ( Minsvyaz )",
+     "urls": [
+      "https://minsvyaz.ru/en/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "RW",
+   "country_name": "Rwanda",
+   "regulators": [
+    {
+     "name": "Regulatory Agency for Public Utility Services of Rwanda ( RURA )",
+     "urls": [
+      "http://www.rura.rw/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "SA",
+   "country_name": "Saudi Arabia",
+   "regulators": [
+    {
+     "name": "Communications, Space and Technology Commission ( CITC )",
+     "urls": [
+      "http://www.citc.gov.sa/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "SC",
+   "country_name": "Seychelles",
+   "regulators": [
+    {
+     "name": "Ministry of Information Technology and Communication ( MISD )",
+     "urls": [
+      "http://www.misd.gov.sc/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "SD",
+   "country_name": "Sudan",
+   "regulators": [
+    {
+     "name": "Telecommunications and Post Regulatory Authority ( TPRA )",
+     "urls": [
+      "https://tpra.gov.sd/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "SE",
+   "country_name": "Sweden",
+   "regulators": [
+    {
+     "name": "Swedish Post and Telecom Authority ( Swedish : Post- och telestyrelsen ) ( PTS )",
+     "urls": [
+      "http://www.pts.se/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "SG",
+   "country_name": "Singapore",
+   "regulators": [
+    {
+     "name": "Info- communications Media Development Authority of Singapore ( IMDA )",
+     "urls": [
+      "https://www.imda.gov.sg/"
+     ]
+    },
+    {
+     "name": "Government Technology Agency ( GovTech )",
+     "urls": [
+      "https://www.tech.gov.sg/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "SI",
+   "country_name": "Slovenia",
+   "regulators": [
+    {
+     "name": "Agency for communication networks and services of the Republic of Slovenia ( AKOS )",
+     "urls": [
+      "http://www.akos-rs.si/akos-ang"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "SK",
+   "country_name": "Slovakia",
+   "regulators": [
+    {
+     "name": "Telecommunications Regulatory Authority of the Slovak Republic ( TR )",
+     "urls": [
+      "https://www.teleoff.gov.sk/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "SL",
+   "country_name": "Sierra Leone",
+   "regulators": [
+    {
+     "name": "National Telecommunications Commission ( NATCOM )",
+     "urls": [
+      "https://natcom.gov.sl/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "SN",
+   "country_name": "Senegal",
+   "regulators": [
+    {
+     "name": "Autorité de Régulation des Télécommunications et des Postes ( ARTP )",
+     "urls": [
+      "https://artp.sn/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "SO",
+   "country_name": "Somalia",
+   "regulators": [
+    {
+     "name": "National Communications Authority - NCA ( NCA )",
+     "urls": [
+      "https://nca.gov.so/en/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "SR",
+   "country_name": "Suriname",
+   "regulators": [
+    {
+     "name": "Telecommunications Authority Suriname ( TAS )",
+     "urls": [
+      "http://www.tas.sr/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "SS",
+   "country_name": "South Sudan",
+   "regulators": [
+    {
+     "name": "National Communication Authority ( NCA )",
+     "urls": [
+      "https://nca.gov.ss/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "SV",
+   "country_name": "El Salvador",
+   "regulators": [
+    {
+     "name": "Superintendencia General de Electricidad y Telecommunicaciones ( SIGET )",
+     "urls": [
+      "http://www.siget.gob.sv/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "SX",
+   "country_name": "Sint Maarten",
+   "regulators": [
+    {
+     "name": "Bureau Telecommunications and Post ( BTP )",
+     "urls": [
+      "http://www.sxmregulator.sx/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "SY",
+   "country_name": "Syria",
+   "regulators": [
+    {
+     "name": "Ministry of Communications and Technology ( MCT )",
+     "urls": [
+      "https://moct.gov.sy/"
+     ]
+    },
+    {
+     "name": "Taiwan (Republic of China) [ a ] National Communications Commission ( NCC )",
+     "urls": [
+      "http://www.ncc.gov.tw/english/index.aspx"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "SZ",
+   "country_name": "Eswatini",
+   "regulators": [
+    {
+     "name": "Swaziland Posts & Telecommunications Corporation ( SPTC )",
+     "urls": [
+      "http://www.sptc.co.sz/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "TC",
+   "country_name": "Turks and Caicos Islands",
+   "regulators": [
+    {
+     "name": "Telecommunications Commission ( TCITC )",
+     "urls": [
+      "http://www.telecommission.tc/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "TD",
+   "country_name": "Chad",
+   "regulators": [
+    {
+     "name": "Autorité de Régulation des Communications Électroniques et de la Poste ( ARCEP )",
+     "urls": [
+      "https://arcep.td/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "TG",
+   "country_name": "Togo",
+   "regulators": [
+    {
+     "name": "Autorité de Régulation des Communications Électroniques et des Postes ( ARCEP )",
+     "urls": [
+      "https://arcep.tg/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "TH",
+   "country_name": "Thailand",
+   "regulators": [
+    {
+     "name": "National Broadcasting and Telecommunications Commission ( NBTC )",
+     "urls": [
+      "http://nbtc.go.th/wps/portal/NTC/eng"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "TJ",
+   "country_name": "Tajikistan",
+   "regulators": [
+    {
+     "name": "Ministry of Transport and Communications ( [ link removed ] ) · ( )",
+     "urls": [
+      "http://www.tajik-gateway.org/index.phtml?lang=en&id=920"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "TM",
+   "country_name": "Turkmenistan",
+   "regulators": [
+    {
+     "name": "Turkmenistan Ministry of Communications ( MC )",
+     "urls": [
+      "http://www.online.tm/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "TN",
+   "country_name": "Tunisia",
+   "regulators": [
+    {
+     "name": "Instance Nationale des Télécommunications de Tunisie ( INTT )",
+     "urls": [
+      "http://www.intt.tn/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "TO",
+   "country_name": "Tonga",
+   "regulators": [
+    {
+     "name": "Ministry for Information and Communications of Tonga ( MIC )",
+     "urls": [
+      "http://www.mic.gov.to/media-a-ict"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "TR",
+   "country_name": "Turkey",
+   "regulators": [
+    {
+     "name": "Information And Communication Technologies Authority ( ICTA )",
+     "urls": [
+      "http://eng.btk.gov.tr/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "TT",
+   "country_name": "Trinidad and Tobago",
+   "regulators": [
+    {
+     "name": "Telecommunications Authority of Trinidad and Tobago ( TATT )",
+     "urls": [
+      "http://tatt.org.tt/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "TZ",
+   "country_name": "Tanzania",
+   "regulators": [
+    {
+     "name": "Tanzania Communication Regulatory Authority ( TCRA )",
+     "urls": [
+      "http://www.tcra.go.tz/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "UA",
+   "country_name": "Ukraine",
+   "regulators": [
+    {
+     "name": "National Commission for the State Regulation of Communications and Informatization ( NCCIR )",
+     "urls": [
+      "http://www.nkrzi.gov.ua/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "UG",
+   "country_name": "Uganda",
+   "regulators": [
+    {
+     "name": "Uganda Communications Commission ( UCC )",
+     "urls": [
+      "https://www.ucc.co.ug/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "US",
+   "country_name": "United States",
+   "regulators": [
+    {
+     "name": "Federal Communications Commission ( FCC )",
+     "urls": [
+      "https://www.fcc.gov/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "UY",
+   "country_name": "Uruguay",
+   "regulators": [
+    {
+     "name": "Unidad Reguladora de Servicios de Telecomunicaciones ( URSEC )",
+     "urls": [
+      "http://www.ursec.gub.uy/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "UZ",
+   "country_name": "Uzbekistan",
+   "regulators": [
+    {
+     "name": "The State Inspection for control in the field of informatization and telecommunication of the Republic of Uzbekistan ( ATKRV )",
+     "urls": [
+      "https://mitc.uz/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "VC",
+   "country_name": "Saint Vincent and the Grenadines",
+   "regulators": [
+    {
+     "name": "National Telecommunications Regulatory Commission of Saint Vincent and the Grenadines ( NTRC )",
+     "urls": [
+      "http://www.ntrc.vc/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "VE",
+   "country_name": "Venezuela",
+   "regulators": [
+    {
+     "name": "Comisión Nacional de Telecomunicaciones ( CONATEL )",
+     "urls": [
+      "http://www.conatel.gob.ve/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "VN",
+   "country_name": "Vietnam",
+   "regulators": [
+    {
+     "name": "Vietnam Telecommunication Authority ( VNTA )",
+     "urls": [
+      "https://vnta.gov.vn/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "VU",
+   "country_name": "Vanuatu",
+   "regulators": [
+    {
+     "name": "Telecommunications Radiocommunications and Broadcasting Regulator ( TRBR )",
+     "urls": [
+      "https://www.trbr.vu/en/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "WS",
+   "country_name": "Samoa",
+   "regulators": [
+    {
+     "name": "Office of the Regulator of Samoa ( Samoa )",
+     "urls": [
+      "http://www.regulator.gov.ws/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "XK",
+   "country_name": "Kosovo",
+   "regulators": [
+    {
+     "name": "Regulatory Authority of Electronic and Postal Communications ( RAEPC )",
+     "urls": [
+      "http://www.arkep-rks.org/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "ZA",
+   "country_name": "South Africa",
+   "regulators": [
+    {
+     "name": "Independent Communications Authority of South Africa ( ICASA )",
+     "urls": [
+      "http://www.icasa.org.za/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "ZM",
+   "country_name": "Zambia",
+   "regulators": [
+    {
+     "name": "Zambia Information & Communications Technology Authority ( ZICTA )",
+     "urls": [
+      "http://www.zicta.zm/"
+     ]
+    }
+   ]
+  },
+  {
+   "iso2": "ZW",
+   "country_name": "Zimbabwe",
+   "regulators": [
+    {
+     "name": "Postal & Telecommunications Regulatory Authority ( POTRAZ )",
+     "urls": [
+      "http://www.potraz.gov.zw/"
+     ]
+    }
+   ]
+  }
+ ]
+}

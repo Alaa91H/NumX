@@ -1,0 +1,15 @@
+{
+ "url": "https://en.wikipedia.org/wiki/Ooredoo_Kuwait",
+ "final_url": "https://en.wikipedia.org/wiki/Ooredoo_Kuwait",
+ "status": 200,
+ "content_type": "text/html; charset=UTF-8",
+ "content_length": null,
+ "sha256": "4eb55a7e9d3d0103d51ff6225bc66ba6ac4c25b58630874200ca22bf1812e0a5",
+ "elapsed_ms": 874,
+ "fetched_at": "2026-10-28T03:53:55Z",
+ "robots_allowed": true,
+ "robots_checked": true,
+ "truncated": false,
+ "error": null,
+ "encoding": "utf-8"
+}

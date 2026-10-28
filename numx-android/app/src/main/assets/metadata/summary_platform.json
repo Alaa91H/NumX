@@ -1,0 +1,56 @@
+{
+ "metadataVersion": "platform-1.0.0",
+ "generatedAt": "2026-10-28",
+ "counts": {
+  "countriesAndTerritories": 252,
+  "globalNetworks": 7,
+  "sources": 460,
+  "importedRecords": 47160,
+  "numberingPlans": 484,
+  "numberRanges": 18325,
+  "carrierObservations": 28138,
+  "regulatorEntries": 209,
+  "directoryEntries": 4,
+  "reputationReports": 0,
+  "provenanceRows": 46914,
+  "provenanceHistoryRows": 0,
+  "importJobs": 7,
+  "rejectedRecords": 0
+ },
+ "coverageSummary": {
+  "countries": 252,
+  "globalNetworks": 7,
+  "sources": 460,
+  "importedRecords": 47160,
+  "numberingPlans": 484
+ },
+ "noteAr": "ملخص تغطية ومصادر. لا يحتوي على بيانات مشتركين ولا يثبت نشاط أي خط. البيانات مرجعية فقط.",
+ "noteEn": "Offline coverage summary. No subscriber data; does not prove line activity. Reference data only.",
+ "sourceIds": [
+  "libphonenumber-metadata",
+  "numx-emergency-reference",
+  "itu-nnp-index",
+  "wikipedia-regulators"
+ ],
+ "licenseNotes": [
+  "libphonenumber: Apache-2.0 (reference patterns only)",
+  "ITU index: ITU terms of use (metadata only, no document redistribution)",
+  "Wikipedia regulators: CC BY-SA 4.0 (discovery index only)",
+  "NumX emergency: derived reference; not officially confirmed for every country"
+ ],
+ "blockedSources": [
+  "wikidata-sparql",
+  "osm-overpass",
+  "osm-bulk",
+  "phoneblock",
+  "fcc-opendata",
+  "ftc-dnc"
+ ],
+ "limitations": [
+  "Numbering-plan validity is separate from line activity.",
+  "Allocated carrier is the original prefix, not the current carrier after portability.",
+  "Regulator entries are discovery records; official ownership was not verified.",
+  "No subscriber identity, activation state, or private contact data is included.",
+  "Full independent local-language source research is incomplete."
+ ]
+}

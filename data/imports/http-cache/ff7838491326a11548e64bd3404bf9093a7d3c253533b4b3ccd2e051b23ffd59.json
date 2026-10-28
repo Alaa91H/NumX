@@ -1,0 +1,15 @@
+{
+ "url": "https://www.wikidata.org/wiki/Special:EntityData/Q2836032.json",
+ "final_url": "https://www.wikidata.org/wiki/Special:EntityData/Q2836032.json",
+ "status": 200,
+ "content_type": "application/json; charset=UTF-8",
+ "content_length": null,
+ "sha256": "2a1a7df2afa651b37ec64a0756764fc579e389df6f743b7b1dff9de375cc3490",
+ "elapsed_ms": 413,
+ "fetched_at": "2026-10-28T03:54:06Z",
+ "robots_allowed": true,
+ "robots_checked": true,
+ "truncated": false,
+ "error": null,
+ "encoding": "utf-8"
+}

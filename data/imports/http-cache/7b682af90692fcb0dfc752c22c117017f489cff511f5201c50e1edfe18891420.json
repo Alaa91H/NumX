@@ -1,0 +1,15 @@
+{
+ "url": "https://en.wikipedia.org/wiki/Orange_Tunisia",
+ "final_url": "https://en.wikipedia.org/wiki/Orange_Tunisia",
+ "status": 200,
+ "content_type": "text/html; charset=UTF-8",
+ "content_length": null,
+ "sha256": "ac7eb12c20a2758242becbbac930eb2115651920d7a14c6f4d172f63ab9efbf5",
+ "elapsed_ms": 919,
+ "fetched_at": "2026-10-28T03:53:50Z",
+ "robots_allowed": true,
+ "robots_checked": true,
+ "truncated": false,
+ "error": null,
+ "encoding": "utf-8"
+}

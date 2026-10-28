@@ -1,0 +1,15 @@
+{
+ "url": "https://en.wikipedia.org/wiki/Allegiance_Council",
+ "final_url": "https://en.wikipedia.org/wiki/Allegiance_Council",
+ "status": 200,
+ "content_type": "text/html; charset=UTF-8",
+ "content_length": null,
+ "sha256": "3dedb305b0acf0f92af8d1c48ca227449f80a92b60dca077cca5bd82c3bb6648",
+ "elapsed_ms": 1158,
+ "fetched_at": "2026-10-28T03:53:44Z",
+ "robots_allowed": true,
+ "robots_checked": true,
+ "truncated": false,
+ "error": null,
+ "encoding": "utf-8"
+}

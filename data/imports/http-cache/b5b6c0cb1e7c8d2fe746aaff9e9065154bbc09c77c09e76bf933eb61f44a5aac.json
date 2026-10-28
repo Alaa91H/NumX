@@ -1,0 +1,15 @@
+{
+ "url": "https://www.itu.int/oth/default.aspx?lang=en&parent=T020200003B",
+ "final_url": "https://www.itu.int/oth/T020200003B/en",
+ "status": 200,
+ "content_type": "text/html; charset=utf-8",
+ "content_length": 17180,
+ "sha256": "1d3816b4a6cc19ec64f522ac6a9d9ae0e3bef13f3a58a4d8e9a5e545e155db02",
+ "elapsed_ms": 2205,
+ "fetched_at": "2026-10-28T03:55:00Z",
+ "robots_allowed": true,
+ "robots_checked": true,
+ "truncated": false,
+ "error": null,
+ "encoding": "utf-8"
+}

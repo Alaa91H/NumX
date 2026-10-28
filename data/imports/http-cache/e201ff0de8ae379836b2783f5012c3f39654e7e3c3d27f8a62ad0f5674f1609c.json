@@ -1,0 +1,15 @@
+{
+ "url": "https://en.wikipedia.org/wiki/Orange_Morocco",
+ "final_url": "https://en.wikipedia.org/wiki/Orange_Morocco",
+ "status": 200,
+ "content_type": "text/html; charset=UTF-8",
+ "content_length": null,
+ "sha256": "65184570c790a12cbf2772808d77074e6d3a3ed06ef7c3a30f3a782bd4206783",
+ "elapsed_ms": 489,
+ "fetched_at": "2026-10-28T03:53:45Z",
+ "robots_allowed": true,
+ "robots_checked": true,
+ "truncated": false,
+ "error": null,
+ "encoding": "utf-8"
+}

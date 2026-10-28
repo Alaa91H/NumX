@@ -1,0 +1,15 @@
+{
+ "url": "https://en.wikipedia.org/wiki/Bravo_(Saudi_Arabia)",
+ "final_url": "https://en.wikipedia.org/wiki/Bravo_(Saudi_Arabia)",
+ "status": 200,
+ "content_type": "text/html; charset=UTF-8",
+ "content_length": null,
+ "sha256": "766c08021190eb043d10fdf1c2fb3cd0d95dddbbf59f405607d9f98297b7ec0d",
+ "elapsed_ms": 2349,
+ "fetched_at": "2026-10-28T03:53:45Z",
+ "robots_allowed": true,
+ "robots_checked": true,
+ "truncated": false,
+ "error": null,
+ "encoding": "utf-8"
+}

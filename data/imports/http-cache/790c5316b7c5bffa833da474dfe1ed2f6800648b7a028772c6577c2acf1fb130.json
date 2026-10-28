@@ -1,0 +1,15 @@
+{
+ "url": "https://www.wikidata.org/wiki/Special:EntityData/Q6930429.json",
+ "final_url": "https://www.wikidata.org/wiki/Special:EntityData/Q6930429.json",
+ "status": 200,
+ "content_type": "application/json; charset=UTF-8",
+ "content_length": null,
+ "sha256": "b34ec4c034661052ce71595941a9db11b6d003279c4b4022cded7bc83478c9d3",
+ "elapsed_ms": 615,
+ "fetched_at": "2026-10-28T03:53:57Z",
+ "robots_allowed": true,
+ "robots_checked": true,
+ "truncated": false,
+ "error": null,
+ "encoding": "utf-8"
+}

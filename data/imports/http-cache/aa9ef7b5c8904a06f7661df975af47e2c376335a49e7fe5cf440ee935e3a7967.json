@@ -1,0 +1,15 @@
+{
+ "url": "https://www.wikidata.org/wiki/Special:EntityData/Q3355077.json",
+ "final_url": "https://www.wikidata.org/wiki/Special:EntityData/Q3355077.json",
+ "status": 200,
+ "content_type": "application/json; charset=UTF-8",
+ "content_length": null,
+ "sha256": "f20ea0ee18766d277fa81f44e03848d1131ad337e72d219e6f0f0dcc1efb21ac",
+ "elapsed_ms": 592,
+ "fetched_at": "2026-10-28T03:54:09Z",
+ "robots_allowed": true,
+ "robots_checked": true,
+ "truncated": false,
+ "error": null,
+ "encoding": "utf-8"
+}

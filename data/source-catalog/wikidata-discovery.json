@@ -1,0 +1,598 @@
+{
+ "generatedAt": "2026-10-28T03:54:14Z",
+ "countries": 12,
+ "categoriesChecked": 24,
+ "articlesChecked": 50,
+ "qidsFound": 48,
+ "entriesWithPhone": 4,
+ "categoryResults": [
+  {
+   "countryIso2": "AE",
+   "category": "business",
+   "url": "https://en.wikipedia.org/wiki/Category:Telecommunications_companies_of_United_Arab_Emirates",
+   "articles": [],
+   "error": "HTTP 404"
+  },
+  {
+   "countryIso2": "AE",
+   "category": "government",
+   "url": "https://en.wikipedia.org/wiki/Category:Government_agencies_of_United_Arab_Emirates",
+   "articles": [],
+   "error": "HTTP 404"
+  },
+  {
+   "countryIso2": "DZ",
+   "category": "business",
+   "url": "https://en.wikipedia.org/wiki/Category:Telecommunications_companies_of_Algeria",
+   "articles": [
+    "https://en.wikipedia.org/wiki/Alg%C3%A9rie_T%C3%A9l%C3%A9com",
+    "https://en.wikipedia.org/wiki/Djezzy",
+    "https://en.wikipedia.org/wiki/ATM_Mobilis"
+   ],
+   "error": null
+  },
+  {
+   "countryIso2": "DZ",
+   "category": "government",
+   "url": "https://en.wikipedia.org/wiki/Category:Government_agencies_of_Algeria",
+   "articles": [
+    "https://en.wikipedia.org/wiki/EGSA_Alger",
+    "https://en.wikipedia.org/wiki/EGSA_Oran",
+    "https://en.wikipedia.org/wiki/Electricity_and_Gas_Regulation_Commission"
+   ],
+   "error": null
+  },
+  {
+   "countryIso2": "EG",
+   "category": "business",
+   "url": "https://en.wikipedia.org/wiki/Category:Telecommunications_companies_of_Egypt",
+   "articles": [
+    "https://en.wikipedia.org/wiki/Connecting_Gaza",
+    "https://en.wikipedia.org/wiki/Connecting_Humanity",
+    "https://en.wikipedia.org/wiki/Meeza"
+   ],
+   "error": null
+  },
+  {
+   "countryIso2": "EG",
+   "category": "government",
+   "url": "https://en.wikipedia.org/wiki/Category:Government_agencies_of_Egypt",
+   "articles": [
+    "https://en.wikipedia.org/wiki/Al-Ahram_Center_for_Political_and_Strategic_Studies",
+    "https://en.wikipedia.org/wiki/Egyptian_Atomic_Energy_Authority",
+    "https://en.wikipedia.org/wiki/Bibliotheca_Alexandrina"
+   ],
+   "error": null
+  },
+  {
+   "countryIso2": "IQ",
+   "category": "business",
+   "url": "https://en.wikipedia.org/wiki/Category:Telecommunications_companies_of_Iraq",
+   "articles": [
+    "https://en.wikipedia.org/wiki/IQ_Group",
+    "https://en.wikipedia.org/wiki/Iraq_Post",
+    "https://en.wikipedia.org/wiki/Iraqi_Telecommunications_and_Post_Company"
+   ],
+   "error": null
+  },
+  {
+   "countryIso2": "IQ",
+   "category": "government",
+   "url": "https://en.wikipedia.org/wiki/Category:Government_agencies_of_Iraq",
+   "articles": [
+    "https://en.wikipedia.org/wiki/Basra_Operations_Command",
+    "https://en.wikipedia.org/wiki/Central_Organization_for_Statistics",
+    "https://en.wikipedia.org/wiki/Commission_of_Integrity_(Iraq)"
+   ],
+   "error": null
+  },
+  {
+   "countryIso2": "JO",
+   "category": "business",
+   "url": "https://en.wikipedia.org/wiki/Category:Telecommunications_companies_of_Jordan",
+   "articles": [
+    "https://en.wikipedia.org/wiki/Jordan_Telecom",
+    "https://en.wikipedia.org/wiki/Jordan_Telecom_Group",
+    "https://en.wikipedia.org/wiki/Orange_Jordan"
+   ],
+   "error": null
+  },
+  {
+   "countryIso2": "JO",
+   "category": "government",
+   "url": "https://en.wikipedia.org/wiki/Category:Government_agencies_of_Jordan",
+   "articles": [],
+   "error": "HTTP 404"
+  },
+  {
+   "countryIso2": "KW",
+   "category": "business",
+   "url": "https://en.wikipedia.org/wiki/Category:Telecommunications_companies_of_Kuwait",
+   "articles": [
+    "https://en.wikipedia.org/wiki/Fast_Telecommunications",
+    "https://en.wikipedia.org/wiki/Gulfsat",
+    "https://en.wikipedia.org/wiki/Ooredoo_Kuwait"
+   ],
+   "error": null
+  },
+  {
+   "countryIso2": "KW",
+   "category": "government",
+   "url": "https://en.wikipedia.org/wiki/Category:Government_agencies_of_Kuwait",
+   "articles": [],
+   "error": "HTTP 404"
+  },
+  {
+   "countryIso2": "LB",
+   "category": "business",
+   "url": "https://en.wikipedia.org/wiki/Category:Telecommunications_companies_of_Lebanon",
+   "articles": [
+    "https://en.wikipedia.org/wiki/Alfa_(Lebanon)",
+    "https://en.wikipedia.org/wiki/Ogero",
+    "https://en.wikipedia.org/wiki/Touch_(Lebanon)"
+   ],
+   "error": null
+  },
+  {
+   "countryIso2": "LB",
+   "category": "government",
+   "url": "https://en.wikipedia.org/wiki/Category:Government_agencies_of_Lebanon",
+   "articles": [],
+   "error": "HTTP 404"
+  },
+  {
+   "countryIso2": "MA",
+   "category": "business",
+   "url": "https://en.wikipedia.org/wiki/Category:Telecommunications_companies_of_Morocco",
+   "articles": [
+    "https://en.wikipedia.org/wiki/Inwi",
+    "https://en.wikipedia.org/wiki/Maroc_Telecom",
+    "https://en.wikipedia.org/wiki/Orange_Morocco"
+   ],
+   "error": null
+  },
+  {
+   "countryIso2": "MA",
+   "category": "government",
+   "url": "https://en.wikipedia.org/wiki/Category:Government_agencies_of_Morocco",
+   "articles": [
+    "https://en.wikipedia.org/wiki/Airports_of_Morocco",
+    "https://en.wikipedia.org/wiki/Archives_du_Maroc",
+    "https://en.wikipedia.org/wiki/Autoroutes_du_Maroc"
+   ],
+   "error": null
+  },
+  {
+   "countryIso2": "QA",
+   "category": "business",
+   "url": "https://en.wikipedia.org/wiki/Category:Telecommunications_companies_of_Qatar",
+   "articles": [
+    "https://en.wikipedia.org/wiki/Es%27hailSat",
+    "https://en.wikipedia.org/wiki/Ooredoo"
+   ],
+   "error": null
+  },
+  {
+   "countryIso2": "QA",
+   "category": "government",
+   "url": "https://en.wikipedia.org/wiki/Category:Government_agencies_of_Qatar",
+   "articles": [
+    "https://en.wikipedia.org/wiki/General_Secretariat_for_Development_Planning",
+    "https://en.wikipedia.org/wiki/Permanent_Population_Committee",
+    "https://en.wikipedia.org/wiki/Qatar_Civil_Aviation_Authority"
+   ],
+   "error": null
+  },
+  {
+   "countryIso2": "SA",
+   "category": "business",
+   "url": "https://en.wikipedia.org/wiki/Category:Telecommunications_companies_of_Saudi_Arabia",
+   "articles": [
+    "https://en.wikipedia.org/wiki/Arab_Satellite_Communications_Organization",
+    "https://en.wikipedia.org/wiki/Bayanat",
+    "https://en.wikipedia.org/wiki/Bravo_(Saudi_Arabia)"
+   ],
+   "error": null
+  },
+  {
+   "countryIso2": "SA",
+   "category": "government",
+   "url": "https://en.wikipedia.org/wiki/Category:Government_agencies_of_Saudi_Arabia",
+   "articles": [
+    "https://en.wikipedia.org/wiki/Al-Watania_Poultry_Institute_of_Technology",
+    "https://en.wikipedia.org/wiki/Allegiance_Council",
+    "https://en.wikipedia.org/wiki/Capital_Market_Authority_(Saudi_Arabia)"
+   ],
+   "error": null
+  },
+  {
+   "countryIso2": "SY",
+   "category": "business",
+   "url": "https://en.wikipedia.org/wiki/Category:Telecommunications_companies_of_Syria",
+   "articles": [
+    "https://en.wikipedia.org/wiki/MTN_Syria",
+    "https://en.wikipedia.org/wiki/Syrian_Telecom",
+    "https://en.wikipedia.org/wiki/Syriatel"
+   ],
+   "error": null
+  },
+  {
+   "countryIso2": "SY",
+   "category": "government",
+   "url": "https://en.wikipedia.org/wiki/Category:Government_agencies_of_Syria",
+   "articles": [],
+   "error": "HTTP 404"
+  },
+  {
+   "countryIso2": "TN",
+   "category": "business",
+   "url": "https://en.wikipedia.org/wiki/Category:Telecommunications_companies_of_Tunisia",
+   "articles": [
+    "https://en.wikipedia.org/wiki/EvertekTunisie",
+    "https://en.wikipedia.org/wiki/Ooredoo_Tunisia",
+    "https://en.wikipedia.org/wiki/Orange_Tunisia"
+   ],
+   "error": null
+  },
+  {
+   "countryIso2": "TN",
+   "category": "government",
+   "url": "https://en.wikipedia.org/wiki/Category:Government_agencies_of_Tunisia",
+   "articles": [],
+   "error": "HTTP 404"
+  }
+ ],
+ "articleResults": [
+  {
+   "countryIso2": "DZ",
+   "category": "business",
+   "article": "https://en.wikipedia.org/wiki/ATM_Mobilis",
+   "qid": "Q2819545",
+   "error": null
+  },
+  {
+   "countryIso2": "DZ",
+   "category": "business",
+   "article": "https://en.wikipedia.org/wiki/Alg%C3%A9rie_T%C3%A9l%C3%A9com",
+   "qid": "Q2836032",
+   "error": null
+  },
+  {
+   "countryIso2": "DZ",
+   "category": "business",
+   "article": "https://en.wikipedia.org/wiki/Djezzy",
+   "qid": "Q836564",
+   "error": null
+  },
+  {
+   "countryIso2": "DZ",
+   "category": "government",
+   "article": "https://en.wikipedia.org/wiki/EGSA_Alger",
+   "qid": "Q3591528",
+   "error": null
+  },
+  {
+   "countryIso2": "DZ",
+   "category": "government",
+   "article": "https://en.wikipedia.org/wiki/EGSA_Oran",
+   "qid": "Q112701589",
+   "error": null
+  },
+  {
+   "countryIso2": "DZ",
+   "category": "government",
+   "article": "https://en.wikipedia.org/wiki/Electricity_and_Gas_Regulation_Commission",
+   "qid": "Q5357813",
+   "error": null
+  },
+  {
+   "countryIso2": "EG",
+   "category": "government",
+   "article": "https://en.wikipedia.org/wiki/Al-Ahram_Center_for_Political_and_Strategic_Studies",
+   "qid": "Q4702168",
+   "error": null
+  },
+  {
+   "countryIso2": "EG",
+   "category": "government",
+   "article": "https://en.wikipedia.org/wiki/Bibliotheca_Alexandrina",
+   "qid": "Q501851",
+   "error": null
+  },
+  {
+   "countryIso2": "EG",
+   "category": "business",
+   "article": "https://en.wikipedia.org/wiki/Connecting_Gaza",
+   "qid": "Q125293577",
+   "error": null
+  },
+  {
+   "countryIso2": "EG",
+   "category": "business",
+   "article": "https://en.wikipedia.org/wiki/Connecting_Humanity",
+   "qid": "Q125293577",
+   "error": null
+  },
+  {
+   "countryIso2": "EG",
+   "category": "government",
+   "article": "https://en.wikipedia.org/wiki/Egyptian_Atomic_Energy_Authority",
+   "qid": "Q59050268",
+   "error": null
+  },
+  {
+   "countryIso2": "EG",
+   "category": "business",
+   "article": "https://en.wikipedia.org/wiki/Meeza",
+   "qid": "Q85784760",
+   "error": null
+  },
+  {
+   "countryIso2": "IQ",
+   "category": "government",
+   "article": "https://en.wikipedia.org/wiki/Basra_Operations_Command",
+   "qid": "Q116449418",
+   "error": null
+  },
+  {
+   "countryIso2": "IQ",
+   "category": "government",
+   "article": "https://en.wikipedia.org/wiki/Central_Organization_for_Statistics",
+   "qid": "Q14065310",
+   "error": null
+  },
+  {
+   "countryIso2": "IQ",
+   "category": "government",
+   "article": "https://en.wikipedia.org/wiki/Commission_of_Integrity_(Iraq)",
+   "qid": "Q12250266",
+   "error": null
+  },
+  {
+   "countryIso2": "IQ",
+   "category": "business",
+   "article": "https://en.wikipedia.org/wiki/IQ_Group",
+   "qid": "Q123367270",
+   "error": null
+  },
+  {
+   "countryIso2": "IQ",
+   "category": "business",
+   "article": "https://en.wikipedia.org/wiki/Iraq_Post",
+   "qid": "Q12184443",
+   "error": null
+  },
+  {
+   "countryIso2": "IQ",
+   "category": "business",
+   "article": "https://en.wikipedia.org/wiki/Iraqi_Telecommunications_and_Post_Company",
+   "qid": "Q4118955",
+   "error": null
+  },
+  {
+   "countryIso2": "JO",
+   "category": "business",
+   "article": "https://en.wikipedia.org/wiki/Jordan_Telecom",
+   "qid": "Q6277050",
+   "error": null
+  },
+  {
+   "countryIso2": "JO",
+   "category": "business",
+   "article": "https://en.wikipedia.org/wiki/Jordan_Telecom_Group",
+   "qid": "Q6277050",
+   "error": null
+  },
+  {
+   "countryIso2": "JO",
+   "category": "business",
+   "article": "https://en.wikipedia.org/wiki/Orange_Jordan",
+   "qid": "Q7099654",
+   "error": null
+  },
+  {
+   "countryIso2": "KW",
+   "category": "business",
+   "article": "https://en.wikipedia.org/wiki/Fast_Telecommunications",
+   "qid": "Q5436994",
+   "error": null
+  },
+  {
+   "countryIso2": "KW",
+   "category": "business",
+   "article": "https://en.wikipedia.org/wiki/Gulfsat",
+   "qid": "Q5617616",
+   "error": null
+  },
+  {
+   "countryIso2": "KW",
+   "category": "business",
+   "article": "https://en.wikipedia.org/wiki/Ooredoo_Kuwait",
+   "qid": "Q3067960",
+   "error": null
+  },
+  {
+   "countryIso2": "LB",
+   "category": "business",
+   "article": "https://en.wikipedia.org/wiki/Alfa_(Lebanon)",
+   "qid": "Q4721811",
+   "error": null
+  },
+  {
+   "countryIso2": "LB",
+   "category": "business",
+   "article": "https://en.wikipedia.org/wiki/Ogero",
+   "qid": "Q80835995",
+   "error": null
+  },
+  {
+   "countryIso2": "LB",
+   "category": "business",
+   "article": "https://en.wikipedia.org/wiki/Touch_(Lebanon)",
+   "qid": "Q6930429",
+   "error": null
+  },
+  {
+   "countryIso2": "MA",
+   "category": "government",
+   "article": "https://en.wikipedia.org/wiki/Airports_of_Morocco",
+   "qid": "Q1975251",
+   "error": null
+  },
+  {
+   "countryIso2": "MA",
+   "category": "government",
+   "article": "https://en.wikipedia.org/wiki/Archives_du_Maroc",
+   "qid": "Q39048614",
+   "error": null
+  },
+  {
+   "countryIso2": "MA",
+   "category": "government",
+   "article": "https://en.wikipedia.org/wiki/Autoroutes_du_Maroc",
+   "qid": "Q1945306",
+   "error": null
+  },
+  {
+   "countryIso2": "MA",
+   "category": "business",
+   "article": "https://en.wikipedia.org/wiki/Inwi",
+   "qid": "Q1388949",
+   "error": null
+  },
+  {
+   "countryIso2": "MA",
+   "category": "business",
+   "article": "https://en.wikipedia.org/wiki/Maroc_Telecom",
+   "qid": "Q2299942",
+   "error": null
+  },
+  {
+   "countryIso2": "MA",
+   "category": "business",
+   "article": "https://en.wikipedia.org/wiki/Orange_Morocco",
+   "qid": "Q2300422",
+   "error": null
+  },
+  {
+   "countryIso2": "QA",
+   "category": "business",
+   "article": "https://en.wikipedia.org/wiki/Es%27hailSat",
+   "qid": "Q24589965",
+   "error": null
+  },
+  {
+   "countryIso2": "QA",
+   "category": "government",
+   "article": "https://en.wikipedia.org/wiki/General_Secretariat_for_Development_Planning",
+   "qid": "Q5532173",
+   "error": null
+  },
+  {
+   "countryIso2": "QA",
+   "category": "business",
+   "article": "https://en.wikipedia.org/wiki/Ooredoo",
+   "qid": "Q919935",
+   "error": null
+  },
+  {
+   "countryIso2": "QA",
+   "category": "government",
+   "article": "https://en.wikipedia.org/wiki/Permanent_Population_Committee",
+   "qid": "Q7169225",
+   "error": null
+  },
+  {
+   "countryIso2": "QA",
+   "category": "government",
+   "article": "https://en.wikipedia.org/wiki/Qatar_Civil_Aviation_Authority",
+   "qid": "Q15056518",
+   "error": null
+  },
+  {
+   "countryIso2": "SA",
+   "category": "government",
+   "article": "https://en.wikipedia.org/wiki/Al-Watania_Poultry_Institute_of_Technology",
+   "qid": "Q16826628",
+   "error": null
+  },
+  {
+   "countryIso2": "SA",
+   "category": "government",
+   "article": "https://en.wikipedia.org/wiki/Allegiance_Council",
+   "qid": "Q2756142",
+   "error": null
+  },
+  {
+   "countryIso2": "SA",
+   "category": "business",
+   "article": "https://en.wikipedia.org/wiki/Arab_Satellite_Communications_Organization",
+   "qid": "Q624426",
+   "error": null
+  },
+  {
+   "countryIso2": "SA",
+   "category": "business",
+   "article": "https://en.wikipedia.org/wiki/Bayanat",
+   "qid": "Q80970015",
+   "error": null
+  },
+  {
+   "countryIso2": "SA",
+   "category": "business",
+   "article": "https://en.wikipedia.org/wiki/Bravo_(Saudi_Arabia)",
+   "qid": "Q48767459",
+   "error": null
+  },
+  {
+   "countryIso2": "SA",
+   "category": "government",
+   "article": "https://en.wikipedia.org/wiki/Capital_Market_Authority_(Saudi_Arabia)",
+   "qid": "Q5035615",
+   "error": null
+  },
+  {
+   "countryIso2": "SY",
+   "category": "business",
+   "article": "https://en.wikipedia.org/wiki/MTN_Syria",
+   "qid": "Q6718487",
+   "error": null
+  },
+  {
+   "countryIso2": "SY",
+   "category": "business",
+   "article": "https://en.wikipedia.org/wiki/Syrian_Telecom",
+   "qid": "Q7663248",
+   "error": null
+  },
+  {
+   "countryIso2": "SY",
+   "category": "business",
+   "article": "https://en.wikipedia.org/wiki/Syriatel",
+   "qid": "Q1584130",
+   "error": null
+  },
+  {
+   "countryIso2": "TN",
+   "category": "business",
+   "article": "https://en.wikipedia.org/wiki/EvertekTunisie",
+   "qid": "Q972902",
+   "error": null
+  },
+  {
+   "countryIso2": "TN",
+   "category": "business",
+   "article": "https://en.wikipedia.org/wiki/Ooredoo_Tunisia",
+   "qid": "Q2444780",
+   "error": null
+  },
+  {
+   "countryIso2": "TN",
+   "category": "business",
+   "article": "https://en.wikipedia.org/wiki/Orange_Tunisia",
+   "qid": "Q3355077",
+   "error": null
+  }
+ ],
+ "entityErrors": []
+}

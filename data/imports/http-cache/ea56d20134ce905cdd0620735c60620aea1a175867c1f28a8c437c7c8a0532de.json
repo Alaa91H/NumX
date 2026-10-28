@@ -1,0 +1,15 @@
+{
+ "url": "https://www.wikidata.org/wiki/Special:EntityData/Q80970015.json",
+ "final_url": "https://www.wikidata.org/wiki/Special:EntityData/Q80970015.json",
+ "status": 200,
+ "content_type": "application/json; charset=UTF-8",
+ "content_length": null,
+ "sha256": "8f81b8ec49f02498d195d8ec4c2f175b5202c20fa8e9607c558840700fc116e3",
+ "elapsed_ms": 381,
+ "fetched_at": "2026-10-28T03:54:02Z",
+ "robots_allowed": true,
+ "robots_checked": true,
+ "truncated": false,
+ "error": null,
+ "encoding": "utf-8"
+}

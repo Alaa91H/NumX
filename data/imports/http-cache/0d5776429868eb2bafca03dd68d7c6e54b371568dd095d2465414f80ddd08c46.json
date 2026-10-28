@@ -1,0 +1,15 @@
+{
+ "url": "https://en.wikipedia.org/wiki/Ooredoo_Tunisia",
+ "final_url": "https://en.wikipedia.org/wiki/Ooredoo_Tunisia",
+ "status": 200,
+ "content_type": "text/html; charset=UTF-8",
+ "content_length": null,
+ "sha256": "14b195dde4ee50a7befd645b461489c89c6568b9f6b8f0df1fdfd54fb2c431ba",
+ "elapsed_ms": 590,
+ "fetched_at": "2026-10-28T03:53:49Z",
+ "robots_allowed": true,
+ "robots_checked": true,
+ "truncated": false,
+ "error": null,
+ "encoding": "utf-8"
+}

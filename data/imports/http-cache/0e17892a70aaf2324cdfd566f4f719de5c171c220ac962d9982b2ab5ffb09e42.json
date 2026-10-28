@@ -1,0 +1,15 @@
+{
+ "url": "https://www.wikidata.org/wiki/Special:EntityData/Q1584130.json",
+ "final_url": "https://www.wikidata.org/wiki/Special:EntityData/Q1584130.json",
+ "status": 200,
+ "content_type": "application/json; charset=UTF-8",
+ "content_length": null,
+ "sha256": "e3729e7b6718b9f0e43c1b6d9b8478e82861dbd10fa40779c58e176f1276aeac",
+ "elapsed_ms": 469,
+ "fetched_at": "2026-10-28T03:53:58Z",
+ "robots_allowed": true,
+ "robots_checked": true,
+ "truncated": false,
+ "error": null,
+ "encoding": "utf-8"
+}

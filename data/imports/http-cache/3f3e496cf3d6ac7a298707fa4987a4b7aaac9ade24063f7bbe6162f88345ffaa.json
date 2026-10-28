@@ -1,0 +1,15 @@
+{
+ "url": "https://www.wikidata.org/wiki/Special:EntityData/Q919935.json",
+ "final_url": "https://www.wikidata.org/wiki/Special:EntityData/Q919935.json",
+ "status": 200,
+ "content_type": "application/json; charset=UTF-8",
+ "content_length": null,
+ "sha256": "a6387ae57ae6a5323b512935fb2c8952ac01ebd33a3eff02aa712aa116402748",
+ "elapsed_ms": 826,
+ "fetched_at": "2026-10-28T03:54:12Z",
+ "robots_allowed": true,
+ "robots_checked": true,
+ "truncated": false,
+ "error": null,
+ "encoding": "utf-8"
+}

@@ -1,0 +1,15 @@
+{
+ "url": "https://www.wikidata.org/wiki/Special:EntityData/Q501851.json",
+ "final_url": "https://www.wikidata.org/wiki/Special:EntityData/Q501851.json",
+ "status": 200,
+ "content_type": "application/json; charset=UTF-8",
+ "content_length": null,
+ "sha256": "b41f0b1d19b87f2a6ec1b209786d2ce355fef0c57729c03f638932e13ca792b4",
+ "elapsed_ms": 474,
+ "fetched_at": "2026-10-28T03:54:01Z",
+ "robots_allowed": true,
+ "robots_checked": true,
+ "truncated": false,
+ "error": null,
+ "encoding": "utf-8"
+}

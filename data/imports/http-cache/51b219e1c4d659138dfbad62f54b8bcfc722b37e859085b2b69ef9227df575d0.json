@@ -1,0 +1,15 @@
+{
+ "url": "https://en.wikipedia.org/wiki/Gulfsat",
+ "final_url": "https://en.wikipedia.org/wiki/Gulfsat",
+ "status": 200,
+ "content_type": "text/html; charset=UTF-8",
+ "content_length": null,
+ "sha256": "dfd084dd36b540496168385d51e926560f7d515caa37be5000434a719607fcc6",
+ "elapsed_ms": 997,
+ "fetched_at": "2026-10-28T03:53:54Z",
+ "robots_allowed": true,
+ "robots_checked": true,
+ "truncated": false,
+ "error": null,
+ "encoding": "utf-8"
+}

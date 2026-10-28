@@ -205,6 +205,8 @@ class OperationController(context: Context) {
         _state.update {
             it.copy(
                 selectedIso = country.iso2,
+                lookupIso = country.iso2,
+                emergencyIso = country.iso2,
                 lineType = type,
                 startInput = start,
                 message = "",
@@ -1147,7 +1149,15 @@ class OperationController(context: Context) {
 
     fun setLookupCountry(iso2: String) {
         if (iso2.isNotBlank() && _state.value.countries.none { it.iso2 == iso2 }) return
-        _state.update { it.copy(lookupIso = iso2, lookupResult = null, lookupError = null) }
+        _state.update {
+            it.copy(
+                lookupIso = iso2,
+                selectedIso = iso2,
+                emergencyIso = iso2,
+                lookupResult = null,
+                lookupError = null,
+            )
+        }
     }
 
     fun lookup() {
@@ -1207,6 +1217,8 @@ class OperationController(context: Context) {
         _state.update {
             it.copy(
                 emergencyIso = iso2,
+                selectedIso = iso2,
+                lookupIso = iso2,
                 emergencyEntries = emptyList(),
                 emergencyLoading = true,
             )

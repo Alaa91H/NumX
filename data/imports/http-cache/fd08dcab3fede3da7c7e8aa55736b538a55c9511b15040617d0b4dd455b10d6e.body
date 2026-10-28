@@ -1,0 +1,1222 @@
+
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><meta http-equiv="Content-Script-Type" content="text/javascript" /><meta http-equiv="Content-Language" content="en" /><meta name="author" content="&lt;%=hdrContact%>" /><title>
+	National Numbering Plans
+</title><link href="/net/res/templates/v1.0/css/itu_new.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+    var menuids=["css_tree1"] //Enter id(s) of css_tree UL menus, separated by commas
+    function buildsubmenus(){
+    for (var i=0; i<menuids.length; i++){
+      var ultags=document.getElementById(menuids[i]).getElementsByTagName("ul")
+        for (var t=0; t<ultags.length; t++){
+        ultags[t].parentNode.getElementsByTagName("a")[0].className="subfolderstyle"
+		    if (ultags[t].parentNode.parentNode.id==menuids[i]) //if this is a first level submenu
+			    ultags[t].style.left=ultags[t].parentNode.offsetWidth+"px" //dynamically position first level submenus to be width of main menu item
+		    else //else if this is a sub level submenu (ul)
+		      ultags[t].style.left=ultags[t-1].getElementsByTagName("a")[0].offsetWidth+"px" //position menu to the right of menu item that activated it
+        ultags[t].parentNode.onmouseover=function(){
+        this.getElementsByTagName("ul")[0].style.display="block"
+        }
+        ultags[t].parentNode.onmouseout=function(){
+        this.getElementsByTagName("ul")[0].style.display="none"
+        }
+        }
+		    for (var t=ultags.length-1; t>-1; t--){ //loop through all sub menus again, and use "display:none" to hide menus (to prevent possible page scrollbars
+		    ultags[t].style.visibility="visible"
+		    ultags[t].style.display="none"
+		    }
+      }
+    }
+    if (window.addEventListener)
+    window.addEventListener("load", buildsubmenus, false)
+    else if (window.attachEvent)
+    window.attachEvent("onload", buildsubmenus)
+</script>
+</head>
+<body>
+<!-- ******** Begining Top Menu ******** -->
+<span id='xawmMenuPathImg-itu_en' style='position:relative;'><img id='awmMenuPathImg-itu_en' src='/net/res/templates/menus/awmmenupath.gif' alt=''></span><script type='text/javascript'>var MenuLinkedBy='AllWebMenus [4]', awmBN='624'; awmAltUrl='';</script><script charset='UTF-8' src='/net/res/templates/menus/itu_en.js' language='JavaScript1.2' type='text/javascript'></script><script type='text/javascript'>awmBuildMenu();</script>
+<!-- ******** END Top Menu ******** -->
+
+<div>
+<a name="top"></a>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr style="background-color: #004B96;">
+<td style="padding-left: 5pt;"><a href="/net/home/index.aspx"><img src="/res/templates/v4.0/images/logos/ITU-official-logo_75.gif" border="0" width="190" height="75" alt="International Telecommunication Union"></a></td>
+<td style="padding-right: 5pt; padding-left: 5pt;">&nbsp;</td>
+<td valign="top" style="width: 100%;"><img src="/net/res/templates/images/top_images/top.jpg" border="0" Height="75" Width="300" alt="ITU"></td>
+<td style="width:100%; background-color: #004B96; color: white; font-size: 8pt; padding-top: 5pt; padding-right: 10pt; text-align=right;" valign="top">
+	<table border="0" cellpadding="0" cellspacing="0" align="right" style="background-color: #004B96;">
+  <tr>
+  <td style="font-weight: bold; background-color: #004B96; font-family: arial; color: white; white-space: nowrap;">
+    <small>
+        <a href="T0202.aspx?parent=T0202&lang=es" class="topritems">Español</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="T0202.aspx?parent=T0202&lang=fr" class="topritems">Français</a>    				    
+    </small>
+  </td>
+  </tr>
+  <tr>
+	<td style="margin: 0px; font-size: 5pt;">&nbsp;</td></tr>
+	<tr>
+	<td>
+		<table border="0" cellpadding="0" cellspacing="0" align="right">
+		<tr>
+		<td style="border-right: white 1px solid; padding-right: 5pt;"><a href="/home/sitemap.html" class="topritems"><img src="/res/templates/v4.0/images/misc/site-map.gif" border="0" width="19" height="17" alt="Site Map"></a></td>
+	    <td style="padding-left: 5pt; padding-right: 5pt;"><a href="/home/contact/index.html" class="topritems"><img src="/res/templates/v4.0/images/misc/contact-us.gif" border="0" width="19" height="17" alt="Contact us" ></a></td>
+        
+    	    <td style="border-left: white 1px solid; padding-left: 5pt;"><a href="/_page.print" class="topritems"><img src="/res/templates/v4.0/images/misc/printer.gif" border="0" width="19" height="17" alt="Print Version" ></a></td>
+        
+		</tr>
+		</table>
+	</td>
+  </tr>
+  </table>
+</td>
+</tr>
+<tr>
+<td colspan="2">&nbsp;</td>
+<td colspan="3" style="color: #004B96; padding: 2pt;" valign="top">
+	<table border="0" cellpadding="0" cellspacing="0" width="100%">
+	<tr>
+	<td><span><a href="/home/index.html">Home</a> : <a href="/ITU-T/index.html">ITU-T</a> : <a href="T0202.aspx?lang=en&parent=T02">International Numbering Resources</a> : National Numbering Plans</span></td>
+	<td align="right" valign="middle">
+	<form name="Qform" action="/search/index.asp" method="get" style="margin: 0px; padding: 0px;">
+	<input type="hidden" name="Action" value="Search">
+	<input type="hidden" name="pagelanguage" value="en">
+	<input type="hidden" name="webareapath" value="home">
+	<input type="hidden" name="webareaname" value="Home">
+	<span style="white-space: nowrap;"><input type="text" name="SearchString" class="formdisplay" style="width: 134pt;">&nbsp;<input type="submit" value="Search" name="SearchAction" class="formdisplay" style="font-size: 8pt; font-weight: bold;"></span>
+	</form>
+	</td>
+	</tr>
+	</table>
+</td>
+</tr>
+<tr valign="top">
+<td rowspan="2" style="background-color: #FFFFFF; border-right: #004B96 1px solid; border-bottom: #004B96 1px solid; width: 230px;"><script language="JavaScript" src="/res/leftmenu/ITU-T/leftmenu_new.js"></script></td>
+<td rowspan="2" style="border-bottom: #004B96 1px solid;">&nbsp;</td>
+<td colspan="3" style="background-color:#004B96; width:100%; height: 22pt; padding-left: 5pt;"><span id="awmAnchor-itu_en">&nbsp;</span></td>
+</tr>
+<tr valign="top">
+<td colspan="3" style="height: 500pt; width: 100%; padding: 10pt 5pt 0pt 0pt; border-bottom: #004B96 1px solid;">
+<!-- Print Section // -->
+
+
+    <span><!DOCTYPE html>
+<!-- saved from url=(0054)https://www.itu.int/net/ITU-T/lists/index-nnp-dms.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title></title>
+</head>
+<body>
+    <script type="text/javascript">
+
+        /***********************************************
+        * Switch Content script- Â© Dynamic Drive (www.dynamicdrive.com)
+        * This notice must stay intact for legal use. Last updated April 2nd, 2005.
+        * Visit http://www.dynamicdrive.com/ for full source code
+        ***********************************************/
+
+        var enablepersist = "on" //Enable saving state of content structure using session cookies? (on/off)
+        var collapseprevious = "no" //Collapse previously open content when opening present? (yes/no)
+
+        var contractsymbol = "<img src='/ITU-T/scripts/img/minus.gif'>"  //HTML for contract symbol. For image, use: <img src="/ITU-T/scripts/img/minus.gif">
+        var expandsymbol = "<img src='/ITU-T/scripts/img/plus.gif'>" //HTML for expand symbol.
+
+
+        if (document.getElementById) {
+            document.write('<style type="text/css">')
+            document.write('.switchcontent{display:none;}')
+            document.write('</style>')
+        }
+
+        function getElementbyClass(rootobj, classname) {
+            var temparray = new Array()
+            var inc = 0
+            var rootlength = rootobj.length
+            for (i = 0; i < rootlength; i++) {
+                if (rootobj[i].className == classname)
+                    temparray[inc++] = rootobj[i]
+            }
+            return temparray
+        }
+
+        function sweeptoggle(ec) {
+            var thestate = (ec == "expand") ? "block" : "none"
+            var inc = 0
+            while (ccollect[inc]) {
+                ccollect[inc].style.display = thestate
+                inc++
+            }
+            revivestatus()
+        }
+
+
+        function contractcontent(omit) {
+            var inc = 0
+            while (ccollect[inc]) {
+                if (ccollect[inc].id != omit)
+                    ccollect[inc].style.display = "none"
+                inc++
+            }
+        }
+
+        function expandcontent(curobj, cid) {
+            var spantags = curobj.getElementsByTagName("SPAN")
+            var showstateobj = getElementbyClass(spantags, "showstate")
+            if (ccollect.length > 0) {
+                if (collapseprevious == "yes")
+                    contractcontent(cid)
+                document.getElementById(cid).style.display = (document.getElementById(cid).style.display != "block") ? "block" : "none"
+                if (showstateobj.length > 0) { //if "showstate" span exists in header
+                    if (collapseprevious == "no")
+                        showstateobj[0].innerHTML = (document.getElementById(cid).style.display == "block") ? contractsymbol : expandsymbol
+                    else
+                        revivestatus()
+                }
+            }
+        }
+
+        function revivecontent() {
+            contractcontent("omitnothing")
+            selectedItem = getselectedItem()
+            selectedComponents = selectedItem.split("|")
+            for (i = 0; i < selectedComponents.length - 1; i++)
+                document.getElementById(selectedComponents[i]).style.display = "block"
+        }
+
+        function revivestatus() {
+            var inc = 0
+            while (statecollect[inc]) {
+                if (ccollect[inc].style.display == "block")
+                    statecollect[inc].innerHTML = contractsymbol
+                else
+                    statecollect[inc].innerHTML = expandsymbol
+                inc++
+            }
+        }
+
+        function get_cookie(Name) {
+            var search = Name + "="
+            var returnvalue = "";
+            if (document.cookie.length > 0) {
+                offset = document.cookie.indexOf(search)
+                if (offset != -1) {
+                    offset += search.length
+                    end = document.cookie.indexOf(";", offset);
+                    if (end == -1) end = document.cookie.length;
+                    returnvalue = unescape(document.cookie.substring(offset, end))
+                }
+            }
+            return returnvalue;
+        }
+
+        function getselectedItem() {
+            if (get_cookie(window.location.pathname) != "") {
+                selectedItem = get_cookie(window.location.pathname)
+                return selectedItem
+            }
+            else
+                return ""
+        }
+
+        function saveswitchstate() {
+            var inc = 0, selectedItem = ""
+            while (ccollect[inc]) {
+                if (ccollect[inc].style.display == "block")
+                    selectedItem += ccollect[inc].id + "|"
+                inc++
+            }
+
+            document.cookie = window.location.pathname + "=" + selectedItem
+        }
+
+        function do_onload() {
+            uniqueidn = window.location.pathname + "firsttimeload"
+            var alltags = document.all ? document.all : document.getElementsByTagName("*")
+            ccollect = getElementbyClass(alltags, "switchcontent")
+            statecollect = getElementbyClass(alltags, "showstate")
+            if (enablepersist == "on" && ccollect.length > 0) {
+                document.cookie = (get_cookie(uniqueidn) == "") ? uniqueidn + "=1" : uniqueidn + "=0"
+                firsttimeload = (get_cookie(uniqueidn) == 1) ? 1 : 0 //check if this is 1st page load
+                if (!firsttimeload)
+                    revivecontent()
+            }
+            if (ccollect.length > 0 && statecollect.length > 0)
+                revivestatus()
+        }
+
+        if (window.addEventListener)
+            window.addEventListener("load", do_onload, false)
+        else if (window.attachEvent)
+            window.attachEvent("onload", do_onload)
+        else if (document.getElementById)
+            window.onload = do_onload
+
+        if (enablepersist == "on" && document.getElementById)
+            window.onunload = saveswitchstate
+
+    </script><style type="text/css">.switchcontent{display:none;}</style>
+    <style type="text/css">
+        .switchcontent {
+            display: none;
+        }
+    </style>
+    <table border="0" width="100%" cellpadding="3" cellspacing="0">
+        <tbody>
+            <tr>
+                <td width="100%" valign="top" align="left">
+                    <h3><a href="https://www.itu.int/oth/Default.aspx?parent=T0202">National Numbering Plans</a></h3>
+                    <ul type="square" style="margin-top: 15pt; margin-right: 5pt; line-height: 12pt;">
+                        <li style="margin-top: 10pt;">
+                            Administrations are requested to notify ITU about their national numbering plan
+                            changes, or to give an explanation of their web page on national
+                            numbering plan as well as their contact points, so that the
+                            information, which will be available freely to all
+                            Administrations/ROAs and service providers, can be posted on ITU-T website.
+                        </li>
+
+                        <li style="margin-top: 10pt;">
+                            Administrations are requested to use the format as explained in the
+                            <a href="https://www.itu.int/rec/recommendation.asp?type=folders&amp;lang=e&amp;parent=T-REC-E.129" target="_blank"> ITU-T Recommendation E.129</a>
+                            for their numbering website, or when sending the information to ITU/TSB; e-mail:
+                            <a href="mailto:tsbtson@itu.int">tsbtson@itu.int</a>.
+
+                            <ul>
+                                <li style="margin-top: 10pt;"><a href="https://www.itu.int/dms_pub/itu-t/oth/02/07/T02070000060001MSWE.doc">Example of presentation of E.164 national numbering</a></li>
+                                <li><a href="https://www.itu.int/dms_pub/itu-t/oth/02/07/T02070000060002MSWE.doc">Example of Number Portability (NP)</a></li>
+                                <li><a href="https://www.itu.int/oth/T020600000C">Notification forms</a></li>
+                            </ul>
+                        </li>
+
+                        <li style="margin-top: 10pt;">
+                            The information provided should be in a standard format (Word
+                            Rich Text format), so that the TSB has the database without
+                            retyping or making format changes.
+                        </li>
+
+                        <li style="margin-top: 10pt;">
+                            Administrations are reminded that they will be responsible for
+                            the timely update of their information.
+                        </li>
+
+                        <li style="margin-top: 10pt;">The countries/geographical areas are listed below, in English alphabetical order.</li>
+
+                        <li style="margin-top: 10pt;">Information has also been added for Global Networks (GN)</li>
+                    </ul>
+
+
+                    <p style="margin-top: 10pt; margin-right: 5pt; margin-left: 5pt; line-height: 11pt;" align="justify">
+                        <b><a href="https://www.itu.int/ITU-T/inr/nnp/notification.html">Subscribe to the Notification Service</a></b>
+                    </p>
+                    <!--
+    <p onclick="expandcontent(this, 'sc1')" style="cursor:hand; cursor:pointer; margin-top: 10pt; margin-right: 5pt; margin-left: 5pt; line-height: 11pt"><span class="showstate"><img src="/ITU-T/scripts/img/plus.gif"></span><b>&nbsp;&nbsp;<font color="#FF0000">Events</font></b></p>
+    <div id="sc1" class="switchcontent">
+        <ul type="square" style="margin-top: 0pt; margin-left: 50pt;">
+            <li><a href="/oth/T0202000087/en">Mauritania</a> new numbering plan (1.I.2011)</li>
+            <li><a href="/oth/T02020000C6/en">Swaziland</a> new fixed numbering plan (1.II.2011)</li>
+            <li><a href="/oth/T02020000BA/en">Seychelles</a> new seven digits numbering plan (4.V.2011)</li>
+            <li><a href="/oth/T0202000050/en">Georgia</a> new nine digits numbering plan (2.VI.2011)</li>
+            <li><a href="/oth/T020200000F/en">Azerbaijan</a> new numbering plan (1.VIII.2011)</li>
+            <li><a href="/oth/T02020000D1/en">Togo</a> new eight digits numbering plan (7.VIII.2011)</li>
+            <li><a href="/oth/T02020000F7/en">Sint Maarten</a> new country code +1 721 (30.IX.2011)</li>
+            <li><a href="/oth/T02020000F9/en">South Sudan</a> new country code +211 (1.X.2011)</li>
+            <li><a href="/oth/T020200003A/en">Djibouti</a> new 8 digits numbering plan (1.III.2012)</li>
+            <li><a href="/oth/T020200004E/en">Gabon</a> new 7 digits numbering plan (17.VI.2012)</li>
+        </ul>
+    </div> -->
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</body><addoninited id="addonInited" targetelementname="addonInited"></addoninited></html></span><form name="aspnetForm" method="post" action="T0202.aspx?parent=T0202" id="aspnetForm">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKLTMxNjc3NTM3NQ9kFgJmD2QWAgICD2QWAgIBD2QWAgIBD2QWAmYPZBYGAgEPDxYCHgRUZXh0BRZTZWxlY3QgYnkgY291bnRyeSBjb2RlZGQCAw8QZA8W9QFmAgECAgIDAgQCBQIGAgcCCAIJAgoCCwIMAg0CDgIPAhACEQISAhMCFAIVAhYCFwIYAhkCGgIbAhwCHQIeAh8CIAIhAiICIwIkAiUCJgInAigCKQIqAisCLAItAi4CLwIwAjECMgIzAjQCNQI2AjcCOAI5AjoCOwI8Aj0CPgI/AkACQQJCAkMCRAJFAkYCRwJIAkkCSgJLAkwCTQJOAk8CUAJRAlICUwJUAlUCVgJXAlgCWQJaAlsCXAJdAl4CXwJgAmECYgJjAmQCZQJmAmcCaAJpAmoCawJsAm0CbgJvAnACcQJyAnMCdAJ1AnYCdwJ4AnkCegJ7AnwCfQJ+An8CgAECgQECggECgwEChAEChQEChgEChwECiAECiQECigECiwECjAECjQECjgECjwECkAECkQECkgECkwEClAEClQEClgEClwECmAECmQECmgECmwECnAECnQECngECnwECoAECoQECogECowECpAECpQECpgECpwECqAECqQECqgECqwECrAECrQECrgECrwECsAECsQECsgECswECtAECtQECtgECtwECuAECuQECugECuwECvAECvQECvgECvwECwAECwQECwgECwwECxAECxQECxgECxwECyAECyQECygECywECzAECzQECzgECzwEC0AEC0QEC0gEC0wEC1AEC1QEC1gEC1wEC2AEC2QEC2gEC2wEC3AEC3QEC3gEC3wEC4AEC4QEC4gEC4wEC5AEC5QEC5gEC5wEC6AEC6QEC6gEC6wEC7AEC7QEC7gEC7wEC8AEC8QEC8gEC8wEC9AEW9QEQBQoxIChDYW5hZGEpBQtUMDIwMjAwMDAyNWcQBRExIChVbml0ZWQgU3RhdGVzKQULVDAyMDIwMDAwREVnEAUPMSAyNDIgKEJhaGFtYXMpBQtUMDIwMjAwMDAxMGcQBRAxIDI0NiAoQmFyYmFkb3MpBQtUMDIwMjAwMDAxM2cQBRAxIDI2NCAoQW5ndWlsbGEpBQtUMDIwMjAwMDAwN2cQBRsxIDI2OCAoQW50aWd1YSBhbmQgQmFyYnVkYSkFC1QwMjAyMDAwMDA4ZxAFHjEgMjg0IChCcml0aXNoIFZpcmdpbiBJc2xhbmRzKQULVDAyMDIwMDAwMUVnEAUkMSAzNDAgKFVuaXRlZCBTdGF0ZXMgVmlyZ2luIElzbGFuZHMpBQtUMDIwMjAwMDBERmcQBRYxIDM0NSAoQ2F5bWFuIElzbGFuZHMpBQtUMDIwMjAwMDAyN2cQBQ8xIDQ0MSAoQmVybXVkYSkFC1QwMjAyMDAwMDE4ZxAFDzEgNDczIChHcmVuYWRhKQULVDAyMDIwMDAwNTdnEAUYMSA2NDkgKFR1cmtzIGFuZCBDYWljb3MpBQtUMDIwMjAwMDBEOGcQBRIxIDY2NCAoTW9udHNlcnJhdCkFC1QwMjAyMDAwMDhGZxAFIDEgNjcwIChOb3J0aGVybiBNYXJpYW5hIElzbGFuZHMpBQtUMDIwMjAwMDBFRWcQBQwxIDY3MSAoR3VhbSkFC1QwMjAyMDAwMDU5ZxAFFjEgNjg0IChBbWVyaWNhbiBTYW1vYSkFC1QwMjAyMDAwMDA0ZxAFITEgNzIxIChTaW50IE1hYXJ0ZW4gKER1dGNoIHBhcnQpKQULVDAyMDIwMDAwRjdnEAUTMSA3NTggKFNhaW50IEx1Y2lhKQULVDAyMDIwMDAwQjFnEAUQMSA3NjcgKERvbWluaWNhKQULVDAyMDIwMDAwM0JnEAUoMSA3ODQgKFNhaW50IFZpbmNlbnQgYW5kIHRoZSBHcmVuYWRpbmVzKQULVDAyMDIwMDAwQjNnEAUTMSA3ODcgKFB1ZXJ0byBSaWNvKQULVDAyMDIwMDAwQUFnEAUTMSA5MzkgKFB1ZXJ0byBSaWNvKQULVDAyMDIwMDAwQUFnEAUWMSA4MDkgKERvbWluaWNhbiBSZXAuKQULVDAyMDIwMDAwM0NnEAUWMSA4MjkgKERvbWluaWNhbiBSZXAuKQULVDAyMDIwMDAwM0NnEAUWMSA4NDkgKERvbWluaWNhbiBSZXAuKQULVDAyMDIwMDAwM0NnEAUbMSA4NjggKFRyaW5pZGFkIGFuZCBUb2JhZ28pBQtUMDIwMjAwMDBENGcQBR0xIDg2OSAoU2FpbnQgS2l0dHMgYW5kIE5ldmlzKQULVDAyMDIwMDAwQjBnEAUPMSA4NzYgKEphbWFpY2EpBQtUMDIwMjAwMDA2Q2cQBQ8xIDY1OCAoSmFtYWljYSkFC1QwMjAyMDAwMDZDZxAFCjIwIChFZ3lwdCkFC1QwMjAyMDAwMDNFZxAFETIxMSAoU291dGggU3VkYW4pBQtUMDIwMjAwMDBGOWcQBQ0yMTIgKE1vcm9jY28pBQtUMDIwMjAwMDA5MGcQBQ0yMTMgKEFsZ2VyaWEpBQtUMDIwMjAwMDAwM2cQBQ0yMTYgKFR1bmlzaWEpBQtUMDIwMjAwMDBENWcQBQsyMTggKExpYnlhKQULVDAyMDIwMDAwN0FnEAUMMjIwIChHYW1iaWEpBQtUMDIwMjAwMDA0RmcQBQ0yMjEgKFNlbmVnYWwpBQtUMDIwMjAwMDBCOGcQBRAyMjIgKE1hdXJpdGFuaWEpBQtUMDIwMjAwMDA4N2cQBQoyMjMgKE1hbGkpBQtUMDIwMjAwMDA4M2cQBQwyMjQgKEd1aW5lYSkFC1QwMjAyMDAwMDVCZxAFFDIyNSAoQ8O0dGUgZCdJdm9pcmUpBQtUMDIwMjAwMDAzMWcQBRIyMjYgKEJ1cmtpbmEgRmFzbykFC1QwMjAyMDAwMDIxZxAFCzIyNyAoTmlnZXIpBQtUMDIwMjAwMDA5QmcQBQoyMjggKFRvZ28pBQtUMDIwMjAwMDBEMWcQBQsyMjkgKEJlbmluKQULVDAyMDIwMDAwMTdnEAUPMjMwIChNYXVyaXRpdXMpBQtUMDIwMjAwMDA4OGcQBQ0yMzEgKExpYmVyaWEpBQtUMDIwMjAwMDA3OWcQBRIyMzIgKFNpZXJyYSBMZW9uZSkFC1QwMjAyMDAwMEJCZxAFCzIzMyAoR2hhbmEpBQtUMDIwMjAwMDA1MmcQBQ0yMzQgKE5pZ2VyaWEpBQtUMDIwMjAwMDA5Q2cQBQoyMzUgKENoYWQpBQtUMDIwMjAwMDAyOWcQBRoyMzYgKENlbnRyYWwgQWZyaWNhbiBSZXAuKQULVDAyMDIwMDAwMjhnEAUOMjM3IChDYW1lcm9vbikFC1QwMjAyMDAwMDI0ZxAFEDIzOCAoQ2FibyBWZXJkZSkFC1QwMjAyMDAwMDI2ZxAFGzIzOSAoU2FvIFRvbWUgYW5kIFByaW5jaXBlKQULVDAyMDIwMDAwQjZnEAUXMjQwIChFcXVhdG9yaWFsIEd1aW5lYSkFC1QwMjAyMDAwMDQxZxAFCzI0MSAoR2Fib24pBQtUMDIwMjAwMDA0RWcQBRkyNDIgKENvbmdvIChSZXAuIG9mIHRoZSkpBQtUMDIwMjAwMDAyRWcQBRwyNDMgKERlbS4gUmVwLiBvZiB0aGUgQ29uZ28pBQtUMDIwMjAwMDAzN2cQBQwyNDQgKEFuZ29sYSkFC1QwMjAyMDAwMDA2ZxAFEzI0NSAoR3VpbmVhLUJpc3NhdSkFC1QwMjAyMDAwMDVDZxAFEjI0NiAoRGllZ28gR2FyY2lhKQULVDAyMDIwMDAwMzlnEAUPMjQ3IChBc2NlbnNpb24pBQtUMDIwMjAwMDAwQ2cQBRAyNDggKFNleWNoZWxsZXMpBQtUMDIwMjAwMDBCQWcQBQsyNDkgKFN1ZGFuKQULVDAyMDIwMDAwQzRnEAUMMjUwIChSd2FuZGEpBQtUMDIwMjAwMDBBRWcQBQ4yNTEgKEV0aGlvcGlhKQULVDAyMDIwMDAwNDRnEAUNMjUyIChTb21hbGlhKQULVDAyMDIwMDAwQzBnEAUOMjUzIChEamlib3V0aSkFC1QwMjAyMDAwMDNBZxAFCzI1NCAoS2VueWEpBQtUMDIwMjAwMDA3MGcQBQ4yNTUgKFRhbnphbmlhKQULVDAyMDIwMDAwQ0JnEAUMMjU2IChVZ2FuZGEpBQtUMDIwMjAwMDBGMWcQBQ0yNTcgKEJ1cnVuZGkpBQtUMDIwMjAwMDAyMmcQBRAyNTggKE1vemFtYmlxdWUpBQtUMDIwMjAwMDA5MWcQBQwyNjAgKFphbWJpYSkFC1QwMjAyMDAwMEU4ZxAFEDI2MSAoTWFkYWdhc2NhcikFC1QwMjAyMDAwMDdGZxAFPDI2MiAoRnJlbmNoIERlcGFydG1lbnRzIGFuZCBUZXJyaXRvcmllcyBpbiB0aGUgSW5kaWFuIE9jZWFuKQULVDAyMDIwMDAwNEJnEAUOMjYzIChaaW1iYWJ3ZSkFC1QwMjAyMDAwMEU5ZxAFDTI2NCAoTmFtaWJpYSkFC1QwMjAyMDAwMDkzZxAFDDI2NSAoTWFsYXdpKQULVDAyMDIwMDAwODBnEAUNMjY2IChMZXNvdGhvKQULVDAyMDIwMDAwNzhnEAUOMjY3IChCb3Rzd2FuYSkFC1QwMjAyMDAwMDFDZxAFDjI2OCAoRXN3YXRpbmkpBQtUMDIwMjAwMDBDNmcQBQ0yNjkgKENvbW9yb3MpBQtUMDIwMjAwMDAyRGcQBREyNyAoU291dGggQWZyaWNhKQULVDAyMDIwMDAwQzFnEAUnMjkwIChTYWludCBIZWxlbmEgYW5kIFRyaXN0YW4gZGEgQ3VuaGEpBQtUMDIwMjAwMDBBRmcQBQ0yOTEgKEVyaXRyZWEpBQtUMDIwMjAwMDA0MmcQBQsyOTcgKEFydWJhKQULVDAyMDIwMDAwMEJnEAUTMjk4IChGYXJvZSBJc2xhbmRzKQULVDAyMDIwMDAwNDdnEAUPMjk5IChHcmVlbmxhbmQpBQtUMDIwMjAwMDA1NmcQBQszMCAoR3JlZWNlKQULVDAyMDIwMDAwNTVnEAUQMzEgKE5ldGhlcmxhbmRzKQULVDAyMDIwMDAwOTZnEAUMMzIgKEJlbGdpdW0pBQtUMDIwMjAwMDAxNWcQBQszMyAoRnJhbmNlKQULVDAyMDIwMDAwNEFnEAUKMzQgKFNwYWluKQULVDAyMDIwMDAwQzJnEAUPMzUwIChHaWJyYWx0YXIpBQtUMDIwMjAwMDA1M2cQBQ4zNTEgKFBvcnR1Z2FsKQULVDAyMDIwMDAwQTlnEAUQMzUyIChMdXhlbWJvdXJnKQULVDAyMDIwMDAwN0RnEAUNMzUzIChJcmVsYW5kKQULVDAyMDIwMDAwNjhnEAUNMzU0IChJY2VsYW5kKQULVDAyMDIwMDAwNjJnEAUNMzU1IChBbGJhbmlhKQULVDAyMDIwMDAwMDJnEAULMzU2IChNYWx0YSkFC1QwMjAyMDAwMDg0ZxAFDDM1NyAoQ3lwcnVzKQULVDAyMDIwMDAwMzRnEAUNMzU4IChGaW5sYW5kKQULVDAyMDIwMDAwNDlnEAUOMzU5IChCdWxnYXJpYSkFC1QwMjAyMDAwMDIwZxAFDDM2IChIdW5nYXJ5KQULVDAyMDIwMDAwNjFnEAUPMzcwIChMaXRodWFuaWEpBQtUMDIwMjAwMDA3Q2cQBQwzNzEgKExhdHZpYSkFC1QwMjAyMDAwMDc2ZxAFDTM3MiAoRXN0b25pYSkFC1QwMjAyMDAwMDQzZxAFDTM3MyAoTW9sZG92YSkFC1QwMjAyMDAwMDhDZxAFDTM3NCAoQXJtZW5pYSkFC1QwMjAyMDAwMDBBZxAFDTM3NSAoQmVsYXJ1cykFC1QwMjAyMDAwMDE0ZxAFDTM3NiAoQW5kb3JyYSkFC1QwMjAyMDAwMDA1ZxAFDDM3NyAoTW9uYWNvKQULVDAyMDIwMDAwOERnEAUQMzc4IChTYW4gTWFyaW5vKQULVDAyMDIwMDAwQjVnEAUNMzgwIChVa3JhaW5lKQULVDAyMDIwMDAwREJnEAUMMzgxIChTZXJiaWEpBQtUMDIwMjAwMDBCOWcQBRAzODIgKE1vbnRlbmVncm8pBQtUMDIwMjAwMDBEQWcQBQ0zODMgKEtvc292byopBQtUMDIwMjAwMDBGRGcQBQ0zODUgKENyb2F0aWEpBQtUMDIwMjAwMDAzMmcQBQ4zODYgKFNsb3ZlbmlhKQULVDAyMDIwMDAwQkVnEAUcMzg3IChCb3NuaWEgYW5kIEhlcnplZ292aW5hKQULVDAyMDIwMDAwMUJnEAUVMzg5IChOb3J0aCBNYWNlZG9uaWEpBQtUMDIwMjAwMDBDRWcQBQozOSAoSXRhbHkpBQtUMDIwMjAwMDA2QmcQBQw0MCAoUm9tYW5pYSkFC1QwMjAyMDAwMEFDZxAFEDQxIChTd2l0emVybGFuZCkFC1QwMjAyMDAwMEM4ZxAFEDQyMCAoQ3plY2ggUmVwLikFC1QwMjAyMDAwMDM1ZxAFDjQyMSAoU2xvdmFraWEpBQtUMDIwMjAwMDBCRGcQBRM0MjMgKExpZWNodGVuc3RlaW4pBQtUMDIwMjAwMDA3QmcQBQw0MyAoQXVzdHJpYSkFC1QwMjAyMDAwMDBFZxAFEzQ0IChVbml0ZWQgS2luZ2RvbSkFC1QwMjAyMDAwMEREZxAFDDQ1IChEZW5tYXJrKQULVDAyMDIwMDAwMzhnEAULNDYgKFN3ZWRlbikFC1QwMjAyMDAwMEM3ZxAFCzQ3IChOb3J3YXkpBQtUMDIwMjAwMDA5RWcQBQs0OCAoUG9sYW5kKQULVDAyMDIwMDAwQThnEAUMNDkgKEdlcm1hbnkpBQtUMDIwMjAwMDA1MWcQBSE1MDAgKEZhbGtsYW5kIElzbGFuZHMgKE1hbHZpbmFzKSkFC1QwMjAyMDAwMDQ2ZxAFDDUwMSAoQmVsaXplKQULVDAyMDIwMDAwMTZnEAUPNTAyIChHdWF0ZW1hbGEpBQtUMDIwMjAwMDA1QWcQBRE1MDMgKEVsIFNhbHZhZG9yKQULVDAyMDIwMDAwM0ZnEAUONTA0IChIb25kdXJhcykFC1QwMjAyMDAwMDVGZxAFDzUwNSAoTmljYXJhZ3VhKQULVDAyMDIwMDAwOUFnEAUQNTA2IChDb3N0YSBSaWNhKQULVDAyMDIwMDAwMzBnEAUMNTA3IChQYW5hbWEpBQtUMDIwMjAwMDBBM2cQBR81MDggKFNhaW50IFBpZXJyZSBhbmQgTWlxdWVsb24pBQtUMDIwMjAwMDBCMmcQBQs1MDkgKEhhaXRpKQULVDAyMDIwMDAwNUVnEAUJNTEgKFBlcnUpBQtUMDIwMjAwMDBBNmcQBQs1MiAoTWV4aWNvKQULVDAyMDIwMDAwOEFnEAUJNTMgKEN1YmEpBQtUMDIwMjAwMDAzM2cQBQ41NCAoQXJnZW50aW5hKQULVDAyMDIwMDAwMDlnEAULNTUgKEJyYXppbCkFC1QwMjAyMDAwMDFEZxAFCjU2IChDaGlsZSkFC1QwMjAyMDAwMDJBZxAFDTU3IChDb2xvbWJpYSkFC1QwMjAyMDAwMDJDZxAFDjU4IChWZW5lenVlbGEpBQtUMDIwMjAwMDBFM2cQBRA1OTAgKEd1YWRlbG91cGUpBQtUMDIwMjAwMDA1OGcQBSY1OTEgKEJvbGl2aWEgKFBsdXJpbmF0aW9uYWwgU3RhdGUgb2YpKQULVDAyMDIwMDAwMUFnEAUMNTkyIChHdXlhbmEpBQtUMDIwMjAwMDA1RGcQBQ01OTMgKEVjdWFkb3IpBQtUMDIwMjAwMDAzRGcQBRM1OTQgKEZyZW5jaCBHdWlhbmEpBQtUMDIwMjAwMDA0Q2cQBQ41OTUgKFBhcmFndWF5KQULVDAyMDIwMDAwQTVnEAUQNTk2IChNYXJ0aW5pcXVlKQULVDAyMDIwMDAwODZnEAUONTk3IChTdXJpbmFtZSkFC1QwMjAyMDAwMEM1ZxAFDTU5OCAoVXJ1Z3VheSkFC1QwMjAyMDAwMEUwZxAFJjU5OSAoQm9uYWlyZSwgU2ludCBFdXN0YXRpdXMgYW5kIFNhYmEpBQtUMDIwMjAwMDBGOGcQBQ41OTkgKEN1cmHDp2FvKQULVDAyMDIwMDAwRjVnEAUNNjAgKE1hbGF5c2lhKQULVDAyMDIwMDAwODFnEAUONjEgKEF1c3RyYWxpYSkFC1QwMjAyMDAwMDBEZxAFDjYyIChJbmRvbmVzaWEpBQtUMDIwMjAwMDA2NGcQBRA2MyAoUGhpbGlwcGluZXMpBQtUMDIwMjAwMDBBN2cQBRA2NCAoTmV3IFplYWxhbmQpBQtUMDIwMjAwMDA5OWcQBQ42NSAoU2luZ2Fwb3JlKQULVDAyMDIwMDAwQkNnEAUNNjYgKFRoYWlsYW5kKQULVDAyMDIwMDAwQ0RnEAURNjcwIChUaW1vci1MZXN0ZSkFC1QwMjAyMDAwMEQwZxAFFDY3MiAoTm9yZm9sayBJc2xhbmQpBQtUMDIwMjAwMDA5RGcQBRc2NzMgKEJydW5laSBEYXJ1c3NhbGFtKQULVDAyMDIwMDAwMUZnEAULNjc0IChOYXVydSkFC1QwMjAyMDAwMDk0ZxAFFjY3NSAoUGFwdWEgTmV3IEd1aW5lYSkFC1QwMjAyMDAwMEE0ZxAFCzY3NiAoVG9uZ2EpBQtUMDIwMjAwMDBEM2cQBRU2NzcgKFNvbG9tb24gSXNsYW5kcykFC1QwMjAyMDAwMEJGZxAFDTY3OCAoVmFudWF0dSkFC1QwMjAyMDAwMEUyZxAFCjY3OSAoRmlqaSkFC1QwMjAyMDAwMDQ4ZxAFCzY4MCAoUGFsYXUpBQtUMDIwMjAwMDBBMmcQBRc2ODEgKFdhbGxpcyBhbmQgRnV0dW5hKQULVDAyMDIwMDAwRTZnEAUSNjgyIChDb29rIElzbGFuZHMpBQtUMDIwMjAwMDAyRmcQBQo2ODMgKE5pdWUpBQtUMDIwMjAwMDBFQ2cQBQs2ODUgKFNhbW9hKQULVDAyMDIwMDAwQjRnEAUONjg2IChLaXJpYmF0aSkFC1QwMjAyMDAwMDcxZxAFEzY4NyAoTmV3IENhbGVkb25pYSkFC1QwMjAyMDAwMDk4ZxAFDDY4OCAoVHV2YWx1KQULVDAyMDIwMDAwRDlnEAUWNjg5IChGcmVuY2ggUG9seW5lc2lhKQULVDAyMDIwMDAwNERnEAUNNjkwIChUb2tlbGF1KQULVDAyMDIwMDAwRDJnEAUQNjkxIChNaWNyb25lc2lhKQULVDAyMDIwMDAwOEJnEAUWNjkyIChNYXJzaGFsbCBJc2xhbmRzKQULVDAyMDIwMDAwODVnEAUONyAoS2F6YWtoc3RhbikFC1QwMjAyMDAwMDZGZxAFFjcgKFJ1c3NpYW4gRmVkZXJhdGlvbikFC1QwMjAyMDAwMEFEZxAFCjgxIChKYXBhbikFC1QwMjAyMDAwMDZEZxAFFDgyIChLb3JlYSAoUmVwLiBvZikpBQtUMDIwMjAwMDA3MmcQBQ04NCAoVmlldCBOYW0pBQtUMDIwMjAwMDBFNGcQBSE4NTAgKERlbS4gUGVvcGxlJ3MgUmVwLiBvZiBLb3JlYSkFC1QwMjAyMDAwMDM2ZxAFFjg1MiAoSG9uZyBLb25nLCBDaGluYSkFC1QwMjAyMDAwMDYwZxAFEjg1MyAoTWFjYW8sIENoaW5hKQULVDAyMDIwMDAwN0VnEAUOODU1IChDYW1ib2RpYSkFC1QwMjAyMDAwMDIzZxAFEDg1NiAoTGFvIFAuRC5SLikFC1QwMjAyMDAwMDc1ZxAFCjg2IChDaGluYSkFC1QwMjAyMDAwMDJCZxAFDjg3MCAoSW5tYXJzYXQpBQtUMDIwMjAwMDA2NWcQBRA4ODAgKEJhbmdsYWRlc2gpBQtUMDIwMjAwMDAxMmcQBQ84ODEgNiAoSXJpZGl1bSkFC1QwMjAyMDAwMDY5ZxAFDzg4MSA3IChJcmlkaXVtKQULVDAyMDIwMDAwNjlnEAUXODgxIDggKEdsb2JhbHN0YXIgSW5jLikFC1QwMjAyMDAwMEYwZxAFFzg4MSA5IChHbG9iYWxzdGFyIEluYy4pBQtUMDIwMjAwMDBGMGcQBRA4ODIgMTYgKFRodXJheWEpBQtUMDIwMjAwMDBDRmcQBS44ODIgMzIgKE1hcml0aW1lIENvbW11bmljYXRpb25zIFBhcnRuZXIgKE1DUCkpBQtUMDIwMjAwMDBGNGcQBSc4ODIgMzcgKEFUJlQgQ2luZ3VsYXIgV2lyZWxlc3MgTmV0d29yaykFC1QwMjAyMDAwMEZFZxAFTTg4MiA1MiAoQ2hpbmEgVGVsZWNvbW11bmljYXRpb25zIENvcnBvcmF0aW9uIFNhdGVsbGl0ZSBDb21tdW5pY2F0aW9ucyBCcmFuY2gpBQtUMDIwMjAwMDEwMGcQBRM4ODYgKFRhaXdhbiwgQ2hpbmEpBQtUMDIwMjAwMDBFQmcQBQ05MCAoVMO8cmtpeWUpBQtUMDIwMjAwMDBENmcQBQo5MSAoSW5kaWEpBQtUMDIwMjAwMDA2M2cQBQ05MiAoUGFraXN0YW4pBQtUMDIwMjAwMDBBMWcQBRA5MyAoQWZnaGFuaXN0YW4pBQtUMDIwMjAwMDAwMWcQBQ45NCAoU3JpIExhbmthKQULVDAyMDIwMDAwQzNnEAUMOTUgKE15YW5tYXIpBQtUMDIwMjAwMDA5MmcQBQ45NjAgKE1hbGRpdmVzKQULVDAyMDIwMDAwODJnEAUNOTYxIChMZWJhbm9uKQULVDAyMDIwMDAwNzdnEAUMOTYyIChKb3JkYW4pBQtUMDIwMjAwMDA2RWcQBRo5NjMgKFN5cmlhbiBBcmFiIFJlcHVibGljKQULVDAyMDIwMDAwQzlnEAUKOTY0IChJcmFxKQULVDAyMDIwMDAwNjdnEAUMOTY1IChLdXdhaXQpBQtUMDIwMjAwMDA3M2cQBRI5NjYgKFNhdWRpIEFyYWJpYSkFC1QwMjAyMDAwMEI3ZxAFCzk2NyAoWWVtZW4pBQtUMDIwMjAwMDBFN2cQBQo5NjggKE9tYW4pBQtUMDIwMjAwMDA5RmcQBRk5NzAgKFBhbGVzdGluZSwgU3RhdGUgb2YpBQtUMDIwMjAwMDBGRmcQBRo5NzEgKFVuaXRlZCBBcmFiIEVtaXJhdGVzKQULVDAyMDIwMDAwRENnEAUMOTcyIChJc3JhZWwpBQtUMDIwMjAwMDA2QWcQBQ05NzMgKEJhaHJhaW4pBQtUMDIwMjAwMDAxMWcQBQs5NzQgKFFhdGFyKQULVDAyMDIwMDAwQUJnEAUMOTc1IChCaHV0YW4pBQtUMDIwMjAwMDAxOWcQBQ45NzYgKE1vbmdvbGlhKQULVDAyMDIwMDAwOEVnEAULOTc3IChOZXBhbCkFC1QwMjAyMDAwMDk1ZxAFHzk4IChJcmFuIChJc2xhbWljIFJlcHVibGljIG9mKSkFC1QwMjAyMDAwMDY2ZxAFEDk5MiAoVGFqaWtpc3RhbikFC1QwMjAyMDAwMENBZxAFEjk5MyAoVHVya21lbmlzdGFuKQULVDAyMDIwMDAwRDdnEAUQOTk0IChBemVyYmFpamFuKQULVDAyMDIwMDAwMEZnEAUNOTk1IChHZW9yZ2lhKQULVDAyMDIwMDAwNTBnEAUQOTk2IChLeXJneXpzdGFuKQULVDAyMDIwMDAwNzRnEAUQOTk4IChVemJla2lzdGFuKQULVDAyMDIwMDAwRTFnZGQCBQ8PFgIfAAUGU2VhcmNoZGRk/kXCtYBQMp3tqhQ9EH41QDTg9dk=" />
+
+<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="E478B954" />
+<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEW9wEC4uT/8QkClt7BvQUCxqOKwgsCj8DIBwLgjbHAAgLM4L3rCQK3tv2pAQLGo9bBCwLh2qzVAQLM4IXrCQK3tvmpAQLM4KnrCQK3tq2qAQLh2pzUAQLGo4bCCwLSoYu8DwL7pNeqDwLM4PXrCQKq+7brDgL15/mBCQLgjf3AAgLazI+/AwLazI+/AwKQkZqUBwKQkZqUBwKQkZqUBwL7pIerDwKPwBQCkJGOlAcCkJGOlAcCxqPewQsC0qHXvA8Cj8DoBwLgjbXAAgKW3qm+BQLazMe+AwLh2uzUAQK3toWqAQLM4N3qCQLgjdXHAgL15+GBCQKq+/LqDgKq+/bqDgL155GBCQKq+97qDgLM4LnrCQK3tp2pAQLSoZO8DwL1572CCQLFkr/9BAKQkbKUBwLSoee8DwK3tsWpAQL7pN+qDwKxyeOAAwKxyaOBAwKq+57qDgLGo8rBCwLGo6LCCwLM4IHrCQKxyZuAAwKQkYKUBwLSoeO8DwKQkZaUBwLazJu/AwL7pJurDwLGo5bCCwL7pMeqDwKPwBAC2szXvgMCj8DABwL157mCCQKq+6brDgLFkpv9BAKq+4rqDgK3tqmqAQLh2vDUAQL15+WBCQLSocu8DwLgjdHHAgKPwOwHAre28akBApCRkpQHArHJ34ADAquIgP8NAqr7susOAuHauNUBAsWSg/0EAvXn9YEJAszgresJArHJh4ADApbe5b0FArHJt4ADApbe9b0FAtrMw74DAsWS1/0EAuCNocACAtKh27wPAquIrP8NAre29akBAsWSi/0EAsWSk/0EAvuk96oPAvuk26oPAtKhj7wPAo/A1AcCqvvm6g4CkJGKlAcCscmPgAMC4I2lwAICkJG2lAcC2szTvgMC+6TTqg8Clt75vQUCq4jY/g0Clt6BvgUC9eelggkC0qGnvQ8C2syDvwMCq4jw/w0CxZKX/QQCxqPiwgsC9efxgQkCxqOewgsC9eftgQkCkJHSlAcCt7aBqgEClt79vQUCq4jA/w0C9efpgQkCxqPawQsCq4jo/w0Ct7bBqQECzODB6wkCxqP2wQsCt7a5qgECqvua6g4CscmLgAMCscmXgAMC2sz/vgMC4drA1AEC4dro1AEC2szvvgMCj8DQBwLgjfHAAgLFktv9BALGo8bBCwKxydeAAwLazPO+AwLgjbnAAgLSoZ+8DwKriLT/DQLazNu+AwKQkZ6UBwLgjeHAAgK3tumpAQLazM++AwKriKT/DQKriLz/DQKQkYaUBwKW3rW+BQKxybuAAwKW3r2+BQKPwDgCt7a1qgEClt6xvgUCqvuO6g4Cq4i4/w0C+6TPqg8CzOD56wkC0qG7vA8CkJHelAcCq4j8/w0Cj8A8AquI1P4NAuHa+NQBAvuk86oPAvukk6sPAuCN5cACAuHahNUBAsWS//0EAre27akBAsWSz/0EArHJx4ADAuHaxNQBApCRwpQHAvukn6sPAqr74uoOAre2makBAtKhz7wPAquIqP8NAsWSw/0EAvXnlYEJApbemb0FAuHa9NQBAquI9P8NAquIsP8NAsWSh/0EAvukg6sPArHJn4ADAo/AxAcCxqPOwQsC4I29wAIClt7tvQUC9ef9gQkClt7xvQUCxZKP/QQC0qGXvA8C0qGXvA8Cj8AEAo/ABALh2oDVAQL7pI+rDwLGo5LCCwKOwMwHAvXnoYIJArHJy4ADAuCNrcACAqr7qusOAqr77uoOAuCN+cACAsWSr/0EAsWSs/0EAszgsesJAsaj0sELAtKho70PAszgtesJAuCNqcACAszgxesJAszg6esJAuHamNQBAuHatNUBApCRxpQHAtrMy74DAqr76uoOAvXnsYIJAtKhm7wPAsaj+sELApbelb0FArHJk4ADAtrMl78DAszg7esJAuHa/NQBAo/A+AcC+6TLqg8Cqvva6g4ChrC/+Awg77o7oq5u5VcLOV6Oxej0KVn5Uw==" />
+<center>
+<table border="0" cellspacing="0" cellpadding="3" class="bluebordertable">
+  <tr>
+    <td valign="middle" align="right">
+        <b><span id="ctl00_ContentPlaceHolder1_ctl01_lblSelectByCountry">Select by country code</span>:</b>
+    </td>
+    <td valign="middle" align="left">
+        <select name="ctl00$ContentPlaceHolder1$ctl01$lstCountryPrefix" id="ctl00_ContentPlaceHolder1_ctl01_lstCountryPrefix">
+	<option value="T0202000025">1 (Canada)</option>
+	<option value="T02020000DE">1 (United States)</option>
+	<option value="T0202000010">1 242 (Bahamas)</option>
+	<option value="T0202000013">1 246 (Barbados)</option>
+	<option value="T0202000007">1 264 (Anguilla)</option>
+	<option value="T0202000008">1 268 (Antigua and Barbuda)</option>
+	<option value="T020200001E">1 284 (British Virgin Islands)</option>
+	<option value="T02020000DF">1 340 (United States Virgin Islands)</option>
+	<option value="T0202000027">1 345 (Cayman Islands)</option>
+	<option value="T0202000018">1 441 (Bermuda)</option>
+	<option value="T0202000057">1 473 (Grenada)</option>
+	<option value="T02020000D8">1 649 (Turks and Caicos)</option>
+	<option value="T020200008F">1 664 (Montserrat)</option>
+	<option value="T02020000EE">1 670 (Northern Mariana Islands)</option>
+	<option value="T0202000059">1 671 (Guam)</option>
+	<option value="T0202000004">1 684 (American Samoa)</option>
+	<option value="T02020000F7">1 721 (Sint Maarten (Dutch part))</option>
+	<option value="T02020000B1">1 758 (Saint Lucia)</option>
+	<option value="T020200003B">1 767 (Dominica)</option>
+	<option value="T02020000B3">1 784 (Saint Vincent and the Grenadines)</option>
+	<option value="T02020000AA">1 787 (Puerto Rico)</option>
+	<option value="T02020000AA">1 939 (Puerto Rico)</option>
+	<option value="T020200003C">1 809 (Dominican Rep.)</option>
+	<option value="T020200003C">1 829 (Dominican Rep.)</option>
+	<option value="T020200003C">1 849 (Dominican Rep.)</option>
+	<option value="T02020000D4">1 868 (Trinidad and Tobago)</option>
+	<option value="T02020000B0">1 869 (Saint Kitts and Nevis)</option>
+	<option value="T020200006C">1 876 (Jamaica)</option>
+	<option value="T020200006C">1 658 (Jamaica)</option>
+	<option value="T020200003E">20 (Egypt)</option>
+	<option value="T02020000F9">211 (South Sudan)</option>
+	<option value="T0202000090">212 (Morocco)</option>
+	<option value="T0202000003">213 (Algeria)</option>
+	<option value="T02020000D5">216 (Tunisia)</option>
+	<option value="T020200007A">218 (Libya)</option>
+	<option value="T020200004F">220 (Gambia)</option>
+	<option value="T02020000B8">221 (Senegal)</option>
+	<option value="T0202000087">222 (Mauritania)</option>
+	<option value="T0202000083">223 (Mali)</option>
+	<option value="T020200005B">224 (Guinea)</option>
+	<option value="T0202000031">225 (C&#244;te d'Ivoire)</option>
+	<option value="T0202000021">226 (Burkina Faso)</option>
+	<option value="T020200009B">227 (Niger)</option>
+	<option value="T02020000D1">228 (Togo)</option>
+	<option value="T0202000017">229 (Benin)</option>
+	<option value="T0202000088">230 (Mauritius)</option>
+	<option value="T0202000079">231 (Liberia)</option>
+	<option value="T02020000BB">232 (Sierra Leone)</option>
+	<option value="T0202000052">233 (Ghana)</option>
+	<option value="T020200009C">234 (Nigeria)</option>
+	<option value="T0202000029">235 (Chad)</option>
+	<option value="T0202000028">236 (Central African Rep.)</option>
+	<option value="T0202000024">237 (Cameroon)</option>
+	<option value="T0202000026">238 (Cabo Verde)</option>
+	<option value="T02020000B6">239 (Sao Tome and Principe)</option>
+	<option value="T0202000041">240 (Equatorial Guinea)</option>
+	<option value="T020200004E">241 (Gabon)</option>
+	<option value="T020200002E">242 (Congo (Rep. of the))</option>
+	<option value="T0202000037">243 (Dem. Rep. of the Congo)</option>
+	<option value="T0202000006">244 (Angola)</option>
+	<option value="T020200005C">245 (Guinea-Bissau)</option>
+	<option value="T0202000039">246 (Diego Garcia)</option>
+	<option value="T020200000C">247 (Ascension)</option>
+	<option value="T02020000BA">248 (Seychelles)</option>
+	<option value="T02020000C4">249 (Sudan)</option>
+	<option value="T02020000AE">250 (Rwanda)</option>
+	<option value="T0202000044">251 (Ethiopia)</option>
+	<option value="T02020000C0">252 (Somalia)</option>
+	<option value="T020200003A">253 (Djibouti)</option>
+	<option value="T0202000070">254 (Kenya)</option>
+	<option value="T02020000CB">255 (Tanzania)</option>
+	<option value="T02020000F1">256 (Uganda)</option>
+	<option value="T0202000022">257 (Burundi)</option>
+	<option value="T0202000091">258 (Mozambique)</option>
+	<option value="T02020000E8">260 (Zambia)</option>
+	<option value="T020200007F">261 (Madagascar)</option>
+	<option value="T020200004B">262 (French Departments and Territories in the Indian Ocean)</option>
+	<option value="T02020000E9">263 (Zimbabwe)</option>
+	<option value="T0202000093">264 (Namibia)</option>
+	<option value="T0202000080">265 (Malawi)</option>
+	<option value="T0202000078">266 (Lesotho)</option>
+	<option value="T020200001C">267 (Botswana)</option>
+	<option value="T02020000C6">268 (Eswatini)</option>
+	<option value="T020200002D">269 (Comoros)</option>
+	<option value="T02020000C1">27 (South Africa)</option>
+	<option value="T02020000AF">290 (Saint Helena and Tristan da Cunha)</option>
+	<option value="T0202000042">291 (Eritrea)</option>
+	<option value="T020200000B">297 (Aruba)</option>
+	<option value="T0202000047">298 (Faroe Islands)</option>
+	<option value="T0202000056">299 (Greenland)</option>
+	<option value="T0202000055">30 (Greece)</option>
+	<option value="T0202000096">31 (Netherlands)</option>
+	<option value="T0202000015">32 (Belgium)</option>
+	<option value="T020200004A">33 (France)</option>
+	<option value="T02020000C2">34 (Spain)</option>
+	<option value="T0202000053">350 (Gibraltar)</option>
+	<option value="T02020000A9">351 (Portugal)</option>
+	<option value="T020200007D">352 (Luxembourg)</option>
+	<option value="T0202000068">353 (Ireland)</option>
+	<option value="T0202000062">354 (Iceland)</option>
+	<option value="T0202000002">355 (Albania)</option>
+	<option value="T0202000084">356 (Malta)</option>
+	<option value="T0202000034">357 (Cyprus)</option>
+	<option value="T0202000049">358 (Finland)</option>
+	<option value="T0202000020">359 (Bulgaria)</option>
+	<option value="T0202000061">36 (Hungary)</option>
+	<option value="T020200007C">370 (Lithuania)</option>
+	<option value="T0202000076">371 (Latvia)</option>
+	<option value="T0202000043">372 (Estonia)</option>
+	<option value="T020200008C">373 (Moldova)</option>
+	<option value="T020200000A">374 (Armenia)</option>
+	<option value="T0202000014">375 (Belarus)</option>
+	<option value="T0202000005">376 (Andorra)</option>
+	<option value="T020200008D">377 (Monaco)</option>
+	<option value="T02020000B5">378 (San Marino)</option>
+	<option value="T02020000DB">380 (Ukraine)</option>
+	<option value="T02020000B9">381 (Serbia)</option>
+	<option value="T02020000DA">382 (Montenegro)</option>
+	<option value="T02020000FD">383 (Kosovo*)</option>
+	<option value="T0202000032">385 (Croatia)</option>
+	<option value="T02020000BE">386 (Slovenia)</option>
+	<option value="T020200001B">387 (Bosnia and Herzegovina)</option>
+	<option value="T02020000CE">389 (North Macedonia)</option>
+	<option value="T020200006B">39 (Italy)</option>
+	<option value="T02020000AC">40 (Romania)</option>
+	<option value="T02020000C8">41 (Switzerland)</option>
+	<option value="T0202000035">420 (Czech Rep.)</option>
+	<option value="T02020000BD">421 (Slovakia)</option>
+	<option value="T020200007B">423 (Liechtenstein)</option>
+	<option value="T020200000E">43 (Austria)</option>
+	<option value="T02020000DD">44 (United Kingdom)</option>
+	<option value="T0202000038">45 (Denmark)</option>
+	<option value="T02020000C7">46 (Sweden)</option>
+	<option value="T020200009E">47 (Norway)</option>
+	<option value="T02020000A8">48 (Poland)</option>
+	<option value="T0202000051">49 (Germany)</option>
+	<option value="T0202000046">500 (Falkland Islands (Malvinas))</option>
+	<option value="T0202000016">501 (Belize)</option>
+	<option value="T020200005A">502 (Guatemala)</option>
+	<option value="T020200003F">503 (El Salvador)</option>
+	<option value="T020200005F">504 (Honduras)</option>
+	<option value="T020200009A">505 (Nicaragua)</option>
+	<option value="T0202000030">506 (Costa Rica)</option>
+	<option value="T02020000A3">507 (Panama)</option>
+	<option value="T02020000B2">508 (Saint Pierre and Miquelon)</option>
+	<option value="T020200005E">509 (Haiti)</option>
+	<option value="T02020000A6">51 (Peru)</option>
+	<option value="T020200008A">52 (Mexico)</option>
+	<option value="T0202000033">53 (Cuba)</option>
+	<option value="T0202000009">54 (Argentina)</option>
+	<option value="T020200001D">55 (Brazil)</option>
+	<option value="T020200002A">56 (Chile)</option>
+	<option value="T020200002C">57 (Colombia)</option>
+	<option value="T02020000E3">58 (Venezuela)</option>
+	<option value="T0202000058">590 (Guadeloupe)</option>
+	<option value="T020200001A">591 (Bolivia (Plurinational State of))</option>
+	<option value="T020200005D">592 (Guyana)</option>
+	<option value="T020200003D">593 (Ecuador)</option>
+	<option value="T020200004C">594 (French Guiana)</option>
+	<option value="T02020000A5">595 (Paraguay)</option>
+	<option value="T0202000086">596 (Martinique)</option>
+	<option value="T02020000C5">597 (Suriname)</option>
+	<option value="T02020000E0">598 (Uruguay)</option>
+	<option value="T02020000F8">599 (Bonaire, Sint Eustatius and Saba)</option>
+	<option value="T02020000F5">599 (Cura&#231;ao)</option>
+	<option value="T0202000081">60 (Malaysia)</option>
+	<option value="T020200000D">61 (Australia)</option>
+	<option value="T0202000064">62 (Indonesia)</option>
+	<option value="T02020000A7">63 (Philippines)</option>
+	<option value="T0202000099">64 (New Zealand)</option>
+	<option value="T02020000BC">65 (Singapore)</option>
+	<option value="T02020000CD">66 (Thailand)</option>
+	<option value="T02020000D0">670 (Timor-Leste)</option>
+	<option value="T020200009D">672 (Norfolk Island)</option>
+	<option value="T020200001F">673 (Brunei Darussalam)</option>
+	<option value="T0202000094">674 (Nauru)</option>
+	<option value="T02020000A4">675 (Papua New Guinea)</option>
+	<option value="T02020000D3">676 (Tonga)</option>
+	<option value="T02020000BF">677 (Solomon Islands)</option>
+	<option value="T02020000E2">678 (Vanuatu)</option>
+	<option value="T0202000048">679 (Fiji)</option>
+	<option value="T02020000A2">680 (Palau)</option>
+	<option value="T02020000E6">681 (Wallis and Futuna)</option>
+	<option value="T020200002F">682 (Cook Islands)</option>
+	<option value="T02020000EC">683 (Niue)</option>
+	<option value="T02020000B4">685 (Samoa)</option>
+	<option value="T0202000071">686 (Kiribati)</option>
+	<option value="T0202000098">687 (New Caledonia)</option>
+	<option value="T02020000D9">688 (Tuvalu)</option>
+	<option value="T020200004D">689 (French Polynesia)</option>
+	<option value="T02020000D2">690 (Tokelau)</option>
+	<option value="T020200008B">691 (Micronesia)</option>
+	<option value="T0202000085">692 (Marshall Islands)</option>
+	<option value="T020200006F">7 (Kazakhstan)</option>
+	<option value="T02020000AD">7 (Russian Federation)</option>
+	<option value="T020200006D">81 (Japan)</option>
+	<option value="T0202000072">82 (Korea (Rep. of))</option>
+	<option value="T02020000E4">84 (Viet Nam)</option>
+	<option value="T0202000036">850 (Dem. People's Rep. of Korea)</option>
+	<option value="T0202000060">852 (Hong Kong, China)</option>
+	<option value="T020200007E">853 (Macao, China)</option>
+	<option value="T0202000023">855 (Cambodia)</option>
+	<option value="T0202000075">856 (Lao P.D.R.)</option>
+	<option value="T020200002B">86 (China)</option>
+	<option value="T0202000065">870 (Inmarsat)</option>
+	<option value="T0202000012">880 (Bangladesh)</option>
+	<option value="T0202000069">881 6 (Iridium)</option>
+	<option value="T0202000069">881 7 (Iridium)</option>
+	<option value="T02020000F0">881 8 (Globalstar Inc.)</option>
+	<option value="T02020000F0">881 9 (Globalstar Inc.)</option>
+	<option value="T02020000CF">882 16 (Thuraya)</option>
+	<option value="T02020000F4">882 32 (Maritime Communications Partner (MCP))</option>
+	<option value="T02020000FE">882 37 (AT&amp;T Cingular Wireless Network)</option>
+	<option value="T0202000100">882 52 (China Telecommunications Corporation Satellite Communications Branch)</option>
+	<option value="T02020000EB">886 (Taiwan, China)</option>
+	<option value="T02020000D6">90 (T&#252;rkiye)</option>
+	<option value="T0202000063">91 (India)</option>
+	<option value="T02020000A1">92 (Pakistan)</option>
+	<option value="T0202000001">93 (Afghanistan)</option>
+	<option value="T02020000C3">94 (Sri Lanka)</option>
+	<option value="T0202000092">95 (Myanmar)</option>
+	<option value="T0202000082">960 (Maldives)</option>
+	<option value="T0202000077">961 (Lebanon)</option>
+	<option value="T020200006E">962 (Jordan)</option>
+	<option value="T02020000C9">963 (Syrian Arab Republic)</option>
+	<option value="T0202000067">964 (Iraq)</option>
+	<option value="T0202000073">965 (Kuwait)</option>
+	<option value="T02020000B7">966 (Saudi Arabia)</option>
+	<option value="T02020000E7">967 (Yemen)</option>
+	<option value="T020200009F">968 (Oman)</option>
+	<option value="T02020000FF">970 (Palestine, State of)</option>
+	<option value="T02020000DC">971 (United Arab Emirates)</option>
+	<option value="T020200006A">972 (Israel)</option>
+	<option value="T0202000011">973 (Bahrain)</option>
+	<option value="T02020000AB">974 (Qatar)</option>
+	<option value="T0202000019">975 (Bhutan)</option>
+	<option value="T020200008E">976 (Mongolia)</option>
+	<option value="T0202000095">977 (Nepal)</option>
+	<option value="T0202000066">98 (Iran (Islamic Republic of))</option>
+	<option value="T02020000CA">992 (Tajikistan)</option>
+	<option value="T02020000D7">993 (Turkmenistan)</option>
+	<option value="T020200000F">994 (Azerbaijan)</option>
+	<option value="T0202000050">995 (Georgia)</option>
+	<option value="T0202000074">996 (Kyrgyzstan)</option>
+	<option value="T02020000E1">998 (Uzbekistan)</option>
+
+</select>
+        <input type="submit" name="ctl00$ContentPlaceHolder1$ctl01$btnGo" value="Search" id="ctl00_ContentPlaceHolder1_ctl01_btnGo" />
+    </td>
+  </tr>
+</table>
+
+</center>
+</form>
+<?xml version="1.0" encoding="utf-8"?><br xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:user="http://mycompany.com/mynamespace" /><table border="0" width="100%" cellspacing="3" cellpadding="3" class="bluebordertable" xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:user="http://mycompany.com/mynamespace"><tr><td width="100%" valign="top" align="center" class="bluebordertable" colspan="2"><b><a name="1" href="#A">A</a></b> | <b><a href="#B">B</a></b> | <b><a href="#C">C</a></b>
+      | <b><a href="#D">D</a></b> | <b><a href="#E">E</a></b> | <b><a href="#F">F</a></b> | <b><a href="#G">G</a></b> | <b><a href="#H">H</a></b> | <b><a href="#I">I</a></b>
+      | <b><a href="#J">J</a></b> | <b><a href="#K">K</a></b> |<a href="#L"><b>L</b></a> | <b><a href="#M">M</a></b> | <b><a href="#N">N</a></b> | <b><a href="#O">O</a></b>|
+      <b><a href="#P">P</a></b> | <b><a href="#Q">Q</a></b> | <b><a href="#R">R</a></b> |
+      <b><a href="#S">S</a></b> | <b><a href="#T">T</a></b> | <b><a href="#U">U</a></b>
+      | <b><a href="#V">V</a></b> | <b><a href="#W">W</a></b> | <b><a href="#Y">Y</a></b> | <b><a href="#Z">Z</a></b> | <b><a href="#GN">GN</a></b></td></tr><tr><td width="50%" valign="top" align="left" class="bluebordertable"><br /><b>
+              -
+              <a name="A">A</a>
+              -
+            </b><br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T0202000001">Afghanistan</a>
+    (+93)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T0202000002">Albania</a>
+    (+355)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T0202000003">Algeria</a>
+    (+213)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T0202000004">American Samoa</a>
+    (+1 684)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T0202000005">Andorra</a>
+    (+376)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T0202000006">Angola</a>
+    (+244)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T0202000007">Anguilla</a>
+    (+1 264)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T0202000008">Antigua and Barbuda</a>
+    (+1 268)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T0202000009">Argentina</a>
+    (+54)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T020200000A">Armenia</a>
+    (+374)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T020200000B">Aruba</a>
+    (+297)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T020200000C">Ascension</a>
+    (+247)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T020200000D">Australia</a>
+    (+61)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T020200000E">Austria</a>
+    (+43)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T020200000F">Azerbaijan</a>
+    (+994)
+  <br /><br /><b>
+              -
+              <a name="B">B</a>
+              -
+            </b><br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T0202000010">Bahamas</a>
+    (+1 242)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T0202000011">Bahrain</a>
+    (+973)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T0202000012">Bangladesh</a>
+    (+880)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T0202000013">Barbados</a>
+    (+1 246)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T0202000014">Belarus</a>
+    (+375)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T0202000015">Belgium</a>
+    (+32)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T0202000016">Belize</a>
+    (+501)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T0202000017">Benin</a>
+    (+229)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T0202000018">Bermuda</a>
+    (+1 441)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T0202000019">Bhutan</a>
+    (+975)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T020200001A">Bolivia (Plurinational State of)</a>
+    (+591)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T02020000F8">Bonaire, Sint Eustatius and Saba</a>
+    (+599)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T020200001B">Bosnia and Herzegovina</a>
+    (+387)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T020200001C">Botswana</a>
+    (+267)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T020200001D">Brazil</a>
+    (+55)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T020200001E">British Virgin Islands</a>
+    (+1 284)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T020200001F">Brunei Darussalam</a>
+    (+673)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T0202000020">Bulgaria</a>
+    (+359)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T0202000021">Burkina Faso</a>
+    (+226)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T0202000022">Burundi</a>
+    (+257)
+  <br /><br /><b>
+              -
+              <a name="C">C</a>
+              -
+            </b><br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T0202000026">Cabo Verde</a>
+    (+238)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T0202000023">Cambodia</a>
+    (+855)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T0202000024">Cameroon</a>
+    (+237)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T0202000025">Canada</a>
+    (+1)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T0202000027">Cayman Islands</a>
+    (+1 345)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T0202000028">Central African Rep.</a>
+    (+236)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T0202000029">Chad</a>
+    (+235)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T020200002A">Chile</a>
+    (+56)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T020200002B">China</a>
+    (+86)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T020200002C">Colombia</a>
+    (+57)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T020200002D">Comoros</a>
+    (+269)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T020200002E">Congo (Rep. of the)</a>
+    (+242)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T020200002F">Cook Islands</a>
+    (+682)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T0202000030">Costa Rica</a>
+    (+506)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T0202000031">Côte d'Ivoire</a>
+    (+225)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T0202000032">Croatia</a>
+    (+385)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T0202000033">Cuba</a>
+    (+53)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T02020000F5">Curaçao</a>
+    (+599)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T0202000034">Cyprus</a>
+    (+357)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T0202000035">Czech Rep.</a>
+    (+420)
+  <br /><br /><b>
+              -
+              <a name="D">D</a>
+              -
+            </b><br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T0202000036">Dem. People's Rep. of Korea</a>
+    (+850)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T0202000037">Dem. Rep. of the Congo</a>
+    (+243)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T0202000038">Denmark</a>
+    (+45)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T0202000039">Diego Garcia</a>
+    (+246)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T020200003A">Djibouti</a>
+    (+253)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T020200003B">Dominica</a>
+    (+1 767)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T020200003C">Dominican Rep.</a>
+    (+1 809, +1 829, +1 849)
+  <br /><br /><b>
+              -
+              <a name="E">E</a>
+              -
+            </b><br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T020200003D">Ecuador</a>
+    (+593)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T020200003E">Egypt</a>
+    (+20)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T020200003F">El Salvador</a>
+    (+503)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T0202000041">Equatorial Guinea</a>
+    (+240)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T0202000042">Eritrea</a>
+    (+291)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T0202000043">Estonia</a>
+    (+372)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T02020000C6">Eswatini</a>
+    (+268)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T0202000044">Ethiopia</a>
+    (+251)
+  <br /><br /><b>
+              -
+              <a name="F">F</a>
+              -
+            </b><br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T0202000046">Falkland Islands (Malvinas)</a>
+    (+500)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T0202000047">Faroe Islands</a>
+    (+298)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T0202000048">Fiji</a>
+    (+679)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T0202000049">Finland</a>
+    (+358)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T020200004A">France</a>
+    (+33)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T020200004B">French Departments and Territories in the Indian Ocean</a>
+    (+262)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T020200004C">French Guiana</a>
+    (+594)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T020200004D">French Polynesia</a>
+    (+689)
+  <br /><br /><b>
+              -
+              <a name="G">G</a>
+              -
+            </b><br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T020200004E">Gabon</a>
+    (+241)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T020200004F">Gambia</a>
+    (+220)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T0202000050">Georgia</a>
+    (+995)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T0202000051">Germany</a>
+    (+49)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T0202000052">Ghana</a>
+    (+233)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T0202000053">Gibraltar</a>
+    (+350)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T0202000055">Greece</a>
+    (+30)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T0202000056">Greenland</a>
+    (+299)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T0202000057">Grenada</a>
+    (+1 473)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T0202000058">Guadeloupe</a>
+    (+590)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T0202000059">Guam</a>
+    (+1 671)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T020200005A">Guatemala</a>
+    (+502)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T020200005B">Guinea</a>
+    (+224)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T020200005C">Guinea-Bissau</a>
+    (+245)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T020200005D">Guyana</a>
+    (+592)
+  <br /><br /><b>
+              -
+              <a name="H">H</a>
+              -
+            </b><br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T020200005E">Haiti</a>
+    (+509)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T020200005F">Honduras</a>
+    (+504)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T0202000060">Hong Kong, China</a>
+    (+852)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T0202000061">Hungary</a>
+    (+36)
+  <br /><br /><b>
+              -
+              <a name="I">I</a>
+              -
+            </b><br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T0202000062">Iceland</a>
+    (+354)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T0202000063">India</a>
+    (+91)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T0202000064">Indonesia</a>
+    (+62)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T0202000066">Iran (Islamic Republic of)</a>
+    (+98)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T0202000067">Iraq</a>
+    (+964)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T0202000068">Ireland</a>
+    (+353)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T020200006A">Israel</a>
+    (+972)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T020200006B">Italy</a>
+    (+39)
+  <br /><br /><b>
+              -
+              <a name="J">J</a>
+              -
+            </b><br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T020200006C">Jamaica</a>
+    (+1 876, +1 658)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T020200006D">Japan</a>
+    (+81)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T020200006E">Jordan</a>
+    (+962)
+  <br /><br /><b>
+              -
+              <a name="K">K</a>
+              -
+            </b><br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T020200006F">Kazakhstan</a>
+    (+7)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T0202000070">Kenya</a>
+    (+254)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T0202000071">Kiribati</a>
+    (+686)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T0202000072">Korea (Rep. of)</a>
+    (+82)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T02020000FD">Kosovo*</a>
+    (+383)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T0202000073">Kuwait</a>
+    (+965)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T0202000074">Kyrgyzstan</a>
+    (+996)
+  <br /><br /><b>
+              -
+              <a name="L">L</a>
+              -
+            </b><br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T0202000075">Lao P.D.R.</a>
+    (+856)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T0202000076">Latvia</a>
+    (+371)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T0202000077">Lebanon</a>
+    (+961)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T0202000078">Lesotho</a>
+    (+266)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T0202000079">Liberia</a>
+    (+231)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T020200007A">Libya</a>
+    (+218)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T020200007B">Liechtenstein</a>
+    (+423)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T020200007C">Lithuania</a>
+    (+370)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T020200007D">Luxembourg</a>
+    (+352)
+  <br /></td><td width="50%" valign="top" align="left" class="bluebordertable"><br /><b>
+              -
+              <a name="M">M</a>
+              -
+            </b><br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T020200007E">Macao, China</a>
+    (+853)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T020200007F">Madagascar</a>
+    (+261)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T0202000080">Malawi</a>
+    (+265)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T0202000081">Malaysia</a>
+    (+60)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T0202000082">Maldives</a>
+    (+960)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T0202000083">Mali</a>
+    (+223)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T0202000084">Malta</a>
+    (+356)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T0202000085">Marshall Islands</a>
+    (+692)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T0202000086">Martinique</a>
+    (+596)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T0202000087">Mauritania</a>
+    (+222)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T0202000088">Mauritius</a>
+    (+230)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T020200008A">Mexico</a>
+    (+52)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T020200008B">Micronesia</a>
+    (+691)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T020200008C">Moldova</a>
+    (+373)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T020200008D">Monaco</a>
+    (+377)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T020200008E">Mongolia</a>
+    (+976)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T02020000DA">Montenegro</a>
+    (+382)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T020200008F">Montserrat</a>
+    (+1 664)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T0202000090">Morocco</a>
+    (+212)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T0202000091">Mozambique</a>
+    (+258)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T0202000092">Myanmar</a>
+    (+95)
+  <br /><br /><b>
+              -
+              <a name="N">N</a>
+              -
+            </b><br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T0202000093">Namibia</a>
+    (+264)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T0202000094">Nauru</a>
+    (+674)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T0202000095">Nepal</a>
+    (+977)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T0202000096">Netherlands</a>
+    (+31)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T0202000098">New Caledonia</a>
+    (+687)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T0202000099">New Zealand</a>
+    (+64)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T020200009A">Nicaragua</a>
+    (+505)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T020200009B">Niger</a>
+    (+227)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T020200009C">Nigeria</a>
+    (+234)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T02020000EC">Niue</a>
+    (+683)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T020200009D">Norfolk Island</a>
+    (+672)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T02020000CE">North Macedonia</a>
+    (+389)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T02020000EE">Northern Mariana Islands</a>
+    (+1 670)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T020200009E">Norway</a>
+    (+47)
+  <br /><br /><b>
+              -
+              <a name="O">O</a>
+              -
+            </b><br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T020200009F">Oman</a>
+    (+968)
+  <br /><br /><b>
+              -
+              <a name="P">P</a>
+              -
+            </b><br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T02020000A1">Pakistan</a>
+    (+92)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T02020000A2">Palau</a>
+    (+680)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T02020000FF">Palestine, State of</a>
+    (+970)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T02020000A3">Panama</a>
+    (+507)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T02020000A4">Papua New Guinea</a>
+    (+675)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T02020000A5">Paraguay</a>
+    (+595)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T02020000A6">Peru</a>
+    (+51)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T02020000A7">Philippines</a>
+    (+63)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T02020000A8">Poland</a>
+    (+48)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T02020000A9">Portugal</a>
+    (+351)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T02020000AA">Puerto Rico</a>
+    (+1 787, +1 939)
+  <br /><br /><b>
+              -
+              <a name="Q">Q</a>
+              -
+            </b><br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T02020000AB">Qatar</a>
+    (+974)
+  <br /><br /><b>
+              -
+              <a name="R">R</a>
+              -
+            </b><br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T02020000AC">Romania</a>
+    (+40)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T02020000AD">Russian Federation</a>
+    (+7)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T02020000AE">Rwanda</a>
+    (+250)
+  <br /><br /><b>
+              -
+              <a name="S">S</a>
+              -
+            </b><br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T02020000AF">Saint Helena and Tristan da Cunha</a>
+    (+290)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T02020000B0">Saint Kitts and Nevis</a>
+    (+1 869)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T02020000B1">Saint Lucia</a>
+    (+1 758)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T02020000B2">Saint Pierre and Miquelon</a>
+    (+508)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T02020000B3">Saint Vincent and the Grenadines</a>
+    (+1 784)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T02020000B4">Samoa</a>
+    (+685)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T02020000B5">San Marino</a>
+    (+378)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T02020000B6">Sao Tome and Principe</a>
+    (+239)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T02020000B7">Saudi Arabia</a>
+    (+966)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T02020000B8">Senegal</a>
+    (+221)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T02020000B9">Serbia</a>
+    (+381)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T02020000BA">Seychelles</a>
+    (+248)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T02020000BB">Sierra Leone</a>
+    (+232)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T02020000BC">Singapore</a>
+    (+65)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T02020000F7">Sint Maarten (Dutch part)</a>
+    (+1 721)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T02020000BD">Slovakia</a>
+    (+421)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T02020000BE">Slovenia</a>
+    (+386)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T02020000BF">Solomon Islands</a>
+    (+677)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T02020000C0">Somalia</a>
+    (+252)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T02020000C1">South Africa</a>
+    (+27)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T02020000F9">South Sudan</a>
+    (+211)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T02020000C2">Spain</a>
+    (+34)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T02020000C3">Sri Lanka</a>
+    (+94)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T02020000C4">Sudan</a>
+    (+249)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T02020000C5">Suriname</a>
+    (+597)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T02020000C7">Sweden</a>
+    (+46)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T02020000C8">Switzerland</a>
+    (+41)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T02020000C9">Syrian Arab Republic</a>
+    (+963)
+  <br /><br /><b>
+              -
+              <a name="T">T</a>
+              -
+            </b><br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T02020000EB">Taiwan, China</a>
+    (+886)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T02020000CA">Tajikistan</a>
+    (+992)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T02020000CB">Tanzania</a>
+    (+255)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T02020000CD">Thailand</a>
+    (+66)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T02020000D0">Timor-Leste</a>
+    (+670)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T02020000D1">Togo</a>
+    (+228)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T02020000D2">Tokelau</a>
+    (+690)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T02020000D3">Tonga</a>
+    (+676)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T02020000D4">Trinidad and Tobago</a>
+    (+1 868)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T02020000D5">Tunisia</a>
+    (+216)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T02020000D6">Türkiye</a>
+    (+90)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T02020000D7">Turkmenistan</a>
+    (+993)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T02020000D8">Turks and Caicos</a>
+    (+1 649)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T02020000D9">Tuvalu</a>
+    (+688)
+  <br /><br /><b>
+              -
+              <a name="U">U</a>
+              -
+            </b><br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T02020000F1">Uganda</a>
+    (+256)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T02020000DB">Ukraine</a>
+    (+380)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T02020000DC">United Arab Emirates</a>
+    (+971)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T02020000DD">United Kingdom</a>
+    (+44)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T02020000DE">United States</a>
+    (+1)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T02020000DF">United States Virgin Islands</a>
+    (+1 340)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T02020000E0">Uruguay</a>
+    (+598)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T02020000E1">Uzbekistan</a>
+    (+998)
+  <br /><br /><b>
+              -
+              <a name="V">V</a>
+              -
+            </b><br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T02020000E2">Vanuatu</a>
+    (+678)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T02020000E3">Venezuela</a>
+    (+58)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T02020000E4">Viet Nam</a>
+    (+84)
+  <br /><br /><b>
+              -
+              <a name="W">W</a>
+              -
+            </b><br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T02020000E6">Wallis and Futuna</a>
+    (+681)
+  <br /><br /><b>
+              -
+              <a name="Y">Y</a>
+              -
+            </b><br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T02020000E7">Yemen</a>
+    (+967)
+  <br /><br /><b>
+              -
+              <a name="Z">Z</a>
+              -
+            </b><br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T02020000E8">Zambia</a>
+    (+260)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T02020000E9">Zimbabwe</a>
+    (+263)
+  <br /><br /><b>- <a name="GN">GN</a> -</b><br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T02020000FE">AT&amp;T Cingular Wireless Network</a>
+    (+882 37)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T0202000100">China Telecommunications Corporation Satellite Communications Branch</a>
+    (+882 52)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T02020000F0">Globalstar Inc.</a>
+    (+881 8, +881 9)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T0202000065">Inmarsat</a>
+    (+870)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T0202000069">Iridium</a>
+    (+881 6, +881 7)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T02020000F4">Maritime Communications Partner (MCP)</a>
+    (+882 32)
+  <br />&nbsp;&nbsp;&nbsp;<a href="&#xD;&#xA;        default.aspx?lang=en&amp;parent=T02020000CF">Thuraya</a>
+    (+882 16)
+  <br /></td></tr></table><span><!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="Content-Language" content="en" />
+    <title></title>
+    <link href="/net/res/templates/v1.0/css/itu_new.css" rel="stylesheet" type="text/css" />
+
+</head>
+<body>
+    <p>
+        <br />
+        <strong>*</strong> This designation is without prejudice to positions on status, and is in line with UNSCR 1244 and the ICJ Opinion on the Kosovo declaration of independence.
+    </p>
+    <br />
+    <p>
+        <em>The designations employed and the presentation of material in this site do not imply the expression of any opinion whatsoever on the part of the ITU concerning the legal status of any country or geographical area, or of its authorities.</em>
+    </p>
+</body>
+</html>
+</span>
+
+
+				<!-- Print Section // -->
+				</td>
+				</tr>
+				</table>
+				<p class="paraSmall">&nbsp;</p>
+				<table border="0" cellpadding="0" cellspacing="0" width="100%">
+				<tr valign="top">
+				<td align="right" class="footeritems"><a href="#top" class="footeritems">Top</a>&nbsp;-&nbsp;<a href="/home/feedback/index.phtml" class="footeritems">Feedback</a>&nbsp;-&nbsp;<a href="/home/contact/index.html" class="footeritems">Contact Us</a>&nbsp;-&nbsp; <a href="/home/copyright/index.html" class="footeritems">Copyright © ITU 2026</a> All Rights Reserved<br>
+				Contact for this page : <a href="/home/feedback/index.phtml?mail=servicedesk" class="footeritems">Service Desk</a><br>
+				Updated : 2026-10-15</td>
+				<td>&nbsp;</td>
+				</tr>
+				</table>
+</div>
+</body>
+</html>
+

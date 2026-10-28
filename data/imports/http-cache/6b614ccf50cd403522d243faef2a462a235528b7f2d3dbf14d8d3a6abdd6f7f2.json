@@ -1,0 +1,15 @@
+{
+ "url": "https://www.wikidata.org/wiki/Special:EntityData/Q4118955.json",
+ "final_url": "https://www.wikidata.org/wiki/Special:EntityData/Q4118955.json",
+ "status": 200,
+ "content_type": "application/json; charset=UTF-8",
+ "content_length": null,
+ "sha256": "288fb61017e0156de9a3550fa89f432435f8fb364e1a1cab4eae8ae24b02ac5d",
+ "elapsed_ms": 1761,
+ "fetched_at": "2026-10-28T03:54:11Z",
+ "robots_allowed": true,
+ "robots_checked": true,
+ "truncated": false,
+ "error": null,
+ "encoding": "utf-8"
+}

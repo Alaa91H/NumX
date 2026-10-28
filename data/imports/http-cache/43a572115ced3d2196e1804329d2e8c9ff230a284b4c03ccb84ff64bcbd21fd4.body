@@ -1,0 +1,421 @@
+
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><meta http-equiv="Content-Script-Type" content="text/javascript" /><meta http-equiv="Content-Language" content="en" /><meta name="author" content="&lt;%=hdrContact%>" /><title>
+	Suriname
+</title><link href="/net/res/templates/v1.0/css/itu_new.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+    var menuids=["css_tree1"] //Enter id(s) of css_tree UL menus, separated by commas
+    function buildsubmenus(){
+    for (var i=0; i<menuids.length; i++){
+      var ultags=document.getElementById(menuids[i]).getElementsByTagName("ul")
+        for (var t=0; t<ultags.length; t++){
+        ultags[t].parentNode.getElementsByTagName("a")[0].className="subfolderstyle"
+		    if (ultags[t].parentNode.parentNode.id==menuids[i]) //if this is a first level submenu
+			    ultags[t].style.left=ultags[t].parentNode.offsetWidth+"px" //dynamically position first level submenus to be width of main menu item
+		    else //else if this is a sub level submenu (ul)
+		      ultags[t].style.left=ultags[t-1].getElementsByTagName("a")[0].offsetWidth+"px" //position menu to the right of menu item that activated it
+        ultags[t].parentNode.onmouseover=function(){
+        this.getElementsByTagName("ul")[0].style.display="block"
+        }
+        ultags[t].parentNode.onmouseout=function(){
+        this.getElementsByTagName("ul")[0].style.display="none"
+        }
+        }
+		    for (var t=ultags.length-1; t>-1; t--){ //loop through all sub menus again, and use "display:none" to hide menus (to prevent possible page scrollbars
+		    ultags[t].style.visibility="visible"
+		    ultags[t].style.display="none"
+		    }
+      }
+    }
+    if (window.addEventListener)
+    window.addEventListener("load", buildsubmenus, false)
+    else if (window.attachEvent)
+    window.attachEvent("onload", buildsubmenus)
+</script>
+</head>
+<body>
+<!-- ******** Begining Top Menu ******** -->
+<span id='xawmMenuPathImg-itu_en' style='position:relative;'><img id='awmMenuPathImg-itu_en' src='/net/res/templates/menus/awmmenupath.gif' alt=''></span><script type='text/javascript'>var MenuLinkedBy='AllWebMenus [4]', awmBN='624'; awmAltUrl='';</script><script charset='UTF-8' src='/net/res/templates/menus/itu_en.js' language='JavaScript1.2' type='text/javascript'></script><script type='text/javascript'>awmBuildMenu();</script>
+<!-- ******** END Top Menu ******** -->
+
+<div>
+<a name="top"></a>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr style="background-color: #004B96;">
+<td style="padding-left: 5pt;"><a href="/net/home/index.aspx"><img src="/res/templates/v4.0/images/logos/ITU-official-logo_75.gif" border="0" width="190" height="75" alt="International Telecommunication Union"></a></td>
+<td style="padding-right: 5pt; padding-left: 5pt;">&nbsp;</td>
+<td valign="top" style="width: 100%;"><img src="/net/res/templates/images/top_images/top.jpg" border="0" Height="75" Width="300" alt="ITU"></td>
+<td style="width:100%; background-color: #004B96; color: white; font-size: 8pt; padding-top: 5pt; padding-right: 10pt; text-align=right;" valign="top">
+	<table border="0" cellpadding="0" cellspacing="0" align="right" style="background-color: #004B96;">
+  <tr>
+  <td style="font-weight: bold; background-color: #004B96; font-family: arial; color: white; white-space: nowrap;">
+    <small>
+        <a href="default.aspx?parent=T02020000C5&lang=es" class="topritems">Español</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="default.aspx?parent=T02020000C5&lang=fr" class="topritems">Français</a>    				    
+    </small>
+  </td>
+  </tr>
+  <tr>
+	<td style="margin: 0px; font-size: 5pt;">&nbsp;</td></tr>
+	<tr>
+	<td>
+		<table border="0" cellpadding="0" cellspacing="0" align="right">
+		<tr>
+		<td style="border-right: white 1px solid; padding-right: 5pt;"><a href="/home/sitemap.html" class="topritems"><img src="/res/templates/v4.0/images/misc/site-map.gif" border="0" width="19" height="17" alt="Site Map"></a></td>
+	    <td style="padding-left: 5pt; padding-right: 5pt;"><a href="/home/contact/index.html" class="topritems"><img src="/res/templates/v4.0/images/misc/contact-us.gif" border="0" width="19" height="17" alt="Contact us" ></a></td>
+        
+    	    <td style="border-left: white 1px solid; padding-left: 5pt;"><a href="/_page.print" class="topritems"><img src="/res/templates/v4.0/images/misc/printer.gif" border="0" width="19" height="17" alt="Print Version" ></a></td>
+        
+		</tr>
+		</table>
+	</td>
+  </tr>
+  </table>
+</td>
+</tr>
+<tr>
+<td colspan="2">&nbsp;</td>
+<td colspan="3" style="color: #004B96; padding: 2pt;" valign="top">
+	<table border="0" cellpadding="0" cellspacing="0" width="100%">
+	<tr>
+	<td><span><a href="/home/index.html">Home</a> : <a href="/ITU-T/index.html">ITU-T</a> : <a href="default.aspx?lang=en&parent=T02">International Numbering Resources</a> : <a href="default.aspx?lang=en&parent=T0202">National Numbering Plans</a> : Suriname</span></td>
+	<td align="right" valign="middle">
+	<form name="Qform" action="/search/index.asp" method="get" style="margin: 0px; padding: 0px;">
+	<input type="hidden" name="Action" value="Search">
+	<input type="hidden" name="pagelanguage" value="en">
+	<input type="hidden" name="webareapath" value="home">
+	<input type="hidden" name="webareaname" value="Home">
+	<span style="white-space: nowrap;"><input type="text" name="SearchString" class="formdisplay" style="width: 134pt;">&nbsp;<input type="submit" value="Search" name="SearchAction" class="formdisplay" style="font-size: 8pt; font-weight: bold;"></span>
+	</form>
+	</td>
+	</tr>
+	</table>
+</td>
+</tr>
+<tr valign="top">
+<td rowspan="2" style="background-color: #FFFFFF; border-right: #004B96 1px solid; border-bottom: #004B96 1px solid; width: 230px;"><script language="JavaScript" src="/res/leftmenu/ITU-T/leftmenu_new.js"></script></td>
+<td rowspan="2" style="border-bottom: #004B96 1px solid;">&nbsp;</td>
+<td colspan="3" style="background-color:#004B96; width:100%; height: 22pt; padding-left: 5pt;"><span id="awmAnchor-itu_en">&nbsp;</span></td>
+</tr>
+<tr valign="top">
+<td colspan="3" style="height: 500pt; width: 100%; padding: 10pt 5pt 0pt 0pt; border-bottom: #004B96 1px solid;">
+<!-- Print Section // -->
+
+
+    <table border="0" width="100%" xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:user="http://mycompany.com/mynamespace">
+  <tr>
+    <td colspan="2" style="font-size: 9pt;">
+      <p>Access: 
+	Free Document </p>
+    </td>
+  </tr>
+</table>
+<hr xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:user="http://mycompany.com/mynamespace">
+<table border="0" width="100%" xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:user="http://mycompany.com/mynamespace">
+  <tr>
+    <td style="font-size: 10pt;">
+      <p>
+        <b>Available languages and formats :</b>
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <table border="0">
+        <tr>
+          <td>  </td>
+          <td colspan="2">
+            <table>
+              <tr>
+                <td align="left">
+                  <img border="0" src="/res/templates/dms/images/arrow_down.gif" width="24" height="24">
+                </td>
+                <td vAlign="top">
+                  <p align="left">
+                    <b>
+                      <font color="#000080" size="1">Click on the selected format <br> and language to get the document </font>
+                    </b>
+                  </p>
+                </td>
+              </tr>
+            </table>
+          </td>
+          <td>  </td>
+          <td>  </td>
+        </tr>
+        <tr>
+          <td vAlign="top">
+          </td>
+          <td vAlign="top" width="130">
+            <b>
+              <font size="1" color="#000000">Format </font>
+            </b>
+          </td>
+          <td vAlign="top" width="100">
+            <b>
+              <font size="1" color="#000000">Size </font>
+            </b>
+          </td>
+          <td vAlign="top" width="40">
+            <b>
+              <font size="1" color="#000000">Posted </font>
+            </b>
+          </td>
+        </tr>
+        <tr>
+          <td align="right" height="2">
+            <b>
+              <font size="1" color="#000000">
+                <spacer height="2" width="1" type="block">
+                </spacer>
+              </font>
+            </b>
+          </td>
+          <td align="right" bgColor="black" height="2" colspan="4">
+            <b>
+              <font size="1" color="#000080">
+                <spacer height="2" width="1" type="block">
+                </spacer>
+              </font>
+            </b>
+          </td>
+        </tr>
+        <tr>
+          <td align="middle" vAlign="middle">
+            <b>
+              <font size="1" color="#000000">English </font>
+            </b>
+          </td>
+          <td bgColor="#FFFF80" width="130">
+            <p>
+              <a href="/dms_pub/itu-t/oth/02/02/T02020000C50006MSWE.docx" target="_blank">
+                <img border="0" src="/res/templates/dms/images/msw8.gif" align="middle" width="16" height="16">
+                <strong>
+                  <font size="1"> Word 2007 </font>
+                </strong>
+              </a>
+            </p>
+          </td>
+          <td align="right" bgColor="#FFFFCC" width="100">
+            <b>
+              <font size="1" color="#000080">26701 bytes </font>
+            </b>
+          </td>
+          <td align="center" bgColor="#FFFFCC" width="70">
+            <b>
+              <font size="1" color="#000080">2026-07-14</font>
+            </b>
+          </td>
+        </tr>
+        <tr>
+          <td align="middle" vAlign="middle">
+            <b>
+              <font size="1" color="#000000"> </font>
+            </b>
+          </td>
+          <td bgColor="#FFFF80" width="130">
+            <p>
+              <a href="/dms_pub/itu-t/oth/02/02/T02020000C50006PDFE.pdf" target="_blank">
+                <img border="0" src="/res/templates/dms/images/pdf.gif" align="middle" width="16" height="16">
+                <b>
+                  <font size="1"> PDF (acrobat) </font>
+                </b>
+              </a>
+            </p>
+          </td>
+          <td align="right" bgColor="#FFFFCC" width="100">
+            <b>
+              <font size="1" color="#000080">181618 bytes </font>
+            </b>
+          </td>
+          <td align="center" bgColor="#FFFFCC" width="70">
+            <b>
+              <font size="1" color="#000080">2026-07-14</font>
+            </b>
+          </td>
+        </tr>
+        <tr>
+          <td align="right" height="2">
+            <b>
+              <font size="1" color="#000000">
+                <spacer height="2" width="1" type="block">
+                </spacer>
+              </font>
+            </b>
+          </td>
+          <td align="right" bgColor="black" height="2" colspan="4">
+            <b>
+              <font size="1" color="#000080">
+                <spacer height="2" width="1" type="block">
+                </spacer>
+              </font>
+            </b>
+          </td>
+        </tr>
+        <tr>
+          <td align="middle" vAlign="middle">
+            <b>
+              <font size="1" color="#000000">Español </font>
+            </b>
+          </td>
+          <td bgColor="#FFFF80" width="130">
+            <p>
+              <a href="/dms_pub/itu-t/oth/02/02/T02020000C50006MSWS.docx" target="_blank">
+                <img border="0" src="/res/templates/dms/images/msw8.gif" align="middle" width="16" height="16">
+                <strong>
+                  <font size="1"> Word 2007 </font>
+                </strong>
+              </a>
+            </p>
+          </td>
+          <td align="right" bgColor="#FFFFCC" width="100">
+            <b>
+              <font size="1" color="#000080">28466 bytes </font>
+            </b>
+          </td>
+          <td align="center" bgColor="#FFFFCC" width="70">
+            <b>
+              <font size="1" color="#000080">2026-07-14</font>
+            </b>
+          </td>
+        </tr>
+        <tr>
+          <td align="middle" vAlign="middle">
+            <b>
+              <font size="1" color="#000000"> </font>
+            </b>
+          </td>
+          <td bgColor="#FFFF80" width="130">
+            <p>
+              <a href="/dms_pub/itu-t/oth/02/02/T02020000C50006PDFS.pdf" target="_blank">
+                <img border="0" src="/res/templates/dms/images/pdf.gif" align="middle" width="16" height="16">
+                <b>
+                  <font size="1"> PDF (acrobat) </font>
+                </b>
+              </a>
+            </p>
+          </td>
+          <td align="right" bgColor="#FFFFCC" width="100">
+            <b>
+              <font size="1" color="#000080">167394 bytes </font>
+            </b>
+          </td>
+          <td align="center" bgColor="#FFFFCC" width="70">
+            <b>
+              <font size="1" color="#000080">2026-07-14</font>
+            </b>
+          </td>
+        </tr>
+        <tr>
+          <td align="right" height="2">
+            <b>
+              <font size="1" color="#000000">
+                <spacer height="2" width="1" type="block">
+                </spacer>
+              </font>
+            </b>
+          </td>
+          <td align="right" bgColor="black" height="2" colspan="4">
+            <b>
+              <font size="1" color="#000080">
+                <spacer height="2" width="1" type="block">
+                </spacer>
+              </font>
+            </b>
+          </td>
+        </tr>
+        <tr>
+          <td align="middle" vAlign="middle">
+            <b>
+              <font size="1" color="#000000">Français </font>
+            </b>
+          </td>
+          <td bgColor="#FFFF80" width="130">
+            <p>
+              <a href="/dms_pub/itu-t/oth/02/02/T02020000C50006MSWF.docx" target="_blank">
+                <img border="0" src="/res/templates/dms/images/msw8.gif" align="middle" width="16" height="16">
+                <strong>
+                  <font size="1"> Word 2007 </font>
+                </strong>
+              </a>
+            </p>
+          </td>
+          <td align="right" bgColor="#FFFFCC" width="100">
+            <b>
+              <font size="1" color="#000080">29229 bytes </font>
+            </b>
+          </td>
+          <td align="center" bgColor="#FFFFCC" width="70">
+            <b>
+              <font size="1" color="#000080">2026-07-14</font>
+            </b>
+          </td>
+        </tr>
+        <tr>
+          <td align="middle" vAlign="middle">
+            <b>
+              <font size="1" color="#000000"> </font>
+            </b>
+          </td>
+          <td bgColor="#FFFF80" width="130">
+            <p>
+              <a href="/dms_pub/itu-t/oth/02/02/T02020000C50006PDFF.pdf" target="_blank">
+                <img border="0" src="/res/templates/dms/images/pdf.gif" align="middle" width="16" height="16">
+                <b>
+                  <font size="1"> PDF (acrobat) </font>
+                </b>
+              </a>
+            </p>
+          </td>
+          <td align="right" bgColor="#FFFFCC" width="100">
+            <b>
+              <font size="1" color="#000080">149967 bytes </font>
+            </b>
+          </td>
+          <td align="center" bgColor="#FFFFCC" width="70">
+            <b>
+              <font size="1" color="#000080">2026-07-14</font>
+            </b>
+          </td>
+        </tr>
+        <tr>
+          <td align="right" height="2">
+            <b>
+              <font size="1" color="#000000">
+                <spacer height="2" width="1" type="block">
+                </spacer>
+              </font>
+            </b>
+          </td>
+          <td align="right" bgColor="black" height="2" colspan="4">
+            <b>
+              <font size="1" color="#000080">
+                <spacer height="2" width="1" type="block">
+                </spacer>
+              </font>
+            </b>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<hr xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:user="http://mycompany.com/mynamespace">
+
+
+				<!-- Print Section // -->
+				</td>
+				</tr>
+				</table>
+				<p class="paraSmall">&nbsp;</p>
+				<table border="0" cellpadding="0" cellspacing="0" width="100%">
+				<tr valign="top">
+				<td align="right" class="footeritems"><a href="#top" class="footeritems">Top</a>&nbsp;-&nbsp;<a href="/home/feedback/index.phtml" class="footeritems">Feedback</a>&nbsp;-&nbsp;<a href="/home/contact/index.html" class="footeritems">Contact Us</a>&nbsp;-&nbsp; <a href="/home/copyright/index.html" class="footeritems">Copyright © ITU 2026</a> All Rights Reserved<br>
+				Contact for this page : <a href="/home/feedback/index.phtml?mail=servicedesk" class="footeritems">Service Desk</a><br>
+				Updated : 2026-07-14</td>
+				<td>&nbsp;</td>
+				</tr>
+				</table>
+</div>
+</body>
+</html>
+

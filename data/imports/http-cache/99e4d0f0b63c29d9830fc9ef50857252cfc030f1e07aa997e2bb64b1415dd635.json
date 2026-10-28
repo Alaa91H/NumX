@@ -1,0 +1,15 @@
+{
+ "url": "https://en.wikipedia.org/wiki/Jordan_Telecom_Group",
+ "final_url": "https://en.wikipedia.org/wiki/Jordan_Telecom_Group",
+ "status": 200,
+ "content_type": "text/html; charset=UTF-8",
+ "content_length": null,
+ "sha256": "c583f40408a64315dbc1d3e7cf304de8d09deb4248d0900c2a9c6c94c1d7db5c",
+ "elapsed_ms": 1082,
+ "fetched_at": "2026-10-28T03:53:42Z",
+ "robots_allowed": true,
+ "robots_checked": true,
+ "truncated": false,
+ "error": null,
+ "encoding": "utf-8"
+}

@@ -1,0 +1,15 @@
+{
+ "url": "https://en.wikipedia.org/wiki/Jordan_Telecom",
+ "final_url": "https://en.wikipedia.org/wiki/Jordan_Telecom",
+ "status": 200,
+ "content_type": "text/html; charset=UTF-8",
+ "content_length": null,
+ "sha256": "be08c7d73def50e9eab14019b33d88f9a43164887b7657972c4fc60c97d4dadc",
+ "elapsed_ms": 789,
+ "fetched_at": "2026-10-28T03:53:42Z",
+ "robots_allowed": true,
+ "robots_checked": true,
+ "truncated": false,
+ "error": null,
+ "encoding": "utf-8"
+}

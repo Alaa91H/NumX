@@ -1,0 +1,15 @@
+{
+ "url": "https://en.wikipedia.org/wiki/Orange_Jordan",
+ "final_url": "https://en.wikipedia.org/wiki/Orange_Jordan",
+ "status": 200,
+ "content_type": "text/html; charset=UTF-8",
+ "content_length": null,
+ "sha256": "c282ff45b96024bb9946f1ac7e4e758bca6df76472cbb65c3c7822cf84d8884e",
+ "elapsed_ms": 595,
+ "fetched_at": "2026-10-28T03:53:42Z",
+ "robots_allowed": true,
+ "robots_checked": true,
+ "truncated": false,
+ "error": null,
+ "encoding": "utf-8"
+}

@@ -1,0 +1,159 @@
+{
+ "generated_at": "2026-10-28",
+ "source_name": "Wikidata EntityData JSON (bounded organization sample)",
+ "source_url": "https://www.wikidata.org/wiki/Special:EntityData/",
+ "license_name": "CC0-1.0",
+ "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+ "usage_note": "Discovered through allowed Wikipedia category pages. Phone values are public organization contact data, not subscriber identity.",
+ "countries": [
+  {
+   "iso2": "SY",
+   "name": "Syria"
+  },
+  {
+   "iso2": "JO",
+   "name": "Jordan"
+  },
+  {
+   "iso2": "LB",
+   "name": "Lebanon"
+  },
+  {
+   "iso2": "EG",
+   "name": "Egypt"
+  },
+  {
+   "iso2": "SA",
+   "name": "Saudi Arabia"
+  },
+  {
+   "iso2": "AE",
+   "name": "United Arab Emirates"
+  },
+  {
+   "iso2": "MA",
+   "name": "Morocco"
+  },
+  {
+   "iso2": "DZ",
+   "name": "Algeria"
+  },
+  {
+   "iso2": "TN",
+   "name": "Tunisia"
+  },
+  {
+   "iso2": "IQ",
+   "name": "Iraq"
+  },
+  {
+   "iso2": "QA",
+   "name": "Qatar"
+  },
+  {
+   "iso2": "KW",
+   "name": "Kuwait"
+  }
+ ],
+ "entries": [
+  {
+   "qid": "Q7099654",
+   "name": "Orange Jordan",
+   "phone": "+962-6-460-8888",
+   "website": "http://www.orange.jo/",
+   "address": null,
+   "latitude": null,
+   "longitude": null,
+   "country_iso2": "JO",
+   "category": "business",
+   "wikipedia_url": "https://en.wikipedia.org/wiki/Orange_Jordan",
+   "entity_url": "https://www.wikidata.org/wiki/Special:EntityData/Q7099654.json",
+   "modified": "2026-08-22T03:56:02Z",
+   "instance_of": [
+    {
+     "entity-type": "item",
+     "numeric-id": 4830453,
+     "id": "Q4830453"
+    }
+   ]
+  },
+  {
+   "qid": "Q2300422",
+   "name": "Orange Morocco",
+   "phone": "+212-121",
+   "website": "https://www.orange.ma/",
+   "address": null,
+   "latitude": null,
+   "longitude": null,
+   "country_iso2": "MA",
+   "category": "business",
+   "wikipedia_url": "https://en.wikipedia.org/wiki/Orange_Morocco",
+   "entity_url": "https://www.wikidata.org/wiki/Special:EntityData/Q2300422.json",
+   "modified": "2026-09-13T17:06:12Z",
+   "instance_of": [
+    {
+     "entity-type": "item",
+     "numeric-id": 4830453,
+     "id": "Q4830453"
+    },
+    {
+     "entity-type": "item",
+     "numeric-id": 6881511,
+     "id": "Q6881511"
+    }
+   ]
+  },
+  {
+   "qid": "Q1584130",
+   "name": "Syriatel",
+   "phone": "+963 1123730000",
+   "website": "http://syriatel.sy",
+   "address": null,
+   "latitude": null,
+   "longitude": null,
+   "country_iso2": "SY",
+   "category": "business",
+   "wikipedia_url": "https://en.wikipedia.org/wiki/Syriatel",
+   "entity_url": "https://www.wikidata.org/wiki/Special:EntityData/Q1584130.json",
+   "modified": "2026-05-20T16:24:39Z",
+   "instance_of": [
+    {
+     "entity-type": "item",
+     "numeric-id": 4830453,
+     "id": "Q4830453"
+    },
+    {
+     "entity-type": "item",
+     "numeric-id": 1941618,
+     "id": "Q1941618"
+    }
+   ]
+  },
+  {
+   "qid": "Q1584130",
+   "name": "Syriatel",
+   "phone": "+963 932190000",
+   "website": "http://syriatel.sy",
+   "address": null,
+   "latitude": null,
+   "longitude": null,
+   "country_iso2": "SY",
+   "category": "business",
+   "wikipedia_url": "https://en.wikipedia.org/wiki/Syriatel",
+   "entity_url": "https://www.wikidata.org/wiki/Special:EntityData/Q1584130.json",
+   "modified": "2026-05-20T16:24:39Z",
+   "instance_of": [
+    {
+     "entity-type": "item",
+     "numeric-id": 4830453,
+     "id": "Q4830453"
+    },
+    {
+     "entity-type": "item",
+     "numeric-id": 1941618,
+     "id": "Q1941618"
+    }
+   ]
+  }
+ ]
+}

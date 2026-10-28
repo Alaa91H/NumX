@@ -1,0 +1,15 @@
+{
+ "url": "https://en.wikipedia.org/wiki/IQ_Group",
+ "final_url": "https://en.wikipedia.org/wiki/IQ_Group",
+ "status": 200,
+ "content_type": "text/html; charset=UTF-8",
+ "content_length": null,
+ "sha256": "1834a0037c40a68cf27f1472b68c0864d4140e9613baf731cb2bf26ed48e19df",
+ "elapsed_ms": 898,
+ "fetched_at": "2026-10-28T03:53:50Z",
+ "robots_allowed": true,
+ "robots_checked": true,
+ "truncated": false,
+ "error": null,
+ "encoding": "utf-8"
+}

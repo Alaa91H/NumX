@@ -1,0 +1,15 @@
+{
+ "url": "https://en.wikipedia.org/wiki/Syrian_Telecom",
+ "final_url": "https://en.wikipedia.org/wiki/Syrian_Telecom",
+ "status": 200,
+ "content_type": "text/html; charset=UTF-8",
+ "content_length": null,
+ "sha256": "9e576404c0771ef7a5ca43afb1b1455224a1fac84469b10e33a478004a680304",
+ "elapsed_ms": 945,
+ "fetched_at": "2026-10-28T03:53:38Z",
+ "robots_allowed": true,
+ "robots_checked": true,
+ "truncated": false,
+ "error": null,
+ "encoding": "utf-8"
+}

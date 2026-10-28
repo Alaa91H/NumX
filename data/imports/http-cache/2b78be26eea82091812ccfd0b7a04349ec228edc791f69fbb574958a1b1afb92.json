@@ -1,0 +1,15 @@
+{
+ "url": "https://en.wikipedia.org/wiki/Inwi",
+ "final_url": "https://en.wikipedia.org/wiki/Inwi",
+ "status": 200,
+ "content_type": "text/html; charset=UTF-8",
+ "content_length": null,
+ "sha256": "75ebdce2b89d4b5068bbe258314e71930f90ddff075642128c6c4b66385f4ab3",
+ "elapsed_ms": 1600,
+ "fetched_at": "2026-10-28T03:53:45Z",
+ "robots_allowed": true,
+ "robots_checked": true,
+ "truncated": false,
+ "error": null,
+ "encoding": "utf-8"
+}

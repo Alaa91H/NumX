@@ -1,0 +1,15 @@
+{
+ "url": "https://en.wikipedia.org/wiki/Airports_of_Morocco",
+ "final_url": "https://en.wikipedia.org/wiki/Airports_of_Morocco",
+ "status": 200,
+ "content_type": "text/html; charset=UTF-8",
+ "content_length": null,
+ "sha256": "c5c9162d622e74c7859870bef0de17c67731260eefe63ef351efce5069837825",
+ "elapsed_ms": 850,
+ "fetched_at": "2026-10-28T03:53:46Z",
+ "robots_allowed": true,
+ "robots_checked": true,
+ "truncated": false,
+ "error": null,
+ "encoding": "utf-8"
+}

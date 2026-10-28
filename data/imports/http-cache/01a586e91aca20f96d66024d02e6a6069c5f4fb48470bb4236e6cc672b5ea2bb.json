@@ -1,0 +1,15 @@
+{
+ "url": "https://www.wikidata.org/wiki/Special:EntityData/Q125293577.json",
+ "final_url": "https://www.wikidata.org/wiki/Special:EntityData/Q125293577.json",
+ "status": 200,
+ "content_type": "application/json; charset=UTF-8",
+ "content_length": null,
+ "sha256": "e0a3b5d743e95a54f4edc6ea568ae9c741dba547cac182374cd079d4786f67f6",
+ "elapsed_ms": 372,
+ "fetched_at": "2026-10-28T03:53:59Z",
+ "robots_allowed": true,
+ "robots_checked": true,
+ "truncated": false,
+ "error": null,
+ "encoding": "utf-8"
+}
